@@ -1,0 +1,15 @@
+{"Time":"2026-10-31T16:08:04.308676+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC/routing"}
+{"Time":"2026-10-31T16:08:04.732434+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult"}
+{"Time":"2026-10-31T16:08:04.732569+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"=== RUN   TestFailedDialDoesNotCloseTypedNilResult\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:08:04.734738+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"panic: runtime error: invalid memory address or nil pointer dereference\n"}
+{"Time":"2026-10-31T16:08:04.734777+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"[signal SIGSEGV: segmentation violation code=0x2 addr=0x0 pc=0x104fcd868]\n"}
+{"Time":"2026-10-31T16:08:04.734792+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"\n"}
+{"Time":"2026-10-31T16:08:04.734802+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"goroutine 9 [running]:\n"}
+{"Time":"2026-10-31T16:08:04.734813+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"github.com/KanaDoodle/KanaRPC.(*QUICClient).Close(0x0?)\n"}
+{"Time":"2026-10-31T16:08:04.734823+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"\t/Users/kana/Projects/KanaRPC/quic.go:431 +0x18\n"}
+{"Time":"2026-10-31T16:08:04.73483+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"github.com/KanaDoodle/KanaRPC/routing.(*Client).closeLocked.func1()\n"}
+{"Time":"2026-10-31T16:08:04.734833+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"\t/Users/kana/Projects/KanaRPC/routing/client.go:327 +0x30\n"}
+{"Time":"2026-10-31T16:08:04.734836+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"created by github.com/KanaDoodle/KanaRPC/routing.(*Client).closeLocked in goroutine 8\n"}
+{"Time":"2026-10-31T16:08:04.734846+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestFailedDialDoesNotCloseTypedNilResult","Output":"\t/Users/kana/Projects/KanaRPC/routing/client.go:326 +0x120\n"}
+{"Time":"2026-10-31T16:08:04.735394+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC/routing\t0.427s\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:08:04.735406+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC/routing","Elapsed":0.427}

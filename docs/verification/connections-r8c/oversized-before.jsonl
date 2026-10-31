@@ -1,0 +1,9 @@
+{"Time":"2026-10-31T16:00:43.359949+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC/routing"}
+{"Time":"2026-10-31T16:00:43.962762+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestOversizedSnapshotRejectsBeforeBuildingEndpointIndexes"}
+{"Time":"2026-10-31T16:00:43.962912+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestOversizedSnapshotRejectsBeforeBuildingEndpointIndexes","Output":"=== RUN   TestOversizedSnapshotRejectsBeforeBuildingEndpointIndexes\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:00:43.986941+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestOversizedSnapshotRejectsBeforeBuildingEndpointIndexes","Output":"    client_test.go:462: oversized snapshot built indexes after capacity rejection: small=3 large=161\n","OutputType":"error"}
+{"Time":"2026-10-31T16:00:43.987049+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestOversizedSnapshotRejectsBeforeBuildingEndpointIndexes","Output":"--- FAIL: TestOversizedSnapshotRejectsBeforeBuildingEndpointIndexes (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:00:43.987065+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestOversizedSnapshotRejectsBeforeBuildingEndpointIndexes","Elapsed":0.02}
+{"Time":"2026-10-31T16:00:43.987108+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:00:43.988042+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC/routing\t0.628s\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:00:43.988081+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC/routing","Elapsed":0.628}

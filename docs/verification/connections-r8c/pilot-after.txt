@@ -1,0 +1,25 @@
+7 unary tcp direct PASS
+7 unary tcp dial PASS
+7 unary tcp managed PASS
+7 unary tcp churn PASS
+7 unary quic direct PASS
+7 unary quic dial PASS
+7 unary quic managed PASS
+7 unary quic churn PASS
+7 unary tls direct PASS
+7 unary tls dial PASS
+7 unary tls managed PASS
+7 unary tls churn PASS
+7 stream tcp direct PASS
+7 stream tcp dial PASS
+7 stream tcp managed PASS
+7 stream tcp churn PASS
+7 stream quic direct PASS
+7 stream quic dial PASS
+7 stream quic managed PASS
+7 stream quic churn PASS
+7 stream tls direct PASS
+7 stream tls dial PASS
+7 stream tls managed PASS
+7 stream tls churn PASS
+{"status": "PASS", "cases": 24, "offered": 2400}

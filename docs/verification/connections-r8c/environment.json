@@ -1,0 +1,8 @@
+{
+  "go_local": "go version go1.27.1 darwin/arm64",
+  "go_min": "go version go1.26.0 darwin/arm64",
+  "etcd": "etcd Version: 3.7.1\nGit SHA: 5e7fd0de9\nGo Version: go1.26.5\nGo OS/Arch: darwin/arm64\n",
+  "os": "Darwin",
+  "arch": "arm64",
+  "cpu": "Apple M5"
+}

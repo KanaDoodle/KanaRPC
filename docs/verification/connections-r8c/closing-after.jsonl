@@ -1,0 +1,24 @@
+{"Time":"2026-10-31T16:03:01.496511+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC/routing"}
+{"Time":"2026-10-31T16:03:01.965688+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity"}
+{"Time":"2026-10-31T16:03:01.965798+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Output":"=== RUN   TestClosingConnectionStillConsumesCapacity\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:01.986594+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Output":"--- PASS: TestClosingConnectionStillConsumesCapacity (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:01.986665+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Elapsed":0.02}
+{"Time":"2026-10-31T16:03:01.986704+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity"}
+{"Time":"2026-10-31T16:03:01.986717+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Output":"=== RUN   TestClosingConnectionStillConsumesCapacity\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:02.007025+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Output":"--- PASS: TestClosingConnectionStillConsumesCapacity (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:02.007076+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Elapsed":0.02}
+{"Time":"2026-10-31T16:03:02.007085+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity"}
+{"Time":"2026-10-31T16:03:02.007089+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Output":"=== RUN   TestClosingConnectionStillConsumesCapacity\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:02.028433+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Output":"--- PASS: TestClosingConnectionStillConsumesCapacity (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:02.028465+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Elapsed":0.02}
+{"Time":"2026-10-31T16:03:02.028472+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity"}
+{"Time":"2026-10-31T16:03:02.028477+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Output":"=== RUN   TestClosingConnectionStillConsumesCapacity\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:02.049002+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Output":"--- PASS: TestClosingConnectionStillConsumesCapacity (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:02.049052+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Elapsed":0.02}
+{"Time":"2026-10-31T16:03:02.049071+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity"}
+{"Time":"2026-10-31T16:03:02.049076+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Output":"=== RUN   TestClosingConnectionStillConsumesCapacity\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:02.069477+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Output":"--- PASS: TestClosingConnectionStillConsumesCapacity (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:02.069529+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestClosingConnectionStillConsumesCapacity","Elapsed":0.02}
+{"Time":"2026-10-31T16:03:02.069537+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:03:03.073633+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC/routing\t1.577s\n"}
+{"Time":"2026-10-31T16:03:03.073705+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC/routing","Elapsed":1.577}

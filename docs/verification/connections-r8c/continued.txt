@@ -1,0 +1,9 @@
+41-stream-tcp-managed PASS
+41-stream-tcp-churn PASS
+41-stream-tcp-direct PASS
+41-stream-tcp-dial PASS
+41-stream-quic-managed PASS
+41-stream-quic-churn PASS
+41-stream-quic-direct PASS
+41-stream-quic-dial PASS
+{"cases": 48, "statuses": {"PASS": 47, "DEGRADED": 0, "FAIL": 1}, "actual_offered": 47000}

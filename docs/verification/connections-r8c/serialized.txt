@@ -1,0 +1,48 @@
+7 unary tcp direct PASS
+7 unary tcp dial PASS
+7 unary tcp managed PASS
+7 unary tcp churn PASS
+7 unary quic direct PASS
+7 unary quic dial PASS
+7 unary quic managed PASS
+7 unary quic churn PASS
+7 stream tcp direct PASS
+7 stream tcp dial PASS
+7 stream tcp managed PASS
+7 stream tcp churn PASS
+7 stream quic direct PASS
+7 stream quic dial PASS
+7 stream quic managed PASS
+7 stream quic churn PASS
+19 unary tcp dial PASS
+19 unary tcp managed PASS
+19 unary tcp churn PASS
+19 unary tcp direct PASS
+19 unary quic dial PASS
+19 unary quic managed PASS
+19 unary quic churn PASS
+19 unary quic direct PASS
+19 stream tcp dial PASS
+19 stream tcp managed PASS
+19 stream tcp churn PASS
+19 stream tcp direct PASS
+19 stream quic dial PASS
+19 stream quic managed PASS
+19 stream quic churn PASS
+19 stream quic direct PASS
+41 unary tcp managed PASS
+41 unary tcp churn PASS
+41 unary tcp direct PASS
+41 unary tcp dial PASS
+41 unary quic managed PASS
+41 unary quic churn PASS
+41 unary quic direct PASS
+Traceback (most recent call last):
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-routing.py", line 133, in <module>
+    if __name__=="__main__":main()
+                            ~~~~^^
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-routing.py", line 121, in main
+    result=case(binaries["transport-lab"],binaries["routing-lab"],output/f"{seed}-{workload}-{transport}-{strategy}",transport,workload,strategy,seed,args.count,args.workers)
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-routing.py", line 48, in case
+    raise RuntimeError(f"client exited {code}; outcomes retained")
+RuntimeError: client exited 1; outcomes retained

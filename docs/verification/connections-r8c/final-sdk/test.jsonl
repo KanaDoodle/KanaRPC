@@ -1,0 +1,8 @@
+{"Time":"2026-10-31T16:14:29.297823+08:00","Action":"start","Package":"example.com/independent-consumer"}
+{"Time":"2026-10-31T16:14:29.755285+08:00","Action":"run","Package":"example.com/independent-consumer","Test":"ExampleClient"}
+{"Time":"2026-10-31T16:14:29.755365+08:00","Action":"output","Package":"example.com/independent-consumer","Test":"ExampleClient","Output":"=== RUN   ExampleClient\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:14:29.757253+08:00","Action":"output","Package":"example.com/independent-consumer","Test":"ExampleClient","Output":"--- PASS: ExampleClient (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:14:29.75729+08:00","Action":"pass","Package":"example.com/independent-consumer","Test":"ExampleClient","Elapsed":0}
+{"Time":"2026-10-31T16:14:29.7573+08:00","Action":"output","Package":"example.com/independent-consumer","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:14:30.760369+08:00","Action":"output","Package":"example.com/independent-consumer","Output":"ok  \texample.com/independent-consumer\t1.462s\n"}
+{"Time":"2026-10-31T16:14:30.760423+08:00","Action":"pass","Package":"example.com/independent-consumer","Elapsed":1.463}

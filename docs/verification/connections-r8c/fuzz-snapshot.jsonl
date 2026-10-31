@@ -1,0 +1,16 @@
+{"Time":"2026-10-31T16:05:37.943919+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC/routing"}
+{"Time":"2026-10-31T16:05:38.4167+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence"}
+{"Time":"2026-10-31T16:05:38.416811+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Output":"=== RUN   FuzzSnapshotFence\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:05:38.41766+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Output":"fuzz: elapsed: 0s, gathering baseline coverage: 0/3 completed\n"}
+{"Time":"2026-10-31T16:05:38.435874+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Output":"fuzz: elapsed: 0s, gathering baseline coverage: 3/3 completed, now fuzzing with 2 workers\n"}
+{"Time":"2026-10-31T16:05:41.417816+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Output":"fuzz: elapsed: 3s, execs: 55209 (18402/sec), new interesting: 76 (total: 79)\n"}
+{"Time":"2026-10-31T16:05:44.417667+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Output":"fuzz: elapsed: 6s, execs: 102143 (15645/sec), new interesting: 135 (total: 138)\n"}
+{"Time":"2026-10-31T16:05:47.41795+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Output":"fuzz: elapsed: 9s, execs: 148531 (15461/sec), new interesting: 185 (total: 188)\n"}
+{"Time":"2026-10-31T16:05:50.417878+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Output":"fuzz: elapsed: 12s, execs: 207584 (19685/sec), new interesting: 198 (total: 201)\n"}
+{"Time":"2026-10-31T16:05:53.417913+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Output":"fuzz: elapsed: 15s, execs: 277943 (23453/sec), new interesting: 214 (total: 217)\n"}
+{"Time":"2026-10-31T16:05:53.543393+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Output":"fuzz: elapsed: 15s, execs: 277943 (0/sec), new interesting: 214 (total: 217)\n"}
+{"Time":"2026-10-31T16:05:53.544859+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Output":"--- PASS: FuzzSnapshotFence (15.13s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:05:53.544889+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"FuzzSnapshotFence","Elapsed":15.13}
+{"Time":"2026-10-31T16:05:53.544921+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:05:53.553373+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC/routing\t15.609s\n"}
+{"Time":"2026-10-31T16:05:53.555198+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC/routing","Elapsed":15.611}
