@@ -1,0 +1,5 @@
+{
+  "first_attempt": "combined stages archive 58320994 bytes exceeded chosen 50 MiB packaging limit",
+  "resolution": "split candidate and diagnostic archives; original retained in temporary workspace",
+  "performance_or_test_failure": false
+}

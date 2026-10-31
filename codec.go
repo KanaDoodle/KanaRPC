@@ -70,9 +70,12 @@ func unmarshalProtobuf(body []byte, value any) error {
 // record kind. Legacy peers reject that kind rather than executing it as JSON.
 func decodeOpen(f wire.Frame) (openRecord, payloadEncoding, error) {
 	var request openRecord
+	if f.Kind == wire.OpenOptions {
+		return decodeOptionsOpen(f)
+	}
 	if f.Kind == wire.Open {
 		err := json.Unmarshal(f.Payload, &request)
-		if err != nil || request.Codec != "" || !json.Valid(request.Request) {
+		if err != nil || request.Codec != "" || request.Compression != "" || request.AcceptGzip || request.PlainBytes != 0 || len(request.Metadata) > 0 || !json.Valid(request.Request) {
 			return request, encodingJSON, ErrProtocol
 		}
 		return request, encodingJSON, nil
@@ -84,7 +87,7 @@ func decodeOpen(f wire.Frame) (openRecord, payloadEncoding, error) {
 	if n == 0 || n > maxOpenMetadata || uint64(n)+4 > uint64(len(f.Payload)) {
 		return request, encodingProtobuf, ErrProtocol
 	}
-	if err := json.Unmarshal(f.Payload[4:4+n], &request); err != nil || request.Codec != "protobuf" || request.Request != nil {
+	if err := json.Unmarshal(f.Payload[4:4+n], &request); err != nil || request.Codec != "protobuf" || request.Request != nil || request.Compression != "" || request.AcceptGzip || request.PlainBytes != 0 || len(request.Metadata) > 0 {
 		return request, encodingProtobuf, ErrProtocol
 	}
 	request.Request = f.Payload[4+n:]
@@ -192,4 +195,22 @@ func RegisterProtobufStream[Request, Response proto.Message](s *Server, path str
 			return handler(ctx, request.(Request), func(response Response) error { return send(response) })
 		},
 	})
+}
+
+type serviceCallerAdapter struct{ Caller }
+
+func (c serviceCallerAdapter) OpenStream(ctx context.Context, method string, request any) (Receiver, error) {
+	return c.Stream(ctx, method, request)
+}
+
+// AsServiceCaller bridges the older concrete-Stream Caller contract without
+// changing implementations or introducing a second call lifecycle.
+func AsServiceCaller(c Caller) ServiceCaller {
+	if c == nil {
+		return nil
+	}
+	if s, ok := c.(ServiceCaller); ok {
+		return s
+	}
+	return serviceCallerAdapter{c}
 }

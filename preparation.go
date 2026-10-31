@@ -32,9 +32,14 @@ type callLease struct {
 }
 
 func newAdmission(limit int) *clientAdmission {
-	return &clientAdmission{stats: AdmissionStats{Limit: limit}, changed: make(chan struct{})}
+	return &clientAdmission{stats: AdmissionStats{Limit: limit}}
 }
-func (a *clientAdmission) notify() { close(a.changed); a.changed = make(chan struct{}) }
+func (a *clientAdmission) notify() {
+	if a.changed != nil {
+		close(a.changed)
+		a.changed = nil
+	}
+}
 func (a *clientAdmission) enter() (*callLease, error) {
 	a.mu.Lock()
 	defer a.mu.Unlock()
@@ -128,6 +133,9 @@ func (a *clientAdmission) wait(ctx context.Context) error {
 			a.mu.Unlock()
 			return nil
 		}
+		if a.changed == nil {
+			a.changed = make(chan struct{})
+		}
 		changed := a.changed
 		a.mu.Unlock()
 		select {
@@ -147,17 +155,20 @@ func (c *Client) WaitIdle(ctx context.Context) error     { return c.resources.ad
 func (c *QUICClient) WaitIdle(ctx context.Context) error { return c.resources.admission.wait(ctx) }
 
 type preparedCall struct {
-	ctx, owner             context.Context
-	cancel                 context.CancelFunc
-	stopOwner              func() bool
-	leaveFeedback          func()
-	lease                  *callLease
-	bytes                  *byteLease
-	body                   []byte
-	window                 uint32
-	method                 string
-	encoding               payloadEncoding
-	streaming, transferred bool
+	metadata                        Metadata
+	options, compressed, acceptGzip bool
+	plainBytes                      uint32
+	ctx, owner                      context.Context
+	cancel                          context.CancelFunc
+	stopOwner                       func() bool
+	leaveFeedback                   func()
+	lease                           *callLease
+	bytes                           *byteLease
+	body                            []byte
+	window                          uint32
+	method                          string
+	encoding                        payloadEncoding
+	streaming, transferred          bool
 }
 
 func (p *preparedCall) check() error {
@@ -234,13 +245,33 @@ func prepareRequest(ctx, owner context.Context, cfg ClientConfig, res *resources
 			return nil, &CapabilityError{Required: required, Supported: cfg.negotiatedFeatures, Cause: errors.New("set ClientConfig.RequiredFeatures before dialing")}
 		}
 	}
+	p.metadata = OutgoingMetadata(p.ctx)
+	if e := validateMetadata(p.metadata); e != nil {
+		return nil, &Status{Code: InvalidArgument, Message: e.Error()}
+	}
+	p.options = cfg.EnableCallOptions || len(p.metadata) > 0
+	p.acceptGzip = cfg.Compression != nil
+	requiredOptions := FeatureCallOptions
+	if streaming {
+		requiredOptions |= FeatureServerStreaming
+	}
+	if p.options && cfg.negotiatedFeatures&requiredOptions != requiredOptions {
+		return nil, &CapabilityError{Required: requiredOptions, Supported: cfg.negotiatedFeatures, Cause: errors.New("enable call options before dialing")}
+	}
 	p.leaveFeedback, err = res.feedback.enter(method)
 	if err != nil {
 		p.leaveFeedback = func() {}
 		return nil, err
 	}
 	lease.setWaiting(true)
-	p.bytes, err = res.encoding.waitLease(p.ctx, int64(cfg.IO.MaxFrameBytes)*2)
+	reserve := int64(cfg.IO.MaxFrameBytes) * 2
+	if p.options {
+		reserve += 8192
+	}
+	if cfg.Compression != nil {
+		reserve += compressionWriteWorkspace
+	}
+	p.bytes, err = res.encoding.waitLease(p.ctx, reserve)
 	lease.setWaiting(false)
 	if err != nil {
 		if cause := p.check(); cause != nil {
@@ -267,6 +298,16 @@ func prepareRequest(ctx, owner context.Context, cfg ClientConfig, res *resources
 	if err = p.check(); err != nil {
 		return nil, err
 	}
+	p.plainBytes = uint32(len(p.body))
+	if len(p.body) > int(cfg.IO.MaxFrameBytes) {
+		return nil, &Status{Code: InvalidArgument, Message: "request exceeds frame limit"}
+	}
+	if cfg.Compression != nil {
+		p.body, p.compressed, err = gzipBody(p.ctx, p.body, cfg.Compression.MinBytes)
+		if err != nil {
+			return nil, err
+		}
+	}
 	deadline, _ := p.ctx.Deadline()
 	var prefix [256]byte
 	remaining := time.Until(deadline)
@@ -277,11 +318,25 @@ func prepareRequest(ctx, owner context.Context, cfg ClientConfig, res *resources
 	if p.encoding == encodingProtobuf {
 		n = 4 + len(protobufOpenMetadata(prefix[:0], method, p.window, streaming, int64(remaining)))
 	}
+	if p.options {
+		b, e := optionsMetadata(p, int64(remaining))
+		if e != nil {
+			return nil, e
+		}
+		n = 4 + len(b)
+	}
 	if uint64(len(p.body))+uint64(n) > uint64(cfg.IO.MaxFrameBytes) {
 		return nil, &Status{Code: InvalidArgument, Message: "request exceeds frame limit"}
 	}
-	if !p.bytes.shrink(int64(len(p.body))*2 + int64(n)) {
+	held := int64(len(p.body))*2 + int64(n)
+	if p.options {
+		held += int64(n)
+	}
+	if !p.bytes.shrink(held) {
 		panic("kanarpc: encoding reservation underestimated")
+	}
+	if p.options {
+		res.compression.encode(int(p.plainBytes), len(p.body), p.compressed)
 	}
 	success = true
 	return p, nil
@@ -295,6 +350,9 @@ func (p *preparedCall) payload() ([]byte, error) {
 	remaining := time.Until(deadline)
 	if remaining <= 0 {
 		return nil, context.DeadlineExceeded
+	}
+	if p.options {
+		return optionsOpen(p, int64(remaining))
 	}
 	prefix := openPrefix(meta[:0], p.method, p.window, p.streaming, int64(remaining))
 	if p.encoding == encodingProtobuf {
@@ -313,6 +371,9 @@ func (p *preparedCall) payload() ([]byte, error) {
 }
 
 func (p *preparedCall) openKind() wire.Kind {
+	if p.options {
+		return wire.OpenOptions
+	}
 	if p.encoding == encodingProtobuf {
 		return wire.OpenEncoded
 	}

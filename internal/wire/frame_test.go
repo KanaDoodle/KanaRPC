@@ -136,3 +136,27 @@ func FuzzReadReserved(f *testing.F) {
 		}
 	})
 }
+
+func TestCreditBatchRemainsOrdinaryRecordsUnderPartialWrites(t *testing.T) {
+	var output fragmentWriter
+	if err := WriteCredits(&output, 17, 16); err != nil {
+		t.Fatal(err)
+	}
+	for i := 0; i < 16; i++ {
+		f, err := Read(&output.Buffer, 1024)
+		if err != nil || f.Kind != Credit || f.ID != 17 || f.Number != 1 || len(f.Payload) != 0 {
+			t.Fatal(i, f, err)
+		}
+	}
+	if _, err := Read(&output.Buffer, 1024); err != io.EOF {
+		t.Fatal(err)
+	}
+	if err := WriteCredits(zeroWriter{}, 17, 16); !errors.Is(err, io.ErrNoProgress) {
+		t.Fatal(err)
+	}
+	for _, n := range []uint32{0, 17} {
+		if err := WriteCredits(io.Discard, 17, n); !errors.Is(err, ErrProtocol) {
+			t.Fatal(n, err)
+		}
+	}
+}

@@ -21,6 +21,7 @@ const (
 )
 
 type QUICConfig struct {
+	KeepAlivePeriod    time.Duration
 	MaxStreams         int
 	IdleTimeout        time.Duration
 	FirstRecordTimeout time.Duration
@@ -36,10 +37,13 @@ func quicConfig(c QUICConfig, handshake time.Duration) (QUICConfig, *quic.Config
 	if c.FirstRecordTimeout == 0 {
 		c.FirstRecordTimeout = 3 * time.Second
 	}
+	if c.KeepAlivePeriod < 0 || c.KeepAlivePeriod > c.IdleTimeout/2 {
+		return c, nil, errors.New("kanarpc: keepalive must not exceed half idle timeout")
+	}
 	if c.MaxStreams < 1 || c.MaxStreams > 4096 || c.IdleTimeout <= 0 || c.FirstRecordTimeout <= 0 {
 		return c, nil, errors.New("kanarpc: invalid QUIC bounds")
 	}
-	return c, &quic.Config{HandshakeIdleTimeout: handshake, MaxIdleTimeout: c.IdleTimeout, MaxIncomingStreams: int64(c.MaxStreams), MaxIncomingUniStreams: -1, InitialStreamReceiveWindow: 64 << 10, MaxStreamReceiveWindow: 1 << 20, InitialConnectionReceiveWindow: 512 << 10, MaxConnectionReceiveWindow: 8 << 20}, nil
+	return c, &quic.Config{KeepAlivePeriod: c.KeepAlivePeriod, HandshakeIdleTimeout: handshake, MaxIdleTimeout: c.IdleTimeout, MaxIncomingStreams: int64(c.MaxStreams), MaxIncomingUniStreams: -1, InitialStreamReceiveWindow: 64 << 10, MaxStreamReceiveWindow: 1 << 20, InitialConnectionReceiveWindow: 512 << 10, MaxConnectionReceiveWindow: 8 << 20}, nil
 }
 
 // QUICListener explicitly owns a packet socket and transport. Stopping new
@@ -152,6 +156,9 @@ func (p *quicServerSession) barrier(peer *serverConn, f wire.Frame) {
 		s.mu.Lock()
 		p.stopping = true
 		quiet := p.admitted == 0
+		if s.changed == nil {
+			s.changed = make(chan struct{})
+		}
 		changed := s.changed
 		s.mu.Unlock()
 		if quiet {

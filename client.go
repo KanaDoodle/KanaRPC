@@ -2,6 +2,7 @@ package kanarpc
 
 import (
 	"context"
+	"encoding/binary"
 	"encoding/hex"
 	"encoding/json"
 	"errors"
@@ -17,6 +18,7 @@ import (
 type ClientStats struct {
 	Pending, InFlightBufferedChunks          int
 	Started, Completed, Canceled, LateFrames uint64
+	DecodeErrors                             uint64
 }
 
 // Client owns a single multiplexed byte-stream connection. There is no implicit
@@ -44,7 +46,7 @@ func Dial(ctx context.Context, address string, cfg ClientConfig) (*Client, error
 	if cfg, err = normalizeClient(cfg); err != nil {
 		return nil, err
 	}
-	conn, err := (&net.Dialer{}).DialContext(ctx, "tcp", address)
+	conn, err := (&net.Dialer{KeepAliveConfig: keepAliveConfig(cfg.TCPKeepAlive)}).DialContext(ctx, "tcp", address)
 	if err != nil {
 		return nil, err
 	}
@@ -72,6 +74,9 @@ func newRecordClientContext(handshake context.Context, conn recordChannel, cfg C
 	}
 	var err error
 	if cfg, err = normalizeClient(cfg); err != nil {
+		return nil, err
+	}
+	if err = applyKeepAlive(conn, cfg.TCPKeepAlive); err != nil {
 		return nil, err
 	}
 	ctx, cancel := context.WithCancel(context.Background())
@@ -151,32 +156,40 @@ func (c *Client) Close() {
 }
 
 type pending struct {
-	client         *Client
-	id             uint64
-	ctx            context.Context
-	cancel         context.CancelFunc
-	stop           func() bool
-	callbackDone   sync.Once
-	retired        sync.Once
-	creditMu       sync.Mutex
-	mu             sync.Mutex
-	changed        chan struct{}
-	queue          []receivedChunk
-	next           uint32
-	window         uint32
-	encoding       payloadEncoding
-	remoteEnded    bool
-	openSent       bool
-	done, discard  bool
-	err            error
-	method         string
-	leaveFeedback  func()
-	attemptedAt    time.Time
-	stopOwner      func() bool
-	leaveAdmission func()
+	options         bool
+	doneSignal      chan struct{}
+	consumedCredits uint32 // guarded by creditMu; consumed, not yet returned
+	client          *Client
+	id              uint64
+	ctx             context.Context
+	cancel          context.CancelFunc
+	stop            func() bool
+	callbackDone    sync.Once
+	retired         sync.Once
+	creditMu        sync.Mutex
+	mu              sync.Mutex
+	changed         chan struct{}
+	queue           []receivedChunk
+	next            uint32
+	window          uint32
+	encoding        payloadEncoding
+	remoteEnded     bool
+	openSent        bool
+	done, discard   bool
+	err             error
+	method          string
+	leaveFeedback   func()
+	attemptedAt     time.Time
+	stopOwner       func() bool
+	leaveAdmission  func()
 }
 
-func (p *pending) notifyLocked() { close(p.changed); p.changed = make(chan struct{}) }
+func (p *pending) notifyLocked() {
+	if p.changed != nil {
+		close(p.changed)
+		p.changed = nil
+	}
+}
 func (p *pending) finish(err error, discard bool) bool {
 	p.mu.Lock()
 	defer p.mu.Unlock()
@@ -184,6 +197,9 @@ func (p *pending) finish(err error, discard bool) bool {
 		return false
 	}
 	p.done, p.discard, p.err = true, discard, err
+	if p.doneSignal != nil {
+		close(p.doneSignal)
+	}
 	if p.leaveFeedback != nil {
 		p.leaveFeedback()
 	}
@@ -288,7 +304,7 @@ func (c *Client) openPrepared(prepared *preparedCall) (*Stream, error) {
 	c.nextID++
 	prepared.lease.retain()
 	prepared.transferred = true
-	p := &pending{encoding: prepared.encoding, client: c, id: c.nextID, ctx: callCtx, cancel: prepared.cancel, window: prepared.window, next: 1, changed: make(chan struct{}), method: prepared.method, leaveFeedback: prepared.leaveFeedback, attemptedAt: time.Now(), stopOwner: prepared.stopOwner, leaveAdmission: prepared.lease.release}
+	p := &pending{options: prepared.options, encoding: prepared.encoding, client: c, id: c.nextID, ctx: callCtx, cancel: prepared.cancel, window: prepared.window, next: 1, method: prepared.method, leaveFeedback: prepared.leaveFeedback, attemptedAt: time.Now(), stopOwner: prepared.stopOwner, leaveAdmission: prepared.lease.release}
 	c.wg.Add(1)
 	callbackReady := make(chan struct{})
 	p.stop = context.AfterFunc(callCtx, func() { <-callbackReady; p.localCancel() })
@@ -371,9 +387,10 @@ func (c *Client) readLoop() {
 }
 func (c *Client) handleFrame(f wire.Frame) bool {
 	retained := false
+	releaseAll := f.Release
 	defer func() {
 		if !retained {
-			f.Release()
+			releaseAll()
 		}
 	}()
 	c.mu.Lock()
@@ -382,12 +399,65 @@ func (c *Client) handleFrame(f wire.Frame) bool {
 		c.stats.LateFrames++
 	}
 	c.mu.Unlock()
-	if f.Kind != wire.Data && f.Kind != wire.DataEncoded && f.Kind != wire.End || f.ID > next {
+	if f.Kind != wire.Data && f.Kind != wire.DataEncoded && f.Kind != wire.DataOptions && f.Kind != wire.End || f.ID > next {
 		c.fail(ErrProtocol)
 		return false
 	}
 	if p == nil {
 		return true
+	}
+	if f.Kind == wire.DataOptions {
+		p.mu.Lock()
+		canceled := p.done
+		p.mu.Unlock()
+		if canceled {
+			return true
+		}
+		if !p.options || len(f.Payload) < 5 || f.Payload[0] > 1 {
+			c.fail(ErrProtocol)
+			return false
+		}
+		n := binary.BigEndian.Uint32(f.Payload[1:5])
+		if n > c.link.cfg.MaxFrameBytes {
+			c.fail(ErrProtocol)
+			return false
+		}
+		body := f.Payload[5:]
+		if f.Payload[0] == 1 {
+			if c.cfg.Compression == nil {
+				c.fail(ErrProtocol)
+				return false
+			}
+			lease, e := c.resources.receive.lease(int64(n) + compressionReadWorkspace)
+			if e != nil {
+				c.fail(e)
+				return false
+			}
+			originalRelease := releaseAll
+			releaseAll = func() { originalRelease(); lease.release() }
+			body, e = inflateBody(p.ctx, body, n)
+			if e != nil {
+				if errors.Is(e, context.Canceled) || errors.Is(e, context.DeadlineExceeded) {
+					return true
+				}
+				c.fail(e)
+				return false
+			}
+			lease.shrink(int64(n))
+			c.resources.compression.decode(n)
+		} else if len(body) != int(n) {
+			c.fail(ErrProtocol)
+			return false
+		}
+		f.Payload = body
+		if p.encoding == encodingProtobuf {
+			f.Kind = wire.DataEncoded
+		} else {
+			f.Kind = wire.Data
+		}
+	} else if p.options && (f.Kind == wire.Data || f.Kind == wire.DataEncoded) {
+		c.fail(ErrProtocol)
+		return false
 	}
 	if f.Kind == wire.Data || f.Kind == wire.DataEncoded {
 		p.mu.Lock()
@@ -395,7 +465,7 @@ func (c *Client) handleFrame(f wire.Frame) bool {
 		valid := !p.remoteEnded && f.Number == p.next && len(p.queue) < int(p.window) && encodingValid
 		if valid && !p.done {
 			p.next++
-			p.queue = append(p.queue, receivedChunk{body: f.Payload, release: f.Release})
+			p.queue = append(p.queue, receivedChunk{body: f.Payload, release: releaseAll})
 			retained = true
 			c.resources.buffers.add(p, len(f.Payload))
 			p.notifyLocked()
@@ -409,9 +479,14 @@ func (c *Client) handleFrame(f wire.Frame) bool {
 		return true
 	}
 	var end endRecord
-	if json.Unmarshal(f.Payload, &end) != nil || !knownCode(end.Code) || len(end.Message) > 256 {
+	if json.Unmarshal(f.Payload, &end) != nil || !knownCode(end.Code) || len(end.Message) > 256 || validateMetadata(end.Metadata) != nil || len(end.Metadata) > 0 && !p.options {
 		c.fail(ErrProtocol)
 		return false
+	}
+	if capture, ok := p.ctx.Value(captureKey{}).(*MetadataCapture); ok && capture != nil {
+		capture.mu.Lock()
+		capture.value = cloneMetadata(end.Metadata)
+		capture.mu.Unlock()
 	}
 	c.resources.feedback.observe(p.method, end.Pressure, time.Since(p.attemptedAt))
 	var receipt []byte
@@ -495,6 +570,10 @@ func (s *Stream) Recv(response any) error {
 		decodeErr = json.Unmarshal(body, response)
 	}
 	if decodeErr != nil {
+		c := s.pending.client
+		c.mu.Lock()
+		c.stats.DecodeErrors++
+		c.mu.Unlock()
 		_ = s.Close()
 		return decodeErr
 	}
@@ -519,9 +598,19 @@ func (s *Stream) take() (json.RawMessage, func(), error) {
 			p.mu.Lock()
 			ended, discard, result := p.remoteEnded, p.discard, p.err
 			p.mu.Unlock()
-			if !ended && !discard {
+			// Return consumed credits in bounded batches. At most half a window
+			// is withheld, so a live producer can always progress; window=1
+			// keeps its immediate return. END retires any unused credits.
+			p.consumedCredits++
+			threshold := p.window / 2
+			if threshold == 0 {
+				threshold = 1
+			}
+			if !ended && !discard && p.consumedCredits >= threshold {
 				c := p.client
-				touched, e := c.link.send(p.ctx, wire.Frame{Kind: wire.Credit, ID: p.id, Number: 1})
+				count := p.consumedCredits
+				p.consumedCredits = 0
+				touched, e := c.link.sendCredits(p.ctx, p.id, count)
 				if e != nil {
 					p.mu.Lock()
 					ended, discard, result = p.remoteEnded, p.discard, p.err
@@ -558,6 +647,9 @@ func (s *Stream) take() (json.RawMessage, func(), error) {
 			}
 			return nil, nil, err
 		}
+		if p.changed == nil {
+			p.changed = make(chan struct{})
+		}
 		changed := p.changed
 		p.mu.Unlock()
 		<-changed
@@ -578,6 +670,9 @@ func (s *Stream) Close() error {
 	for {
 		p.mu.Lock()
 		done = p.done
+		if p.changed == nil {
+			p.changed = make(chan struct{})
+		}
 		changed := p.changed
 		if done && len(p.queue) > 0 {
 			p.dropLocked(context.Canceled)
@@ -588,4 +683,34 @@ func (s *Stream) Close() error {
 		}
 		<-changed
 	}
+}
+
+var completedCallSignal = func() chan struct{} { c := make(chan struct{}); close(c); return c }()
+
+// Completion exposes protocol termination separately from unread buffer ownership.
+type Completion interface {
+	Done() <-chan struct{}
+	Outcome() error
+}
+
+func (s *Stream) Done() <-chan struct{} {
+	p := s.pending
+	p.mu.Lock()
+	defer p.mu.Unlock()
+	if p.done {
+		return completedCallSignal
+	}
+	if p.doneSignal == nil {
+		p.doneSignal = make(chan struct{})
+	}
+	return p.doneSignal
+}
+func (s *Stream) Outcome() error {
+	p := s.pending
+	p.mu.Lock()
+	defer p.mu.Unlock()
+	if !p.done {
+		return &Status{Code: FailedPrecondition, Message: "call is not complete"}
+	}
+	return p.err
 }

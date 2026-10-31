@@ -69,7 +69,7 @@ func DialTLS(ctx context.Context, address string, options TLSOptions, cfg Client
 	}
 	budget, cancel := context.WithTimeout(ctx, timeout)
 	defer cancel()
-	conn, err := (&tls.Dialer{Config: c}).DialContext(budget, "tcp", address)
+	conn, err := (&tls.Dialer{Config: c, NetDialer: &net.Dialer{KeepAliveConfig: keepAliveConfig(cfg.TCPKeepAlive)}}).DialContext(budget, "tcp", address)
 	if err != nil {
 		return nil, err
 	}
@@ -82,4 +82,34 @@ func DialTLS(ctx context.Context, address string, options TLSOptions, cfg Client
 		closeSocket(conn)
 	}
 	return client, err
+}
+
+type Peer struct {
+	Address   string
+	Transport Transport
+	TLS       *tls.ConnectionState
+}
+type peerKey struct{}
+
+// PeerFromContext exposes transport-authenticated connection information; token
+// identities are separately available through AuthenticatedIdentity.
+func PeerFromContext(ctx context.Context) (Peer, bool) {
+	p, ok := ctx.Value(peerKey{}).(Peer)
+	return p, ok
+}
+func (p *serverConn) peerInfo() Peer {
+	if p.native != nil {
+		state := p.native.conn.ConnectionState().TLS
+		return Peer{Address: p.native.conn.RemoteAddr().String(), Transport: QUIC, TLS: &state}
+	}
+	info := Peer{Transport: TCP}
+	if c, ok := p.link.conn.(interface{ RemoteAddr() net.Addr }); ok {
+		info.Address = c.RemoteAddr().String()
+	}
+	if c, ok := p.link.conn.(interface{ ConnectionState() tls.ConnectionState }); ok {
+		state := c.ConnectionState()
+		info.Transport = TLS
+		info.TLS = &state
+	}
+	return info
 }

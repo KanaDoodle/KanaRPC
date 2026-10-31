@@ -5,6 +5,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"io"
+	"net"
 	"sync"
 )
 
@@ -25,6 +26,8 @@ const (
 	DataEncoded
 	Hello
 	Welcome
+	OpenOptions
+	DataOptions
 )
 
 var ErrProtocol = errors.New("kanarpc: invalid v2 record")
@@ -54,10 +57,12 @@ func valid(f Frame, size uint32) bool {
 		return false
 	}
 	switch f.Kind {
-	case Open, OpenEncoded, End:
+	case Open, OpenEncoded, OpenOptions, End:
 		return f.Number == 0 && size > 0
 	case Data:
 		return f.Number > 0 && size > 0
+	case DataOptions:
+		return f.Number > 0 && size >= 5
 	case DataEncoded:
 		return f.Number > 0 // An empty Protobuf message has zero encoded bytes.
 	case Cancel:
@@ -109,13 +114,54 @@ func Write(w io.Writer, f Frame, limit uint32) error {
 	// Coalesce a record for every transport. Otherwise TLS encrypts the header
 	// and payload as separate writes while QUIC buffers both, a weak control.
 	packet := make([]byte, HeaderSize+len(f.Payload))
-	h := packet[:HeaderSize]
+	putHeader(packet[:HeaderSize], f)
+	copy(packet[HeaderSize:], f.Payload)
+	return writePacket(w, packet)
+}
+
+func putHeader(h []byte, f Frame) {
 	copy(h[:4], "KNR2")
 	h[4], h[5] = 2, byte(f.Kind)
 	binary.BigEndian.PutUint64(h[8:16], f.ID)
 	binary.BigEndian.PutUint32(h[16:20], uint32(len(f.Payload)))
 	binary.BigEndian.PutUint32(h[20:24], f.Number)
-	copy(packet[HeaderSize:], f.Payload)
+}
+
+// WriteTCP avoids a payload-sized coalescing copy on a concrete TCP socket.
+// Buffers.WriteTo uses the socket's writev path and handles partial writes.
+// TLS and native QUIC retain their existing coalesced-record writes.
+func WriteTCP(w *net.TCPConn, f Frame, limit uint32) error {
+	if uint64(len(f.Payload)) > uint64(limit) || !valid(f, uint32(len(f.Payload))) {
+		return ErrProtocol
+	}
+	var h [HeaderSize]byte
+	putHeader(h[:], f)
+	buffers := net.Buffers{h[:], f.Payload}
+	n, err := buffers.WriteTo(w)
+	if err == nil && n != int64(HeaderSize+len(f.Payload)) {
+		return io.ErrShortWrite
+	}
+	return err
+}
+
+// WriteCredits coalesces ordinary CREDIT=1 records without changing the wire
+// format. The caller owns a reservation for count*HeaderSize until it returns.
+func WriteCredits(w io.Writer, id uint64, count uint32) error {
+	if id == 0 || count == 0 || count > 16 {
+		return ErrProtocol
+	}
+	packet := make([]byte, int(count)*HeaderSize)
+	for i := uint32(0); i < count; i++ {
+		h := packet[int(i)*HeaderSize:][:HeaderSize]
+		copy(h[:4], "KNR2")
+		h[4], h[5] = 2, byte(Credit)
+		binary.BigEndian.PutUint64(h[8:16], id)
+		binary.BigEndian.PutUint32(h[20:24], 1)
+	}
+	return writePacket(w, packet)
+}
+
+func writePacket(w io.Writer, packet []byte) error {
 	for len(packet) > 0 {
 		n, err := w.Write(packet)
 		if n < 0 || n > len(packet) {

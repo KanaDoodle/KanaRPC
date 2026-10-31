@@ -20,6 +20,9 @@
 | R10 | 交互控制台与端到端操作 | [控制台](showcase-r10/report.md) |
 | R11 | Protobuf、类型化 SDK 与组件升级 | [编码与 SDK](protobuf-r11/report.md) |
 | R12 | 能力协商、schema 与 SDK 版本化接入 | [SDK 治理](sdk-r12/report.md) |
+| R13 | 普通/流式 TCP/TLS 与 grpc-go 同负载对照 | [外部基线](../grpc-comparison-r13.md) |
+| R14 | pprof 定位、信用合并与 TCP writev | [并发与流式优化](../grpc-optimization-r14.md) |
+| R15 | 业务接入、运维与完整调用链 | [接入与验收](production-r15/README.md) |
 
 ## 维护检查
 

@@ -70,6 +70,9 @@ def main():
         consumer.mkdir()
         (consumer / "go.mod").write_text(f"module example.com/versioned-consumer\n\ngo 1.26.10\n\nrequire {MODULE} {args.version}\n")
         shutil.copyfile(ROOT / "cmd/protobuf-demo/main.go", consumer / "main.go")
+        (consumer / "observability.go").write_text(
+            'package main\nimport _ "github.com/KanaDoodle/KanaRPC/observability"\n'
+        )
         # Keep the consumer cache isolated while reading already downloaded,
         # checksum-verified public dependencies as a read-only file proxy.
         # The candidate is always resolved from its own first-priority proxy.
@@ -80,6 +83,7 @@ def main():
         selected = json.loads(run("selected-module", ["go", "list", "-m", "-json", MODULE], consumer, isolated))
         if selected.get("Replace") or selected["Version"] != args.version: raise RuntimeError("candidate was not consumed by version")
         run("consumer-run", ["go", "run", "."], consumer, isolated)
+        run("consumer-production-run", ["go", "run", "-mod=mod", MODULE + "/cmd/production-demo"], consumer, isolated)
         run("install-generator", ["go", "install", MODULE + "/cmd/protoc-gen-kanarpc@" + args.version], consumer, isolated)
         observed = run("installed-version", [str(output / "bin/protoc-gen-kanarpc"), "--version"], consumer, isolated)
         if args.version not in observed: raise RuntimeError("installed generator version mismatch")

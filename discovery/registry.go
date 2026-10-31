@@ -38,6 +38,7 @@ type Registry struct {
 	cancel          context.CancelFunc
 	mu              sync.Mutex
 	closed          bool
+	publishers      map[*Publisher]struct{}
 	registrations   map[*Registration]struct{}
 	resolvers       map[*Resolver]struct{}
 	wg              sync.WaitGroup
@@ -110,7 +111,7 @@ func New(ctx context.Context, c Config) (*Registry, error) {
 		cancel()
 		return nil, err
 	}
-	return &Registry{cfg: c, client: client, ctx: owner, cancel: cancel, registrations: make(map[*Registration]struct{}), resolvers: make(map[*Resolver]struct{}), done: make(chan struct{})}, nil
+	return &Registry{cfg: c, client: client, ctx: owner, cancel: cancel, publishers: make(map[*Publisher]struct{}), registrations: make(map[*Registration]struct{}), resolvers: make(map[*Resolver]struct{}), done: make(chan struct{})}, nil
 }
 func (r *Registry) Stats() Stats {
 	r.mu.Lock()

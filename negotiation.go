@@ -16,7 +16,8 @@ type Feature uint32
 const (
 	FeatureProtobuf Feature = 1 << iota
 	FeatureServerStreaming
-	supportedFeatures = FeatureProtobuf | FeatureServerStreaming
+	FeatureCallOptions
+	supportedFeatures = FeatureProtobuf | FeatureServerStreaming | FeatureCallOptions
 )
 
 var ErrCapabilities = errors.New("kanarpc: required protocol capabilities unavailable")

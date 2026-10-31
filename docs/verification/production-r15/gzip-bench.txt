@@ -1,0 +1,18 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/KanaDoodle/KanaRPC
+cpu: Apple M5
+BenchmarkGzipBody/bytes64/randomfalse-4         	129604146	         0.9263 ns/op	69091.89 MB/s	         1.000 body_ratio	       0 B/op	       0 allocs/op
+BenchmarkGzipBody/bytes64/randomfalse-4         	127970708	         0.9263 ns/op	69092.44 MB/s	         1.000 body_ratio	       0 B/op	       0 allocs/op
+BenchmarkGzipBody/bytes64/randomtrue-4          	129043011	         0.9284 ns/op	68936.42 MB/s	         1.000 body_ratio	       0 B/op	       0 allocs/op
+BenchmarkGzipBody/bytes64/randomtrue-4          	129456414	         0.9263 ns/op	69091.23 MB/s	         1.000 body_ratio	       0 B/op	       0 allocs/op
+BenchmarkGzipBody/bytes4096/randomfalse-4       	    1886	     66470 ns/op	  61.62 MB/s	         0.01001 body_ratio	  850852 B/op	      19 allocs/op
+BenchmarkGzipBody/bytes4096/randomfalse-4       	    1822	     68113 ns/op	  60.14 MB/s	         0.01001 body_ratio	  850850 B/op	      19 allocs/op
+BenchmarkGzipBody/bytes4096/randomtrue-4        	    1776	     68572 ns/op	  59.73 MB/s	         1.000 body_ratio	  850850 B/op	      19 allocs/op
+BenchmarkGzipBody/bytes4096/randomtrue-4        	    1776	     68498 ns/op	  59.80 MB/s	         1.000 body_ratio	  850852 B/op	      19 allocs/op
+BenchmarkGzipBody/bytes65536/randomfalse-4      	    1425	     85165 ns/op	 769.52 MB/s	         0.001648 body_ratio	  912291 B/op	      19 allocs/op
+BenchmarkGzipBody/bytes65536/randomfalse-4      	    1467	     82073 ns/op	 798.51 MB/s	         0.001648 body_ratio	  912292 B/op	      19 allocs/op
+BenchmarkGzipBody/bytes65536/randomtrue-4       	    1452	     81672 ns/op	 802.43 MB/s	         1.000 body_ratio	  912289 B/op	      19 allocs/op
+BenchmarkGzipBody/bytes65536/randomtrue-4       	    1459	     83292 ns/op	 786.82 MB/s	         1.000 body_ratio	  912291 B/op	      19 allocs/op
+PASS
+ok  	github.com/KanaDoodle/KanaRPC	2.444s

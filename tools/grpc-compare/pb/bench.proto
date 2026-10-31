@@ -1,0 +1,9 @@
+syntax = "proto3";
+package comparison.v1;
+option go_package = "github.com/KanaDoodle/KanaRPC/tools/grpc-compare/pb";
+message Request { string payload = 1; uint32 chunks = 2; }
+message Reply { string payload = 1; uint32 sequence = 2; }
+service Bench {
+ rpc Echo(Request) returns (Reply);
+ rpc Watch(Request) returns (stream Reply);
+}

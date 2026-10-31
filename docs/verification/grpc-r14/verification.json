@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "final_runs": 192,
+  "independently_checked_offers": 11702066,
+  "errors": 0,
+  "source_hashes_match_final_manifest": true,
+  "baseline_hashes_match": true,
+  "excluded_from_raw": "executables and etcd data; runtime sources separately archived",
+  "no_runtime_edits_after_measurement": true
+}

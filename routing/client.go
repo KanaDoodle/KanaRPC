@@ -43,6 +43,10 @@ func refusal(kind error) error {
 // this interface. The creator keeps ownership of the resolver.
 type Source interface{ Snapshot() discovery.Snapshot }
 type Config struct {
+	Policy                                    SelectionPolicy
+	Weights                                   map[string]int
+	Circuit                                   *CircuitConfig
+	IdleTimeout                               time.Duration
 	Memory                                    rpc.MemoryPoolConfig
 	Transport                                 rpc.Transport
 	Dial                                      rpc.DialOptions
@@ -50,6 +54,7 @@ type Config struct {
 	PollInterval, DialTimeout, DialBackoff    time.Duration
 }
 type Stats struct {
+	CircuitRejected, CircuitOpened, CircuitRecovered                                            uint64
 	Ready, Closed                                                                               bool
 	Endpoints, Connections, Dialing, Retiring, Closing, ActiveCalls, PeakConnections, PeakCalls int
 	Dials, DialFailures, Coalesced, Reused, Retired, Rejected, SnapshotErrors                   uint64
@@ -57,6 +62,7 @@ type Stats struct {
 	ClusterID                                                                                   uint64
 }
 type entry struct {
+	lastUsed                           time.Time
 	account                            *rpc.MemoryAccount
 	retiredAt                          time.Time
 	key                                rpc.Endpoint
@@ -71,6 +77,8 @@ type dialFunc func(context.Context, rpc.Endpoint, rpc.DialOptions) (rpc.Caller, 
 
 // Client owns bounded connections and application leases, but not its Source.
 type Client struct {
+	policyWatchers          int
+	routes                  map[rpc.Endpoint]*circuitState
 	source                  Source
 	cfg                     Config
 	dial                    dialFunc
@@ -129,6 +137,9 @@ func newClient(ctx context.Context, source Source, cfg Config, dial dialFunc) (*
 	if cfg.MaxConnections < 1 || cfg.MaxConnections > 256 || cfg.MaxInFlight < 1 || cfg.MaxInFlight > 4096 || cfg.MaxEndpoints < 1 || cfg.MaxEndpoints > 4096 || cfg.PollInterval < time.Millisecond || cfg.PollInterval > time.Minute || cfg.DialTimeout <= 0 || cfg.DialTimeout > time.Minute || cfg.DialBackoff < time.Millisecond || cfg.DialBackoff > time.Minute {
 		return nil, errors.New("routing: invalid resource bounds")
 	}
+	if e := normalizePolicy(&cfg); e != nil {
+		return nil, e
+	}
 	if cfg.Dial.Client.Timeout == 0 {
 		cfg.Dial.Client.Timeout = 5 * time.Second
 	}
@@ -162,7 +173,7 @@ func newClient(ctx context.Context, source Source, cfg Config, dial dialFunc) (*
 		return nil, err
 	}
 	owner, cancel := context.WithCancel(ctx)
-	c := &Client{memory: memory, source: source, cfg: cfg, dial: dial, ctx: owner, cancel: cancel, view: make(chan struct{}, 1), changed: make(chan struct{}), desired: make(map[rpc.Endpoint]struct{}), active: make(map[rpc.Endpoint]*entry), entries: make(map[*entry]struct{}), backoff: make(map[rpc.Endpoint]time.Time)}
+	c := &Client{routes: map[rpc.Endpoint]*circuitState{}, memory: memory, source: source, cfg: cfg, dial: dial, ctx: owner, cancel: cancel, view: make(chan struct{}, 1), changed: make(chan struct{}), desired: make(map[rpc.Endpoint]struct{}), active: make(map[rpc.Endpoint]*entry), entries: make(map[*entry]struct{}), backoff: make(map[rpc.Endpoint]time.Time)}
 	c.view <- struct{}{}
 	go c.loop()
 	return c, nil
@@ -269,6 +280,7 @@ func (c *Client) refresh(ctx context.Context) error {
 	c.revision = snapshot.Revision
 	c.cluster = snapshot.ClusterID
 	c.desired = wanted
+	c.syncRoutesLocked()
 	c.order = c.order[:0]
 	for key := range wanted {
 		c.order = append(c.order, key)
@@ -281,7 +293,7 @@ func (c *Client) refresh(ctx context.Context) error {
 	}
 	for key, e := range c.active {
 		_, keep := wanted[key]
-		if !keep || dead(e.caller) {
+		if !keep || dead(e.caller) || c.cfg.IdleTimeout > 0 && e.users == 0 && !e.dialing && !e.lastUsed.IsZero() && time.Since(e.lastUsed) >= c.cfg.IdleTimeout {
 			c.retireLocked(e)
 		}
 	}
@@ -429,21 +441,10 @@ func (c *Client) acquire(ctx context.Context) (*entry, error) {
 		c.mu.Unlock()
 		return nil, refusal(ErrNotReady)
 	}
-	var selected rpc.Endpoint
-	found := false
-	for n := 0; n < len(c.order); n++ {
-		key := c.order[c.next%uint64(len(c.order))]
-		c.next++
-		if time.Now().Before(c.backoff[key]) {
-			continue
-		}
-		selected = key
-		found = true
-		break
-	}
+	selected, pickErr := c.pickLocked()
 	c.mu.Unlock()
-	if !found {
-		return nil, refusal(ErrBackoff)
+	if pickErr != nil {
+		return nil, pickErr
 	}
 	for {
 		if err := ctx.Err(); err != nil {
@@ -484,7 +485,7 @@ func (c *Client) acquire(ctx context.Context) (*entry, error) {
 				return nil, err
 			}
 			dialCtx, cancel := context.WithTimeout(c.ctx, c.cfg.DialTimeout)
-			e := &entry{account: account, key: selected, users: 1, dialing: true, dialCancel: cancel}
+			e := &entry{account: account, key: selected, users: 1, dialing: true, lastUsed: time.Now(), dialCancel: cancel}
 			c.clock++
 			e.stamp = c.clock
 			c.entries[e] = struct{}{}
@@ -519,6 +520,7 @@ func (c *Client) release(e *entry) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 	e.users--
+	e.lastUsed = time.Now()
 	if e.users < 0 {
 		panic("routing: duplicate endpoint release")
 	}
@@ -583,7 +585,13 @@ func (c *Client) Call(ctx context.Context, method string, request, response any)
 	if err != nil {
 		return err
 	}
+	finish, err := c.startRoute(e)
+	if err != nil {
+		return err
+	}
+	defer func() { finish(context.Canceled) }()
 	err = caller.Call(budget, method, request, response)
+	finish(err)
 	if errors.Is(err, rpc.ErrClosed) || dead(caller) {
 		c.mu.Lock()
 		c.retireLocked(e)
@@ -622,8 +630,19 @@ func (c *Client) Stream(ctx context.Context, method string, request any) (*Strea
 	if err != nil {
 		return nil, err
 	}
+	finish, err := c.startRoute(e)
+	if err != nil {
+		return nil, err
+	}
+	handed := false
+	defer func() {
+		if !handed {
+			finish(context.Canceled)
+		}
+	}()
 	stream, err := caller.Stream(budget, method, request)
 	if err != nil {
+		finish(err)
 		if errors.Is(err, rpc.ErrClosed) || dead(caller) {
 			c.mu.Lock()
 			c.retireLocked(e)
@@ -632,6 +651,17 @@ func (c *Client) Stream(ctx context.Context, method string, request any) (*Strea
 		return nil, err
 	}
 	transferred = true
+	handed = true
+	if c.cfg.Policy != RoundRobin || c.cfg.Circuit != nil {
+		c.mu.Lock()
+		c.policyWatchers++
+		c.mu.Unlock()
+		go func() {
+			defer func() { c.mu.Lock(); c.policyWatchers--; c.notifyLocked(); c.mu.Unlock() }()
+			<-stream.Done()
+			finish(stream.Outcome())
+		}()
+	}
 	return &Stream{inner: stream, release: func() { c.release(e); done() }}, nil
 }
 
@@ -661,7 +691,7 @@ func (c *Client) Close() {
 func (c *Client) Wait(ctx context.Context) error {
 	for {
 		c.mu.Lock()
-		if c.closed && c.loopDone && len(c.entries) == 0 && c.calls == 0 {
+		if c.closed && c.loopDone && len(c.entries) == 0 && c.calls == 0 && c.policyWatchers == 0 {
 			c.mu.Unlock()
 			return nil
 		}
@@ -767,3 +797,6 @@ func (c *Client) ConnectionStats() []ConnectionStats {
 	sort.Slice(out, func(i, j int) bool { return out[i].Memory.ID < out[j].Memory.ID })
 	return out
 }
+
+func (s *Stream) Done() <-chan struct{} { return s.inner.Done() }
+func (s *Stream) Outcome() error        { return s.inner.Outcome() }

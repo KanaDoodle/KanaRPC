@@ -271,6 +271,7 @@ func memoryConfig(c MemoryConfig) (MemoryConfig, error) {
 }
 
 type resources struct {
+	compression                                compressionCounters
 	feedback                                   *feedbackTracker
 	admission                                  *clientAdmission
 	receive, send, controlReceive, controlSend byteBudget
@@ -304,7 +305,7 @@ func newClientResources(c ClientConfig) (*resources, error) {
 	return r, nil
 }
 func dataKind(kind wire.Kind) bool {
-	return kind == wire.Open || kind == wire.OpenEncoded || kind == wire.Data || kind == wire.DataEncoded
+	return kind == wire.Open || kind == wire.OpenEncoded || kind == wire.OpenOptions || kind == wire.Data || kind == wire.DataEncoded || kind == wire.DataOptions
 }
 func (r *resources) reserveRead(kind wire.Kind, n uint32) (func(), error) {
 	if !dataKind(kind) {
@@ -314,7 +315,7 @@ func (r *resources) reserveRead(kind wire.Kind, n uint32) (func(), error) {
 		return r.controlReceive.take(int64(n))
 	}
 	size := int64(n)
-	if kind == wire.Open || kind == wire.OpenEncoded {
+	if kind == wire.Open || kind == wire.OpenEncoded || kind == wire.OpenOptions {
 		size *= 2
 	} // Frame plus request/metadata copies; shared by both payload codecs.
 	return r.receive.take(size)

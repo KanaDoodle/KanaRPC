@@ -15,6 +15,9 @@ type IOConfig struct {
 	ReadTimeout time.Duration
 }
 type ClientConfig struct {
+	EnableCallOptions bool
+	Compression       *CompressionConfig
+	TCPKeepAlive      *TCPKeepAliveConfig
 	// RequiredFeatures enables a bounded pre-dispatch handshake. Zero preserves
 	// legacy JSON connections. Protobuf calls require FeatureProtobuf here.
 	RequiredFeatures   Feature
@@ -30,6 +33,11 @@ type ClientConfig struct {
 	ControlTimeout time.Duration
 }
 type ServerConfig struct {
+	Compression    *CompressionConfig
+	TCPKeepAlive   *TCPKeepAliveConfig
+	Interceptors   []Interceptor
+	Authenticate   Authenticator
+	RateLimiter    *RateLimiter
 	Trace          *TraceRecorder // nil disables the bounded local decision journal
 	Governance     *GovernanceConfig
 	Memory         MemoryConfig
@@ -59,6 +67,16 @@ func normalizeIO(c IOConfig) (IOConfig, error) {
 }
 func normalizeClient(c ClientConfig) (ClientConfig, error) {
 	var err error
+	if c.Compression, err = compressionConfig(c.Compression); err != nil {
+		return c, err
+	}
+	if c.TCPKeepAlive, err = normalizeKeepAlive(c.TCPKeepAlive); err != nil {
+		return c, err
+	}
+	if c.EnableCallOptions || c.Compression != nil {
+		c.EnableCallOptions = true
+		c.RequiredFeatures |= FeatureCallOptions
+	}
 	if c.RequiredFeatures & ^supportedFeatures != 0 {
 		return c, errors.New("kanarpc: unknown required protocol features")
 	}
@@ -68,14 +86,21 @@ func normalizeClient(c ClientConfig) (ClientConfig, error) {
 	if c.IO, err = normalizeIO(c.IO); err != nil {
 		return c, err
 	}
-	if c.Memory.EncodingBytes == 0 && int64(c.IO.MaxFrameBytes)*2 > 16<<20 {
-		c.Memory.EncodingBytes = int64(c.IO.MaxFrameBytes) * 2
+	encodingMinimum := int64(c.IO.MaxFrameBytes) * 2
+	if c.EnableCallOptions {
+		encodingMinimum += 8192
+	}
+	if c.Compression != nil {
+		encodingMinimum += compressionWriteWorkspace
+	}
+	if c.Memory.EncodingBytes == 0 && encodingMinimum > 16<<20 {
+		c.Memory.EncodingBytes = encodingMinimum
 	}
 	if c.Memory, err = memoryConfig(c.Memory); err != nil {
 		return c, err
 	}
-	if c.Memory.EncodingBytes < int64(c.IO.MaxFrameBytes)*2 {
-		return c, errors.New("kanarpc: encoding capacity must hold two maximum frames")
+	if c.Memory.EncodingBytes < encodingMinimum {
+		return c, errors.New("kanarpc: encoding capacity must include frames and configured codec workspace")
 	}
 	if c.Timeout == 0 {
 		c.Timeout = 5 * time.Second
@@ -101,6 +126,13 @@ func normalizeClient(c ClientConfig) (ClientConfig, error) {
 }
 func normalizeServer(c ServerConfig) (ServerConfig, error) {
 	var err error
+	if c.Compression, err = compressionConfig(c.Compression); err != nil {
+		return c, err
+	}
+	if c.TCPKeepAlive, err = normalizeKeepAlive(c.TCPKeepAlive); err != nil {
+		return c, err
+	}
+	c.Interceptors = append([]Interceptor(nil), c.Interceptors...)
 	if c.Memory, err = memoryConfig(c.Memory); err != nil {
 		return c, err
 	}

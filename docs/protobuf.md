@@ -67,7 +67,7 @@ python3 scripts/verify-protobuf.py --protoc /path/to/protoc --output /tmp/kanarp
 
 实现生成的 `EchoServer`，并按值嵌入 `UnimplementedEchoServer`：普通方法返回响应指针与错误；流式方法通过类型化 `send` 回调发送消息。新增 RPC 后，已存在的服务实现可继续编译，尚未实现的方法返回 NotFound。调用 `RegisterEchoServer(server, implementation)` 原子注册整组方法，重复或非法路径不会留下半个服务。注册须在 Serve 前完成。
 
-客户端在 Dial 配置中设置 `RequiredFeatures: kanarpc.FeatureProtobuf | kanarpc.FeatureServerStreaming`，先协商所需能力与帧上限，再使用 `NewEchoClient(caller)`。`caller` 可以是直连 `*Client`、`*QUICClient` 或 `*routing.Client`；连接池配置位置为 `routing.Config.Dial.Client`。以下沿用仓库的 EchoService 定义：
+客户端在 Dial 配置中设置 `RequiredFeatures: kanarpc.FeatureProtobuf | kanarpc.FeatureServerStreaming`，先协商所需能力与帧上限，再使用 `NewEchoClient(caller)`。`caller` 可以是直连 `*Client`、`*QUICClient`、`*routing.Client` 或统一业务入口 `*ClientPipeline`；连接池配置位置为 `routing.Config.Dial.Client`。以下沿用仓库的 EchoService 定义：
 
 ```go
 sdk := echo.NewEchoServiceClient(client)
@@ -77,6 +77,8 @@ stream, err := sdk.Watch(ctx, &echo.EchoRequest{Count: 3})
 // 检查 err 后循环 stream.Recv()，直到 io.EOF。
 // 提前结束时调用 stream.Close()；Context 覆盖整个流的生命周期。
 ```
+
+需要凭证、Metadata、gzip、拦截器或显式幂等重试时，先配置调用选项与 `ClientPipeline`，再把管线传给生成 SDK。完整示例与执行顺序见 [业务调用链](production-r15.md)。
 
 已有调用入口也可直接使用：
 

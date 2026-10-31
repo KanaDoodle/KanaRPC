@@ -31,10 +31,13 @@ Protobuf 服务使用 `.proto` 生成类型化客户端和注册入口，直连�
 
 固定工具分发、schema 检查、版本化 Go 模块验收与发布候选流程见 [SDK 治理](sdk-r12.md)。历史证据位于独立的 `docs/verification` 模块边界中：GitHub 仓库保留全部记录，消费根模块时不下载该目录。
 
+业务接入建议通过 `ClientPipeline` 统一凭证、限流、显式幂等重试和观测。压缩、健康发布及完整调用顺序见 [业务调用链](production-r15.md)。可用 `go run ./cmd/production-demo` 运行真实本机链路，`cmd/kanarpc` 提供 JSON/Protobuf 调试入口。
+
 ## 按需验证
 
 | 入口 | 覆盖范围 |
 | --- | --- |
+| `scripts/verify-production.py` | 真实单成员 etcd，TCP/TLS/QUIC 独立进程，凭证、压缩、SDK/CLI、追踪关联、取消与 drain；支持 `--race` |
 | `scripts/verify-core.py` | 独立进程 TCP、普通与流式调用、取消和 SIGTERM 关闭 |
 | `scripts/verify-transports.py` | TCP/TLS/QUIC 调用与内部负载对照 |
 | `scripts/verify-governance.py` | 固定并发、公平调度、自适应、反馈与回退策略 |

@@ -1,0 +1,617 @@
+{
+  "status": "PASS",
+  "runs": [
+    {
+      "chunks": 8,
+      "client_after": {
+        "CPU": 325300000,
+        "Alloc": 22350384,
+        "Mallocs": 136798,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 50256000,
+        "Alloc": 2553552,
+        "Mallocs": 15421,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200132250,
+      "engine": "kana",
+      "failed": 0,
+      "offered": 607,
+      "p50_ns": 319000,
+      "p95_ns": 403917,
+      "p99_ns": 482708,
+      "server_after": {
+        "CPU": 293243000,
+        "Alloc": 20722688,
+        "Mallocs": 113701,
+        "Goroutines": 6,
+        "Calls": 671,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 60339000,
+        "Alloc": 2457888,
+        "Mallocs": 13703,
+        "Goroutines": 6,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 1024,
+      "succeeded": 607,
+      "transport": "tcp",
+      "workers": 1,
+      "run": "r0_tcp_b1024_c1_n8_kana"
+    },
+    {
+      "chunks": 8,
+      "client_after": {
+        "CPU": 270653000,
+        "Alloc": 34544320,
+        "Mallocs": 91731,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 45970000,
+        "Alloc": 3803088,
+        "Mallocs": 11878,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200305750,
+      "engine": "grpc",
+      "failed": 0,
+      "offered": 569,
+      "p50_ns": 341750,
+      "p95_ns": 433000,
+      "p99_ns": 521625,
+      "server_after": {
+        "CPU": 213437000,
+        "Alloc": 27372320,
+        "Mallocs": 74020,
+        "Goroutines": 8,
+        "Calls": 633,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 40292000,
+        "Alloc": 3831816,
+        "Mallocs": 10342,
+        "Goroutines": 8,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 1024,
+      "succeeded": 569,
+      "transport": "tcp",
+      "workers": 1,
+      "run": "r0_tcp_b1024_c1_n8_grpc"
+    },
+    {
+      "chunks": 1,
+      "client_after": {
+        "CPU": 263094000,
+        "Alloc": 34180888,
+        "Mallocs": 119551,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 31484000,
+        "Alloc": 2824184,
+        "Mallocs": 10443,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200170250,
+      "engine": "grpc",
+      "failed": 0,
+      "offered": 1018,
+      "p50_ns": 181250,
+      "p95_ns": 286500,
+      "p99_ns": 388458,
+      "server_after": {
+        "CPU": 256139000,
+        "Alloc": 33151816,
+        "Mallocs": 84509,
+        "Goroutines": 8,
+        "Calls": 1082,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 37107000,
+        "Alloc": 2830416,
+        "Mallocs": 8345,
+        "Goroutines": 8,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 64,
+      "succeeded": 1018,
+      "transport": "tls",
+      "workers": 1,
+      "run": "r0_tls_b64_c1_n1_grpc"
+    },
+    {
+      "chunks": 1,
+      "client_after": {
+        "CPU": 221151000,
+        "Alloc": 8702184,
+        "Mallocs": 97464,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 25506000,
+        "Alloc": 1106304,
+        "Mallocs": 8974,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200089667,
+      "engine": "kana",
+      "failed": 0,
+      "offered": 982,
+      "p50_ns": 191958,
+      "p95_ns": 278542,
+      "p99_ns": 387292,
+      "server_after": {
+        "CPU": 209155000,
+        "Alloc": 7161080,
+        "Mallocs": 78410,
+        "Goroutines": 6,
+        "Calls": 1046,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 30376000,
+        "Alloc": 969768,
+        "Mallocs": 8091,
+        "Goroutines": 6,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 64,
+      "succeeded": 982,
+      "transport": "tls",
+      "workers": 1,
+      "run": "r0_tls_b64_c1_n1_kana"
+    },
+    {
+      "chunks": 1,
+      "client_after": {
+        "CPU": 225120000,
+        "Alloc": 28012248,
+        "Mallocs": 80649,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 24998000,
+        "Alloc": 2425992,
+        "Mallocs": 7990,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200149792,
+      "engine": "kana",
+      "failed": 0,
+      "offered": 841,
+      "p50_ns": 227209,
+      "p95_ns": 321708,
+      "p99_ns": 375209,
+      "server_after": {
+        "CPU": 217224000,
+        "Alloc": 22583736,
+        "Mallocs": 65681,
+        "Goroutines": 6,
+        "Calls": 905,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 28951000,
+        "Alloc": 2084320,
+        "Mallocs": 7503,
+        "Goroutines": 6,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 4096,
+      "succeeded": 841,
+      "transport": "tcp",
+      "workers": 1,
+      "run": "r0_tcp_b4096_c1_n1_kana"
+    },
+    {
+      "chunks": 1,
+      "client_after": {
+        "CPU": 242795000,
+        "Alloc": 37362920,
+        "Mallocs": 88391,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 31061000,
+        "Alloc": 3491312,
+        "Mallocs": 9257,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200137583,
+      "engine": "grpc",
+      "failed": 0,
+      "offered": 788,
+      "p50_ns": 238791,
+      "p95_ns": 338375,
+      "p99_ns": 432625,
+      "server_after": {
+        "CPU": 234392000,
+        "Alloc": 36541320,
+        "Mallocs": 61089,
+        "Goroutines": 8,
+        "Calls": 852,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 35213000,
+        "Alloc": 3310368,
+        "Mallocs": 7454,
+        "Goroutines": 8,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 4096,
+      "succeeded": 788,
+      "transport": "tcp",
+      "workers": 1,
+      "run": "r0_tcp_b4096_c1_n1_grpc"
+    },
+    {
+      "chunks": 1,
+      "client_after": {
+        "CPU": 227927000,
+        "Alloc": 38350912,
+        "Mallocs": 88078,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 28962000,
+        "Alloc": 3561872,
+        "Mallocs": 10194,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200085750,
+      "engine": "grpc",
+      "failed": 0,
+      "offered": 751,
+      "p50_ns": 254916,
+      "p95_ns": 336250,
+      "p99_ns": 402708,
+      "server_after": {
+        "CPU": 222829000,
+        "Alloc": 37373304,
+        "Mallocs": 61889,
+        "Goroutines": 8,
+        "Calls": 815,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 29391000,
+        "Alloc": 3512032,
+        "Mallocs": 8189,
+        "Goroutines": 8,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 4096,
+      "succeeded": 751,
+      "transport": "tls",
+      "workers": 1,
+      "run": "r0_tls_b4096_c1_n1_grpc"
+    },
+    {
+      "chunks": 1,
+      "client_after": {
+        "CPU": 212470000,
+        "Alloc": 29553032,
+        "Mallocs": 80604,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 26441000,
+        "Alloc": 2704760,
+        "Mallocs": 8912,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200185541,
+      "engine": "kana",
+      "failed": 0,
+      "offered": 818,
+      "p50_ns": 239667,
+      "p95_ns": 287542,
+      "p99_ns": 369833,
+      "server_after": {
+        "CPU": 197535000,
+        "Alloc": 24179376,
+        "Mallocs": 66016,
+        "Goroutines": 6,
+        "Calls": 882,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 25915000,
+        "Alloc": 2325040,
+        "Mallocs": 8134,
+        "Goroutines": 6,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 4096,
+      "succeeded": 818,
+      "transport": "tls",
+      "workers": 1,
+      "run": "r0_tls_b4096_c1_n1_kana"
+    },
+    {
+      "chunks": 1,
+      "client_after": {
+        "CPU": 224828000,
+        "Alloc": 8998888,
+        "Mallocs": 101560,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 23768000,
+        "Alloc": 928352,
+        "Mallocs": 7955,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200135583,
+      "engine": "kana",
+      "failed": 0,
+      "offered": 1081,
+      "p50_ns": 175958,
+      "p95_ns": 247125,
+      "p99_ns": 296542,
+      "server_after": {
+        "CPU": 207593000,
+        "Alloc": 7606408,
+        "Mallocs": 82528,
+        "Goroutines": 6,
+        "Calls": 1145,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 23804000,
+        "Alloc": 891208,
+        "Mallocs": 7449,
+        "Goroutines": 6,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 64,
+      "succeeded": 1081,
+      "transport": "tcp",
+      "workers": 1,
+      "run": "r0_tcp_b64_c1_n1_kana"
+    },
+    {
+      "chunks": 1,
+      "client_after": {
+        "CPU": 239231000,
+        "Alloc": 33598424,
+        "Mallocs": 119125,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 24727000,
+        "Alloc": 2483472,
+        "Mallocs": 9473,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200111333,
+      "engine": "grpc",
+      "failed": 0,
+      "offered": 1059,
+      "p50_ns": 178792,
+      "p95_ns": 259292,
+      "p99_ns": 337334,
+      "server_after": {
+        "CPU": 248857000,
+        "Alloc": 31094728,
+        "Mallocs": 82872,
+        "Goroutines": 8,
+        "Calls": 1123,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 31119000,
+        "Alloc": 2419224,
+        "Mallocs": 7644,
+        "Goroutines": 8,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 64,
+      "succeeded": 1059,
+      "transport": "tcp",
+      "workers": 1,
+      "run": "r0_tcp_b64_c1_n1_grpc"
+    },
+    {
+      "chunks": 8,
+      "client_after": {
+        "CPU": 272130000,
+        "Alloc": 30090664,
+        "Mallocs": 86935,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 45707000,
+        "Alloc": 4154288,
+        "Mallocs": 12794,
+        "Goroutines": 8,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200201166,
+      "engine": "grpc",
+      "failed": 0,
+      "offered": 517,
+      "p50_ns": 376292,
+      "p95_ns": 484167,
+      "p99_ns": 561458,
+      "server_after": {
+        "CPU": 217103000,
+        "Alloc": 29493504,
+        "Mallocs": 71135,
+        "Goroutines": 8,
+        "Calls": 581,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 37608000,
+        "Alloc": 4079688,
+        "Mallocs": 11072,
+        "Goroutines": 8,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 1024,
+      "succeeded": 517,
+      "transport": "tls",
+      "workers": 1,
+      "run": "r0_tls_b1024_c1_n8_grpc"
+    },
+    {
+      "chunks": 8,
+      "client_after": {
+        "CPU": 320858000,
+        "Alloc": 19882064,
+        "Mallocs": 122897,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "client_before": {
+        "CPU": 49851000,
+        "Alloc": 2712232,
+        "Mallocs": 16279,
+        "Goroutines": 4,
+        "Calls": 0,
+        "Active": 0,
+        "Connections": 0
+      },
+      "elapsed_ns": 200136125,
+      "engine": "kana",
+      "failed": 0,
+      "offered": 509,
+      "p50_ns": 365666,
+      "p95_ns": 542083,
+      "p99_ns": 655458,
+      "server_after": {
+        "CPU": 286200000,
+        "Alloc": 19248528,
+        "Mallocs": 101777,
+        "Goroutines": 6,
+        "Calls": 573,
+        "Active": 0,
+        "Connections": 1
+      },
+      "server_before": {
+        "CPU": 50466000,
+        "Alloc": 2642464,
+        "Mallocs": 14318,
+        "Goroutines": 6,
+        "Calls": 64,
+        "Active": 0,
+        "Connections": 1
+      },
+      "size": 1024,
+      "succeeded": 509,
+      "transport": "tls",
+      "workers": 1,
+      "run": "r0_tls_b1024_c1_n8_kana"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "scope": "independent archive integrity and receipt check; not a new RPC execution",
+  "checks": {
+    "normal": {
+      "pass": 421,
+      "skip": 0,
+      "fail": 0
+    },
+    "race": {
+      "pass": 421,
+      "skip": 0,
+      "fail": 0
+    },
+    "chain": {
+      "transports": 3,
+      "commands": 23,
+      "correlated_client_spans": 15
+    },
+    "chain-race": {
+      "transports": 3,
+      "commands": 23,
+      "correlated_client_spans": 15
+    }
+  },
+  "comparisons": {
+    "default-final.tar.gz": {
+      "runs": 72,
+      "offered": 4089973,
+      "failed": 0
+    },
+    "default-pre-hook.tar.gz": {
+      "runs": 72,
+      "offered": 4223710,
+      "failed": 0
+    }
+  }
+}

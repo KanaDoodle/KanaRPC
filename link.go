@@ -64,11 +64,20 @@ func deadlineError(ctx context.Context) error {
 }
 
 func (l *link) writeLocked(ctx context.Context, f wire.Frame) (touched bool, err error) {
+	return l.writeRecord(ctx, f.Kind, len(f.Payload), func() error {
+		if tcp, ok := l.conn.(*net.TCPConn); ok && len(f.Payload) >= 1024 {
+			return wire.WriteTCP(tcp, f, l.cfg.MaxFrameBytes)
+		}
+		return wire.Write(l.conn, f, l.cfg.MaxFrameBytes)
+	})
+}
+
+func (l *link) writeRecord(ctx context.Context, kind wire.Kind, size int, write func() error) (touched bool, err error) {
 	if err = deadlineError(ctx); err != nil {
 		return false, err
 	}
 	if l.resources != nil {
-		release, e := l.resources.reserveWrite(f.Kind, len(f.Payload))
+		release, e := l.resources.reserveWrite(kind, size)
 		if e != nil {
 			return false, e
 		}
@@ -85,7 +94,7 @@ func (l *link) writeLocked(ctx context.Context, f wire.Frame) (touched bool, err
 	}
 	callbackDone := make(chan struct{})
 	stop := context.AfterFunc(ctx, func() { _ = l.conn.SetWriteDeadline(time.Now()); close(callbackDone) })
-	err = wire.Write(l.conn, f, l.cfg.MaxFrameBytes)
+	err = write()
 	if !stop() {
 		<-callbackDone
 	}
@@ -113,6 +122,22 @@ func (l *link) send(ctx context.Context, f wire.Frame) (bool, error) {
 	defer l.release()
 	return l.writeLocked(ctx, f)
 }
+
+// All records remain CREDIT=1. Reserving the complete packet before allocation
+// also covers a blocked/partial write; cancellation uses the ordinary writer.
+func (l *link) sendCredits(ctx context.Context, id uint64, count uint32) (bool, error) {
+	if id == 0 || count == 0 || count > 16 {
+		return false, ErrProtocol
+	}
+	if err := l.acquire(ctx); err != nil {
+		return false, err
+	}
+	defer l.release()
+	return l.writeRecord(ctx, wire.Credit, (int(count)-1)*wire.HeaderSize, func() error {
+		return wire.WriteCredits(l.conn, id, count)
+	})
+}
+
 func (l *link) read() (wire.Frame, error) {
 	return l.readWithin(l.cfg.ReadTimeout)
 }

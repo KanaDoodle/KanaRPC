@@ -10,6 +10,8 @@ KanaRPC 围绕上下文、请求状态和资源归属组织内核。普通调用
 | `internal/wire` | KNR2 帧校验、有界读写与预算预留 |
 | `discovery` | etcd lease 所有权、revision 快照、watch 恢复与新鲜度 |
 | `routing` | 快照门槛、建连去重、连接上限、退休引用与共享字节池 |
+| `observability` | 统一生命周期钩子的 OTel span、指标与结构化日志关联 |
+| `cmd/kanarpc`、`cmd/production-demo` | JSON/Protobuf 调试与完整业务接入链路 |
 | `cmd/protoc-gen-kanarpc` | 从 schema 生成类型化客户端、流接收器与原子服务注册 |
 | `cmd/showcase` | 可调负载、流式操作、关闭报告和本地请求时间线 |
 
@@ -74,6 +76,8 @@ stateDiagram-v2
 | R10 | 有界事件日志、可调负载控制台、取消与关闭流程 | [操作指南](showcase-r10.md) |
 | R11 | Protobuf 二进制业务编码、类型化 SDK 与组件升级 | [接入指南](protobuf.md)、[组件评估](components-20261101.md) |
 | R12 | 建连能力协商、schema 兼容检查与 SDK 发布候选链路 | [SDK 治理](sdk-r12.md) |
+| R13–14 | grpc-go 同条件对照、按需通知、信用合并与 TCP writev | [对照](grpc-comparison-r13.md)、[定位与优化](grpc-optimization-r14.md) |
+| R15 | Metadata/身份、统一管线、gzip、QPS/重试、路由/熔断、就绪发布与标准观测 | [完整调用链](production-r15.md)、[验证](verification/production-r15/README.md) |
 
 阶段源码、失败、退化与原始测量集中在 [验证索引](verification/README.md)。历史结果按对应版本解释。
 

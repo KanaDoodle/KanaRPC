@@ -4,6 +4,7 @@ import (
 	"context"
 	"crypto/rand"
 	"crypto/tls"
+	"encoding/binary"
 	"encoding/hex"
 	"encoding/json"
 	"errors"
@@ -57,6 +58,7 @@ type Server struct {
 	connections    map[*serverConn]struct{}
 	nativeSessions map[*quicServerSession]struct{}
 	nativeListener *QUICListener
+	notServing     bool
 	stats          ServerStats
 	resources      *resources
 	governor       *governor
@@ -71,9 +73,14 @@ func NewServer(cfg ServerConfig) (*Server, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &Server{cfg: cfg, changed: make(chan struct{}), methods: make(map[string]method), connections: make(map[*serverConn]struct{}), nativeSessions: make(map[*quicServerSession]struct{}), resources: newResources(cfg.Memory), governor: g}, nil
+	return &Server{cfg: cfg, methods: make(map[string]method), connections: make(map[*serverConn]struct{}), nativeSessions: make(map[*quicServerSession]struct{}), resources: newResources(cfg.Memory), governor: g}, nil
 }
-func (s *Server) notifyLocked()      { close(s.changed); s.changed = make(chan struct{}) }
+func (s *Server) notifyLocked() {
+	if s.changed != nil {
+		close(s.changed)
+		s.changed = nil
+	}
+}
 func (s *Server) Stats() ServerStats { s.mu.Lock(); defer s.mu.Unlock(); return s.stats }
 func (s *Server) Ready() bool        { s.mu.Lock(); defer s.mu.Unlock(); return s.state == serving }
 
@@ -165,6 +172,10 @@ func (s *Server) serveRecords(listener net.Listener, security *tls.Config, hands
 			closeSocket(conn)
 			continue
 		}
+		if e := applyKeepAlive(conn, s.cfg.TCPKeepAlive); e != nil {
+			closeSocket(conn)
+			continue
+		}
 		ctx, cancel := context.WithCancelCause(context.Background())
 		peer := &serverConn{server: s, link: newLink(conn, s.cfg.IO), ctx: ctx, cancel: cancel, requests: make(map[uint64]*execution)}
 		peer.traceChannel = s.cfg.Trace.newChannel()
@@ -227,6 +238,9 @@ func (s *Server) Wait(ctx context.Context) error {
 	for {
 		s.mu.Lock()
 		done := !s.accepting && s.stats.Connections == 0 && s.stats.InFlight == 0 && s.stats.NativeStreams == 0
+		if s.changed == nil {
+			s.changed = make(chan struct{})
+		}
 		changed := s.changed
 		s.mu.Unlock()
 		if done {
@@ -334,7 +348,7 @@ func (p *serverConn) handleFrame(f wire.Frame) bool {
 		p.native.barrier(p, f)
 		return false
 	}
-	if f.Kind == wire.Open || f.Kind == wire.OpenEncoded {
+	if f.Kind == wire.Open || f.Kind == wire.OpenEncoded || f.Kind == wire.OpenOptions {
 		if p.native != nil {
 			p.server.mu.Lock()
 			p.native.used = true
@@ -414,6 +428,19 @@ func (p *serverConn) reject(id uint64, code Code, reason string, path ...string)
 }
 func (p *serverConn) open(f wire.Frame) (bool, error) {
 	request, encoding, decodeErr := decodeOpen(f)
+	options := f.Kind == wire.OpenOptions
+	if options {
+		s := p.server
+		s.mu.Lock()
+		negotiated := p.helloSeen || p.native != nil && p.native.helloSeen
+		s.mu.Unlock()
+		if !negotiated {
+			return false, p.reject(f.ID, InvalidArgument, "invalid")
+		}
+	}
+	if options && request.PlainBytes > p.link.cfg.MaxFrameBytes {
+		return false, p.reject(f.ID, InvalidArgument, "invalid")
+	}
 	if p.server.cfg.Trace != nil {
 		traceMethod := request.Method
 		if !validMethod(traceMethod) {
@@ -433,6 +460,10 @@ func (p *serverConn) open(f wire.Frame) (bool, error) {
 		s.mu.Unlock()
 		return false, p.reject(f.ID, Unavailable, "draining", request.Method)
 	}
+	if s.notServing && !healthMethod(request.Method) {
+		s.mu.Unlock()
+		return false, p.reject(f.ID, Unavailable, "draining", request.Method)
+	}
 	h, ok := s.methods[request.Method]
 	if !ok {
 		s.mu.Unlock()
@@ -441,6 +472,10 @@ func (p *serverConn) open(f wire.Frame) (bool, error) {
 	if h.streaming != request.Stream || h.encoding != encoding {
 		s.mu.Unlock()
 		return false, p.reject(f.ID, InvalidArgument, "invalid")
+	}
+	if e := s.cfg.RateLimiter.Allow(request.Method); e != nil {
+		s.mu.Unlock()
+		return false, p.reject(f.ID, ResourceExhausted, "rate", request.Method)
 	}
 	p.mu.Lock()
 	count := len(p.requests)
@@ -466,7 +501,16 @@ func (p *serverConn) open(f wire.Frame) (bool, error) {
 	if s.cfg.Trace != nil {
 		ctx = context.WithValue(ctx, requestTraceKey{}, TraceRef{p.traceChannel, f.ID, request.Method})
 	}
-	r := &execution{encoding: encoding, peer: p, id: f.ID, ctx: ctx, cancel: cancel, stop: stop, window: request.Window, credits: request.Window, changed: make(chan struct{}), ack: make(chan struct{}), input: f, path: request.Method}
+	if options || s.cfg.Authenticate != nil || len(s.cfg.Interceptors) > 0 {
+		ctx = context.WithValue(ctx, peerKey{}, p.peerInfo())
+	}
+	if options {
+		ctx = context.WithValue(ctx, incomingMetadataKey{}, request.Metadata)
+	}
+	r := &execution{options: options, compression: request.Compression, plainBytes: request.PlainBytes, acceptGzip: request.AcceptGzip, streaming: request.Stream, encoding: encoding, peer: p, id: f.ID, ctx: ctx, cancel: cancel, stop: stop, window: request.Window, credits: request.Window, ack: make(chan struct{}), input: f, path: request.Method}
+	if options {
+		r.ctx = context.WithValue(r.ctx, trailerWriterKey{}, r)
+	}
 	p.requests[f.ID] = r
 	p.bound = true
 	if p.native != nil {
@@ -490,6 +534,10 @@ func (p *serverConn) open(f wire.Frame) (bool, error) {
 }
 
 type execution struct {
+	trailers                            Metadata
+	options, acceptGzip, streaming      bool
+	compression                         string
+	plainBytes                          uint32
 	peer                                *serverConn
 	id                                  uint64
 	ctx                                 context.Context
@@ -530,7 +578,14 @@ func (out *Sender) Send(body json.RawMessage) error {
 	if r.encoding == encodingJSON && !json.Valid(body) || uint64(len(body)) > uint64(r.peer.link.cfg.MaxFrameBytes) {
 		return &Status{Code: InvalidArgument, Message: "invalid or oversized response"}
 	}
-	release, err := r.peer.server.resources.send.take(int64(len(body)))
+	reservation := int64(len(body))
+	if r.options {
+		reservation = 3*int64(len(body)) + 5
+		if r.acceptGzip && r.peer.server.cfg.Compression != nil {
+			reservation += compressionWriteWorkspace
+		}
+	}
+	release, err := r.peer.server.resources.send.take(reservation)
 	if err != nil {
 		if r.peer.server.cfg.Trace != nil {
 			r.trace("budget_rejected", "local_send_reservation", statusOf(err).Code, 0)
@@ -538,6 +593,27 @@ func (out *Sender) Send(body json.RawMessage) error {
 		return err
 	}
 	defer release()
+	if r.options {
+		plain := len(body)
+		compressed := false
+		if r.acceptGzip && r.peer.server.cfg.Compression != nil {
+			body, compressed, err = gzipBody(r.ctx, body, r.peer.server.cfg.Compression.MinBytes)
+			if err != nil {
+				return err
+			}
+		}
+		if len(body)+5 > int(r.peer.link.cfg.MaxFrameBytes) {
+			return &Status{Code: InvalidArgument, Message: "response exceeds envelope limit"}
+		}
+		r.peer.server.resources.compression.encode(plain, len(body), compressed)
+		packet := make([]byte, 5+len(body))
+		if compressed {
+			packet[0] = 1
+		}
+		binary.BigEndian.PutUint32(packet[1:5], uint32(plain))
+		copy(packet[5:], body)
+		body = packet
+	}
 	r.sendMu.Lock()
 	defer r.sendMu.Unlock()
 	for {
@@ -562,6 +638,9 @@ func (out *Sender) Send(body json.RawMessage) error {
 			if r.encoding == encodingProtobuf {
 				kind = wire.DataEncoded
 			}
+			if r.options {
+				kind = wire.DataOptions
+			}
 			touched, err := r.peer.link.send(r.ctx, wire.Frame{Kind: kind, ID: r.id, Number: number, Payload: body})
 			if err == nil {
 				r.trace("data_sent", "credit_consumed", OK, int64(number))
@@ -570,6 +649,9 @@ func (out *Sender) Send(body json.RawMessage) error {
 				r.peer.close(err)
 			}
 			return err
+		}
+		if r.changed == nil {
+			r.changed = make(chan struct{})
 		}
 		changed := r.changed
 		r.mu.Unlock()
@@ -591,8 +673,10 @@ func (r *execution) credit() bool {
 	}
 	r.returned++
 	r.credits++
-	close(r.changed)
-	r.changed = make(chan struct{})
+	if r.changed != nil {
+		close(r.changed)
+		r.changed = nil
+	}
 	return true
 }
 func (r *execution) acknowledge(receipt []byte) bool {
@@ -615,6 +699,54 @@ func invoke(h method, ctx context.Context, b json.RawMessage, out *Sender) (err 
 			err = &Status{Code: Internal, Message: "handler panicked"}
 		}
 	}()
+	r := out.request
+	if len(r.peer.server.cfg.Interceptors) == 0 && r.peer.server.cfg.Authenticate == nil && r.compression == "" {
+		return h.run(ctx, b, out)
+	}
+	info := CallInfo{Method: r.path, Side: "server", Streaming: r.streaming, Started: r.started, QueueWait: r.queueWait}
+	if info.Started.IsZero() {
+		info.Started = time.Now()
+	}
+	ctx, finish, e := beginInterceptors(ctx, info, r.peer.server.cfg.Interceptors)
+	if e != nil {
+		return e
+	}
+	defer func() {
+		if recover() != nil {
+			err = &Status{Code: Internal, Message: "handler panicked"}
+		}
+		finish(err, 1)
+	}()
+	if auth := r.peer.server.cfg.Authenticate; auth != nil {
+		identity, e := safeAuthenticate(auth, ctx, info)
+		if e != nil {
+			if !r.options {
+				return &Status{Code: Unavailable, Message: "authenticated call options required"}
+			}
+			return authFailure(e)
+		}
+		identity.Claims = cloneMetadata(identity.Claims)
+		ctx = context.WithValue(ctx, identityKey{}, identity)
+	}
+	if r.compression == "gzip" {
+		lease, e := r.peer.server.resources.receive.lease(int64(r.plainBytes) + compressionReadWorkspace)
+		if e != nil {
+			return e
+		}
+		defer lease.release()
+		b, e = inflateBody(ctx, b, r.plainBytes)
+		if e != nil {
+			if errors.Is(e, context.Canceled) || errors.Is(e, context.DeadlineExceeded) {
+				return e
+			}
+			return &Status{Code: InvalidArgument, Message: "invalid gzip request"}
+		}
+		lease.shrink(int64(r.plainBytes))
+		r.peer.server.resources.compression.decode(r.plainBytes)
+	}
+	if r.encoding == encodingJSON && !json.Valid(b) {
+		return &Status{Code: InvalidArgument, Message: "invalid JSON request"}
+	}
 	return h.run(ctx, b, out)
 }
 func (r *execution) run(h method, body json.RawMessage) {
@@ -681,7 +813,10 @@ func (r *execution) run(h method, body json.RawMessage) {
 	defer r.sendMu.Unlock()
 	r.mu.Lock()
 	r.terminal = true
-	status := endRecord{Status: classified}
+	status := endRecord{Status: classified, Metadata: cloneMetadata(r.trailers)}
+	if !r.options && (classified.Code == Unauthenticated || classified.Code == PermissionDenied || classified.Code == FailedPrecondition) {
+		status.Status = Status{Code: Unavailable, Message: "extended status requires call options"}
+	}
 	wantACK := r.ctx.Err() == nil
 	if wantACK {
 		if _, e := rand.Read(r.receipt[:]); e != nil {

@@ -13,14 +13,17 @@ import (
 type Code string
 
 const (
-	OK                Code = "ok"
-	Canceled          Code = "canceled"
-	DeadlineExceeded  Code = "deadline_exceeded"
-	ResourceExhausted Code = "resource_exhausted"
-	Unavailable       Code = "unavailable"
-	InvalidArgument   Code = "invalid_argument"
-	Internal          Code = "internal"
-	NotFound          Code = "not_found"
+	OK                 Code = "ok"
+	Canceled           Code = "canceled"
+	DeadlineExceeded   Code = "deadline_exceeded"
+	ResourceExhausted  Code = "resource_exhausted"
+	Unavailable        Code = "unavailable"
+	InvalidArgument    Code = "invalid_argument"
+	Internal           Code = "internal"
+	NotFound           Code = "not_found"
+	Unauthenticated    Code = "unauthenticated"
+	PermissionDenied   Code = "permission_denied"
+	FailedPrecondition Code = "failed_precondition"
 )
 
 type Status struct {
@@ -50,7 +53,7 @@ var (
 
 func knownCode(c Code) bool {
 	switch c {
-	case OK, Canceled, DeadlineExceeded, ResourceExhausted, Unavailable, InvalidArgument, Internal, NotFound:
+	case OK, Canceled, DeadlineExceeded, ResourceExhausted, Unavailable, InvalidArgument, Internal, NotFound, Unauthenticated, PermissionDenied, FailedPrecondition:
 		return true
 	}
 	return false
@@ -101,14 +104,19 @@ func validMethod(method string) bool {
 }
 
 type openRecord struct {
+	Metadata    Metadata        `json:"metadata,omitempty"`
+	PlainBytes  uint32          `json:"plain_bytes,omitempty"`
+	Compression string          `json:"compression,omitempty"`
+	AcceptGzip  bool            `json:"accept_gzip,omitempty"`
 	Method      string          `json:"method"`
 	BudgetNanos int64           `json:"budget_ns"`
 	Window      uint32          `json:"window"`
 	Stream      bool            `json:"stream"`
 	Codec       string          `json:"codec,omitempty"`
-	Request     json.RawMessage `json:"request"`
+	Request     json.RawMessage `json:"request,omitempty"`
 }
 type endRecord struct {
+	Metadata Metadata `json:"metadata,omitempty"`
 	Status
 	Receipt  string    `json:"receipt,omitempty"`
 	Pressure *Pressure `json:"pressure,omitempty"`
@@ -138,3 +146,6 @@ func marshalEnd(record endRecord, limit uint32) []byte {
 		}
 	}
 }
+
+// StatusCode returns the sanitized framework classification for instrumentation.
+func StatusCode(err error) Code { return statusOf(err).Code }

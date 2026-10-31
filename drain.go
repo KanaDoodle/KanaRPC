@@ -82,6 +82,9 @@ func (s *Server) DrainWithReport(ctx context.Context) (report DrainReport, err e
 	for {
 		s.mu.Lock()
 		quiet := !s.accepting && s.stats.InFlight == 0
+		if s.changed == nil {
+			s.changed = make(chan struct{})
+		}
 		changed := s.changed
 		s.mu.Unlock()
 		if quiet {

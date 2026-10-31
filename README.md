@@ -8,13 +8,16 @@
 
 | 能力 | 设计与用途 |
 | --- | --- |
+| 业务调用管线 | Metadata、凭证与身份、生命周期拦截器、按尝试 QPS 和显式幂等重试，通过同一 ServiceCaller 接入直连、发现连接池与生成 SDK |
+| 按需消息压缩 | 协商 gzip，普通/流式消息独立选择压缩，展开前预留字节容量 |
 | 上下文驱动的调用 | 泛型显式注册处理器，传播请求预算与取消信号；流式响应通过信用窗口控制发送 |
 | Protobuf 类型化 SDK | 从 `.proto` 生成 Go 消息、客户端与服务注册，兼容 Editions/Opaque；建连时协商能力和帧上限，schema 变更按二进制、JSON 与源码分别检查 |
 | 原生 QUIC 请求流 | 每次 RPC 使用独立双向流，隔离请求流上的坏帧与取消；TLS/QUIC 显式配置证书信任，支持 mTLS |
 | 自适应过载控制 | 方法加权调度、延迟窗口 AIMD 和短效压力反馈协同控制服务端执行与客户端接纳；支持固定限额回退与人工复位 |
 | 池级资源预算 | 编码前接纳，编码、接收、发送采用连接与池两层字节租约；退休连接、未读流和进行中的解码持续计费 |
-| 发现驱动的连接管理 | etcd lease/watch、快照新鲜度校验、建连去重、有界连接数和 endpoint 退休，保护在途调用与未读结果 |
+| 发现驱动的连接管理 | etcd lease/watch、快照新鲜度校验、RR/WRR/P2C、endpoint 熔断、建连去重、有界连接数和退休，保护在途调用与未读结果 |
 | 可报告的优雅关闭 | `DrainWithReport` 分别报告资源退出、历史故障和本次新增故障，保留未回执与交换未确认的累计记录 |
+| 服务就绪与标准观测 | 健康 Check/Watch、就绪驱动 etcd 发布、结构化日志、Prometheus 指标和 OpenTelemetry 关联 |
 | 请求决策时间线 | 可选的有界本地事件记录器，关联接纳、调度、执行、取消、回执和释放，配套交互式治理控制台 |
 
 ## 快速体验 🐾
@@ -57,15 +60,25 @@ err = kanarpc.RegisterUnary(server, "/math/add", func(ctx context.Context, in [2
 
 准备接进独立应用时，按 [SDK 治理与发布](docs/sdk-r12.md) 固定版本、检查生成代码和 schema 兼容性。历史验收证据保留在仓库中，Go 模块下载包专注 SDK 源码与使用文档。
 
+## 跑通业务接入链
+
+```sh
+go run ./cmd/production-demo
+# 也可以选择 -transport tls 或 -transport quic。
+```
+
+带上调用凭证，跑一次类型化请求和流式响应，再看压缩、日志、追踪与关闭结果一起收尾 (•̀ᴗ•́)و。示例使用本机实际连接与临时证书；[完整调用链与接入方式](docs/production-r15.md)说明各环节、资源归属和调试 CLI。
+
 ## 架构：请求的内部旅程
 
 根包负责请求状态机、编解码、传输适配和资源治理；`discovery` 提供 etcd 注册与快照；`routing` 消费发现快照并管理连接。QUIC 传输基于 quic-go，注册发现基于 etcd client。
 
-一次请求会走过这条路线：**客户端接纳与编码预留 → 发送 OPEN → 服务端接纳与方法调度 → 执行 / 信用流控 → END 与协议回执 → 请求退休与资源释放**。取消、截止时间和连接故障通过同一状态机参与终态结算。编码准备、排队、执行、回执等待与未读数据分别统计，便于定位压力来源。
+一次请求会走过这条路线：**业务管线与凭证 → 路由 / 限流 / 总 deadline → 客户端接纳与编码预留 → 编码与按需压缩 → 服务端接纳与方法调度 → 鉴权 / 解压 / 执行 / 信用流控 → END 与协议回执 → 请求退休与资源释放**。取消、截止时间和连接故障通过同一状态机参与终态结算。编码准备、排队、执行、回执等待与未读数据分别统计，便于定位压力来源。
 
 | 文档 | 内容 |
 | --- | --- |
 | [架构与演进](docs/rewrite-plan.md)、[KNR2 协议](docs/protocol-v2.md) | 模块职责、请求状态与帧契约 |
+| [业务接入与完整调用链](docs/production-r15.md) | 元数据、中间件、鉴权、gzip、观测、就绪发布和调用策略 |
 | [Protobuf 与 Go SDK](docs/protobuf.md)、[组件评估](docs/components-20261101.md) | 接口定义、二进制负载、生成代码与依赖升级 |
 | [传输与发现](docs/transport-r7b.md)、[连接管理](docs/connections-r8c.md) | TLS/QUIC、etcd 一致性与连接归属 |
 | [过载治理](docs/governance-r7c.md)、[控制回退](docs/control-r8a.md) | 调度、延迟目标、压力反馈与复位 |
@@ -82,6 +95,8 @@ GOWORK=off go test -race ./...
 ```
 
 etcd 集成用例需要独立实例，可通过 [开发说明](docs/development.md) 中的 runner 自动创建和回收。各阶段的环境、源码快照、完整请求结果、失败与退化数据保存在 [验证索引](docs/verification/README.md)。已有测量来自本机 loopback 与本地 Linux VM；真实双机、WAN、多成员 etcd 和模型推理性能尚未验证。
+
+普通与流式调用的 TCP/TLS 外部基线见 [grpc-go 同条件对照](docs/grpc-comparison-r13.md)，包含完整矩阵、CPU/分配开销及不利结果。后续的 profile 定位、信用合并与 TCP writev 记录见 [并发与流式优化](docs/grpc-optimization-r14.md)。
 
 ## 兼容性与许可
 
