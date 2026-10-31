@@ -1,0 +1,43 @@
+{
+  "endpoint": "http://127.0.0.1:55675",
+  "etcd_version": "etcd Version: 3.7.1\nGit SHA: 5e7fd0de9\nGo Version: go1.26.5\nGo OS/Arch: darwin/arm64\n",
+  "scope": "owned single-member etcd; real lease, watch, compaction and TCP gate; not a quorum/production test",
+  "owned_pid": 6704,
+  "owned_membership": {
+    "header": {
+      "cluster_id": "5467608085750385855",
+      "member_id": "15202247705375932764",
+      "raft_term": "2"
+    },
+    "members": [
+      {
+        "ID": "15202247705375932764",
+        "name": "kanarpc-r7b-6700",
+        "peerURLs": [
+          "http://127.0.0.1:55676"
+        ],
+        "clientURLs": [
+          "http://127.0.0.1:55675"
+        ]
+      }
+    ]
+  },
+  "command": [
+    "go",
+    "test",
+    "-count=1",
+    "-timeout=120s",
+    "-json",
+    "-race",
+    "./..."
+  ],
+  "test_exit_code": 1,
+  "checks": {
+    "pass": 174,
+    "skip": 0,
+    "fail": 1
+  },
+  "status": "FAIL",
+  "failure": "RuntimeError('Go checks failed or required real-etcd tests skipped')",
+  "owned_process_reaped": true
+}

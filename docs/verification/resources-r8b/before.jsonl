@@ -1,0 +1,19 @@
+{"Time":"2026-10-31T15:02:53.776671+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T15:02:54.206632+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding"}
+{"Time":"2026-10-31T15:02:54.206727+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Output":"=== RUN   TestClientAdmissionPrecedesRequestEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:02:54.409511+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Output":"    preparation_test.go:76: MaxInFlight=1 allowed 16 concurrent user encoders before admission\n","OutputType":"error"}
+{"Time":"2026-10-31T15:02:54.40965+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Output":"--- FAIL: TestClientAdmissionPrecedesRequestEncoding (0.20s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:02:54.409661+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Elapsed":0.2}
+{"Time":"2026-10-31T15:02:54.409808+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder"}
+{"Time":"2026-10-31T15:02:54.409908+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Output":"=== RUN   TestClosedClientDoesNotInvokeUserEncoder\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:02:54.41007+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Output":"    preparation_test.go:92: closed client invoked user encoder 1\n","OutputType":"error"}
+{"Time":"2026-10-31T15:02:54.410108+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Output":"--- FAIL: TestClosedClientDoesNotInvokeUserEncoder (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:02:54.41012+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Elapsed":0}
+{"Time":"2026-10-31T15:02:54.410986+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding"}
+{"Time":"2026-10-31T15:02:54.411103+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Output":"=== RUN   TestFeedbackRefusalPrecedesUserEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:02:54.415289+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Output":"    preparation_test.go:126: feedback refusal happened after user encoding 1 {0 0 0 1 1 0 2 1 0 0 2 0}\n","OutputType":"error"}
+{"Time":"2026-10-31T15:02:54.415435+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Output":"--- FAIL: TestFeedbackRefusalPrecedesUserEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:02:54.415453+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Elapsed":0}
+{"Time":"2026-10-31T15:02:54.418462+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:02:54.421595+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.645s\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:02:54.42166+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.645}

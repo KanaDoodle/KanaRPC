@@ -55,11 +55,17 @@ func normalizeClient(c ClientConfig) (ClientConfig, error) {
 	if c.Feedback, err = normalizeFeedback(c.Feedback); err != nil {
 		return c, err
 	}
+	if c.IO, err = normalizeIO(c.IO); err != nil {
+		return c, err
+	}
+	if c.Memory.EncodingBytes == 0 && int64(c.IO.MaxFrameBytes)*2 > 16<<20 {
+		c.Memory.EncodingBytes = int64(c.IO.MaxFrameBytes) * 2
+	}
 	if c.Memory, err = memoryConfig(c.Memory); err != nil {
 		return c, err
 	}
-	if c.IO, err = normalizeIO(c.IO); err != nil {
-		return c, err
+	if c.Memory.EncodingBytes < int64(c.IO.MaxFrameBytes)*2 {
+		return c, errors.New("kanarpc: encoding capacity must hold two maximum frames")
 	}
 	if c.Timeout == 0 {
 		c.Timeout = 5 * time.Second

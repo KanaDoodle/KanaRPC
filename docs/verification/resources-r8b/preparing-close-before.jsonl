@@ -1,0 +1,9 @@
+{"Time":"2026-10-31T15:31:12.889376+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T15:31:13.458241+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestCloseWhileWaitingEncodingCapacityReturnsClosed"}
+{"Time":"2026-10-31T15:31:13.458489+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestCloseWhileWaitingEncodingCapacityReturnsClosed","Output":"=== RUN   TestCloseWhileWaitingEncodingCapacityReturnsClosed\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:31:13.460218+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestCloseWhileWaitingEncodingCapacityReturnsClosed","Output":"    preparation_test.go:132: owner close lost its identity while preparing context canceled 0\n","OutputType":"error"}
+{"Time":"2026-10-31T15:31:13.460313+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestCloseWhileWaitingEncodingCapacityReturnsClosed","Output":"--- FAIL: TestCloseWhileWaitingEncodingCapacityReturnsClosed (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:31:13.460328+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestCloseWhileWaitingEncodingCapacityReturnsClosed","Elapsed":0}
+{"Time":"2026-10-31T15:31:13.460345+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:31:13.461261+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.572s\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:31:13.461277+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.572}

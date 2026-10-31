@@ -1,0 +1,136 @@
+{"Time":"2026-10-31T15:14:01.068674+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T15:14:01.509205+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder"}
+{"Time":"2026-10-31T15:14:01.509257+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Output":"=== RUN   TestClosedQUICParentDoesNotInvokeEncoder\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.519176+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Output":"--- PASS: TestClosedQUICParentDoesNotInvokeEncoder (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.519194+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Elapsed":0.01}
+{"Time":"2026-10-31T15:14:01.519289+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting"}
+{"Time":"2026-10-31T15:14:01.519295+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting","Output":"=== RUN   TestEncodingCapacityWaitCancellationAndCloseAccounting\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.532989+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting","Output":"--- PASS: TestEncodingCapacityWaitCancellationAndCloseAccounting (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.533005+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting","Elapsed":0.01}
+{"Time":"2026-10-31T15:14:01.533137+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait"}
+{"Time":"2026-10-31T15:14:01.533144+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait","Output":"=== RUN   TestPreparedBytesStayChargedDuringWriterWait\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.534506+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait","Output":"--- PASS: TestPreparedBytesStayChargedDuringWriterWait (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.534515+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.534662+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources"}
+{"Time":"2026-10-31T15:14:01.534668+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources","Output":"=== RUN   TestEncodingFailureOversizeAndPanicReleaseResources\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.537214+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources","Output":"--- PASS: TestEncodingFailureOversizeAndPanicReleaseResources (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.537223+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.537381+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream"}
+{"Time":"2026-10-31T15:14:01.537387+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream","Output":"=== RUN   TestQUICPreparationAdmissionPrecedesNativeStream\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.545229+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream","Output":"--- PASS: TestQUICPreparationAdmissionPrecedesNativeStream (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.54525+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream","Elapsed":0.01}
+{"Time":"2026-10-31T15:14:01.545271+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding"}
+{"Time":"2026-10-31T15:14:01.545274+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Output":"=== RUN   TestClientAdmissionPrecedesRequestEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.545426+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Output":"--- PASS: TestClientAdmissionPrecedesRequestEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.545434+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.545474+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder"}
+{"Time":"2026-10-31T15:14:01.545479+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Output":"=== RUN   TestClosedClientDoesNotInvokeUserEncoder\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.545512+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Output":"--- PASS: TestClosedClientDoesNotInvokeUserEncoder (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.545518+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.54559+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding"}
+{"Time":"2026-10-31T15:14:01.545595+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Output":"=== RUN   TestFeedbackRefusalPrecedesUserEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.548009+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Output":"--- PASS: TestFeedbackRefusalPrecedesUserEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.548017+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.560045+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder"}
+{"Time":"2026-10-31T15:14:01.560053+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Output":"=== RUN   TestClosedQUICParentDoesNotInvokeEncoder\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.566552+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Output":"--- PASS: TestClosedQUICParentDoesNotInvokeEncoder (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.566559+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Elapsed":0.01}
+{"Time":"2026-10-31T15:14:01.566663+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting"}
+{"Time":"2026-10-31T15:14:01.566667+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting","Output":"=== RUN   TestEncodingCapacityWaitCancellationAndCloseAccounting\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.578505+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting","Output":"--- PASS: TestEncodingCapacityWaitCancellationAndCloseAccounting (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.578524+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting","Elapsed":0.01}
+{"Time":"2026-10-31T15:14:01.578625+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait"}
+{"Time":"2026-10-31T15:14:01.57863+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait","Output":"=== RUN   TestPreparedBytesStayChargedDuringWriterWait\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.579937+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait","Output":"--- PASS: TestPreparedBytesStayChargedDuringWriterWait (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.579943+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.580081+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources"}
+{"Time":"2026-10-31T15:14:01.580087+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources","Output":"=== RUN   TestEncodingFailureOversizeAndPanicReleaseResources\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.582247+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources","Output":"--- PASS: TestEncodingFailureOversizeAndPanicReleaseResources (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.582253+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.5824+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream"}
+{"Time":"2026-10-31T15:14:01.582404+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream","Output":"=== RUN   TestQUICPreparationAdmissionPrecedesNativeStream\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.589356+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream","Output":"--- PASS: TestQUICPreparationAdmissionPrecedesNativeStream (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.589369+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream","Elapsed":0.01}
+{"Time":"2026-10-31T15:14:01.589392+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding"}
+{"Time":"2026-10-31T15:14:01.589407+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Output":"=== RUN   TestClientAdmissionPrecedesRequestEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.589514+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Output":"--- PASS: TestClientAdmissionPrecedesRequestEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.58952+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.589553+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder"}
+{"Time":"2026-10-31T15:14:01.589558+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Output":"=== RUN   TestClosedClientDoesNotInvokeUserEncoder\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.589584+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Output":"--- PASS: TestClosedClientDoesNotInvokeUserEncoder (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.589594+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.589653+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding"}
+{"Time":"2026-10-31T15:14:01.589657+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Output":"=== RUN   TestFeedbackRefusalPrecedesUserEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.591824+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Output":"--- PASS: TestFeedbackRefusalPrecedesUserEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.59183+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.603075+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder"}
+{"Time":"2026-10-31T15:14:01.603081+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Output":"=== RUN   TestClosedQUICParentDoesNotInvokeEncoder\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.609319+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Output":"--- PASS: TestClosedQUICParentDoesNotInvokeEncoder (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.609325+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Elapsed":0.01}
+{"Time":"2026-10-31T15:14:01.609415+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting"}
+{"Time":"2026-10-31T15:14:01.60942+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting","Output":"=== RUN   TestEncodingCapacityWaitCancellationAndCloseAccounting\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.620852+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting","Output":"--- PASS: TestEncodingCapacityWaitCancellationAndCloseAccounting (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.620859+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingCapacityWaitCancellationAndCloseAccounting","Elapsed":0.01}
+{"Time":"2026-10-31T15:14:01.621181+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait"}
+{"Time":"2026-10-31T15:14:01.62119+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait","Output":"=== RUN   TestPreparedBytesStayChargedDuringWriterWait\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.622548+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait","Output":"--- PASS: TestPreparedBytesStayChargedDuringWriterWait (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.622557+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPreparedBytesStayChargedDuringWriterWait","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.622678+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources"}
+{"Time":"2026-10-31T15:14:01.622683+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources","Output":"=== RUN   TestEncodingFailureOversizeAndPanicReleaseResources\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.624646+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources","Output":"--- PASS: TestEncodingFailureOversizeAndPanicReleaseResources (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.624659+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEncodingFailureOversizeAndPanicReleaseResources","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.624789+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream"}
+{"Time":"2026-10-31T15:14:01.624794+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream","Output":"=== RUN   TestQUICPreparationAdmissionPrecedesNativeStream\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.630067+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream","Output":"--- PASS: TestQUICPreparationAdmissionPrecedesNativeStream (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.630074+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICPreparationAdmissionPrecedesNativeStream","Elapsed":0.01}
+{"Time":"2026-10-31T15:14:01.630101+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding"}
+{"Time":"2026-10-31T15:14:01.630105+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Output":"=== RUN   TestClientAdmissionPrecedesRequestEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.630218+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Output":"--- PASS: TestClientAdmissionPrecedesRequestEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.630223+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClientAdmissionPrecedesRequestEncoding","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.630254+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder"}
+{"Time":"2026-10-31T15:14:01.630258+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Output":"=== RUN   TestClosedClientDoesNotInvokeUserEncoder\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.630289+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Output":"--- PASS: TestClosedClientDoesNotInvokeUserEncoder (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.630294+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedClientDoesNotInvokeUserEncoder","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.630361+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding"}
+{"Time":"2026-10-31T15:14:01.630365+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Output":"=== RUN   TestFeedbackRefusalPrecedesUserEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.63256+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Output":"--- PASS: TestFeedbackRefusalPrecedesUserEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.632565+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFeedbackRefusalPrecedesUserEncoding","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.636073+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen"}
+{"Time":"2026-10-31T15:14:01.63608+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen","Output":"=== RUN   FuzzPreparedOpen\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.636281+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0"}
+{"Time":"2026-10-31T15:14:01.636285+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0","Output":"=== RUN   FuzzPreparedOpen/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.63638+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0","Output":"--- PASS: FuzzPreparedOpen/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.63639+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.636519+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1"}
+{"Time":"2026-10-31T15:14:01.636523+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1","Output":"=== RUN   FuzzPreparedOpen/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.636586+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1","Output":"--- PASS: FuzzPreparedOpen/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.63659+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.636601+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen","Output":"--- PASS: FuzzPreparedOpen (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.636605+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.637351+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen"}
+{"Time":"2026-10-31T15:14:01.637355+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen","Output":"=== RUN   FuzzPreparedOpen\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.637503+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0"}
+{"Time":"2026-10-31T15:14:01.637506+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0","Output":"=== RUN   FuzzPreparedOpen/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.637561+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0","Output":"--- PASS: FuzzPreparedOpen/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.637565+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.6377+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1"}
+{"Time":"2026-10-31T15:14:01.637706+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1","Output":"=== RUN   FuzzPreparedOpen/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.637758+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1","Output":"--- PASS: FuzzPreparedOpen/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.637761+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.63777+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen","Output":"--- PASS: FuzzPreparedOpen (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.637774+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.638479+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen"}
+{"Time":"2026-10-31T15:14:01.638482+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen","Output":"=== RUN   FuzzPreparedOpen\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.638617+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0"}
+{"Time":"2026-10-31T15:14:01.638623+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0","Output":"=== RUN   FuzzPreparedOpen/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.638671+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0","Output":"--- PASS: FuzzPreparedOpen/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.638675+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#0","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.638804+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1"}
+{"Time":"2026-10-31T15:14:01.638807+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1","Output":"=== RUN   FuzzPreparedOpen/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.638858+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1","Output":"--- PASS: FuzzPreparedOpen/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.638862+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen/seed#1","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.63887+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen","Output":"--- PASS: FuzzPreparedOpen (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:01.638873+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzPreparedOpen","Elapsed":0}
+{"Time":"2026-10-31T15:14:01.639256+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:14:02.6538+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t1.585s\n"}
+{"Time":"2026-10-31T15:14:02.653894+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":1.585}

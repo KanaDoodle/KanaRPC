@@ -1,6 +1,7 @@
 package kanarpc
 
 import (
+	"context"
 	"errors"
 	"sync"
 
@@ -9,18 +10,24 @@ import (
 
 // MemoryConfig bounds retained framework record buffers, not arbitrary
 // application allocations, decoded response objects, QUIC internals or RSS.
-type MemoryConfig struct{ ReceiveBytes, SendBytes, ControlBytes int64 }
+type MemoryConfig struct{ ReceiveBytes, SendBytes, ControlBytes, EncodingBytes int64 }
 type ByteStats struct {
 	Limit, Used, Peak int64
 	Rejected          uint64
 }
-type MemoryStats struct{ Receive, Send, ControlReceive, ControlSend ByteStats }
+type MemoryStats struct{ Receive, Send, ControlReceive, ControlSend, Encoding ByteStats }
 type byteBudget struct {
-	mu    sync.Mutex
-	stats ByteStats
+	mu      sync.Mutex
+	stats   ByteStats
+	changed chan struct{}
 }
 
-func (b *byteBudget) take(n int64) (func(), error) {
+type byteLease struct {
+	budget *byteBudget
+	held   int64
+}
+
+func (b *byteBudget) lease(n int64) (*byteLease, error) {
 	b.mu.Lock()
 	if n < 0 || n > b.stats.Limit-b.stats.Used {
 		b.stats.Rejected++
@@ -32,8 +39,69 @@ func (b *byteBudget) take(n int64) (func(), error) {
 		b.stats.Peak = b.stats.Used
 	}
 	b.mu.Unlock()
-	var once sync.Once
-	return func() { once.Do(func() { b.mu.Lock(); b.stats.Used -= n; b.mu.Unlock() }) }, nil
+	return &byteLease{budget: b, held: n}, nil
+}
+func (b *byteBudget) waitLease(ctx context.Context, n int64) (*byteLease, error) {
+	for {
+		if err := deadlineError(ctx); err != nil {
+			return nil, err
+		}
+		b.mu.Lock()
+		if n < 0 || n > b.stats.Limit {
+			b.stats.Rejected++
+			b.mu.Unlock()
+			return nil, &Status{Code: ResourceExhausted, Message: "encoding capacity"}
+		}
+		if n <= b.stats.Limit-b.stats.Used {
+			b.stats.Used += n
+			if b.stats.Used > b.stats.Peak {
+				b.stats.Peak = b.stats.Used
+			}
+			b.mu.Unlock()
+			return &byteLease{budget: b, held: n}, nil
+		}
+		if b.changed == nil {
+			b.changed = make(chan struct{})
+		}
+		changed := b.changed
+		b.mu.Unlock()
+		select {
+		case <-ctx.Done():
+			return nil, ctx.Err()
+		case <-changed:
+		}
+	}
+}
+func (b *byteBudget) notifyLocked() {
+	if b.changed != nil {
+		close(b.changed)
+		b.changed = nil
+	}
+}
+func (b *byteBudget) take(n int64) (func(), error) {
+	lease, err := b.lease(n)
+	if err != nil {
+		return nil, err
+	}
+	return lease.release, nil
+}
+func (l *byteLease) release() {
+	l.budget.mu.Lock()
+	defer l.budget.mu.Unlock()
+	l.budget.stats.Used -= l.held
+	l.held = 0
+	l.budget.notifyLocked()
+}
+func (l *byteLease) shrink(n int64) bool {
+	l.budget.mu.Lock()
+	defer l.budget.mu.Unlock()
+	if n < 0 || n > l.held {
+		return false
+	}
+	l.budget.stats.Used -= l.held - n
+	l.held = n
+	l.budget.notifyLocked()
+	return true
 }
 func (b *byteBudget) snapshot() ByteStats { b.mu.Lock(); defer b.mu.Unlock(); return b.stats }
 func memoryConfig(c MemoryConfig) (MemoryConfig, error) {
@@ -46,7 +114,10 @@ func memoryConfig(c MemoryConfig) (MemoryConfig, error) {
 	if c.ControlBytes == 0 {
 		c.ControlBytes = 64 << 10
 	}
-	if c.ReceiveBytes < 1024 || c.SendBytes < 1024 || c.ControlBytes < 4096 || c.ReceiveBytes > 1<<40 || c.SendBytes > 1<<40 || c.ControlBytes > 16<<20 {
+	if c.EncodingBytes == 0 {
+		c.EncodingBytes = 16 << 20
+	}
+	if c.ReceiveBytes < 1024 || c.SendBytes < 1024 || c.ControlBytes < 4096 || c.EncodingBytes < 1024 || c.EncodingBytes > 1<<40 || c.ReceiveBytes > 1<<40 || c.SendBytes > 1<<40 || c.ControlBytes > 16<<20 {
 		return c, errors.New("kanarpc: invalid record byte bounds")
 	}
 	return c, nil
@@ -54,15 +125,23 @@ func memoryConfig(c MemoryConfig) (MemoryConfig, error) {
 
 type resources struct {
 	feedback                                   *feedbackTracker
+	admission                                  *clientAdmission
 	receive, send, controlReceive, controlSend byteBudget
+	encoding                                   byteBudget
 	buffers                                    bufferOwner
 }
 
 func newResources(c MemoryConfig) *resources {
-	return &resources{receive: byteBudget{stats: ByteStats{Limit: c.ReceiveBytes}}, send: byteBudget{stats: ByteStats{Limit: c.SendBytes}}, controlReceive: byteBudget{stats: ByteStats{Limit: c.ControlBytes}}, controlSend: byteBudget{stats: ByteStats{Limit: c.ControlBytes}}, buffers: bufferOwner{entries: make(map[*pending]struct{})}}
+	return &resources{receive: byteBudget{stats: ByteStats{Limit: c.ReceiveBytes}}, send: byteBudget{stats: ByteStats{Limit: c.SendBytes}}, controlReceive: byteBudget{stats: ByteStats{Limit: c.ControlBytes}}, controlSend: byteBudget{stats: ByteStats{Limit: c.ControlBytes}}, encoding: byteBudget{stats: ByteStats{Limit: c.EncodingBytes}}, buffers: bufferOwner{entries: make(map[*pending]struct{})}}
 }
 func (r *resources) snapshot() MemoryStats {
-	return MemoryStats{r.receive.snapshot(), r.send.snapshot(), r.controlReceive.snapshot(), r.controlSend.snapshot()}
+	return MemoryStats{r.receive.snapshot(), r.send.snapshot(), r.controlReceive.snapshot(), r.controlSend.snapshot(), r.encoding.snapshot()}
+}
+func newClientResources(c ClientConfig) *resources {
+	r := newResources(c.Memory)
+	r.feedback = newFeedback(c.Feedback, c.MaxInFlight)
+	r.admission = newAdmission(c.MaxInFlight)
+	return r
 }
 func dataKind(kind wire.Kind) bool { return kind == wire.Open || kind == wire.Data }
 func (r *resources) reserveRead(kind wire.Kind, n uint32) (func(), error) {

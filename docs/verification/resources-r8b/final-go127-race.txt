@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-discovery.py", line 99, in <module>
+    main()
+    ~~~~^^
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-discovery.py", line 79, in main
+    raise RuntimeError("Go checks failed or required real-etcd tests skipped")
+RuntimeError: Go checks failed or required real-etcd tests skipped

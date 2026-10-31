@@ -1,0 +1,9 @@
+{"Time":"2026-10-31T16:12:15.003826+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T16:12:15.521109+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICParentCauseDoesNotReplaceWrappedCodecError"}
+{"Time":"2026-10-31T16:12:15.52119+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICParentCauseDoesNotReplaceWrappedCodecError","Output":"=== RUN   TestQUICParentCauseDoesNotReplaceWrappedCodecError\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:12:15.525135+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICParentCauseDoesNotReplaceWrappedCodecError","Output":"    preparation_test.go:36: codec failure replaced by unrelated terminal cause resource_exhausted: QUIC session capacity\n","OutputType":"error"}
+{"Time":"2026-10-31T16:12:15.525193+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICParentCauseDoesNotReplaceWrappedCodecError","Output":"--- FAIL: TestQUICParentCauseDoesNotReplaceWrappedCodecError (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:12:15.525211+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICParentCauseDoesNotReplaceWrappedCodecError","Elapsed":0}
+{"Time":"2026-10-31T16:12:15.525221+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:12:15.525784+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.522s\n","OutputType":"frame"}
+{"Time":"2026-10-31T16:12:15.525801+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.522}

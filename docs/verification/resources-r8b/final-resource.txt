@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-resources.py", line 127, in <module>
+    if __name__=="__main__":main()
+                            ~~~~^^
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-resources.py", line 108, in main
+    result=soak(binaries[version],output/(version+"-"+transport),transport,args.duration,args.cycles);result["version"]=version;results.append(result)
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-resources.py", line 39, in soak
+    if client.wait(timeout=duration+45):raise RuntimeError("resource client failed")
+       ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1279, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2078, in _wait
+    time.sleep(delay)
+    ~~~~~~~~~~^^^^^^^
+KeyboardInterrupt

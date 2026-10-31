@@ -57,17 +57,29 @@ func TestTerminalCompletionReleasesFeedbackBeforeRetirement(t *testing.T) {
 		_ = wire.Write(right, wire.Frame{Kind: wire.Data, ID: frame.ID, Number: 1, Payload: []byte("1")}, wire.HardLimit)
 		_ = wire.Write(right, wire.Frame{Kind: wire.End, ID: frame.ID, Payload: end}, wire.HardLimit)
 	}()
-	done := make(chan error, 1)
-	go func() { var out int; done <- c.Call(context.Background(), "/demo/echo", 1, &out) }()
+	// Start the same unary exchange without racing response consumption against
+	// the gate. The property here is logical completion releasing feedback,
+	// not application Recv finishing while we artificially lock retirement.
+	stream, err := c.open(context.Background(), "/demo/echo", 1, false)
+	require(t, err)
 	signal(t, entered)
 	c.mu.Lock()
 	locked = true
 	close(release)
-	require(t, <-done)
+	eventually(t, func() bool {
+		stream.pending.mu.Lock()
+		defer stream.pending.mu.Unlock()
+		return stream.pending.done
+	})
 	if state := c.FeedbackStats(); len(state.Methods) != 1 || state.Methods[0].Active != 0 {
 		t.Fatal("completed call retained advisory permit until IO retirement", state)
 	}
 	unlock.Do(func() { c.mu.Unlock() })
+	var out int
+	require(t, unaryResult(stream, &out))
+	if out != 1 {
+		t.Fatal(out)
+	}
 }
 func TestDelayedPressureCannotRestartFullTTLAtReceipt(t *testing.T) {
 	left, right := net.Pipe()

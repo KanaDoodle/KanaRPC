@@ -282,6 +282,7 @@ type QUICClient struct {
 	ctx       context.Context
 	cancel    context.CancelFunc
 	closeOnce sync.Once
+	stopConn  func() bool
 }
 
 func DialQUIC(ctx context.Context, address string, security TLSOptions, options QUICConfig, cfg ClientConfig) (*QUICClient, error) {
@@ -308,9 +309,10 @@ func DialQUIC(ctx context.Context, address string, security TLSOptions, options 
 		return nil, nativeError(err)
 	}
 	owner, stop := context.WithCancel(context.Background())
-	res := newResources(cfg.Memory)
-	res.feedback = newFeedback(cfg.Feedback, cfg.MaxInFlight)
-	return &QUICClient{conn: conn, cfg: cfg, children: make(map[*Client]struct{}), ctx: owner, cancel: stop, resources: res}, nil
+	res := newClientResources(cfg)
+	client := &QUICClient{conn: conn, cfg: cfg, children: make(map[*Client]struct{}), ctx: owner, cancel: stop, resources: res}
+	client.stopConn = context.AfterFunc(conn.Context(), func() { res.admission.close(); stop() })
+	return client, nil
 }
 func (c *QUICClient) Stats() QUICStats {
 	c.mu.Lock()
@@ -323,7 +325,7 @@ func (c *QUICClient) Stats() QUICStats {
 	stats.PacketsLost = wire.PacketsLost
 	return stats
 }
-func (c *QUICClient) exchange(ctx context.Context) (*Client, context.Context, error) {
+func (c *QUICClient) exchange(ctx context.Context, lease *callLease) (*Client, context.Context, error) {
 	budget, cancel := context.WithTimeout(ctx, c.cfg.Timeout)
 	stopClosing := context.AfterFunc(c.ctx, cancel)
 	c.mu.Lock()
@@ -341,6 +343,7 @@ func (c *QUICClient) exchange(ctx context.Context) (*Client, context.Context, er
 	}
 	c.stats.Active++
 	c.wg.Add(1)
+	lease.retain()
 	c.mu.Unlock()
 	stream, err := c.conn.OpenStreamSync(budget)
 	if err != nil {
@@ -348,6 +351,7 @@ func (c *QUICClient) exchange(ctx context.Context) (*Client, context.Context, er
 		c.stats.Active--
 		c.mu.Unlock()
 		c.wg.Done()
+		lease.release()
 		cancel()
 		stopClosing()
 		return nil, nil, nativeError(err)
@@ -362,6 +366,7 @@ func (c *QUICClient) exchange(ctx context.Context) (*Client, context.Context, er
 		c.stats.Active--
 		c.mu.Unlock()
 		c.wg.Done()
+		lease.release()
 		cancel()
 		stopClosing()
 		return nil, nil, err
@@ -381,30 +386,72 @@ func (c *QUICClient) exchange(ctx context.Context) (*Client, context.Context, er
 		c.stats.Retired++
 		c.mu.Unlock()
 		c.wg.Done()
+		lease.release()
 	}()
 	return child, budget, nil
 }
 func (c *QUICClient) Call(ctx context.Context, method string, request, response any) error {
-	child, budget, err := c.exchange(ctx)
+	child, stream, err := c.open(ctx, method, request, false)
 	if err != nil {
-		return err
+		return c.callError(ctx, err)
 	}
-	err = child.Call(budget, method, request, response)
+	err = unaryResult(stream, response)
 	if err != nil {
 		child.fail(err)
+	}
+	return c.callError(ctx, err)
+}
+func (c *QUICClient) Stream(ctx context.Context, method string, request any) (*Stream, error) {
+	_, stream, err := c.open(ctx, method, request, true)
+	return stream, c.callError(ctx, err)
+}
+
+// Parent shutdown cancels preparation/native waits. Preserve its structured
+// cause instead of reporting that secondary cancellation as user cancellation.
+// A user cancellation and an explicit local Close keep their own identity.
+func (c *QUICClient) callError(ctx context.Context, err error) error {
+	if err == nil {
+		return nil
+	}
+	// Match only framework cancellation sentinels. A MarshalerError wrapping
+	// the same sentinel is still a codec failure and must remain observable.
+	if err == ErrClosed || err == context.Canceled {
+		if user := ctx.Err(); user != nil {
+			return user
+		}
+		c.mu.Lock()
+		closed := c.closed
+		c.mu.Unlock()
+		if closed {
+			return ErrClosed
+		}
+		if cause := context.Cause(c.conn.Context()); cause != nil {
+			return nativeError(cause)
+		}
 	}
 	return nativeError(err)
 }
-func (c *QUICClient) Stream(ctx context.Context, method string, request any) (*Stream, error) {
-	child, budget, err := c.exchange(ctx)
-	if err != nil {
-		return nil, err
+func (c *QUICClient) open(ctx context.Context, method string, request any, streaming bool) (*Client, *Stream, error) {
+	if err := ctx.Err(); err != nil {
+		return nil, nil, err
 	}
-	stream, err := child.Stream(budget, method, request)
+	if c.conn.Context().Err() != nil {
+		return nil, nil, ErrClosed
+	}
+	prepared, err := prepareRequest(ctx, c.ctx, c.cfg, c.resources, method, request, streaming)
+	if err != nil {
+		return nil, nil, err
+	}
+	defer prepared.done()
+	child, _, err := c.exchange(prepared.ctx, prepared.lease)
+	if err != nil {
+		return nil, nil, err
+	}
+	stream, err := child.openPrepared(prepared)
 	if err != nil {
 		child.fail(err)
 	}
-	return stream, nativeError(err)
+	return child, stream, err
 }
 func (c *QUICClient) Close() {
 	c.closeOnce.Do(func() {
@@ -415,6 +462,10 @@ func (c *QUICClient) Close() {
 			children = append(children, child)
 		}
 		c.mu.Unlock()
+		if c.stopConn != nil {
+			c.stopConn()
+		}
+		c.resources.admission.close()
 		c.cancel()
 		for _, child := range children {
 			child.fail(ErrClosed)

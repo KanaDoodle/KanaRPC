@@ -1,0 +1,9 @@
+{"Time":"2026-10-31T15:13:32.860793+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T15:13:33.531333+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder"}
+{"Time":"2026-10-31T15:13:33.531531+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Output":"=== RUN   TestClosedQUICParentDoesNotInvokeEncoder\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:13:33.537828+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Output":"    preparation_test.go:32: known dead QUIC session encoded request 1\n","OutputType":"error"}
+{"Time":"2026-10-31T15:13:33.537955+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Output":"--- FAIL: TestClosedQUICParentDoesNotInvokeEncoder (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:13:33.537972+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestClosedQUICParentDoesNotInvokeEncoder","Elapsed":0.01}
+{"Time":"2026-10-31T15:13:33.538304+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:13:33.539229+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.678s\n","OutputType":"frame"}
+{"Time":"2026-10-31T15:13:33.539263+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.678}

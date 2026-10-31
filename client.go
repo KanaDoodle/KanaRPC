@@ -69,10 +69,11 @@ func newRecordClient(conn recordChannel, cfg ClientConfig, single bool, shared .
 		return nil, err
 	}
 	ctx, cancel := context.WithCancel(context.Background())
-	res := newResources(cfg.Memory)
-	res.feedback = newFeedback(cfg.Feedback, cfg.MaxInFlight)
+	var res *resources
 	if len(shared) > 0 {
 		res = shared[0]
+	} else {
+		res = newClientResources(cfg)
 	}
 	c := &Client{cfg: cfg, link: newLink(conn, cfg.IO), ctx: ctx, cancel: cancel, pending: make(map[uint64]*pending), single: single, resources: res}
 	c.link.resources = res
@@ -103,10 +104,17 @@ func (c *Client) fail(err error) {
 			all = append(all, p)
 		}
 		c.mu.Unlock()
+		if !c.single {
+			c.resources.admission.close()
+		}
+		// Publish the connection's terminal cause before owner cancellation can
+		// race a pending call into a secondary context.Canceled result.
+		for _, p := range all {
+			p.finish(err, true)
+		}
 		c.cancel()
 		closeSocket(c.link.conn)
 		for _, p := range all {
-			p.finish(err, true)
 			p.retire()
 		}
 	})
@@ -117,26 +125,28 @@ func (c *Client) stopIO() { c.fail(ErrClosed); c.wg.Wait() }
 func (c *Client) Close()  { c.fail(ErrClosed); c.resources.buffers.clear(); c.wg.Wait() }
 
 type pending struct {
-	client        *Client
-	id            uint64
-	ctx           context.Context
-	cancel        context.CancelFunc
-	stop          func() bool
-	callbackDone  sync.Once
-	retired       sync.Once
-	creditMu      sync.Mutex
-	mu            sync.Mutex
-	changed       chan struct{}
-	queue         []receivedChunk
-	next          uint32
-	window        uint32
-	remoteEnded   bool
-	openSent      bool
-	done, discard bool
-	err           error
-	method        string
-	leaveFeedback func()
-	attemptedAt   time.Time
+	client         *Client
+	id             uint64
+	ctx            context.Context
+	cancel         context.CancelFunc
+	stop           func() bool
+	callbackDone   sync.Once
+	retired        sync.Once
+	creditMu       sync.Mutex
+	mu             sync.Mutex
+	changed        chan struct{}
+	queue          []receivedChunk
+	next           uint32
+	window         uint32
+	remoteEnded    bool
+	openSent       bool
+	done, discard  bool
+	err            error
+	method         string
+	leaveFeedback  func()
+	attemptedAt    time.Time
+	stopOwner      func() bool
+	leaveAdmission func()
 }
 
 func (p *pending) notifyLocked() { close(p.changed); p.changed = make(chan struct{}) }
@@ -162,12 +172,18 @@ func (p *pending) retire() {
 			p.callbackDone.Do(p.client.wg.Done)
 		}
 		p.cancel()
+		if p.stopOwner != nil {
+			p.stopOwner()
+		}
 		c := p.client
 		c.mu.Lock()
 		delete(c.pending, p.id)
 		c.stats.Completed++
 		c.mu.Unlock()
 		p.leaveFeedback()
+		if p.leaveAdmission != nil {
+			p.leaveAdmission()
+		}
 		if c.single {
 			finishChannel(c.link.conn)
 			c.cancel()
@@ -209,20 +225,19 @@ func (c *Client) Stream(ctx context.Context, method string, request any) (*Strea
 	return c.open(ctx, method, request, true)
 }
 func (c *Client) open(ctx context.Context, method string, request any, streaming bool) (*Stream, error) {
-	if !validMethod(method) {
-		return nil, &Status{Code: InvalidArgument, Message: "expected /service/method"}
-	}
-	if err := ctx.Err(); err != nil {
-		return nil, err
-	}
-	callCtx, cancel := context.WithTimeout(ctx, c.cfg.Timeout)
-	body, err := json.Marshal(request)
+	prepared, err := prepareRequest(ctx, c.ctx, c.cfg, c.resources, method, request, streaming)
 	if err != nil {
-		cancel()
 		return nil, err
 	}
-	if err = c.link.acquire(callCtx); err != nil {
-		cancel()
+	defer prepared.done()
+	return c.openPrepared(prepared)
+}
+func (c *Client) openPrepared(prepared *preparedCall) (*Stream, error) {
+	callCtx := prepared.ctx
+	if err := c.link.acquire(callCtx); err != nil {
+		if cause := prepared.check(); cause != nil {
+			return nil, cause
+		}
 		return nil, err
 	}
 	// ID allocation, registration and Open writing share the writer permit, so
@@ -231,34 +246,22 @@ func (c *Client) open(ctx context.Context, method string, request any, streaming
 	if c.closed {
 		c.mu.Unlock()
 		c.link.release()
-		cancel()
 		return nil, ErrClosed
 	}
 	if len(c.pending) >= c.cfg.MaxInFlight {
 		c.mu.Unlock()
 		c.link.release()
-		cancel()
 		return nil, &Status{Code: ResourceExhausted, Message: "client in-flight limit"}
 	}
 	if c.nextID == math.MaxUint64 {
 		c.mu.Unlock()
 		c.link.release()
-		cancel()
 		return nil, ErrClosed
 	}
-	leave, gateErr := c.resources.feedback.enter(method)
-	if gateErr != nil {
-		c.mu.Unlock()
-		c.link.release()
-		cancel()
-		return nil, gateErr
-	}
 	c.nextID++
-	window := uint32(c.cfg.StreamWindow)
-	if !streaming {
-		window = 1
-	}
-	p := &pending{client: c, id: c.nextID, ctx: callCtx, cancel: cancel, window: window, next: 1, changed: make(chan struct{}), method: method, leaveFeedback: leave, attemptedAt: time.Now()}
+	prepared.lease.retain()
+	prepared.transferred = true
+	p := &pending{client: c, id: c.nextID, ctx: callCtx, cancel: prepared.cancel, window: prepared.window, next: 1, changed: make(chan struct{}), method: prepared.method, leaveFeedback: prepared.leaveFeedback, attemptedAt: time.Now(), stopOwner: prepared.stopOwner, leaveAdmission: prepared.lease.release}
 	c.wg.Add(1)
 	callbackReady := make(chan struct{})
 	p.stop = context.AfterFunc(callCtx, func() { <-callbackReady; p.localCancel() })
@@ -266,13 +269,12 @@ func (c *Client) open(ctx context.Context, method string, request any, streaming
 	c.stats.Started++
 	close(callbackReady)
 	c.mu.Unlock()
-	deadline, _ := callCtx.Deadline()
-	b, _ := json.Marshal(openRecord{Method: method, BudgetNanos: int64(time.Until(deadline)), Window: window, Stream: streaming, Request: body})
-	if uint64(len(b)) > uint64(c.cfg.IO.MaxFrameBytes) {
+	b, err := prepared.payload()
+	if err != nil {
 		c.link.release()
-		p.finish(&Status{Code: InvalidArgument, Message: "request exceeds frame limit"}, true)
+		p.finish(err, true)
 		p.retire()
-		return nil, &Status{Code: InvalidArgument, Message: "request exceeds frame limit"}
+		return nil, err
 	}
 	touched, err := c.link.writeLocked(callCtx, wire.Frame{Kind: wire.Open, ID: p.id, Payload: b})
 	if err == nil {
@@ -308,14 +310,17 @@ func (c *Client) Call(ctx context.Context, method string, request, response any)
 	if err != nil {
 		return err
 	}
+	return unaryResult(stream, response)
+}
+func unaryResult(stream *Stream, response any) error {
 	defer stream.Close()
-	if err = stream.Recv(response); err != nil {
+	if err := stream.Recv(response); err != nil {
 		if err == io.EOF {
 			return ErrProtocol
 		}
 		return err
 	}
-	err = stream.Recv(nil)
+	err := stream.Recv(nil)
 	if err == io.EOF {
 		return nil
 	}
