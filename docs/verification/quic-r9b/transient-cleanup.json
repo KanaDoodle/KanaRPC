@@ -1,0 +1,22 @@
+[
+  {
+    "path": "go-local/data",
+    "logical_bytes": 80891904,
+    "reason": "completed owned etcd transient state; command/membership/test/etcd logs retained"
+  },
+  {
+    "path": "go-race/data",
+    "logical_bytes": 80891904,
+    "reason": "completed owned etcd transient state; command/membership/test/etcd logs retained"
+  },
+  {
+    "path": "go-minimum/data",
+    "logical_bytes": 80891904,
+    "reason": "completed owned etcd transient state; command/membership/test/etcd logs retained"
+  },
+  {
+    "path": "go-minimum-race/data",
+    "logical_bytes": 80891904,
+    "reason": "completed owned etcd transient state; command/membership/test/etcd logs retained"
+  }
+]

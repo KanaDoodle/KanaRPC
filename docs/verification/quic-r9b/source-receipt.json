@@ -1,0 +1,12 @@
+[
+  {
+    "run": "resources",
+    "all_current_sources_match_workspace": true,
+    "files": 60
+  },
+  {
+    "run": "final-comparison",
+    "all_current_sources_match_workspace": true,
+    "files": 61
+  }
+]

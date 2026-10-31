@@ -13,6 +13,7 @@ import (
 	"io"
 	"math/rand/v2"
 	"os"
+	"reflect"
 	"sort"
 	"strings"
 	"sync"
@@ -64,14 +65,15 @@ func main() {
 	count := flag.Int("count", 1000, "offered calls")
 	workers := flag.Int("workers", 8, "closed-loop callers")
 	seed := flag.Uint64("seed", 7, "shuffle seed")
+	payloadBytes := flag.Int("payload-bytes", 128, "fixed request/response payload bytes, 0..65536")
 	flag.Parse()
-	if err := run(*paths, *output, *mode, *workload, *count, *workers, *seed); err != nil {
+	if err := run(*paths, *output, *mode, *workload, *count, *workers, *seed, *payloadBytes); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 }
-func run(paths, output, mode, workload string, count, workers int, seed uint64) error {
-	if output == "" || count < 1 || count > 100000 || workers < 1 || workers > 32 || (workload != "unary" && workload != "stream") || (mode != "direct" && mode != "dial" && mode != "managed" && mode != "churn") {
+func run(paths, output, mode, workload string, count, workers int, seed uint64, payloadBytes int) error {
+	if payloadBytes < 0 || payloadBytes > 65536 || output == "" || count < 1 || count > 100000 || workers < 1 || workers > 32 || (workload != "unary" && workload != "stream") || (mode != "direct" && mode != "dial" && mode != "managed" && mode != "churn") {
 		return errors.New("invalid explicit experiment parameters")
 	}
 	nodes := []rpc.Endpoint{}
@@ -150,7 +152,7 @@ func run(paths, output, mode, workload string, count, workers int, seed uint64) 
 				caller = direct[index]
 			}
 		}
-		in := message{ID: id, Payload: strings.Repeat("x", 128), Count: 16}
+		in := message{ID: id, Payload: strings.Repeat("x", payloadBytes), Count: 16}
 		if workload == "unary" {
 			var out message
 			var err error
@@ -235,6 +237,7 @@ func run(paths, output, mode, workload string, count, workers int, seed uint64) 
 		return latencies[(len(latencies)-1)*n/100]
 	}
 	var stats any
+	var memory any
 	waitErr := error(nil)
 	if pool != nil {
 		pool.Close()
@@ -244,12 +247,16 @@ func run(paths, output, mode, workload string, count, workers int, seed uint64) 
 		s := pool.Stats()
 		dials.Store(s.Dials)
 		stats = s
+		method := reflect.ValueOf(pool).MethodByName("MemoryStats")
+		if method.IsValid() {
+			memory = method.Call(nil)[0].Interface()
+		}
 	} else {
 		for _, c := range direct {
 			c.Close()
 		}
 	}
-	result := map[string]any{"transport": nodes[0].Transport, "strategy": mode, "workload": workload, "offers": offers, "completed": len(latencies), "offered": count, "elapsed_ns": elapsed.Nanoseconds(), "P50": percentile(50), "P95": percentile(95), "P99": percentile(99), "dials_including_64_warmups": dials.Load(), "stats": stats, "wait_error": text(waitErr), "evidence": "loopback integer/JSON fixture; two fixed local snapshot endpoints; no real discovery latency or model performance"}
+	result := map[string]any{"transport": nodes[0].Transport, "payload_bytes": payloadBytes, "memory": memory, "strategy": mode, "workload": workload, "offers": offers, "completed": len(latencies), "offered": count, "elapsed_ns": elapsed.Nanoseconds(), "P50": percentile(50), "P95": percentile(95), "P99": percentile(99), "dials_including_64_warmups": dials.Load(), "stats": stats, "wait_error": text(waitErr), "evidence": "loopback integer/JSON fixture; two fixed local snapshot endpoints; no real discovery latency or model performance"}
 	b, err := json.MarshalIndent(result, "", "  ")
 	if err != nil {
 		return err

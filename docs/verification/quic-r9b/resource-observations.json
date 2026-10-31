@@ -1,0 +1,100 @@
+[
+  {
+    "version": "current",
+    "tight": false,
+    "offered": 483966,
+    "outcomes": {
+      "canceled": 120993,
+      "success": 362973
+    },
+    "fd_values": [
+      9
+    ],
+    "goroutine_values": [
+      10
+    ],
+    "lost_terminals": 0,
+    "accounts_created_released": 25,
+    "data_peak": {
+      "Limit": 4194304,
+      "Used": 0,
+      "Peak": 345381,
+      "Rejected": 0
+    },
+    "status": "PASS"
+  },
+  {
+    "version": "baseline",
+    "tight": false,
+    "offered": 537299,
+    "outcomes": {
+      "canceled": 134326,
+      "success": 402973
+    },
+    "fd_values": [
+      9
+    ],
+    "goroutine_values": [
+      10
+    ],
+    "lost_terminals": 0,
+    "accounts_created_released": 25,
+    "data_peak": {
+      "Limit": 4194304,
+      "Used": 0,
+      "Peak": 394646,
+      "Rejected": 0
+    },
+    "status": "PASS"
+  },
+  {
+    "version": "current",
+    "tight": true,
+    "offered": 343184,
+    "outcomes": {
+      "canceled": 34693,
+      "status_resource_exhausted": 272529,
+      "success": 35962
+    },
+    "fd_values": [
+      9
+    ],
+    "goroutine_values": [
+      10
+    ],
+    "lost_terminals": 51751,
+    "accounts_created_released": 25,
+    "data_peak": {
+      "Limit": 131072,
+      "Used": 0,
+      "Peak": 81965,
+      "Rejected": 0
+    },
+    "status": "DEGRADED"
+  },
+  {
+    "version": "baseline",
+    "tight": true,
+    "offered": 333577,
+    "outcomes": {
+      "canceled": 29503,
+      "status_resource_exhausted": 272394,
+      "success": 31680
+    },
+    "fd_values": [
+      9
+    ],
+    "goroutine_values": [
+      10
+    ],
+    "lost_terminals": 52490,
+    "accounts_created_released": 25,
+    "data_peak": {
+      "Limit": 131072,
+      "Used": 0,
+      "Peak": 81965,
+      "Rejected": 0
+    },
+    "status": "DEGRADED"
+  }
+]

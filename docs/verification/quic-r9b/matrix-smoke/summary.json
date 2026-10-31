@@ -1,0 +1,284 @@
+[
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 10754.13362011023,
+        "min": 10754.13362011023,
+        "max": 10754.13362011023,
+        "samples": [
+          10754.13362011023
+        ]
+      },
+      "p95_ms": {
+        "median": 1.028792,
+        "min": 1.028792,
+        "max": 1.028792,
+        "samples": [
+          1.028792
+        ]
+      },
+      "p99_ms": {
+        "median": 1.098583,
+        "min": 1.098583,
+        "max": 1.098583,
+        "samples": [
+          1.098583
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 0.16428199999999915,
+        "min": 0.16428199999999915,
+        "max": 0.16428199999999915,
+        "samples": [
+          0.16428199999999915
+        ]
+      }
+    },
+    "offered": 200,
+    "completed": 200
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "payload_bytes": 16384,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 823.2136638057632,
+        "min": 823.2136638057632,
+        "max": 823.2136638057632,
+        "samples": [
+          823.2136638057632
+        ]
+      },
+      "p95_ms": {
+        "median": 12.368083,
+        "min": 12.368083,
+        "max": 12.368083,
+        "samples": [
+          12.368083
+        ]
+      },
+      "p99_ms": {
+        "median": 13.837208,
+        "min": 13.837208,
+        "max": 13.837208,
+        "samples": [
+          13.837208
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 1.5593199999999996,
+        "min": 1.5593199999999996,
+        "max": 1.5593199999999996,
+        "samples": [
+          1.5593199999999996
+        ]
+      }
+    },
+    "offered": 200,
+    "completed": 200
+  },
+  {
+    "version": "r8d",
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 10241.87939306213,
+        "min": 10241.87939306213,
+        "max": 10241.87939306213,
+        "samples": [
+          10241.87939306213
+        ]
+      },
+      "p95_ms": {
+        "median": 1.172792,
+        "min": 1.172792,
+        "max": 1.172792,
+        "samples": [
+          1.172792
+        ]
+      },
+      "p99_ms": {
+        "median": 1.529042,
+        "min": 1.529042,
+        "max": 1.529042,
+        "samples": [
+          1.529042
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 0.17411899999999925,
+        "min": 0.17411899999999925,
+        "max": 0.17411899999999925,
+        "samples": [
+          0.17411899999999925
+        ]
+      }
+    },
+    "offered": 200,
+    "completed": 200
+  },
+  {
+    "version": "r8d",
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "payload_bytes": 16384,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 835.9265935743042,
+        "min": 835.9265935743042,
+        "max": 835.9265935743042,
+        "samples": [
+          835.9265935743042
+        ]
+      },
+      "p95_ms": {
+        "median": 12.120375,
+        "min": 12.120375,
+        "max": 12.120375,
+        "samples": [
+          12.120375
+        ]
+      },
+      "p99_ms": {
+        "median": 13.599291,
+        "min": 13.599291,
+        "max": 13.599291,
+        "samples": [
+          13.599291
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 1.5483700000000002,
+        "min": 1.5483700000000002,
+        "max": 1.5483700000000002,
+        "samples": [
+          1.5483700000000002
+        ]
+      }
+    },
+    "offered": 200,
+    "completed": 200
+  },
+  {
+    "version": "r9a",
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 5246.807737236511,
+        "min": 5246.807737236511,
+        "max": 5246.807737236511,
+        "samples": [
+          5246.807737236511
+        ]
+      },
+      "p95_ms": {
+        "median": 2.358958,
+        "min": 2.358958,
+        "max": 2.358958,
+        "samples": [
+          2.358958
+        ]
+      },
+      "p99_ms": {
+        "median": 2.685791,
+        "min": 2.685791,
+        "max": 2.685791,
+        "samples": [
+          2.685791
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 0.3057950000000007,
+        "min": 0.3057950000000007,
+        "max": 0.3057950000000007,
+        "samples": [
+          0.3057950000000007
+        ]
+      }
+    },
+    "offered": 200,
+    "completed": 200
+  },
+  {
+    "version": "r9a",
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "payload_bytes": 16384,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 801.738971829899,
+        "min": 801.738971829899,
+        "max": 801.738971829899,
+        "samples": [
+          801.738971829899
+        ]
+      },
+      "p95_ms": {
+        "median": 12.582167,
+        "min": 12.582167,
+        "max": 12.582167,
+        "samples": [
+          12.582167
+        ]
+      },
+      "p99_ms": {
+        "median": 14.887917,
+        "min": 14.887917,
+        "max": 14.887917,
+        "samples": [
+          14.887917
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 1.6058699999999995,
+        "min": 1.6058699999999995,
+        "max": 1.6058699999999995,
+        "samples": [
+          1.6058699999999995
+        ]
+      }
+    },
+    "offered": 200,
+    "completed": 200
+  }
+]

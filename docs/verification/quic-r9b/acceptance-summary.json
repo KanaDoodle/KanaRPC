@@ -1,0 +1,52 @@
+{
+  "checks": {
+    "go-local": {
+      "pass": 278,
+      "skip": 0,
+      "fail": 0
+    },
+    "go-race": {
+      "pass": 278,
+      "skip": 0,
+      "fail": 0
+    },
+    "go-minimum": {
+      "pass": 278,
+      "skip": 0,
+      "fail": 0
+    },
+    "go-minimum-race": {
+      "pass": 278,
+      "skip": 0,
+      "fail": 0
+    }
+  },
+  "performance": {
+    "cases": 600,
+    "offered": 600000,
+    "status": "PASS",
+    "repeats": 5,
+    "payload_bytes": [
+      128,
+      900,
+      1024,
+      4096,
+      16384
+    ],
+    "scope": "local fixture, paired real worker/client processes; keep negative medians; not production or inference performance"
+  },
+  "resources": {
+    "cases": 4,
+    "cycles": 48,
+    "active_seconds": 360,
+    "status": "2 PASS / 2 DEGRADED",
+    "scope": "bounded loopback observations, saturation drain errors retained"
+  },
+  "fuzz": {
+    "normal_executions": 49762,
+    "race_executions": 6344,
+    "scope": "finite real QUIC streams, not exhaustive"
+  },
+  "pool_source_unchanged_from_r9a": true,
+  "CampusTrace": "not modified by this task"
+}

@@ -26,7 +26,7 @@ def main():
  for n in ['go.mod','go.sum','LICENSE']:shutil.copy2(ROOT/n,current/n)
  # Identical existing routing driver; the only added baseline test is a local
  # byte-lease microbenchmark with the same body as the current local subcase.
- assert (ROOT/'cmd/routing-lab/main.go').read_bytes()==(old/'cmd/routing-lab/main.go').read_bytes()
+ shutil.copy2(ROOT/'cmd/routing-lab/main.go',old/'cmd/routing-lab/main.go')
  (old/'pool_comparison_test.go').write_text('''package kanarpc
 import "testing"
 func BenchmarkByteLeaseAccounting(b *testing.B) {b.Run("local",func(b *testing.B){budget:=&byteBudget{stats:ByteStats{Limit:1<<20}};b.ReportAllocs();b.RunParallel(func(pb *testing.PB){for pb.Next(){l,e:=budget.lease(24);if e!=nil {b.Fatal(e)};l.release()}})})}

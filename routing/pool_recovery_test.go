@@ -12,7 +12,9 @@ import (
 	"time"
 )
 
-func TestPoolQUICSaturationRecoveryReproduction(t *testing.T) {
+func TestPoolQUICSaturationRecoveryReproduction(t *testing.T) { poolQUICResetRecovery(t, 16384, 24576) }
+func TestPoolQUICSmallRecordResetRecovery(t *testing.T)       { poolQUICResetRecovery(t, 900, 1024) }
+func poolQUICResetRecovery(t *testing.T, payloadBytes int, receiveBytes int64) {
 	credentials, err := testcert.New()
 	check(t, err)
 	type request struct {
@@ -45,7 +47,7 @@ func TestPoolQUICSaturationRecoveryReproduction(t *testing.T) {
 	cfg.Dial.Client.IO.MaxFrameBytes = 32768
 	cfg.Dial.Client.Memory.EncodingBytes = 65536
 	cfg.Dial.Client.Memory.ReceiveBytes = 2 << 20
-	testPoolMemory(&cfg, 65536, 24576, 65536, 131072)
+	testPoolMemory(&cfg, 65536, receiveBytes, 65536, 131072)
 	source := &source{snapshot: fresh(a.node, b.node)}
 	c := managed(t, source, cfg, rpc.DialEndpoint)
 	stop := time.Now().Add(3 * time.Second)
@@ -58,7 +60,7 @@ func TestPoolQUICSaturationRecoveryReproduction(t *testing.T) {
 			for time.Now().Before(stop) {
 				id := ids.Add(1)
 				ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-				in := request{strings.Repeat("x", 16384), 4}
+				in := request{strings.Repeat("x", payloadBytes), 4}
 				if id%4 == 0 {
 					_ = c.Call(ctx, "/pressure/echo", in, new(request))
 				} else {
@@ -99,7 +101,7 @@ func TestPoolQUICSaturationRecoveryReproduction(t *testing.T) {
 	check(t, c.refresh(context.Background()))
 	done := make(chan error, 1)
 	go func() {
-		stream, e := c.Stream(context.Background(), "/pressure/items", request{strings.Repeat("u", 16384), 1})
+		stream, e := c.Stream(context.Background(), "/pressure/items", request{strings.Repeat("u", payloadBytes), 1})
 		if e == nil {
 			e = stream.Recv(nil)
 			if e == nil {

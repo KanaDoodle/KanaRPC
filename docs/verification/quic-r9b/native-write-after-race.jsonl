@@ -1,0 +1,444 @@
+{"Time":"2026-10-31T19:35:18.115639+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T19:35:18.709286+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:35:18.709399+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.709455+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:35:18.709464+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.738435+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.738497+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:18.738524+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:35:18.738529+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.76601+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.766056+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:18.766087+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.06s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.766098+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.06}
+{"Time":"2026-10-31T19:35:18.766107+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:35:18.766115+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.820211+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.820607+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:18.82063+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:35:18.820657+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.854146+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.854197+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:18.85423+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:35:18.854257+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.867963+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.867995+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:18.868006+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:35:18.86801+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.879296+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.879351+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:18.879365+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite"}
+{"Time":"2026-10-31T19:35:18.879373+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"=== RUN   TestNativeWriteBoundedBurstAndEmptyWrite\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.891469+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"--- PASS: TestNativeWriteBoundedBurstAndEmptyWrite (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.891515+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:18.893723+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:35:18.893747+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.893751+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:35:18.893754+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.924701+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.924751+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:18.924766+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:35:18.92477+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.954478+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.954515+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:18.954522+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.06s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:18.954525+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.06}
+{"Time":"2026-10-31T19:35:18.954529+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:35:18.954532+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.004761+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.004802+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.00483+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:35:19.00486+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.038849+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.038884+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.038892+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:35:19.038895+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.045364+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.045395+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.045404+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:35:19.045407+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.055988+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.05603+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.056056+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite"}
+{"Time":"2026-10-31T19:35:19.05606+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"=== RUN   TestNativeWriteBoundedBurstAndEmptyWrite\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.062133+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"--- PASS: TestNativeWriteBoundedBurstAndEmptyWrite (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.062161+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.062467+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:35:19.062484+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.062488+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:35:19.062491+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.089901+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.089994+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.090036+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:35:19.090041+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.116942+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.116997+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.117011+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.11702+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.117027+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:35:19.117034+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.164992+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.165041+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.165049+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:35:19.165065+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.196369+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.196467+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.196486+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:35:19.196523+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.203397+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.20345+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.203465+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:35:19.203472+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.215052+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.215093+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.215102+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite"}
+{"Time":"2026-10-31T19:35:19.215105+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"=== RUN   TestNativeWriteBoundedBurstAndEmptyWrite\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.220847+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"--- PASS: TestNativeWriteBoundedBurstAndEmptyWrite (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.220902+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.221585+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:35:19.221614+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.221622+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:35:19.221625+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.247748+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.247795+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.247803+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:35:19.247807+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.274318+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.274357+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.274365+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.274368+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.274372+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:35:19.274375+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.321358+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.321401+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.321409+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:35:19.321413+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.354376+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.354424+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.354437+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:35:19.354444+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.361944+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.361985+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.362004+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:35:19.362017+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.372321+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.372373+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.372385+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite"}
+{"Time":"2026-10-31T19:35:19.372393+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"=== RUN   TestNativeWriteBoundedBurstAndEmptyWrite\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.379009+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"--- PASS: TestNativeWriteBoundedBurstAndEmptyWrite (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.379059+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.379959+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:35:19.379983+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.379991+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:35:19.379994+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.407853+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.407896+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.407904+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:35:19.407908+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.435837+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.43588+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.435903+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.06s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.435909+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.06}
+{"Time":"2026-10-31T19:35:19.435914+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:35:19.435939+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.483449+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.48349+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.4836+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:35:19.483613+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.516409+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.516467+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.516479+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:35:19.516497+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.525108+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.525147+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.525153+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:35:19.525156+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.539128+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.539173+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.539179+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite"}
+{"Time":"2026-10-31T19:35:19.539183+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"=== RUN   TestNativeWriteBoundedBurstAndEmptyWrite\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.544831+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"--- PASS: TestNativeWriteBoundedBurstAndEmptyWrite (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.544871+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.545891+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:35:19.54592+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.545938+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:35:19.545943+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.572124+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.572162+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.572169+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:35:19.572173+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.598345+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.598374+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.598395+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.598401+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.59842+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:35:19.598424+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.647226+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.647265+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.647272+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:35:19.647276+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.682584+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.682625+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.682632+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:35:19.682645+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.693139+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.693177+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.693183+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:35:19.693186+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.705437+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.705538+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.705563+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite"}
+{"Time":"2026-10-31T19:35:19.705568+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"=== RUN   TestNativeWriteBoundedBurstAndEmptyWrite\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.715415+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"--- PASS: TestNativeWriteBoundedBurstAndEmptyWrite (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.715451+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.715457+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:35:19.71546+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.715464+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:35:19.715467+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.74444+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.744495+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.744509+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:35:19.744516+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.772704+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.772756+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.77277+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.06s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.772775+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.06}
+{"Time":"2026-10-31T19:35:19.772808+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:35:19.772821+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.825205+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.825269+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.825281+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:35:19.825288+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.857489+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.85754+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.857554+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:35:19.857561+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.863817+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.863854+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.86386+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:35:19.863873+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.875933+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.875975+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.875982+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite"}
+{"Time":"2026-10-31T19:35:19.876008+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"=== RUN   TestNativeWriteBoundedBurstAndEmptyWrite\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.88255+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"--- PASS: TestNativeWriteBoundedBurstAndEmptyWrite (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.882571+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:19.883592+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:35:19.883605+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.883611+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:35:19.883614+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.911208+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.911245+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.911251+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:35:19.911255+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.937639+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.937676+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:19.937683+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.937687+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.937713+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:35:19.937726+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.986722+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:19.986797+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:19.986809+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:35:19.986816+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.01881+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.018855+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:20.018862+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:35:20.018865+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.026349+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.026394+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.026407+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:35:20.026414+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.036025+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.036062+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.036071+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite"}
+{"Time":"2026-10-31T19:35:20.036075+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"=== RUN   TestNativeWriteBoundedBurstAndEmptyWrite\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.041385+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"--- PASS: TestNativeWriteBoundedBurstAndEmptyWrite (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.041425+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.041851+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:35:20.041866+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.041872+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:35:20.041876+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.069494+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.069563+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:20.069575+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:35:20.069581+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.095428+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.095466+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:20.095472+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.095476+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:20.095482+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:35:20.095485+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.144274+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.144313+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:20.144321+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:35:20.144325+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.176627+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.176661+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:20.17671+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:35:20.17672+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.185579+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.185624+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.185631+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:35:20.185635+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.197985+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.198022+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.19803+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite"}
+{"Time":"2026-10-31T19:35:20.198033+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"=== RUN   TestNativeWriteBoundedBurstAndEmptyWrite\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.204032+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"--- PASS: TestNativeWriteBoundedBurstAndEmptyWrite (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.20406+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.204809+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:35:20.204821+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.204866+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:35:20.20487+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.234229+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.23427+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:20.234277+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:35:20.23428+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.261593+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.261645+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:20.261656+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.06s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.261666+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.06}
+{"Time":"2026-10-31T19:35:20.261677+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:35:20.261684+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.309145+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.309196+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:35:20.30921+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:35:20.309218+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.341228+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.34127+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:35:20.341277+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:35:20.34128+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.35034+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.350378+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.350385+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:35:20.350388+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.362361+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.362394+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.362401+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite"}
+{"Time":"2026-10-31T19:35:20.362405+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"=== RUN   TestNativeWriteBoundedBurstAndEmptyWrite\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.369431+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Output":"--- PASS: TestNativeWriteBoundedBurstAndEmptyWrite (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.36947+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteBoundedBurstAndEmptyWrite","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.369572+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites"}
+{"Time":"2026-10-31T19:35:20.369578+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"=== RUN   FuzzNativeQueuedWrites\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.369688+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0"}
+{"Time":"2026-10-31T19:35:20.369699+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"=== RUN   FuzzNativeQueuedWrites/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.378319+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"--- PASS: FuzzNativeQueuedWrites/seed#0 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.378372+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.378386+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1"}
+{"Time":"2026-10-31T19:35:20.378393+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"=== RUN   FuzzNativeQueuedWrites/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.385889+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"--- PASS: FuzzNativeQueuedWrites/seed#1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.385913+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.385919+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"--- PASS: FuzzNativeQueuedWrites (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.385924+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Elapsed":0.02}
+{"Time":"2026-10-31T19:35:20.386006+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites"}
+{"Time":"2026-10-31T19:35:20.38601+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"=== RUN   FuzzNativeQueuedWrites\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.386088+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0"}
+{"Time":"2026-10-31T19:35:20.386104+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"=== RUN   FuzzNativeQueuedWrites/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.39254+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"--- PASS: FuzzNativeQueuedWrites/seed#0 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.392577+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.392622+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1"}
+{"Time":"2026-10-31T19:35:20.392626+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"=== RUN   FuzzNativeQueuedWrites/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.398184+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"--- PASS: FuzzNativeQueuedWrites/seed#1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.398217+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.398224+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"--- PASS: FuzzNativeQueuedWrites (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.398228+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.398307+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites"}
+{"Time":"2026-10-31T19:35:20.398323+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"=== RUN   FuzzNativeQueuedWrites\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.398379+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0"}
+{"Time":"2026-10-31T19:35:20.398389+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"=== RUN   FuzzNativeQueuedWrites/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.406526+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"--- PASS: FuzzNativeQueuedWrites/seed#0 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.406614+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.406627+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1"}
+{"Time":"2026-10-31T19:35:20.406634+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"=== RUN   FuzzNativeQueuedWrites/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.412691+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"--- PASS: FuzzNativeQueuedWrites/seed#1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.412728+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.412734+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"--- PASS: FuzzNativeQueuedWrites (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.412738+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.412793+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites"}
+{"Time":"2026-10-31T19:35:20.412803+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"=== RUN   FuzzNativeQueuedWrites\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.412877+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0"}
+{"Time":"2026-10-31T19:35:20.412882+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"=== RUN   FuzzNativeQueuedWrites/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.419266+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"--- PASS: FuzzNativeQueuedWrites/seed#0 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.419304+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.419311+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1"}
+{"Time":"2026-10-31T19:35:20.419314+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"=== RUN   FuzzNativeQueuedWrites/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.428214+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"--- PASS: FuzzNativeQueuedWrites/seed#1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.428249+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.428256+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"--- PASS: FuzzNativeQueuedWrites (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.428259+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Elapsed":0.02}
+{"Time":"2026-10-31T19:35:20.42827+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites"}
+{"Time":"2026-10-31T19:35:20.428274+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"=== RUN   FuzzNativeQueuedWrites\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.42832+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0"}
+{"Time":"2026-10-31T19:35:20.428324+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"=== RUN   FuzzNativeQueuedWrites/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.433829+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"--- PASS: FuzzNativeQueuedWrites/seed#0 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.433857+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.433881+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1"}
+{"Time":"2026-10-31T19:35:20.433885+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"=== RUN   FuzzNativeQueuedWrites/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.439564+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"--- PASS: FuzzNativeQueuedWrites/seed#1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.4396+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.439607+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"--- PASS: FuzzNativeQueuedWrites (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.43961+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.439613+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites"}
+{"Time":"2026-10-31T19:35:20.439616+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"=== RUN   FuzzNativeQueuedWrites\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.439656+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0"}
+{"Time":"2026-10-31T19:35:20.43966+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"=== RUN   FuzzNativeQueuedWrites/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.445508+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"--- PASS: FuzzNativeQueuedWrites/seed#0 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.445549+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.44557+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1"}
+{"Time":"2026-10-31T19:35:20.445581+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"=== RUN   FuzzNativeQueuedWrites/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.453421+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"--- PASS: FuzzNativeQueuedWrites/seed#1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.453456+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.453463+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"--- PASS: FuzzNativeQueuedWrites (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.453467+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.453484+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites"}
+{"Time":"2026-10-31T19:35:20.453488+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"=== RUN   FuzzNativeQueuedWrites\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.453555+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0"}
+{"Time":"2026-10-31T19:35:20.453585+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"=== RUN   FuzzNativeQueuedWrites/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.461386+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"--- PASS: FuzzNativeQueuedWrites/seed#0 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.461419+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.461428+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1"}
+{"Time":"2026-10-31T19:35:20.461431+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"=== RUN   FuzzNativeQueuedWrites/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.468504+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"--- PASS: FuzzNativeQueuedWrites/seed#1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.468537+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.468543+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"--- PASS: FuzzNativeQueuedWrites (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.468547+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Elapsed":0.02}
+{"Time":"2026-10-31T19:35:20.468569+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites"}
+{"Time":"2026-10-31T19:35:20.46858+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"=== RUN   FuzzNativeQueuedWrites\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.468612+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0"}
+{"Time":"2026-10-31T19:35:20.468617+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"=== RUN   FuzzNativeQueuedWrites/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.47584+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"--- PASS: FuzzNativeQueuedWrites/seed#0 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.475872+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.475878+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1"}
+{"Time":"2026-10-31T19:35:20.475881+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"=== RUN   FuzzNativeQueuedWrites/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.483002+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"--- PASS: FuzzNativeQueuedWrites/seed#1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.483039+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.483045+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"--- PASS: FuzzNativeQueuedWrites (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.48305+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.483104+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites"}
+{"Time":"2026-10-31T19:35:20.483109+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"=== RUN   FuzzNativeQueuedWrites\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.483187+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0"}
+{"Time":"2026-10-31T19:35:20.483191+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"=== RUN   FuzzNativeQueuedWrites/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.490137+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"--- PASS: FuzzNativeQueuedWrites/seed#0 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.490186+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.490201+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1"}
+{"Time":"2026-10-31T19:35:20.490209+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"=== RUN   FuzzNativeQueuedWrites/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.495821+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"--- PASS: FuzzNativeQueuedWrites/seed#1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.495848+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.495854+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"--- PASS: FuzzNativeQueuedWrites (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.495858+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.495929+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites"}
+{"Time":"2026-10-31T19:35:20.495941+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"=== RUN   FuzzNativeQueuedWrites\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.496009+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0"}
+{"Time":"2026-10-31T19:35:20.496014+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"=== RUN   FuzzNativeQueuedWrites/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.502673+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Output":"--- PASS: FuzzNativeQueuedWrites/seed#0 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.502709+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#0","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.502717+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1"}
+{"Time":"2026-10-31T19:35:20.50272+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"=== RUN   FuzzNativeQueuedWrites/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.508879+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Output":"--- PASS: FuzzNativeQueuedWrites/seed#1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.508923+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites/seed#1","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.508948+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Output":"--- PASS: FuzzNativeQueuedWrites (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:20.508956+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzNativeQueuedWrites","Elapsed":0.01}
+{"Time":"2026-10-31T19:35:20.508963+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:35:21.513349+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t3.397s\n"}
+{"Time":"2026-10-31T19:35:21.513412+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":3.398}

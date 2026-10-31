@@ -1,0 +1,5 @@
+{
+  "queue_burst": 4096,
+  "quic_go_sha256": "4581cc73b9aa2b3fec82ad506a7d2580815bc8487f08103194eff7a1b1cf2869",
+  "source": "/private/tmp/kanarpc-r9b-20261031/atomic-bounded"
+}

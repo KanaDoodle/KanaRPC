@@ -19,6 +19,8 @@
 
 | R9A，本地有限验收完成 | 池级共享编码/接收/发送数据总额、独立控制额度、活跃/退休账户和未读子集统计 | [步骤/API](pool-r9a.md)、[报告](verification/pool-r9a/report.md)；退休与关闭不抹去 codec/未读持有；压力复验修正原生流额度卡死，保留饱和 drain 错误和明显 QUIC 性能成本；真实双机仍待验 |
 
+| R9B，本地有限验收完成 | deadline 感知的 4 KiB 原子批量、零入队回退与安全 paced 写，保持预算和退休实现 | [步骤/API](quic-r9b.md)、[报告](verification/quic-r9b/report.md)；600 case 多 payload 对照，小记录流式恢复到 R8D 量级；保留大包/部分普通调用负变化，真实双机待验 |
+
 R7A 的通过只代表第一阶段。不会为兼容旧包名而调用旧 internal，也不会自动把旧测试结果搬成新版本结果。新协议不做隐式 downgrade；真正迁移时新旧端点显式分离。
 
 ## 已落实的架构选择

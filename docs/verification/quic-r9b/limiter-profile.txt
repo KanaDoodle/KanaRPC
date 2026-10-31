@@ -1,0 +1,7 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/KanaDoodle/KanaRPC
+cpu: Apple M5
+BenchmarkQUICStreamingWrite/Payload128-2         	   25099	    188733 ns/op	        28.77 packets/RPC	      3893 wireB/RPC	   65982 B/op	    1388 allocs/op
+PASS
+ok  	github.com/KanaDoodle/KanaRPC	7.500s

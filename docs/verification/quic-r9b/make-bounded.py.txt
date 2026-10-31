@@ -1,0 +1,29 @@
+from pathlib import Path
+import shutil,hashlib,json
+w=Path('/private/tmp/kanarpc-r9b-20261031');root=w/'atomic-bounded';shutil.copytree(w/'atomic-small',root,ignore=shutil.ignore_patterns('*.test'))
+p=root/'quic.go';s=p.read_text().replace('writeDeadline time.Time','writeDeadline time.Time\n queuedBytes int')
+a=s.index('const nativeAtomicWriteBytes');z=s.index('\nfunc (c *nativeChannel) Close()',a)
+s=s[:a]+'''// Limit conservative, per-stream atomic admission between paced writes.
+const nativeAtomicWriteBytes = 4096
+func (c *nativeChannel) SetWriteDeadline(t time.Time) error {
+ c.deadlineMu.Lock();defer c.deadlineMu.Unlock()
+ if err:=c.Stream.SetWriteDeadline(t);err!=nil {return err};c.writeDeadline=t;return nil
+}
+func (c *nativeChannel) SetDeadline(t time.Time) error {
+ if err:=c.Stream.SetReadDeadline(t);err!=nil {return err};return c.SetWriteDeadline(t)
+}
+func (c *nativeChannel) Write(b []byte)(int,error) {
+ c.deadlineMu.Lock()
+ if len(b)<=nativeAtomicWriteBytes-c.queuedBytes && (c.writeDeadline.IsZero()||time.Now().Before(c.writeDeadline)) {
+  err:=c.Stream.TryWriteAll(b)
+  if err==nil {c.queuedBytes+=len(b);c.deadlineMu.Unlock();return len(b),nil}
+  if !errors.Is(err,quic.ErrWouldBlock) {c.deadlineMu.Unlock();return 0,nativeError(err)}
+ }
+ c.deadlineMu.Unlock()
+ n,err:=c.Stream.WriteWithLimit(b,allowQUICWrite)
+ if err==nil&&len(b)>0 {c.deadlineMu.Lock();c.queuedBytes=0;c.deadlineMu.Unlock()}
+ return n,nativeError(err)
+}
+''' + s[z:];p.write_text(s)
+for p in ['quic_write_test.go','quic_write_benchmark_test.go']:shutil.copy2(p,root/p)
+Path('docs/verification/quic-r9b/bounded-candidate.json').write_text(json.dumps({'queue_burst':4096,'quic_go_sha256':hashlib.sha256((root/'quic.go').read_bytes()).hexdigest(),'source':str(root)},indent=2)+'\n')

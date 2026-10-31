@@ -1,0 +1,12 @@
+{
+  "atomic-small": {
+    "queue_limit": "1024",
+    "quic_go_sha256": "fdda47aea49d6c4c691b9a0dcb61962eca793602a8702b0cb2fda0e64729796b",
+    "source": "/private/tmp/kanarpc-r9b-20261031/atomic-small"
+  },
+  "atomic-all": {
+    "queue_limit": "1 << 30",
+    "quic_go_sha256": "8fb6fafa330b332cff1f4ac5b78d596411a127ac7083a741fd96259addae4039",
+    "source": "/private/tmp/kanarpc-r9b-20261031/atomic-all"
+  }
+}

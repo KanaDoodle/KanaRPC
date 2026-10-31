@@ -1,0 +1,32 @@
+{"Time":"2026-10-31T19:22:51.895226+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T19:22:52.485228+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:22:52.4854+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.485504+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:22:52.485519+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.522828+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/write (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.522909+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.04}
+{"Time":"2026-10-31T19:22:52.523013+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:22:52.523037+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.555662+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear/both (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.555783+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0.03}
+{"Time":"2026-10-31T19:22:52.555845+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- PASS: TestNativeWriteExpiredDeadlineAndClear (0.07s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.555872+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.07}
+{"Time":"2026-10-31T19:22:52.555883+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce"}
+{"Time":"2026-10-31T19:22:52.55589+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"=== RUN   TestNativeWriteCreditFallbackExactlyOnce\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.608706+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Output":"--- PASS: TestNativeWriteCreditFallbackExactlyOnce (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.608778+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditFallbackExactlyOnce","Elapsed":0.05}
+{"Time":"2026-10-31T19:22:52.6088+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse"}
+{"Time":"2026-10-31T19:22:52.608808+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"=== RUN   TestNativeWriteCreditDeadlineThenReuse\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.643721+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Output":"--- PASS: TestNativeWriteCreditDeadlineThenReuse (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.643777+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteCreditDeadlineThenReuse","Elapsed":0.03}
+{"Time":"2026-10-31T19:22:52.643823+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes"}
+{"Time":"2026-10-31T19:22:52.643828+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"=== RUN   TestNativeWriteFallbackCancellationReleasesPoolBytes\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.653492+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Output":"--- PASS: TestNativeWriteFallbackCancellationReleasesPoolBytes (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.653542+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteFallbackCancellationReleasesPoolBytes","Elapsed":0.01}
+{"Time":"2026-10-31T19:22:52.653556+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates"}
+{"Time":"2026-10-31T19:22:52.653562+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"=== RUN   TestNativeWriteConcurrentDeadlineUpdates\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.677447+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Output":"--- PASS: TestNativeWriteConcurrentDeadlineUpdates (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:52.677492+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteConcurrentDeadlineUpdates","Elapsed":0.02}
+{"Time":"2026-10-31T19:22:52.677501+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:53.694219+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t1.799s\n"}
+{"Time":"2026-10-31T19:22:53.694325+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":1.799}

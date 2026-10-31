@@ -1,0 +1,15 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/120 completed
+fuzz: elapsed: 1s, gathering baseline coverage: 120/120 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 329 (110/sec), new interesting: 2 (total: 122)
+fuzz: elapsed: 6s, execs: 976 (216/sec), new interesting: 5 (total: 125)
+fuzz: elapsed: 9s, execs: 1068 (31/sec), new interesting: 5 (total: 125)
+fuzz: elapsed: 12s, execs: 1483 (138/sec), new interesting: 5 (total: 125)
+fuzz: elapsed: 15s, execs: 1829 (115/sec), new interesting: 6 (total: 126)
+fuzz: elapsed: 18s, execs: 4117 (763/sec), new interesting: 7 (total: 127)
+fuzz: elapsed: 21s, execs: 4222 (35/sec), new interesting: 7 (total: 127)
+fuzz: elapsed: 24s, execs: 6076 (618/sec), new interesting: 9 (total: 129)
+fuzz: elapsed: 27s, execs: 6344 (89/sec), new interesting: 10 (total: 130)
+fuzz: elapsed: 30s, execs: 6344 (0/sec), new interesting: 10 (total: 130)
+fuzz: elapsed: 32s, execs: 6344 (0/sec), new interesting: 10 (total: 130)
+PASS
+ok  	github.com/KanaDoodle/KanaRPC	33.457s

@@ -1,0 +1,37 @@
+File: KanaRPC.test
+Type: delay
+Time: 2026-10-31 19:20:30 CST
+Showing nodes accounting for 278.27s, 100% of 278.29s total
+Dropped 241 nodes (cum <= 1.39s)
+Showing top 30 nodes out of 77
+      flat  flat%   sum%        cum   cum%
+   171.61s 61.66% 61.66%    171.61s 61.66%  runtime.selectgo
+    93.77s 33.69% 95.36%     93.77s 33.69%  runtime.chanrecv1
+     6.68s  2.40% 97.76%      6.68s  2.40%  sync.(*WaitGroup).Wait
+     6.22s  2.23%   100%      6.22s  2.23%  sync.(*Mutex).Lock (inline)
+         0     0%   100%      7.54s  2.71%  github.com/KanaDoodle/KanaRPC.(*Client).handleFrame
+         0     0%   100%     38.44s 13.81%  github.com/KanaDoodle/KanaRPC.(*Client).readLoop
+         0     0%   100%     52.36s 18.82%  github.com/KanaDoodle/KanaRPC.(*QUICClient).exchange.func1
+         0     0%   100%     12.91s  4.64%  github.com/KanaDoodle/KanaRPC.(*Sender).Send
+         0     0%   100%      6.73s  2.42%  github.com/KanaDoodle/KanaRPC.(*Server).ServeQUIC
+         0     0%   100%      5.93s  2.13%  github.com/KanaDoodle/KanaRPC.(*Server).ServeQUIC.gowrap1
+         0     0%   100%     35.87s 12.89%  github.com/KanaDoodle/KanaRPC.(*Stream).Recv
+         0     0%   100%     35.87s 12.89%  github.com/KanaDoodle/KanaRPC.(*Stream).take
+         0     0%   100%     33.41s 12.00%  github.com/KanaDoodle/KanaRPC.(*execution).run
+         0     0%   100%     73.13s 26.28%  github.com/KanaDoodle/KanaRPC.(*link).read (inline)
+         0     0%   100%     73.13s 26.28%  github.com/KanaDoodle/KanaRPC.(*link).readWithin
+         0     0%   100%      5.78s  2.08%  github.com/KanaDoodle/KanaRPC.(*link).send
+         0     0%   100%      6.29s  2.26%  github.com/KanaDoodle/KanaRPC.(*link).writeLocked
+         0     0%   100%      7.06s  2.54%  github.com/KanaDoodle/KanaRPC.(*nativeChannel).AwaitEnd
+         0     0%   100%     80.19s 28.81%  github.com/KanaDoodle/KanaRPC.(*nativeChannel).Read
+         0     0%   100%      6.26s  2.25%  github.com/KanaDoodle/KanaRPC.(*nativeChannel).Write
+         0     0%   100%      5.93s  2.13%  github.com/KanaDoodle/KanaRPC.(*quicServerSession).run
+         0     0%   100%     42.23s 15.17%  github.com/KanaDoodle/KanaRPC.(*quicServerSession).run.gowrap1
+         0     0%   100%     33.41s 12.00%  github.com/KanaDoodle/KanaRPC.(*serverConn).open.gowrap1
+         0     0%   100%     42.23s 15.17%  github.com/KanaDoodle/KanaRPC.(*serverConn).readLoop
+         0     0%   100%      6.73s  2.42%  github.com/KanaDoodle/KanaRPC.BenchmarkQUICStreamingWrite
+         0     0%   100%      6.70s  2.41%  github.com/KanaDoodle/KanaRPC.BenchmarkQUICStreamingWrite.func1
+         0     0%   100%     12.91s  4.64%  github.com/KanaDoodle/KanaRPC.BenchmarkQUICStreamingWrite.func1.1.1
+         0     0%   100%     36.39s 13.08%  github.com/KanaDoodle/KanaRPC.BenchmarkQUICStreamingWrite.func1.2
+         0     0%   100%     36.38s 13.07%  github.com/KanaDoodle/KanaRPC.BenchmarkQUICStreamingWrite.func1.3
+         0     0%   100%     12.91s  4.64%  github.com/KanaDoodle/KanaRPC.RegisterStream[go.shape.int,go.shape.string].func1

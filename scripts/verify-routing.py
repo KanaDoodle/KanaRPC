@@ -20,7 +20,7 @@ def cpu():
     return value.ru_utime + value.ru_stime
 
 
-def case(worker_binary, client_binary, directory, transport, workload, strategy, seed, count, workers):
+def case(worker_binary, client_binary, directory, transport, workload, strategy, seed, count, workers, payload_bytes=None):
     directory.mkdir()
     env = dict(os.environ, GOWORK="off", GOMAXPROCS="2")
     processes, logs, ready = [], [], []
@@ -39,7 +39,9 @@ def case(worker_binary, client_binary, directory, transport, workload, strategy,
                 time.sleep(.01)
             ready.append(json.loads(path.read_text()))
         log = (directory/"client.log").open("wb"); logs.append(log)
-        client = subprocess.Popen([str(client_binary), "-ready", ",".join(str(directory/f"ready-{i}.json") for i in range(2)), "-output", str(directory/"client.json"), "-strategy", strategy, "-workload", workload, "-seed", str(seed), "-count", str(count), "-workers", str(workers)], stdout=log, stderr=log, env=env)
+        arguments = [str(client_binary), "-ready", ",".join(str(directory/f"ready-{i}.json") for i in range(2)), "-output", str(directory/"client.json"), "-strategy", strategy, "-workload", workload, "-seed", str(seed), "-count", str(count), "-workers", str(workers)]
+        if payload_bytes is not None:arguments += ["-payload-bytes",str(payload_bytes)];result["payload_bytes"]=payload_bytes
+        client = subprocess.Popen(arguments, stdout=log, stderr=log, env=env)
         processes.append(client)
         code = client.wait(timeout=120)
         if (directory/"client.json").exists():

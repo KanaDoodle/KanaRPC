@@ -1,0 +1,252 @@
+[
+  {
+    "file": "atomic-all-spectrum.txt",
+    "payload": 128,
+    "repeats": 2,
+    "ns_per_rpc": 66662.5,
+    "packets_per_rpc": 6.5905000000000005,
+    "wire_bytes_per_rpc": 3121.0,
+    "allocated_bytes_per_rpc": 43915.5,
+    "allocations_per_rpc": 828.0
+  },
+  {
+    "file": "atomic-all-spectrum.txt",
+    "payload": 900,
+    "repeats": 2,
+    "ns_per_rpc": 127472.5,
+    "packets_per_rpc": 16.34,
+    "wire_bytes_per_rpc": 15780.5,
+    "allocated_bytes_per_rpc": 191278.5,
+    "allocations_per_rpc": 1023.0
+  },
+  {
+    "file": "atomic-all-spectrum.txt",
+    "payload": 1024,
+    "repeats": 2,
+    "ns_per_rpc": 136715.5,
+    "packets_per_rpc": 17.715,
+    "wire_bytes_per_rpc": 17813.0,
+    "allocated_bytes_per_rpc": 217664.5,
+    "allocations_per_rpc": 1047.5
+  },
+  {
+    "file": "atomic-all-spectrum.txt",
+    "payload": 4096,
+    "repeats": 2,
+    "ns_per_rpc": 517898.5,
+    "packets_per_rpc": 59.155,
+    "wire_bytes_per_rpc": 68187.5,
+    "allocated_bytes_per_rpc": 1411876.5,
+    "allocations_per_rpc": 1807.5
+  },
+  {
+    "file": "atomic-all-spectrum.txt",
+    "payload": 16384,
+    "repeats": 2,
+    "ns_per_rpc": 1813203.0,
+    "packets_per_rpc": 226.8,
+    "wire_bytes_per_rpc": 269553.5,
+    "allocated_bytes_per_rpc": 4942471.0,
+    "allocations_per_rpc": 4582.0
+  },
+  {
+    "file": "atomic-small-spectrum.txt",
+    "payload": 128,
+    "repeats": 2,
+    "ns_per_rpc": 67010.5,
+    "packets_per_rpc": 6.582,
+    "wire_bytes_per_rpc": 3119.0,
+    "allocated_bytes_per_rpc": 43871.0,
+    "allocations_per_rpc": 826.5
+  },
+  {
+    "file": "atomic-small-spectrum.txt",
+    "payload": 900,
+    "repeats": 2,
+    "ns_per_rpc": 128574.0,
+    "packets_per_rpc": 16.345,
+    "wire_bytes_per_rpc": 15779.0,
+    "allocated_bytes_per_rpc": 191447.5,
+    "allocations_per_rpc": 1023.0
+  },
+  {
+    "file": "atomic-small-spectrum.txt",
+    "payload": 1024,
+    "repeats": 2,
+    "ns_per_rpc": 159820.0,
+    "packets_per_rpc": 23.619999999999997,
+    "wire_bytes_per_rpc": 18053.5,
+    "allocated_bytes_per_rpc": 107853.0,
+    "allocations_per_rpc": 1220.5
+  },
+  {
+    "file": "atomic-small-spectrum.txt",
+    "payload": 4096,
+    "repeats": 2,
+    "ns_per_rpc": 357417.0,
+    "packets_per_rpc": 61.96,
+    "wire_bytes_per_rpc": 68326.0,
+    "allocated_bytes_per_rpc": 309934.0,
+    "allocations_per_rpc": 1810.5
+  },
+  {
+    "file": "atomic-small-spectrum.txt",
+    "payload": 16384,
+    "repeats": 2,
+    "ns_per_rpc": 1195956.5,
+    "packets_per_rpc": 226.3,
+    "wire_bytes_per_rpc": 269698.5,
+    "allocated_bytes_per_rpc": 1056914.5,
+    "allocations_per_rpc": 4323.0
+  },
+  {
+    "file": "bounded-spectrum.txt",
+    "payload": 128,
+    "repeats": 3,
+    "ns_per_rpc": 70899.0,
+    "packets_per_rpc": 6.538,
+    "wire_bytes_per_rpc": 3120.0,
+    "allocated_bytes_per_rpc": 43888,
+    "allocations_per_rpc": 827
+  },
+  {
+    "file": "bounded-spectrum.txt",
+    "payload": 900,
+    "repeats": 3,
+    "ns_per_rpc": 127908.0,
+    "packets_per_rpc": 18.22,
+    "wire_bytes_per_rpc": 15879.0,
+    "allocated_bytes_per_rpc": 121794,
+    "allocations_per_rpc": 1065
+  },
+  {
+    "file": "bounded-spectrum.txt",
+    "payload": 1024,
+    "repeats": 3,
+    "ns_per_rpc": 141934.0,
+    "packets_per_rpc": 21.39,
+    "wire_bytes_per_rpc": 17994.0,
+    "allocated_bytes_per_rpc": 131673,
+    "allocations_per_rpc": 1139
+  },
+  {
+    "file": "bounded-spectrum.txt",
+    "payload": 4096,
+    "repeats": 3,
+    "ns_per_rpc": 349402.0,
+    "packets_per_rpc": 62.11,
+    "wire_bytes_per_rpc": 68331.0,
+    "allocated_bytes_per_rpc": 309403,
+    "allocations_per_rpc": 1814
+  },
+  {
+    "file": "bounded-spectrum.txt",
+    "payload": 16384,
+    "repeats": 3,
+    "ns_per_rpc": 1202160.0,
+    "packets_per_rpc": 226.3,
+    "wire_bytes_per_rpc": 269697.0,
+    "allocated_bytes_per_rpc": 1057008,
+    "allocations_per_rpc": 4325
+  },
+  {
+    "file": "limiter-spectrum.txt",
+    "payload": 128,
+    "repeats": 3,
+    "ns_per_rpc": 179554.0,
+    "packets_per_rpc": 28.76,
+    "wire_bytes_per_rpc": 3857.0,
+    "allocated_bytes_per_rpc": 65600,
+    "allocations_per_rpc": 1385
+  },
+  {
+    "file": "limiter-spectrum.txt",
+    "payload": 900,
+    "repeats": 3,
+    "ns_per_rpc": 192551.0,
+    "packets_per_rpc": 29.99,
+    "wire_bytes_per_rpc": 16212.0,
+    "allocated_bytes_per_rpc": 107893,
+    "allocations_per_rpc": 1380
+  },
+  {
+    "file": "limiter-spectrum.txt",
+    "payload": 1024,
+    "repeats": 3,
+    "ns_per_rpc": 197840.0,
+    "packets_per_rpc": 30.4,
+    "wire_bytes_per_rpc": 18223.0,
+    "allocated_bytes_per_rpc": 114438,
+    "allocations_per_rpc": 1390
+  },
+  {
+    "file": "limiter-spectrum.txt",
+    "payload": 4096,
+    "repeats": 3,
+    "ns_per_rpc": 366928.0,
+    "packets_per_rpc": 63.78,
+    "wire_bytes_per_rpc": 68349.0,
+    "allocated_bytes_per_rpc": 316827,
+    "allocations_per_rpc": 1909
+  },
+  {
+    "file": "limiter-spectrum.txt",
+    "payload": 16384,
+    "repeats": 3,
+    "ns_per_rpc": 1222880.0,
+    "packets_per_rpc": 224.3,
+    "wire_bytes_per_rpc": 269627.0,
+    "allocated_bytes_per_rpc": 1071750,
+    "allocations_per_rpc": 4382
+  },
+  {
+    "file": "unsafe-spectrum.txt",
+    "payload": 128,
+    "repeats": 2,
+    "ns_per_rpc": 66568.5,
+    "packets_per_rpc": 6.509,
+    "wire_bytes_per_rpc": 3118.0,
+    "allocated_bytes_per_rpc": 44217.5,
+    "allocations_per_rpc": 881.0
+  },
+  {
+    "file": "unsafe-spectrum.txt",
+    "payload": 900,
+    "repeats": 2,
+    "ns_per_rpc": 142810.5,
+    "packets_per_rpc": 21.395,
+    "wire_bytes_per_rpc": 15999.5,
+    "allocated_bytes_per_rpc": 98209.5,
+    "allocations_per_rpc": 1182.5
+  },
+  {
+    "file": "unsafe-spectrum.txt",
+    "payload": 1024,
+    "repeats": 2,
+    "ns_per_rpc": 150586.0,
+    "packets_per_rpc": 22.35,
+    "wire_bytes_per_rpc": 18041.5,
+    "allocated_bytes_per_rpc": 105373.0,
+    "allocations_per_rpc": 1207.5
+  },
+  {
+    "file": "unsafe-spectrum.txt",
+    "payload": 4096,
+    "repeats": 2,
+    "ns_per_rpc": 372411.0,
+    "packets_per_rpc": 61.91,
+    "wire_bytes_per_rpc": 68326.5,
+    "allocated_bytes_per_rpc": 310477.5,
+    "allocations_per_rpc": 1853.5
+  },
+  {
+    "file": "unsafe-spectrum.txt",
+    "payload": 16384,
+    "repeats": 2,
+    "ns_per_rpc": 1213550.5,
+    "packets_per_rpc": 227.25,
+    "wire_bytes_per_rpc": 269678.5,
+    "allocated_bytes_per_rpc": 1056873.5,
+    "allocations_per_rpc": 4324.0
+  }
+]

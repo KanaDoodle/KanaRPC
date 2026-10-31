@@ -1,0 +1,482 @@
+[
+  {
+    "transport": "quic",
+    "strategy": "direct",
+    "payload_bytes": 128,
+    "metrics": {
+      "current": {
+        "requests_per_second": 14169.022266618493,
+        "p95_ms": 0.846541,
+        "triple_cpu_seconds": 0.35410000000001673
+      },
+      "r8d": {
+        "requests_per_second": 12590.665856986127,
+        "p95_ms": 0.942666,
+        "triple_cpu_seconds": 0.39488099999999804
+      },
+      "r9a": {
+        "requests_per_second": 6572.736780788548,
+        "p95_ms": 1.725666,
+        "triple_cpu_seconds": 0.8157489999999825
+      }
+    },
+    "rps_vs_r9a_percent": 115.57264103490539,
+    "rps_vs_r8d_percent": 12.535924847505896
+  },
+  {
+    "transport": "quic",
+    "strategy": "direct",
+    "payload_bytes": 900,
+    "metrics": {
+      "current": {
+        "requests_per_second": 8451.427381853948,
+        "p95_ms": 1.3975,
+        "triple_cpu_seconds": 0.6071029999999951
+      },
+      "r8d": {
+        "requests_per_second": 7701.959847634593,
+        "p95_ms": 1.456458,
+        "triple_cpu_seconds": 0.6855989999999679
+      },
+      "r9a": {
+        "requests_per_second": 5575.787144325765,
+        "p95_ms": 2.054042,
+        "triple_cpu_seconds": 0.9347260000000013
+      }
+    },
+    "rps_vs_r9a_percent": 51.573709022493716,
+    "rps_vs_r8d_percent": 9.730867844624381
+  },
+  {
+    "transport": "quic",
+    "strategy": "direct",
+    "payload_bytes": 1024,
+    "metrics": {
+      "current": {
+        "requests_per_second": 7882.573305468437,
+        "p95_ms": 1.461292,
+        "triple_cpu_seconds": 0.6601220000000012
+      },
+      "r8d": {
+        "requests_per_second": 7421.460079502391,
+        "p95_ms": 1.534875,
+        "triple_cpu_seconds": 0.6957659999999919
+      },
+      "r9a": {
+        "requests_per_second": 6029.946232537231,
+        "p95_ms": 1.878917,
+        "triple_cpu_seconds": 0.8832729999999742
+      }
+    },
+    "rps_vs_r9a_percent": 30.723774333750132,
+    "rps_vs_r8d_percent": 6.213241343702869
+  },
+  {
+    "transport": "quic",
+    "strategy": "direct",
+    "payload_bytes": 4096,
+    "metrics": {
+      "current": {
+        "requests_per_second": 3344.263959757883,
+        "p95_ms": 3.304167,
+        "triple_cpu_seconds": 1.5576320000000052
+      },
+      "r8d": {
+        "requests_per_second": 3343.8534753368035,
+        "p95_ms": 3.306917,
+        "triple_cpu_seconds": 1.5242980000000443
+      },
+      "r9a": {
+        "requests_per_second": 3134.5956142988803,
+        "p95_ms": 3.481917,
+        "triple_cpu_seconds": 1.6530329999999367
+      }
+    },
+    "rps_vs_r9a_percent": 6.688848300003114,
+    "rps_vs_r8d_percent": 0.012275789717075547
+  },
+  {
+    "transport": "quic",
+    "strategy": "direct",
+    "payload_bytes": 16384,
+    "metrics": {
+      "current": {
+        "requests_per_second": 1035.14667992742,
+        "p95_ms": 10.095792,
+        "triple_cpu_seconds": 4.9161
+      },
+      "r8d": {
+        "requests_per_second": 1045.5900800686743,
+        "p95_ms": 9.850709,
+        "triple_cpu_seconds": 4.979563999999982
+      },
+      "r9a": {
+        "requests_per_second": 1032.6986385400976,
+        "p95_ms": 10.083334,
+        "triple_cpu_seconds": 5.0246870000000285
+      }
+    },
+    "rps_vs_r9a_percent": 0.23705283380477393,
+    "rps_vs_r8d_percent": -0.9988044397445162
+  },
+  {
+    "transport": "quic",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "metrics": {
+      "current": {
+        "requests_per_second": 13130.072458830067,
+        "p95_ms": 0.900292,
+        "triple_cpu_seconds": 0.370399999999961
+      },
+      "r8d": {
+        "requests_per_second": 13326.692198387804,
+        "p95_ms": 0.907375,
+        "triple_cpu_seconds": 0.3786169999999629
+      },
+      "r9a": {
+        "requests_per_second": 6554.619080376849,
+        "p95_ms": 1.719959,
+        "triple_cpu_seconds": 0.8202360000000226
+      }
+    },
+    "rps_vs_r9a_percent": 100.31785673310512,
+    "rps_vs_r8d_percent": -1.4753829129596219
+  },
+  {
+    "transport": "quic",
+    "strategy": "managed",
+    "payload_bytes": 900,
+    "metrics": {
+      "current": {
+        "requests_per_second": 7889.831629967339,
+        "p95_ms": 1.492417,
+        "triple_cpu_seconds": 0.6500020000000291
+      },
+      "r8d": {
+        "requests_per_second": 7323.101315538764,
+        "p95_ms": 1.562167,
+        "triple_cpu_seconds": 0.7045000000000101
+      },
+      "r9a": {
+        "requests_per_second": 5281.470476305401,
+        "p95_ms": 2.176125,
+        "triple_cpu_seconds": 0.9744860000000131
+      }
+    },
+    "rps_vs_r9a_percent": 49.3870251734625,
+    "rps_vs_r8d_percent": 7.738938600044221
+  },
+  {
+    "transport": "quic",
+    "strategy": "managed",
+    "payload_bytes": 1024,
+    "metrics": {
+      "current": {
+        "requests_per_second": 7453.534238976004,
+        "p95_ms": 1.5515,
+        "triple_cpu_seconds": 0.6806980000000067
+      },
+      "r8d": {
+        "requests_per_second": 7420.9483844395,
+        "p95_ms": 1.546708,
+        "triple_cpu_seconds": 0.7044810000000439
+      },
+      "r9a": {
+        "requests_per_second": 5841.892099586945,
+        "p95_ms": 1.933292,
+        "triple_cpu_seconds": 0.9003639999999962
+      }
+    },
+    "rps_vs_r9a_percent": 27.58767385489731,
+    "rps_vs_r8d_percent": 0.4391063358536673
+  },
+  {
+    "transport": "quic",
+    "strategy": "managed",
+    "payload_bytes": 4096,
+    "metrics": {
+      "current": {
+        "requests_per_second": 3308.104898352274,
+        "p95_ms": 3.301542,
+        "triple_cpu_seconds": 1.5512669999999957
+      },
+      "r8d": {
+        "requests_per_second": 3370.335403140563,
+        "p95_ms": 3.255042,
+        "triple_cpu_seconds": 1.5221749999999972
+      },
+      "r9a": {
+        "requests_per_second": 3093.3655043345784,
+        "p95_ms": 3.4805,
+        "triple_cpu_seconds": 1.6604299999999625
+      }
+    },
+    "rps_vs_r9a_percent": 6.94193407525856,
+    "rps_vs_r8d_percent": -1.8464187490153328
+  },
+  {
+    "transport": "quic",
+    "strategy": "managed",
+    "payload_bytes": 16384,
+    "metrics": {
+      "current": {
+        "requests_per_second": 1052.6653750462515,
+        "p95_ms": 9.76425,
+        "triple_cpu_seconds": 4.941091
+      },
+      "r8d": {
+        "requests_per_second": 1021.9199269531637,
+        "p95_ms": 10.013458,
+        "triple_cpu_seconds": 5.047594999999944
+      },
+      "r9a": {
+        "requests_per_second": 1043.875387375632,
+        "p95_ms": 10.050917,
+        "triple_cpu_seconds": 4.992441999999983
+      }
+    },
+    "rps_vs_r9a_percent": 0.8420533501338756,
+    "rps_vs_r8d_percent": 3.0085965917853175
+  },
+  {
+    "transport": "tcp",
+    "strategy": "direct",
+    "payload_bytes": 128,
+    "metrics": {
+      "current": {
+        "requests_per_second": 13137.878142291418,
+        "p95_ms": 0.951958,
+        "triple_cpu_seconds": 0.40263799999996763
+      },
+      "r8d": {
+        "requests_per_second": 13544.606622296793,
+        "p95_ms": 0.980083,
+        "triple_cpu_seconds": 0.39402599999999666
+      },
+      "r9a": {
+        "requests_per_second": 13469.426986869787,
+        "p95_ms": 0.959,
+        "triple_cpu_seconds": 0.39214700000000846
+      }
+    },
+    "rps_vs_r9a_percent": -2.4614918281346876,
+    "rps_vs_r8d_percent": -3.002881451985684
+  },
+  {
+    "transport": "tcp",
+    "strategy": "direct",
+    "payload_bytes": 900,
+    "metrics": {
+      "current": {
+        "requests_per_second": 12005.834739636786,
+        "p95_ms": 1.08575,
+        "triple_cpu_seconds": 0.4425029999999879
+      },
+      "r8d": {
+        "requests_per_second": 11879.623772315132,
+        "p95_ms": 1.071875,
+        "triple_cpu_seconds": 0.4495119999999986
+      },
+      "r9a": {
+        "requests_per_second": 11910.30345702394,
+        "p95_ms": 1.071583,
+        "triple_cpu_seconds": 0.43927999999999656
+      }
+    },
+    "rps_vs_r9a_percent": 0.8020894090360775,
+    "rps_vs_r8d_percent": 1.0624155254460366
+  },
+  {
+    "transport": "tcp",
+    "strategy": "direct",
+    "payload_bytes": 1024,
+    "metrics": {
+      "current": {
+        "requests_per_second": 11199.514604077447,
+        "p95_ms": 1.157583,
+        "triple_cpu_seconds": 0.4676809999999989
+      },
+      "r8d": {
+        "requests_per_second": 11645.20552332098,
+        "p95_ms": 1.066292,
+        "triple_cpu_seconds": 0.45300900000000865
+      },
+      "r9a": {
+        "requests_per_second": 11870.305094023915,
+        "p95_ms": 1.077583,
+        "triple_cpu_seconds": 0.44588099999998576
+      }
+    },
+    "rps_vs_r9a_percent": -5.650996201303848,
+    "rps_vs_r8d_percent": -3.8272482040010436
+  },
+  {
+    "transport": "tcp",
+    "strategy": "direct",
+    "payload_bytes": 4096,
+    "metrics": {
+      "current": {
+        "requests_per_second": 8223.59406208154,
+        "p95_ms": 1.49425,
+        "triple_cpu_seconds": 0.6208330000000046
+      },
+      "r8d": {
+        "requests_per_second": 8044.491378867412,
+        "p95_ms": 1.49325,
+        "triple_cpu_seconds": 0.6345670000000041
+      },
+      "r9a": {
+        "requests_per_second": 8161.413697881701,
+        "p95_ms": 1.489042,
+        "triple_cpu_seconds": 0.6311769999999939
+      }
+    },
+    "rps_vs_r9a_percent": 0.7618822731161989,
+    "rps_vs_r8d_percent": 2.2264015806471527
+  },
+  {
+    "transport": "tcp",
+    "strategy": "direct",
+    "payload_bytes": 16384,
+    "metrics": {
+      "current": {
+        "requests_per_second": 3575.4269841943783,
+        "p95_ms": 3.276667,
+        "triple_cpu_seconds": 1.2818609999999921
+      },
+      "r8d": {
+        "requests_per_second": 3570.121116573087,
+        "p95_ms": 3.321167,
+        "triple_cpu_seconds": 1.284165999999999
+      },
+      "r9a": {
+        "requests_per_second": 3602.143275248773,
+        "p95_ms": 3.237291,
+        "triple_cpu_seconds": 1.2597220000000107
+      }
+    },
+    "rps_vs_r9a_percent": -0.7416776350338217,
+    "rps_vs_r8d_percent": 0.14861870082392148
+  },
+  {
+    "transport": "tcp",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "metrics": {
+      "current": {
+        "requests_per_second": 13003.915205786243,
+        "p95_ms": 0.981833,
+        "triple_cpu_seconds": 0.4126070000000368
+      },
+      "r8d": {
+        "requests_per_second": 12791.54047332307,
+        "p95_ms": 0.998833,
+        "triple_cpu_seconds": 0.41301499999997304
+      },
+      "r9a": {
+        "requests_per_second": 12870.399313276677,
+        "p95_ms": 0.954166,
+        "triple_cpu_seconds": 0.408883000000003
+      }
+    },
+    "rps_vs_r9a_percent": 1.0373873355415952,
+    "rps_vs_r8d_percent": 1.6602748738987483
+  },
+  {
+    "transport": "tcp",
+    "strategy": "managed",
+    "payload_bytes": 900,
+    "metrics": {
+      "current": {
+        "requests_per_second": 11729.528887225693,
+        "p95_ms": 1.097709,
+        "triple_cpu_seconds": 0.44903700000003255
+      },
+      "r8d": {
+        "requests_per_second": 11868.667309362914,
+        "p95_ms": 1.081875,
+        "triple_cpu_seconds": 0.4440569999999866
+      },
+      "r9a": {
+        "requests_per_second": 11724.904521464377,
+        "p95_ms": 1.104708,
+        "triple_cpu_seconds": 0.45690400000000153
+      }
+    },
+    "rps_vs_r9a_percent": 0.039440540883295405,
+    "rps_vs_r8d_percent": -1.172317148256885
+  },
+  {
+    "transport": "tcp",
+    "strategy": "managed",
+    "payload_bytes": 1024,
+    "metrics": {
+      "current": {
+        "requests_per_second": 11550.11720596936,
+        "p95_ms": 1.131041,
+        "triple_cpu_seconds": 0.45961900000000355
+      },
+      "r8d": {
+        "requests_per_second": 11757.34025448763,
+        "p95_ms": 1.059833,
+        "triple_cpu_seconds": 0.4522150000000238
+      },
+      "r9a": {
+        "requests_per_second": 11090.214313179202,
+        "p95_ms": 1.131459,
+        "triple_cpu_seconds": 0.46189199999997754
+      }
+    },
+    "rps_vs_r9a_percent": 4.146925206338237,
+    "rps_vs_r8d_percent": -1.7624993751386597
+  },
+  {
+    "transport": "tcp",
+    "strategy": "managed",
+    "payload_bytes": 4096,
+    "metrics": {
+      "current": {
+        "requests_per_second": 7936.017163129087,
+        "p95_ms": 1.558208,
+        "triple_cpu_seconds": 0.6406419999999997
+      },
+      "r8d": {
+        "requests_per_second": 8043.313241807132,
+        "p95_ms": 1.478333,
+        "triple_cpu_seconds": 0.6224790000000056
+      },
+      "r9a": {
+        "requests_per_second": 7936.056526054585,
+        "p95_ms": 1.505291,
+        "triple_cpu_seconds": 0.6404919999999947
+      }
+    },
+    "rps_vs_r9a_percent": -0.0004960010726917652,
+    "rps_vs_r8d_percent": -1.333978616179543
+  },
+  {
+    "transport": "tcp",
+    "strategy": "managed",
+    "payload_bytes": 16384,
+    "metrics": {
+      "current": {
+        "requests_per_second": 3608.723543527478,
+        "p95_ms": 3.226625,
+        "triple_cpu_seconds": 1.2692519999999945
+      },
+      "r8d": {
+        "requests_per_second": 3589.911809329014,
+        "p95_ms": 3.256541,
+        "triple_cpu_seconds": 1.2868669999999724
+      },
+      "r9a": {
+        "requests_per_second": 3354.4617798444797,
+        "p95_ms": 3.593041,
+        "triple_cpu_seconds": 1.3273779999999533
+      }
+    },
+    "rps_vs_r9a_percent": 7.579808039869396,
+    "rps_vs_r8d_percent": 0.5240166109256039
+  }
+]

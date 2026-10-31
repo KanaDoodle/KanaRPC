@@ -1,0 +1,18 @@
+{"Time":"2026-10-31T19:22:54.770615+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T19:22:55.177416+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear"}
+{"Time":"2026-10-31T19:22:55.177662+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:55.177772+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write"}
+{"Time":"2026-10-31T19:22:55.177785+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/write\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:55.183278+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"    quic_write_test.go:101: expired write accepted bytes 18 \u003cnil\u003e\n","OutputType":"error"}
+{"Time":"2026-10-31T19:22:55.18341+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Output":"--- FAIL: TestNativeWriteExpiredDeadlineAndClear/write (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:55.183436+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/write","Elapsed":0.01}
+{"Time":"2026-10-31T19:22:55.183528+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both"}
+{"Time":"2026-10-31T19:22:55.183539+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"=== RUN   TestNativeWriteExpiredDeadlineAndClear/both\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:55.1856+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"    quic_write_test.go:101: expired write accepted bytes 18 \u003cnil\u003e\n","OutputType":"error"}
+{"Time":"2026-10-31T19:22:55.185752+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Output":"--- FAIL: TestNativeWriteExpiredDeadlineAndClear/both (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:55.185776+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear/both","Elapsed":0}
+{"Time":"2026-10-31T19:22:55.185787+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Output":"--- FAIL: TestNativeWriteExpiredDeadlineAndClear (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:55.185793+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeWriteExpiredDeadlineAndClear","Elapsed":0.01}
+{"Time":"2026-10-31T19:22:55.185806+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:55.186746+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.416s\n","OutputType":"frame"}
+{"Time":"2026-10-31T19:22:55.186774+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.416}

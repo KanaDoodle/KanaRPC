@@ -1,0 +1,39 @@
+from pathlib import Path
+import shutil,hashlib,json
+w=Path('/private/tmp/kanarpc-r9b-20261031')
+method='''const nativeAtomicWriteBytes = LIMIT
+
+func (c *nativeChannel) SetWriteDeadline(t time.Time) error {
+ c.deadlineMu.Lock()
+ defer c.deadlineMu.Unlock()
+ if err := c.Stream.SetWriteDeadline(t); err != nil {return err}
+ c.writeDeadline=t
+ return nil
+}
+func (c *nativeChannel) SetDeadline(t time.Time) error {
+ if err:=c.Stream.SetReadDeadline(t);err!=nil {return err}
+ return c.SetWriteDeadline(t)
+}
+func (c *nativeChannel) Write(b []byte) (int,error) {
+ if len(b)<=nativeAtomicWriteBytes {
+  c.deadlineMu.Lock()
+  if c.writeDeadline.IsZero() || time.Now().Before(c.writeDeadline) {
+   err:=c.Stream.TryWriteAll(b)
+   c.deadlineMu.Unlock()
+   if err==nil {return len(b),nil}
+   if !errors.Is(err,quic.ErrWouldBlock) {return 0,nativeError(err)}
+  } else {c.deadlineMu.Unlock()}
+ }
+ n,err:=c.Stream.WriteWithLimit(b,allowQUICWrite)
+ return n,nativeError(err)
+}
+'''
+meta={}
+for name,limit in [('atomic-small','1024'),('atomic-all','1 << 30')]:
+ root=w/name;shutil.copytree(w/'limiter',root,ignore=shutil.ignore_patterns('*.test'))
+ for p in ['quic_write_test.go','memory_pool_test.go']:shutil.copy2(p,root/p)
+ p=root/'quic.go';s=p.read_text().replace('once sync.Once\n}', 'once sync.Once\n deadlineMu sync.Mutex\n writeDeadline time.Time\n}',1)
+ start=s.index('func (c *nativeChannel) Write(');end=s.index('\nfunc (c *nativeChannel) Close()',start)
+ s=s[:start]+method.replace('LIMIT',limit)+s[end:];p.write_text(s)
+ meta[name]={'queue_limit':limit,'quic_go_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'source':str(root)}
+Path('docs/verification/quic-r9b/atomic-candidates.json').write_text(json.dumps(meta,indent=2)+'\n')

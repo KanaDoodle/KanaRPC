@@ -1,0 +1,21 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/KanaDoodle/KanaRPC
+cpu: Apple M5
+BenchmarkQUICStreamingWrite/Payload128-2         	   17352	     70899 ns/op	         6.594 packets/RPC	      3120 wireB/RPC	   43880 B/op	     827 allocs/op
+BenchmarkQUICStreamingWrite/Payload128-2         	   17577	     73450 ns/op	         6.532 packets/RPC	      3120 wireB/RPC	   43901 B/op	     827 allocs/op
+BenchmarkQUICStreamingWrite/Payload128-2         	   17953	     67610 ns/op	         6.538 packets/RPC	      3119 wireB/RPC	   43888 B/op	     827 allocs/op
+BenchmarkQUICStreamingWrite/Payload900-2         	    9374	    125857 ns/op	        18.22 packets/RPC	     15879 wireB/RPC	  121730 B/op	    1065 allocs/op
+BenchmarkQUICStreamingWrite/Payload900-2         	    9273	    127908 ns/op	        18.15 packets/RPC	     15877 wireB/RPC	  121794 B/op	    1065 allocs/op
+BenchmarkQUICStreamingWrite/Payload900-2         	    8840	    141889 ns/op	        18.23 packets/RPC	     15880 wireB/RPC	  121959 B/op	    1067 allocs/op
+BenchmarkQUICStreamingWrite/Payload1024-2        	    8206	    139439 ns/op	        21.40 packets/RPC	     17994 wireB/RPC	  131619 B/op	    1139 allocs/op
+BenchmarkQUICStreamingWrite/Payload1024-2        	    8358	    141934 ns/op	        21.39 packets/RPC	     17996 wireB/RPC	  131785 B/op	    1140 allocs/op
+BenchmarkQUICStreamingWrite/Payload1024-2        	    8136	    142957 ns/op	        21.38 packets/RPC	     17993 wireB/RPC	  131673 B/op	    1139 allocs/op
+BenchmarkQUICStreamingWrite/Payload4096-2        	    3280	    346233 ns/op	        62.19 packets/RPC	     68336 wireB/RPC	  309153 B/op	    1816 allocs/op
+BenchmarkQUICStreamingWrite/Payload4096-2        	    3385	    349402 ns/op	        62.11 packets/RPC	     68330 wireB/RPC	  309758 B/op	    1813 allocs/op
+BenchmarkQUICStreamingWrite/Payload4096-2        	    3296	    351965 ns/op	        62.08 packets/RPC	     68331 wireB/RPC	  309403 B/op	    1814 allocs/op
+BenchmarkQUICStreamingWrite/Payload16384-2       	     991	   1194393 ns/op	       226.8 packets/RPC	    269723 wireB/RPC	 1056703 B/op	    4345 allocs/op
+BenchmarkQUICStreamingWrite/Payload16384-2       	    1002	   1202160 ns/op	       226.3 packets/RPC	    269697 wireB/RPC	 1057008 B/op	    4325 allocs/op
+BenchmarkQUICStreamingWrite/Payload16384-2       	     999	   1225087 ns/op	       226.0 packets/RPC	    269686 wireB/RPC	 1059426 B/op	    4312 allocs/op
+PASS
+ok  	github.com/KanaDoodle/KanaRPC	22.683s

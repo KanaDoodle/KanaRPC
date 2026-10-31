@@ -1,0 +1,14 @@
+{
+  "baseline": "478ab3d",
+  "scope": "isolated diagnostic variant changes nativeChannel.Write only; raw Write is unsafe control, not shipped",
+  "versions": {
+    "limiter": {
+      "quic_go_sha256": "c6622b65abf3596d5e50ed2fa2b9cd051aafb2ac553d54b78a76307c4da02be7",
+      "source": "/private/tmp/kanarpc-r9b-20261031/limiter"
+    },
+    "unsafe-write": {
+      "quic_go_sha256": "269f6a22f3604246af2b0c17cd79f16dc55b3afd8c1a607c0fc983f6cdca4331",
+      "source": "/private/tmp/kanarpc-r9b-20261031/unsafe-write"
+    }
+  }
+}

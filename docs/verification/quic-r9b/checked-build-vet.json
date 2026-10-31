@@ -1,0 +1,30 @@
+[
+  {
+    "command": [
+      "go",
+      "vet",
+      "./..."
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "build",
+      "-mod=readonly",
+      "./..."
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "python3",
+      "-m",
+      "py_compile",
+      "scripts/compare-quic-write.py",
+      "scripts/verify-routing.py",
+      "scripts/compare-pool.py"
+    ],
+    "exit_code": 0
+  }
+]

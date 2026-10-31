@@ -202,6 +202,11 @@ func (p *quicServerSession) run() {
 type nativeChannel struct {
 	*quic.Stream
 	once sync.Once
+	// link serializes record writers. This mutex also orders deadline updates
+	// against the nonblocking admission; it is never held during paced IO.
+	deadlineMu    sync.Mutex
+	writeDeadline time.Time
+	queuedBytes   int
 }
 
 func (c *nativeChannel) Read(b []byte) (int, error) {
@@ -209,12 +214,53 @@ func (c *nativeChannel) Read(b []byte) (int, error) {
 	return n, nativeError(err)
 }
 func allowQUICWrite(n int) int { return n }
+
+// This is a per-stream atomic burst limit, not a maximum record size. The
+// conservative debt is replenished only by a non-empty successful paced write,
+// which packetizes its ordered prefix too. It is not an ACK or RSS counter.
+const nativeAtomicWriteBytes = 4 << 10
+
+func (c *nativeChannel) SetWriteDeadline(t time.Time) error {
+	c.deadlineMu.Lock()
+	defer c.deadlineMu.Unlock()
+	if err := c.Stream.SetWriteDeadline(t); err != nil {
+		return err
+	}
+	c.writeDeadline = t
+	return nil
+}
+func (c *nativeChannel) SetDeadline(t time.Time) error {
+	if err := c.Stream.SetReadDeadline(t); err != nil {
+		return err
+	}
+	return c.SetWriteDeadline(t)
+}
 func (c *nativeChannel) Write(b []byte) (int, error) {
-	// quic-go v0.64.1 can rebuffer a tail after a concurrent reset in
-	// Write's small-frame optimization, retaining the native stream credit.
-	// A non-nil identity limiter disables that path; it never withholds bytes.
-	// See the saturated recovery reproduction and R9A instrumentation evidence.
+	c.deadlineMu.Lock()
+	// TryWriteAll ignores deadlines, so guard both the deadline and the bounded
+	// copied-byte burst here. ErrWouldBlock guarantees that nothing was queued.
+	if len(b) <= nativeAtomicWriteBytes-c.queuedBytes && (c.writeDeadline.IsZero() || time.Now().Before(c.writeDeadline)) {
+		err := c.Stream.TryWriteAll(b)
+		if err == nil {
+			c.queuedBytes += len(b)
+			c.deadlineMu.Unlock()
+			return len(b), nil
+		}
+		if !errors.Is(err, quic.ErrWouldBlock) {
+			c.deadlineMu.Unlock()
+			return 0, nativeError(err)
+		}
+	}
+	c.deadlineMu.Unlock()
+	// Keep the R9A reset workaround for all blocking writes. A nil limiter can
+	// rebuffer a tail after concurrent reset in quic-go v0.64.1. This identity
+	// limiter disables that branch without withholding flow-control credit.
 	n, err := c.Stream.WriteWithLimit(b, allowQUICWrite)
+	if err == nil && len(b) > 0 {
+		c.deadlineMu.Lock()
+		c.queuedBytes = 0
+		c.deadlineMu.Unlock()
+	}
 	return n, nativeError(err)
 }
 

@@ -1,0 +1,38 @@
+File: KanaRPC.test
+Type: cpu
+Time: 2026-10-31 19:50:17 CST
+Duration: 5.70s, Total samples = 9.77s (171.32%)
+Showing nodes accounting for 9.35s, 95.70% of 9.77s total
+Dropped 177 nodes (cum <= 0.05s)
+Showing top 30 nodes out of 72
+      flat  flat%   sum%        cum   cum%
+     8.09s 82.80% 82.80%      8.09s 82.80%  syscall.rawsyscalln
+     0.98s 10.03% 92.84%      0.98s 10.03%  runtime.kevent
+     0.10s  1.02% 93.86%      0.10s  1.02%  runtime.usleep
+     0.09s  0.92% 94.78%      0.09s  0.92%  runtime.pthread_cond_timedwait_relative_np
+     0.09s  0.92% 95.70%      0.09s  0.92%  runtime.pthread_kill
+         0     0% 95.70%      0.08s  0.82%  github.com/KanaDoodle/KanaRPC.(*Client).readLoop
+         0     0% 95.70%      0.05s  0.51%  github.com/KanaDoodle/KanaRPC.(*execution).run
+         0     0% 95.70%      0.07s  0.72%  github.com/KanaDoodle/KanaRPC.(*link).read (inline)
+         0     0% 95.70%      0.07s  0.72%  github.com/KanaDoodle/KanaRPC.(*link).readWithin
+         0     0% 95.70%      0.05s  0.51%  github.com/KanaDoodle/KanaRPC.(*link).send
+         0     0% 95.70%      0.05s  0.51%  github.com/KanaDoodle/KanaRPC.(*nativeChannel).Read
+         0     0% 95.70%      0.08s  0.82%  github.com/KanaDoodle/KanaRPC.newRecordClient.func1
+         0     0% 95.70%      0.06s  0.61%  github.com/KanaDoodle/KanaRPC/internal/wire.ReadReserved
+         0     0% 95.70%      0.05s  0.51%  github.com/quic-go/quic-go.(*Conn).run
+         0     0% 95.70%      7.17s 73.39%  github.com/quic-go/quic-go.(*Conn).run.func3
+         0     0% 95.70%      0.05s  0.51%  github.com/quic-go/quic-go.(*ReceiveStream).Read
+         0     0% 95.70%      0.05s  0.51%  github.com/quic-go/quic-go.(*Stream).Read (inline)
+         0     0% 95.70%      0.92s  9.42%  github.com/quic-go/quic-go.(*Transport).init.func1.1
+         0     0% 95.70%      0.92s  9.42%  github.com/quic-go/quic-go.(*Transport).listen
+         0     0% 95.70%      0.92s  9.42%  github.com/quic-go/quic-go.(*oobConn).ReadPacket
+         0     0% 95.70%      7.16s 73.29%  github.com/quic-go/quic-go.(*oobConn).WritePacket
+         0     0% 95.70%      7.16s 73.29%  github.com/quic-go/quic-go.(*sconn).Write
+         0     0% 95.70%      7.16s 73.29%  github.com/quic-go/quic-go.(*sconn).writePacket
+         0     0% 95.70%      7.17s 73.39%  github.com/quic-go/quic-go.(*sendQueue).Run
+         0     0% 95.70%      0.92s  9.42%  golang.org/x/net/internal/socket.(*Conn).RecvMsg (inline)
+         0     0% 95.70%      0.92s  9.42%  golang.org/x/net/internal/socket.(*Conn).recvMsg
+         0     0% 95.70%      0.92s  9.42%  golang.org/x/net/internal/socket.(*Conn).recvMsg.func1
+         0     0% 95.70%      0.92s  9.42%  golang.org/x/net/internal/socket.recvmsg
+         0     0% 95.70%      0.92s  9.42%  golang.org/x/net/ipv4.(*payloadHandler).ReadBatch
+         0     0% 95.70%      0.92s  9.42%  golang.org/x/sys/unix.RecvmsgBuffers

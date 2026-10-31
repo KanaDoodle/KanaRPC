@@ -1,0 +1,65 @@
+[
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "managed",
+    "payload_bytes": 16384,
+    "rps_vs_r9a_percent": -1.380628237749093
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "strategy": "direct",
+    "payload_bytes": 128,
+    "rps_vs_r9a_percent": -2.4614918281346876
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "strategy": "direct",
+    "payload_bytes": 1024,
+    "rps_vs_r9a_percent": -5.650996201303848
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "strategy": "direct",
+    "payload_bytes": 16384,
+    "rps_vs_r9a_percent": -0.7416776350338217
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "strategy": "managed",
+    "payload_bytes": 4096,
+    "rps_vs_r9a_percent": -0.0004960010726917652
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "strategy": "direct",
+    "payload_bytes": 900,
+    "rps_vs_r9a_percent": -2.8784045425894966
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "strategy": "direct",
+    "payload_bytes": 1024,
+    "rps_vs_r9a_percent": -4.207138601807959
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "strategy": "direct",
+    "payload_bytes": 16384,
+    "rps_vs_r9a_percent": -0.3814385916943941
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "strategy": "managed",
+    "payload_bytes": 900,
+    "rps_vs_r9a_percent": -0.6324516121489099
+  }
+]
