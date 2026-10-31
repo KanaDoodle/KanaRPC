@@ -1,0 +1,3 @@
+capabilities rejected before business PASS
+legacy JSON unary/stream PASS
+drain/admitted=2 PASS

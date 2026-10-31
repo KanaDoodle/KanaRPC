@@ -1,0 +1,54 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/KanaDoodle/KanaRPC
+cpu: Apple M5
+BenchmarkPayloadEncoding/empty/json/encode-10         	 3186931	        83.71 ns/op	         2.000 body-bytes	       8 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/empty/json/encode-10         	 3289584	        75.30 ns/op	         2.000 body-bytes	       8 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/empty/json/encode-10         	 2332501	       106.8 ns/op	         2.000 body-bytes	       8 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/empty/json/decode-10         	 1899259	       107.1 ns/op	     128 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/empty/json/decode-10         	 3283478	        72.93 ns/op	     128 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/empty/json/decode-10         	 3307658	        72.19 ns/op	     128 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/empty/protobuf/encode-10     	 5569527	        42.08 ns/op	         0 body-bytes	       0 B/op	       0 allocs/op
+BenchmarkPayloadEncoding/empty/protobuf/encode-10     	 4841792	        44.56 ns/op	         0 body-bytes	       0 B/op	       0 allocs/op
+BenchmarkPayloadEncoding/empty/protobuf/encode-10     	 5840937	        48.95 ns/op	         0 body-bytes	       0 B/op	       0 allocs/op
+BenchmarkPayloadEncoding/empty/protobuf/decode-10     	 4164259	        50.94 ns/op	     128 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/empty/protobuf/decode-10     	 2924292	        73.08 ns/op	     128 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/empty/protobuf/decode-10     	 3659833	        73.99 ns/op	     128 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/short_text/json/encode-10    	 1858879	       129.2 ns/op	        30.00 body-bytes	      32 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/short_text/json/encode-10    	 1848613	       127.7 ns/op	        30.00 body-bytes	      32 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/short_text/json/encode-10    	 1000000	       222.9 ns/op	        30.00 body-bytes	      32 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/short_text/json/decode-10    	 1000000	       206.0 ns/op	     128 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/short_text/json/decode-10    	 1379451	       174.6 ns/op	     128 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/short_text/json/decode-10    	 1000000	       223.1 ns/op	     128 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/short_text/protobuf/encode-10         	 2954755	        76.21 ns/op	        13.00 body-bytes	      16 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/short_text/protobuf/encode-10         	 3792327	        89.38 ns/op	        13.00 body-bytes	      16 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/short_text/protobuf/encode-10         	 1876710	       125.8 ns/op	        13.00 body-bytes	      16 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/short_text/protobuf/decode-10         	 1000000	       220.8 ns/op	     144 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/short_text/protobuf/decode-10         	 1386621	       173.7 ns/op	     144 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/short_text/protobuf/decode-10         	 1658638	       147.0 ns/op	     144 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/long_text/json/encode-10              	   55454	      4155 ns/op	      3083 body-bytes	    3201 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/long_text/json/encode-10              	   58749	      4028 ns/op	      3083 body-bytes	    3201 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/long_text/json/encode-10              	   68866	      3824 ns/op	      3083 body-bytes	    3201 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/long_text/json/decode-10              	   53289	      5497 ns/op	    3202 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/long_text/json/decode-10              	   47637	      4960 ns/op	    3202 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/long_text/json/decode-10              	   43212	      5318 ns/op	    3202 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/long_text/protobuf/encode-10          	  177786	      1985 ns/op	      3075 body-bytes	    3200 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/long_text/protobuf/encode-10          	  280743	      2021 ns/op	      3075 body-bytes	    3200 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/long_text/protobuf/encode-10          	  184310	      1286 ns/op	      3075 body-bytes	    3200 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/long_text/protobuf/decode-10          	  269593	      1264 ns/op	    3200 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/long_text/protobuf/decode-10          	  204519	      1082 ns/op	    3200 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/long_text/protobuf/decode-10          	  284931	      1619 ns/op	    3200 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/numbers/json/encode-10                	   62928	      4290 ns/op	       926.0 body-bytes	    1024 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/numbers/json/encode-10                	   55318	      4380 ns/op	       926.0 body-bytes	    1024 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/numbers/json/encode-10                	   47342	      4571 ns/op	       926.0 body-bytes	    1024 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/numbers/json/decode-10                	   18988	     13997 ns/op	    4218 B/op	      10 allocs/op
+BenchmarkPayloadEncoding/numbers/json/decode-10                	   19548	     11014 ns/op	    4218 B/op	      10 allocs/op
+BenchmarkPayloadEncoding/numbers/json/decode-10                	   19854	     13951 ns/op	    4218 B/op	      10 allocs/op
+BenchmarkPayloadEncoding/numbers/protobuf/encode-10            	  147369	      1912 ns/op	       387.0 body-bytes	     416 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/numbers/protobuf/encode-10            	  155210	      1566 ns/op	       387.0 body-bytes	     416 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/numbers/protobuf/encode-10            	  163233	      1461 ns/op	       387.0 body-bytes	     416 B/op	       1 allocs/op
+BenchmarkPayloadEncoding/numbers/protobuf/decode-10            	  167257	      1530 ns/op	    2176 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/numbers/protobuf/decode-10            	  194340	      1457 ns/op	    2176 B/op	       2 allocs/op
+BenchmarkPayloadEncoding/numbers/protobuf/decode-10            	  181052	      1335 ns/op	    2176 B/op	       2 allocs/op
+PASS
+ok  	github.com/KanaDoodle/KanaRPC	12.987s

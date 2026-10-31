@@ -77,7 +77,7 @@ func DialTLS(ctx context.Context, address string, options TLSOptions, cfg Client
 		closeSocket(conn)
 		return nil, ErrProtocol
 	}
-	client, err := NewClient(conn, cfg)
+	client, err := newRecordClientContext(budget, conn, cfg, false)
 	if err != nil {
 		closeSocket(conn)
 	}

@@ -6,15 +6,18 @@ KanaRPC 围绕上下文、请求状态和资源归属组织内核。普通调用
 
 | 模块 | 职责 |
 | --- | --- |
-| 根包 | 泛型方法注册、Call/Stream、取消与预算、传输适配、调度、回执结算和资源统计 |
+| 根包 | 泛型与 Protobuf 注册、Call/Stream、取消与预算、传输适配、调度、回执结算和资源统计 |
 | `internal/wire` | KNR2 帧校验、有界读写与预算预留 |
 | `discovery` | etcd lease 所有权、revision 快照、watch 恢复与新鲜度 |
 | `routing` | 快照门槛、建连去重、连接上限、退休引用与共享字节池 |
+| `cmd/protoc-gen-kanarpc` | 从 schema 生成类型化客户端、流接收器与原子服务注册 |
 | `cmd/showcase` | 可调负载、流式操作、关闭报告和本地请求时间线 |
 
 ## 请求生命周期
 
 处理器通过 `RegisterUnary[Req, Resp]` / `RegisterStream[Req, Resp]` 显式注册，签名包含 `context.Context`。底层 RawMessage 入口用于直接处理 JSON。客户端在调用用户编码器前取得名额与编码容量；QUIC 完成准备后再分配业务流。
+
+Protobuf 服务由 `.proto` 生成类型化客户端与注册入口，使用二进制业务正文；JSON 与 Protobuf 共用接纳、信用窗口、回执与连接退休机制。生成 SDK 通过 `ServiceCaller` 同时接入直连和 `routing.Client`，细节见 [Protobuf 与 Go SDK](protobuf.md)。
 
 服务端分别记录排队、执行与终态等待。请求发送 DATA 前消耗信用，消费后归还信用；处理器返回后通过 END、ACK 与 QUIC FIN 完成协议收尾。本地取消、远端终态与传输失败通过一次性终态竞争收敛，迟到响应按请求 ID 处理。
 
@@ -69,6 +72,8 @@ stateDiagram-v2
 | R9C | 类型化预算拒绝、累计结算与 DrainWithReport | [关闭契约](drain-r9c.md) |
 | R9D | 小请求配对复验、收尾 profile 与候选评估 | [诊断结果](quic-r9d.md)：原降幅未稳定复现，三个候选全部撤回 |
 | R10 | 有界事件日志、可调负载控制台、取消与关闭流程 | [操作指南](showcase-r10.md) |
+| R11 | Protobuf 二进制业务编码、类型化 SDK 与组件升级 | [接入指南](protobuf.md)、[组件评估](components-20261101.md) |
+| R12 | 建连能力协商、schema 兼容检查与 SDK 发布候选链路 | [SDK 治理](sdk-r12.md) |
 
 阶段源码、失败、退化与原始测量集中在 [验证索引](verification/README.md)。历史结果按对应版本解释。
 

@@ -21,6 +21,10 @@ const (
 	Credit
 	Ack
 	SessionBarrier
+	OpenEncoded
+	DataEncoded
+	Hello
+	Welcome
 )
 
 var ErrProtocol = errors.New("kanarpc: invalid v2 record")
@@ -50,16 +54,20 @@ func valid(f Frame, size uint32) bool {
 		return false
 	}
 	switch f.Kind {
-	case Open, End:
+	case Open, OpenEncoded, End:
 		return f.Number == 0 && size > 0
 	case Data:
 		return f.Number > 0 && size > 0
+	case DataEncoded:
+		return f.Number > 0 // An empty Protobuf message has zero encoded bytes.
 	case Cancel:
 		return f.Number == 0 && size == 0
 	case Credit:
 		return f.Number == 1 && size == 0
 	case Ack, SessionBarrier:
 		return f.Number == 0 && size == 16
+	case Hello, Welcome:
+		return f.Number == 0 && size == 32
 	}
 	return false
 }

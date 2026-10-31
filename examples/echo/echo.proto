@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package kanarpc.examples;
+option go_package = "github.com/KanaDoodle/KanaRPC/examples/echo";
+
+message EchoRequest {
+  string text = 1;
+  uint32 count = 2;
+  optional string label = 3;
+  repeated int64 values = 4;
+  bytes data = 5;
+  reserved 6, 7;
+}
+
+message EchoResponse {
+  string text = 1;
+  uint32 sequence = 2;
+  optional string label = 3;
+  reserved 4;
+}
+
+service EchoService {
+  rpc Echo(EchoRequest) returns (EchoResponse);
+  rpc Watch(EchoRequest) returns (stream EchoResponse);
+}

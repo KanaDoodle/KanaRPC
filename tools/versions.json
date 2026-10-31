@@ -1,0 +1,43 @@
+{
+  "go": [
+    "1.26.10",
+    "1.27.3"
+  ],
+  "protobuf_go": "v1.36.12",
+  "assets": {
+    "linux-amd64": {
+      "protoc": {
+        "version": "v36.2",
+        "url": "https://github.com/protocolbuffers/protobuf/releases/download/v36.2/protoc-36.2-linux-x86_64.zip",
+        "sha256": "121f6c7afe1d4d0e3ea6aab9432038599250134cbf4474cb1167d2c7decd4278"
+      },
+      "buf": {
+        "version": "v1.75.0",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.75.0/buf-Linux-x86_64",
+        "sha256": "fad1e38d6909bbb583a4da81d8c02a01046e2cd663bde7e337dd24277393764b"
+      },
+      "etcd": {
+        "version": "v3.7.3",
+        "url": "https://github.com/etcd-io/etcd/releases/download/v3.7.3/etcd-v3.7.3-linux-amd64.tar.gz",
+        "sha256": "5dfa9cc3b3ce3b4b491fbcc2057d3daa166bcc6676f743fcd20f8e5760cb9775"
+      }
+    },
+    "darwin-arm64": {
+      "protoc": {
+        "version": "v36.2",
+        "url": "https://github.com/protocolbuffers/protobuf/releases/download/v36.2/protoc-36.2-osx-aarch_64.zip",
+        "sha256": "9cd98a532c5c5e0c4161314de0225de27e4c8a323917b6ea7b1b714d3ae23466"
+      },
+      "buf": {
+        "version": "v1.75.0",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.75.0/buf-Darwin-arm64",
+        "sha256": "f71b009ebd8530b12fd85b060c6c245e15d6e5110ccc8da48d8b6fa71e59330b"
+      },
+      "etcd": {
+        "version": "v3.7.3",
+        "url": "https://github.com/etcd-io/etcd/releases/download/v3.7.3/etcd-v3.7.3-darwin-arm64.zip",
+        "sha256": "efd1fc11ea761c9c39c9011fda9c92a9eaecf91be3b7b3198afe4dc786435e28"
+      }
+    }
+  }
+}

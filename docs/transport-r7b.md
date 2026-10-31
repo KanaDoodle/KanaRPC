@@ -71,7 +71,7 @@ Resolver 先线性一致 Get，再从 R+1 watch。一个事务同 revision 的�
 
 ```sh
 python3 scripts/verify-discovery.py --output /tmp/r7b-real-etcd --race
-python3 scripts/verify-discovery.py --output /tmp/r7b-min --toolchain go1.26.0 --race
+python3 scripts/verify-discovery.py --output /tmp/r7b-min --toolchain go1.26.10 --race
 python3 scripts/verify-transports.py --output /tmp/r7b-process-controls
 ```
 

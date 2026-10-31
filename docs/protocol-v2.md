@@ -16,7 +16,7 @@ KNR2 定义普通调用与服务端流式调用的记录格式。协议版本为
 | 16 | 4 | payload 字节数 |
 | 20 | 4 | number：DATA 序号或 CREDIT 数量 |
 
-帧 payload 默认上限 1 MiB，可配置 1 KiB..16 MiB；包括 OPEN 的元数据。读取器在分配 payload 前验证头、长度和记录类型。正文采用 JSON 编码；codec 与版本由接入配置确定。
+帧 payload 默认上限 1 MiB，可配置 1 KiB..16 MiB；包括 OPEN 的元数据。读取器在分配 payload 前验证头、长度和记录类型。JSON 为默认业务编码；Protobuf 调用使用独立的二进制记录类型，由调用入口和方法注册共同确定。
 
 | kind | number / payload | 方向与约束 |
 | --- | --- | --- |
@@ -27,8 +27,20 @@ KNR2 定义普通调用与服务端流式调用的记录格式。协议版本为
 | 5 CREDIT | number=1，无 payload | 每消费一个块返还一份信用；不能返还尚未发送的块 |
 | 6 ACK | number=0，16 字节原始 receipt | 客户端收到终态标识后确认；过早或错误 receipt 关闭该字节流，重复正确 ACK 幂等 |
 | 7 SESSION_BARRIER | number=0，16 字节随机标识 | 仅原生 QUIC 控制流的首帧；封闭父会话接纳并等待已有交换退休后回显，不能作为业务请求 |
+| 8 OPEN_ENCODED | number=0；4 字节 metadata 长度 + JSON metadata + 二进制业务正文 | 客户端发起 Protobuf 调用；metadata 不超过 1024 字节，含 `{method,budget_ns,window,stream,codec:"protobuf"}` |
+| 9 DATA_ENCODED | number 从 1 递增；二进制业务块，可为零字节 | Protobuf 响应；发送前消耗一份信用，与 JSON DATA 使用相同序号约束 |
+| 10 HELLO | ID=1，number=0，32 字节能力提议 | 显式启用时在建连阶段发送，先于业务 OPEN；TCP/TLS 连接一次，QUIC 父会话一次 |
+| 11 WELCOME | ID=1，number=0，32 字节能力响应 | 回显 nonce、声明能力位与选定帧上限，不占业务请求 ID 序列或处理器名额 |
 
 method 为 `/service/method`，总长不超过 128 字节，段内只允许 ASCII 字母数字、点、横线和下划线。初始信用 1..32；普通调用必须为 1，业务 DATA 必须恰好一个，然后 END。流式调用允许零到多个 DATA。
+
+OPEN_ENCODED 的 metadata 长度使用大端 uint32，必须非零且落在 payload 内；业务正文不经 base64 包装。服务端在方法接纳前检查编码；客户端只接受与本次调用编码一致的 DATA 类型。空 Protobuf 消息的零字节正文仍拥有帧、序号、信用和未读流生命周期。Protobuf 解码递归上限为 64。
+
+kind 1..7 与原 JSON 格式保持不变。默认 JSON 客户端不发能力握手，继续接入旧节点。需要 Protobuf 的新客户端通过 `RequiredFeatures` 在发布连接前完成 HELLO/WELCOME；旧节点拒绝新握手时，Dial 返回能力错误，尚未编码或发送业务。框架不自动降级或重放业务请求。R11 客户端的原始 8/9 记录仍可由服务端解析。
+
+HELLO/WELCOME 正文布局依次为：16 字节随机 nonce、uint32 能力位、uint32 帧上限、uint32 协商格式版本 1、uint32 保留零。整数使用大端；位 0 表示 Protobuf，位 1 表示服务端流。响应帧上限取双方配置的较小值，之后请求、响应及终态均受此上限约束。未知可选能力位可忽略，客户端所需能力必须全部出现；nonce、版本、保留字段或尺寸不合法时失败。
+
+TCP/TLS 仅允许业务 OPEN 前的一次 HELLO；QUIC 使用独立控制流，父会话在已有业务流或已协商后拒绝再次协商。控制流纳入既有连接、原生流和控制字节预算，写入与等待受 Context 和超时约束。协商结果属于物理连接/会话，随连接退休失效；身份与方法授权仍使用既有安全契约。接入与 schema 演进见 [SDK 治理](sdk-r12.md)与 [Protobuf 指南](protobuf.md)。
 
 ## 预算、取消和送达
 

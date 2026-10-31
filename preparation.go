@@ -2,10 +2,14 @@ package kanarpc
 
 import (
 	"context"
+	"encoding/binary"
 	"encoding/json"
+	"errors"
 	"strconv"
 	"sync"
 	"time"
+
+	"github.com/KanaDoodle/KanaRPC/internal/wire"
 )
 
 // AdmissionStats includes accepted preparation, wire calls and owned cleanup.
@@ -152,6 +156,7 @@ type preparedCall struct {
 	body                   []byte
 	window                 uint32
 	method                 string
+	encoding               payloadEncoding
 	streaming, transferred bool
 }
 
@@ -176,7 +181,7 @@ func (p *preparedCall) done() {
 	}
 	p.lease.release()
 }
-func openPrefix(dst []byte, method string, window uint32, streaming bool, budget int64) []byte {
+func openFields(dst []byte, method string, window uint32, streaming bool, budget int64) []byte {
 	dst = append(dst, `{"method":`...)
 	dst = strconv.AppendQuote(dst, method)
 	dst = append(dst, `,"budget_ns":`...)
@@ -185,7 +190,10 @@ func openPrefix(dst []byte, method string, window uint32, streaming bool, budget
 	dst = strconv.AppendUint(dst, uint64(window), 10)
 	dst = append(dst, `,"stream":`...)
 	dst = strconv.AppendBool(dst, streaming)
-	return append(dst, `,"request":`...)
+	return dst
+}
+func openPrefix(dst []byte, method string, window uint32, streaming bool, budget int64) []byte {
+	return append(openFields(dst, method, window, streaming, budget), `,"request":`...)
 }
 func prepareRequest(ctx, owner context.Context, cfg ClientConfig, res *resources, method string, request any, streaming bool) (result *preparedCall, err error) {
 	if !validMethod(method) {
@@ -203,6 +211,7 @@ func prepareRequest(ctx, owner context.Context, cfg ClientConfig, res *resources
 	}
 	budget, cancel := context.WithTimeout(ctx, cfg.Timeout)
 	p := &preparedCall{ctx: budget, owner: owner, cancel: cancel, lease: lease, method: method, streaming: streaming, window: uint32(cfg.StreamWindow), leaveFeedback: func() {}}
+	p.encoding, request = requestEncoding(request)
 	p.stopOwner = context.AfterFunc(owner, cancel)
 	if !streaming {
 		p.window = 1
@@ -215,6 +224,15 @@ func prepareRequest(ctx, owner context.Context, cfg ClientConfig, res *resources
 	}()
 	if err = p.check(); err != nil {
 		return nil, err
+	}
+	if p.encoding == encodingProtobuf {
+		required := FeatureProtobuf
+		if streaming {
+			required |= FeatureServerStreaming
+		}
+		if cfg.negotiatedFeatures&required != required {
+			return nil, &CapabilityError{Required: required, Supported: cfg.negotiatedFeatures, Cause: errors.New("set ClientConfig.RequiredFeatures before dialing")}
+		}
 	}
 	p.leaveFeedback, err = res.feedback.enter(method)
 	if err != nil {
@@ -234,7 +252,14 @@ func prepareRequest(ctx, owner context.Context, cfg ClientConfig, res *resources
 		return nil, err
 	}
 	lease.setEncoding(true)
-	p.body, err = json.Marshal(request)
+	if p.encoding == encodingProtobuf {
+		p.body, err = marshalProtobuf(request, cfg.IO.MaxFrameBytes)
+		if err != nil {
+			err = &Status{Code: InvalidArgument, Message: "invalid or oversized protobuf request"}
+		}
+	} else {
+		p.body, err = json.Marshal(request)
+	}
 	lease.setEncoding(false)
 	if err != nil {
 		return nil, err
@@ -249,6 +274,9 @@ func prepareRequest(ctx, owner context.Context, cfg ClientConfig, res *resources
 		return nil, context.DeadlineExceeded
 	}
 	n := len(openPrefix(prefix[:0], method, p.window, streaming, int64(remaining))) + 1
+	if p.encoding == encodingProtobuf {
+		n = 4 + len(protobufOpenMetadata(prefix[:0], method, p.window, streaming, int64(remaining)))
+	}
 	if uint64(len(p.body))+uint64(n) > uint64(cfg.IO.MaxFrameBytes) {
 		return nil, &Status{Code: InvalidArgument, Message: "request exceeds frame limit"}
 	}
@@ -269,9 +297,24 @@ func (p *preparedCall) payload() ([]byte, error) {
 		return nil, context.DeadlineExceeded
 	}
 	prefix := openPrefix(meta[:0], p.method, p.window, p.streaming, int64(remaining))
+	if p.encoding == encodingProtobuf {
+		metadata := protobufOpenMetadata(meta[:0], p.method, p.window, p.streaming, int64(remaining))
+		data := make([]byte, 4+len(metadata)+len(p.body))
+		binary.BigEndian.PutUint32(data[:4], uint32(len(metadata)))
+		copy(data[4:], metadata)
+		copy(data[4+len(metadata):], p.body)
+		return data, nil
+	}
 	data := make([]byte, 0, len(prefix)+len(p.body)+1)
 	data = append(data, prefix...)
 	data = append(data, p.body...)
 	data = append(data, '}')
 	return data, nil
+}
+
+func (p *preparedCall) openKind() wire.Kind {
+	if p.encoding == encodingProtobuf {
+		return wire.OpenEncoded
+	}
+	return wire.Open
 }

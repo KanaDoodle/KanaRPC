@@ -4,7 +4,7 @@
 
 ## 本地构建
 
-需要 Go 1.26.0 或更新版本：
+需要 Go 1.26.10+；仓库工具链固定为 Go 1.27.3。使用其他受支持分支时请安装该分支的最新安全补丁：
 
 ```sh
 GOWORK=off go build -mod=readonly ./...
@@ -27,6 +27,10 @@ python3 scripts/verify-discovery.py --output /tmp/kanarpc-race-new-run --race
 
 可编译的公共 API 示例见 [routing/example_test.go](../routing/example_test.go) 和 [drain_example_test.go](../drain_example_test.go)；发现、TLS 配置、流与退出顺序见 [连接管理](connections-r8c.md)。新旧协议使用独立端点，应用在接入时明确配置。
 
+Protobuf 服务使用 `.proto` 生成类型化客户端和注册入口，直连与连接池共用 `ServiceCaller` 接口。完整命令、编译器版本和兼容约束见 [Protobuf 与 Go SDK](protobuf.md)。运行已生成的示例无需 protoc；修改 schema 时再安装生成工具。
+
+固定工具分发、schema 检查、版本化 Go 模块验收与发布候选流程见 [SDK 治理](sdk-r12.md)。历史证据位于独立的 `docs/verification` 模块边界中：GitHub 仓库保留全部记录，消费根模块时不下载该目录。
+
 ## 按需验证
 
 | 入口 | 覆盖范围 |
@@ -36,6 +40,7 @@ python3 scripts/verify-discovery.py --output /tmp/kanarpc-race-new-run --race
 | `scripts/verify-governance.py` | 固定并发、公平调度、自适应、反馈与回退策略 |
 | `scripts/verify-resources.py` | 编码前接纳、混合流负载与周期资源观察 |
 | `scripts/verify-routing.py`、`scripts/verify-sdk.py` | 连接管理对照与独立消费模块 |
+| `scripts/verify-protobuf.py` | 可重复生成、独立 Editions/Opaque SDK、真实 TCP 与预期编译失败 |
 | `scripts/verify-network.py` | 自有 Linux VM 容器内的内核 netem，需要基线源码 |
 | `scripts/verify-pool.py` | 池预算、退休对象、未读流和饱和场景 |
 | `scripts/compare-quic-write.py` | QUIC 发送策略与多 payload 内部基线 |

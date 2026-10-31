@@ -134,7 +134,7 @@ func (h *Resolver) apply(response clientv3.WatchResponse) error {
 	}
 	h.mu.Lock()
 	defer h.mu.Unlock()
-	if response.Header.ClusterId != 0 && response.Header.ClusterId != h.cluster {
+	if cluster := response.Header.GetClusterId(); cluster != 0 && cluster != h.cluster {
 		return errors.New("discovery: watch cluster changed")
 	}
 	// Created can carry a header newer than a backlog that is still pending.
@@ -143,8 +143,8 @@ func (h *Resolver) apply(response clientv3.WatchResponse) error {
 		return nil
 	}
 	if response.IsProgressNotify() {
-		if response.Header.Revision >= h.revision {
-			h.revision = response.Header.Revision
+		if revision := response.Header.GetRevision(); revision >= h.revision {
+			h.revision = revision
 			h.ready = true
 			h.validUntil = time.Now().Add(h.registry.cfg.FreshnessTTL)
 		}

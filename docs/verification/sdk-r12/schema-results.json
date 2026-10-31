@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "cases": {
+    "unchanged": {
+      "WIRE": "PASS",
+      "WIRE_JSON": "PASS",
+      "FILE": "PASS"
+    },
+    "add_field": {
+      "WIRE": "PASS",
+      "WIRE_JSON": "PASS",
+      "FILE": "PASS"
+    },
+    "add_method": {
+      "WIRE": "PASS",
+      "WIRE_JSON": "PASS",
+      "FILE": "PASS"
+    },
+    "rename_field": {
+      "WIRE": "PASS",
+      "WIRE_JSON": "REJECT",
+      "FILE": "REJECT"
+    },
+    "change_type": {
+      "WIRE": "REJECT",
+      "WIRE_JSON": "REJECT",
+      "FILE": "REJECT"
+    },
+    "remove_presence": {
+      "WIRE": "PASS",
+      "WIRE_JSON": "PASS",
+      "FILE": "REJECT"
+    },
+    "change_go_package": {
+      "WIRE": "PASS",
+      "WIRE_JSON": "PASS",
+      "FILE": "REJECT"
+    },
+    "remove_field_reserved": {
+      "WIRE": "PASS",
+      "WIRE_JSON": "PASS",
+      "FILE": "REJECT"
+    },
+    "change_stream": {
+      "WIRE": "REJECT",
+      "WIRE_JSON": "REJECT",
+      "FILE": "REJECT"
+    },
+    "reuse_number": {
+      "WIRE": "PASS",
+      "WIRE_JSON": "REJECT",
+      "FILE": "REJECT"
+    },
+    "reuse_reserved": {
+      "WIRE": "REJECT",
+      "WIRE_JSON": "REJECT",
+      "FILE": "REJECT"
+    }
+  }
+}

@@ -20,6 +20,7 @@ import (
 type UnaryHandler func(context.Context, json.RawMessage) (json.RawMessage, error)
 type StreamHandler func(context.Context, json.RawMessage, *Sender) error
 type method struct {
+	encoding  payloadEncoding
 	streaming bool
 	run       StreamHandler
 }
@@ -95,20 +96,30 @@ func (s *Server) HandleStream(path string, h StreamHandler) error {
 	return s.register(path, method{streaming: true, run: h})
 }
 func (s *Server) register(path string, h method) error {
-	if !validMethod(path) {
-		return errors.New("kanarpc: expected /service/method")
+	return s.registerMethods(map[string]method{path: h})
+}
+
+func (s *Server) registerMethods(methods map[string]method) error {
+	for path := range methods {
+		if !validMethod(path) {
+			return errors.New("kanarpc: expected /service/method")
+		}
 	}
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	if s.state != fresh {
 		return errors.New("kanarpc: registration is frozen")
 	}
-	if _, ok := s.methods[path]; ok {
-		return errors.New("kanarpc: duplicate method")
+	for path := range methods {
+		if _, ok := s.methods[path]; ok {
+			return errors.New("kanarpc: duplicate method")
+		}
 	}
-	s.methods[path] = h
-	if s.governor != nil {
-		s.governor.add(path)
+	for path, h := range methods {
+		s.methods[path] = h
+		if s.governor != nil {
+			s.governor.add(path)
+		}
 	}
 	return nil
 }
@@ -245,6 +256,7 @@ type serverConn struct {
 	mu           sync.Mutex
 	requests     map[uint64]*execution
 	lastOpen     uint64
+	helloSeen    bool
 	handshake    func() error
 	native       *quicServerSession
 	bound        bool
@@ -307,11 +319,30 @@ func (p *serverConn) handleFrame(f wire.Frame) bool {
 			f.Release()
 		}
 	}()
+	if f.Kind == wire.Hello {
+		if err := p.hello(f); err != nil {
+			p.close(err)
+			return false
+		}
+		if p.native != nil {
+			p.finish()
+			return false
+		}
+		return true
+	}
 	if f.Kind == wire.SessionBarrier && p.native != nil && p.lastOpen == 0 {
 		p.native.barrier(p, f)
 		return false
 	}
-	if f.Kind == wire.Open {
+	if f.Kind == wire.Open || f.Kind == wire.OpenEncoded {
+		if p.native != nil {
+			p.server.mu.Lock()
+			p.native.used = true
+			if p.native.frameLimit != 0 {
+				p.link.cfg.MaxFrameBytes = p.native.frameLimit
+			}
+			p.server.mu.Unlock()
+		}
 		if f.ID <= p.lastOpen || p.native != nil && p.lastOpen != 0 {
 			return false
 		}
@@ -375,15 +406,14 @@ func (p *serverConn) reject(id uint64, code Code, reason string, path ...string)
 	if len(path) > 0 {
 		pressure = s.pressure(p, path[0])
 	}
-	b := marshalEnd(endRecord{Status: Status{Code: code}, Pressure: pressure}, s.cfg.IO.MaxFrameBytes)
+	b := marshalEnd(endRecord{Status: Status{Code: code}, Pressure: pressure}, p.link.cfg.MaxFrameBytes)
 	ctx, cancel := context.WithTimeout(p.ctx, s.cfg.IO.WriteTimeout)
 	defer cancel()
 	_, err := p.link.send(ctx, wire.Frame{Kind: wire.End, ID: id, Payload: b})
 	return err
 }
 func (p *serverConn) open(f wire.Frame) (bool, error) {
-	var request openRecord
-	decodeErr := json.Unmarshal(f.Payload, &request)
+	request, encoding, decodeErr := decodeOpen(f)
 	if p.server.cfg.Trace != nil {
 		traceMethod := request.Method
 		if !validMethod(traceMethod) {
@@ -391,7 +421,7 @@ func (p *serverConn) open(f wire.Frame) (bool, error) {
 		}
 		p.trace(f.ID, traceMethod, "open", "record_parsed", OK, 0)
 	}
-	if decodeErr != nil || !validMethod(request.Method) || request.BudgetNanos <= 0 || request.Window < 1 || request.Window > 32 || !json.Valid(request.Request) {
+	if decodeErr != nil || uint64(len(f.Payload)) > uint64(p.link.cfg.MaxFrameBytes) || !validMethod(request.Method) || request.BudgetNanos <= 0 || request.Window < 1 || request.Window > 32 {
 		return false, p.reject(f.ID, InvalidArgument, "invalid")
 	}
 	if !request.Stream && request.Window != 1 {
@@ -408,7 +438,7 @@ func (p *serverConn) open(f wire.Frame) (bool, error) {
 		s.mu.Unlock()
 		return false, p.reject(f.ID, NotFound, "not_found")
 	}
-	if h.streaming != request.Stream {
+	if h.streaming != request.Stream || h.encoding != encoding {
 		s.mu.Unlock()
 		return false, p.reject(f.ID, InvalidArgument, "invalid")
 	}
@@ -436,7 +466,7 @@ func (p *serverConn) open(f wire.Frame) (bool, error) {
 	if s.cfg.Trace != nil {
 		ctx = context.WithValue(ctx, requestTraceKey{}, TraceRef{p.traceChannel, f.ID, request.Method})
 	}
-	r := &execution{peer: p, id: f.ID, ctx: ctx, cancel: cancel, stop: stop, window: request.Window, credits: request.Window, changed: make(chan struct{}), ack: make(chan struct{}), input: f, path: request.Method}
+	r := &execution{encoding: encoding, peer: p, id: f.ID, ctx: ctx, cancel: cancel, stop: stop, window: request.Window, credits: request.Window, changed: make(chan struct{}), ack: make(chan struct{}), input: f, path: request.Method}
 	p.requests[f.ID] = r
 	p.bound = true
 	if p.native != nil {
@@ -470,6 +500,7 @@ type execution struct {
 	window, credits, sequence, returned uint32
 	changed                             chan struct{}
 	terminal                            bool
+	encoding                            payloadEncoding
 	receipt                             [16]byte
 	ack                                 chan struct{}
 	ackOnce                             sync.Once
@@ -490,12 +521,14 @@ type execution struct {
 
 // Sender is valid only during its handler invocation. Send is serialized and
 // waits for receiver credits without blocking the connection's control reader.
+// Body is preencoded using the registered method's codec. Protobuf handlers
+// normally use the typed send callback instead of calling Sender directly.
 type Sender struct{ request *execution }
 
 func (out *Sender) Send(body json.RawMessage) error {
 	r := out.request
-	if !json.Valid(body) || uint64(len(body)) > uint64(r.peer.server.cfg.IO.MaxFrameBytes) {
-		return &Status{Code: InvalidArgument, Message: "invalid or oversized JSON response"}
+	if r.encoding == encodingJSON && !json.Valid(body) || uint64(len(body)) > uint64(r.peer.link.cfg.MaxFrameBytes) {
+		return &Status{Code: InvalidArgument, Message: "invalid or oversized response"}
 	}
 	release, err := r.peer.server.resources.send.take(int64(len(body)))
 	if err != nil {
@@ -525,7 +558,11 @@ func (out *Sender) Send(body json.RawMessage) error {
 			r.sequence++
 			number := r.sequence
 			r.mu.Unlock()
-			touched, err := r.peer.link.send(r.ctx, wire.Frame{Kind: wire.Data, ID: r.id, Number: number, Payload: body})
+			kind := wire.Data
+			if r.encoding == encodingProtobuf {
+				kind = wire.DataEncoded
+			}
+			touched, err := r.peer.link.send(r.ctx, wire.Frame{Kind: kind, ID: r.id, Number: number, Payload: body})
 			if err == nil {
 				r.trace("data_sent", "credit_consumed", OK, int64(number))
 			}
@@ -657,7 +694,7 @@ func (r *execution) run(h method, body json.RawMessage) {
 	r.mu.Unlock()
 	r.trace("terminal_ready", "handler_result_classified", classified.Code, 0)
 	status.Pressure = s.pressure(r.peer, r.path)
-	b := marshalEnd(status, s.cfg.IO.MaxFrameBytes)
+	b := marshalEnd(status, r.peer.link.cfg.MaxFrameBytes)
 	ctx, cancel := context.WithTimeout(r.peer.ctx, s.cfg.AckTimeout)
 	defer cancel()
 	touched, writeErr := r.peer.link.send(ctx, wire.Frame{Kind: wire.End, ID: r.id, Payload: b})

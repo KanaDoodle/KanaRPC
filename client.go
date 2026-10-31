@@ -22,20 +22,21 @@ type ClientStats struct {
 // Client owns a single multiplexed byte-stream connection. There is no implicit
 // reconnect, business retry, registry worker, or background heartbeat.
 type Client struct {
-	cfg       ClientConfig
-	link      *link
-	ctx       context.Context
-	cancel    context.CancelFunc
-	mu        sync.Mutex
-	closed    bool
-	failure   error
-	nextID    uint64
-	pending   map[uint64]*pending
-	stats     ClientStats
-	once      sync.Once
-	wg        sync.WaitGroup
-	single    bool
-	resources *resources
+	capabilities Capabilities
+	cfg          ClientConfig
+	link         *link
+	ctx          context.Context
+	cancel       context.CancelFunc
+	mu           sync.Mutex
+	closed       bool
+	failure      error
+	nextID       uint64
+	pending      map[uint64]*pending
+	stats        ClientStats
+	once         sync.Once
+	wg           sync.WaitGroup
+	single       bool
+	resources    *resources
 }
 
 func Dial(ctx context.Context, address string, cfg ClientConfig) (*Client, error) {
@@ -47,7 +48,7 @@ func Dial(ctx context.Context, address string, cfg ClientConfig) (*Client, error
 	if err != nil {
 		return nil, err
 	}
-	client, err := NewClient(conn, cfg)
+	client, err := newRecordClientContext(ctx, conn, cfg, false)
 	if err != nil {
 		closeSocket(conn)
 	}
@@ -56,11 +57,16 @@ func Dial(ctx context.Context, address string, cfg ClientConfig) (*Client, error
 
 // NewClient transfers conn ownership on success only. It also accepts a
 // caller-authenticated TLS connection; TLS construction is not automated here.
+// RequiredFeatures performs bounded network IO before returning. On failure
+// the caller still owns conn and must close it; negotiation may have written.
 func NewClient(conn net.Conn, cfg ClientConfig) (*Client, error) {
 	return newRecordClient(conn, cfg, false)
 }
 
 func newRecordClient(conn recordChannel, cfg ClientConfig, single bool, shared ...*resources) (*Client, error) {
+	return newRecordClientContext(context.Background(), conn, cfg, single, shared...)
+}
+func newRecordClientContext(handshake context.Context, conn recordChannel, cfg ClientConfig, single bool, shared ...*resources) (*Client, error) {
 	if conn == nil {
 		return nil, errors.New("kanarpc: nil connection")
 	}
@@ -81,6 +87,17 @@ func newRecordClient(conn recordChannel, cfg ClientConfig, single bool, shared .
 	}
 	c := &Client{cfg: cfg, link: newLink(conn, cfg.IO), ctx: ctx, cancel: cancel, pending: make(map[uint64]*pending), single: single, resources: res}
 	c.link.resources = res
+	if !single && cfg.RequiredFeatures != 0 {
+		caps, err := negotiate(handshake, c.link, cfg)
+		if err != nil {
+			cancel()
+			res.ownerClosed()
+			return nil, err
+		}
+		c.capabilities = caps
+		c.cfg.negotiatedFeatures, c.cfg.IO.MaxFrameBytes = caps.Features, caps.MaxFrameBytes
+		c.link.cfg.MaxFrameBytes = caps.MaxFrameBytes
+	}
 	c.wg.Add(1)
 	go func() { defer c.wg.Done(); c.readLoop() }()
 	return c, nil
@@ -147,6 +164,7 @@ type pending struct {
 	queue          []receivedChunk
 	next           uint32
 	window         uint32
+	encoding       payloadEncoding
 	remoteEnded    bool
 	openSent       bool
 	done, discard  bool
@@ -270,7 +288,7 @@ func (c *Client) openPrepared(prepared *preparedCall) (*Stream, error) {
 	c.nextID++
 	prepared.lease.retain()
 	prepared.transferred = true
-	p := &pending{client: c, id: c.nextID, ctx: callCtx, cancel: prepared.cancel, window: prepared.window, next: 1, changed: make(chan struct{}), method: prepared.method, leaveFeedback: prepared.leaveFeedback, attemptedAt: time.Now(), stopOwner: prepared.stopOwner, leaveAdmission: prepared.lease.release}
+	p := &pending{encoding: prepared.encoding, client: c, id: c.nextID, ctx: callCtx, cancel: prepared.cancel, window: prepared.window, next: 1, changed: make(chan struct{}), method: prepared.method, leaveFeedback: prepared.leaveFeedback, attemptedAt: time.Now(), stopOwner: prepared.stopOwner, leaveAdmission: prepared.lease.release}
 	c.wg.Add(1)
 	callbackReady := make(chan struct{})
 	p.stop = context.AfterFunc(callCtx, func() { <-callbackReady; p.localCancel() })
@@ -285,7 +303,7 @@ func (c *Client) openPrepared(prepared *preparedCall) (*Stream, error) {
 		p.retire()
 		return nil, err
 	}
-	touched, err := c.link.writeLocked(callCtx, wire.Frame{Kind: wire.Open, ID: p.id, Payload: b})
+	touched, err := c.link.writeLocked(callCtx, wire.Frame{Kind: prepared.openKind(), ID: p.id, Payload: b})
 	if err == nil {
 		p.mu.Lock()
 		p.openSent = true
@@ -364,16 +382,17 @@ func (c *Client) handleFrame(f wire.Frame) bool {
 		c.stats.LateFrames++
 	}
 	c.mu.Unlock()
-	if f.Kind != wire.Data && f.Kind != wire.End || f.ID > next {
+	if f.Kind != wire.Data && f.Kind != wire.DataEncoded && f.Kind != wire.End || f.ID > next {
 		c.fail(ErrProtocol)
 		return false
 	}
 	if p == nil {
 		return true
 	}
-	if f.Kind == wire.Data {
+	if f.Kind == wire.Data || f.Kind == wire.DataEncoded {
 		p.mu.Lock()
-		valid := !p.remoteEnded && f.Number == p.next && len(p.queue) < int(p.window) && json.Valid(f.Payload)
+		encodingValid := p.encoding == encodingProtobuf && f.Kind == wire.DataEncoded || p.encoding == encodingJSON && f.Kind == wire.Data && json.Valid(f.Payload)
+		valid := !p.remoteEnded && f.Number == p.next && len(p.queue) < int(p.window) && encodingValid
 		if valid && !p.done {
 			p.next++
 			p.queue = append(p.queue, receivedChunk{body: f.Payload, release: f.Release})
@@ -469,9 +488,15 @@ func (s *Stream) Recv(response any) error {
 	if response == nil {
 		return nil
 	}
-	if err := json.Unmarshal(body, response); err != nil {
+	var decodeErr error
+	if s.pending.encoding == encodingProtobuf {
+		decodeErr = unmarshalProtobuf(body, response)
+	} else {
+		decodeErr = json.Unmarshal(body, response)
+	}
+	if decodeErr != nil {
 		_ = s.Close()
-		return err
+		return decodeErr
 	}
 	return nil
 }

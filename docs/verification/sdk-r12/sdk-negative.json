@@ -1,0 +1,10 @@
+{
+  "generated-drift": {
+    "expected": "REJECT",
+    "exit": 1
+  },
+  "runtime-api-mismatch": {
+    "expected": "REJECT",
+    "exit": 1
+  }
+}

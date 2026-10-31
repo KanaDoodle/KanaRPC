@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "fixture_commit": "e7bc9c58eedc701a866f100dddf11c57b7cc72a0",
+  "naive_updated_baseline": "PASS",
+  "trusted_git_schema": "REJECT",
+  "preceding_release": "v0.2.0-rc.1"
+}

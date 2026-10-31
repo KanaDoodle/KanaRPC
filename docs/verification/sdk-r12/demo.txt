@@ -1,0 +1,8 @@
+capabilities: protobuf=true streaming=true max_frame=1048576
+unary: hello protobuf
+same connection: hello json
+stream: chunk 1
+stream: chunk 2
+stream: chunk 3
+cancel: remote handler observed context cancellation
+drain: quiescent=true lost_terminals=0 incomplete_exchanges=0

@@ -1,0 +1,66 @@
+name: SDK checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        go: ['1.26.10', '1.27.3']
+    env:
+      GOWORK: 'off'
+      GOTOOLCHAIN: local
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: ${{ matrix.go }}
+      - name: Install verified tools
+        run: |
+          python3 scripts/install-tools.py --output "$RUNNER_TEMP/kanarpc-tools"
+          echo "$RUNNER_TEMP/kanarpc-tools/bin" >> "$GITHUB_PATH"
+      - name: Compare with target branch schema
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          python3 scripts/release-baseline.py --ref "$BASE_SHA" --output "$RUNNER_TEMP/schema-base"
+          python3 scripts/check-schema.py --against "$RUNNER_TEMP/schema-base/schema.binpb" --output "$RUNNER_TEMP/schema-check"
+          python3 scripts/verify-schema.py --output "$RUNNER_TEMP/schema-cases"
+      - name: Build and test real transports and discovery
+        env:
+          GO_VERSION: ${{ matrix.go }}
+        run: |
+          go build -mod=readonly ./...
+          go vet ./...
+          race=()
+          if [[ "$GO_VERSION" == '1.27.3' ]]; then race+=(--race); fi
+          python3 scripts/verify-discovery.py "${race[@]}" --output "$RUNNER_TEMP/discovery-check"
+      - name: Check generation and independent SDK
+        run: python3 scripts/verify-protobuf.py --output "$RUNNER_TEMP/sdk-check"
+      - name: Consume versioned module without replace
+        run: python3 scripts/verify-module.py --version v0.1.0-rc.1 --output "$RUNNER_TEMP/module-check"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: sdk-checks-go${{ matrix.go }}
+          retention-days: 14
+          path: |
+            ${{ runner.temp }}/schema-base/result.json
+            ${{ runner.temp }}/schema-check/result.json
+            ${{ runner.temp }}/schema-cases/**/result.json
+            ${{ runner.temp }}/discovery-check/result.json
+            ${{ runner.temp }}/discovery-check/test.jsonl
+            ${{ runner.temp }}/discovery-check/test.stderr
+            ${{ runner.temp }}/sdk-check/*.txt
+            ${{ runner.temp }}/sdk-check/result.json
+            ${{ runner.temp }}/module-check/*.txt
+            ${{ runner.temp }}/module-check/result.json

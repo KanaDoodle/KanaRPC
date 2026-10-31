@@ -15,6 +15,10 @@ type IOConfig struct {
 	ReadTimeout time.Duration
 }
 type ClientConfig struct {
+	// RequiredFeatures enables a bounded pre-dispatch handshake. Zero preserves
+	// legacy JSON connections. Protobuf calls require FeatureProtobuf here.
+	RequiredFeatures   Feature
+	negotiatedFeatures Feature
 	// MemoryAccount is an optional single-owner share of a MemoryPool.
 	MemoryAccount  *MemoryAccount
 	Feedback       *FeedbackConfig
@@ -55,6 +59,9 @@ func normalizeIO(c IOConfig) (IOConfig, error) {
 }
 func normalizeClient(c ClientConfig) (ClientConfig, error) {
 	var err error
+	if c.RequiredFeatures & ^supportedFeatures != 0 {
+		return c, errors.New("kanarpc: unknown required protocol features")
+	}
 	if c.Feedback, err = normalizeFeedback(c.Feedback); err != nil {
 		return c, err
 	}

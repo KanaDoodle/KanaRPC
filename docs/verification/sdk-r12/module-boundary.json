@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "boundary_present": "evidence excluded",
+  "boundary_removed": [
+    "github.com/KanaDoodle/KanaRPC@v0.1.0-rc.1/docs/verification/README.md",
+    "github.com/KanaDoodle/KanaRPC@v0.1.0-rc.1/docs/verification/go.disabled",
+    "github.com/KanaDoodle/KanaRPC@v0.1.0-rc.1/docs/verification/protobuf-r11/manifest.json"
+  ]
+}

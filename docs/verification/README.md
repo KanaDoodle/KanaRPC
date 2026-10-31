@@ -18,6 +18,8 @@
 | R9C | 预算、取消、回执与累计故障 | [关闭契约](drain-r9c/report.md) |
 | R9D | 小请求稳定性、profile 与候选取舍 | [内部基线](quic-r9d/report.md) |
 | R10 | 交互控制台与端到端操作 | [控制台](showcase-r10/report.md) |
+| R11 | Protobuf、类型化 SDK 与组件升级 | [编码与 SDK](protobuf-r11/report.md) |
+| R12 | 能力协商、schema 与 SDK 版本化接入 | [SDK 治理](sdk-r12/report.md) |
 
 ## 维护检查
 

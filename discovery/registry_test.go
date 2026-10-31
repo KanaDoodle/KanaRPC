@@ -366,15 +366,17 @@ func TestRealEtcdNetworkGateExpiresReadinessAndRestoresLatestState(t *testing.T)
 func TestCreatedAndHistoricalEventsCannotRenewFreshness(t *testing.T) {
 	r := &Registry{cfg: Config{FreshnessTTL: time.Second, MaxEndpoints: 4}}
 	h := &Resolver{registry: r, prefix: "/test/", transport: rpc.TCP, ctx: context.Background(), nodes: make(map[string]rpc.Endpoint), cluster: 1, revision: 10, ready: true, validUntil: time.Now().Add(-time.Second)}
-	check(t, h.apply(clientv3.WatchResponse{Header: etcdserverpb.ResponseHeader{ClusterId: 1, Revision: 100}, Created: true}))
+	// v3.7 changed Header to a pointer; a missing header must not renew freshness.
+	check(t, h.apply(clientv3.WatchResponse{}))
+	check(t, h.apply(clientv3.WatchResponse{Header: &etcdserverpb.ResponseHeader{ClusterId: 1, Revision: 100}, Created: true}))
 	if snapshot := h.Snapshot(); snapshot.Ready || snapshot.Revision != 10 {
 		t.Fatal(snapshot)
 	}
-	check(t, h.apply(clientv3.WatchResponse{Header: etcdserverpb.ResponseHeader{ClusterId: 1, Revision: 11}, Events: []*clientv3.Event{{Kv: &mvccpb.KeyValue{Key: []byte("/test/a"), Value: []byte(value(node("a", rpc.TCP))), ModRevision: 11}}}}))
+	check(t, h.apply(clientv3.WatchResponse{Header: &etcdserverpb.ResponseHeader{ClusterId: 1, Revision: 11}, Events: []*clientv3.Event{{Kv: &mvccpb.KeyValue{Key: []byte("/test/a"), Value: []byte(value(node("a", rpc.TCP))), ModRevision: 11}}}}))
 	if h.Snapshot().Ready {
 		t.Fatal("historical event renewed freshness")
 	}
-	check(t, h.apply(clientv3.WatchResponse{Header: etcdserverpb.ResponseHeader{ClusterId: 1, Revision: 11}}))
+	check(t, h.apply(clientv3.WatchResponse{Header: &etcdserverpb.ResponseHeader{ClusterId: 1, Revision: 11}}))
 	if snapshot := h.Snapshot(); !snapshot.Ready || len(snapshot.Endpoints) != 1 {
 		t.Fatal(snapshot)
 	}

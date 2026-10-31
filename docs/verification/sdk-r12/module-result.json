@@ -1,0 +1,41 @@
+{
+  "version": "v0.1.0-rc.1",
+  "scope": "local file module proxy and isolated module cache; no public version published",
+  "commands": [
+    {
+      "name": "zip-tool-tidy",
+      "exit": 0
+    },
+    {
+      "name": "module-zip",
+      "exit": 0
+    },
+    {
+      "name": "consumer-tidy",
+      "exit": 0
+    },
+    {
+      "name": "selected-module",
+      "exit": 0
+    },
+    {
+      "name": "consumer-run",
+      "exit": 0
+    },
+    {
+      "name": "install-generator",
+      "exit": 0
+    },
+    {
+      "name": "installed-version",
+      "exit": 0
+    }
+  ],
+  "module_zip": {
+    "bytes": 383451,
+    "entries": 146,
+    "sha256": "d5b5069bbc1b3fb9981638f881c30d5b8e8f93dd61e21500202bfe02f0dd5960"
+  },
+  "dependency_proxy": "file:///Users/kana/go/pkg/mod/cache/download",
+  "status": "PASS"
+}

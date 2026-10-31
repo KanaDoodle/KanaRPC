@@ -105,6 +105,7 @@ type openRecord struct {
 	BudgetNanos int64           `json:"budget_ns"`
 	Window      uint32          `json:"window"`
 	Stream      bool            `json:"stream"`
+	Codec       string          `json:"codec,omitempty"`
 	Request     json.RawMessage `json:"request"`
 }
 type endRecord struct {

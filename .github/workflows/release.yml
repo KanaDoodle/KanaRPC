@@ -1,0 +1,57 @@
+name: SDK release candidate
+on:
+  push:
+    tags: ['v0.*']
+permissions:
+  contents: read
+jobs:
+  candidate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    env:
+      GOWORK: 'off'
+      GOTOOLCHAIN: local
+      RELEASE_TAG: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: '1.27.3'
+      - name: Install verified tools
+        run: |
+          python3 scripts/install-tools.py --output "$RUNNER_TEMP/kanarpc-tools"
+          echo "$RUNNER_TEMP/kanarpc-tools/bin" >> "$GITHUB_PATH"
+      - name: Verify and package the tagged commit
+        run: |
+          python3 scripts/release-baseline.py --release "$RELEASE_TAG" --output "$RUNNER_TEMP/schema-base"
+          python3 scripts/prepare-release.py --require-clean --version "$RELEASE_TAG" --against "$RUNNER_TEMP/schema-base/schema.binpb" --output "$RUNNER_TEMP/kanarpc-release"
+      - name: Create a draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$RELEASE_TAG" --verify-tag --draft --generate-notes --title "KanaRPC $RELEASE_TAG" \
+            "$RUNNER_TEMP/kanarpc-release/"*.tar.gz \
+            "$RUNNER_TEMP/kanarpc-release/"*.zip \
+            "$RUNNER_TEMP/kanarpc-release/SHA256SUMS" \
+            "$RUNNER_TEMP/kanarpc-release/schema.binpb"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: release-verification
+          retention-days: 14
+          path: |
+            ${{ runner.temp }}/schema-base/result.json
+            ${{ runner.temp }}/kanarpc-release/*.txt
+            ${{ runner.temp }}/kanarpc-release/result.json
+            ${{ runner.temp }}/kanarpc-release/race/result.json
+            ${{ runner.temp }}/kanarpc-release/race/test.jsonl
+            ${{ runner.temp }}/kanarpc-release/race/test.stderr
+            ${{ runner.temp }}/kanarpc-release/sdk/*.txt
+            ${{ runner.temp }}/kanarpc-release/sdk/result.json
+            ${{ runner.temp }}/kanarpc-release/module/*.txt
+            ${{ runner.temp }}/kanarpc-release/module/result.json

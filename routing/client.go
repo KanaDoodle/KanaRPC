@@ -592,6 +592,11 @@ func (c *Client) Call(ctx context.Context, method string, request, response any)
 	return err
 }
 
+// OpenStream exposes the managed stream through the generated SDK interface.
+func (c *Client) OpenStream(ctx context.Context, method string, request any) (rpc.Receiver, error) {
+	return c.Stream(ctx, method, request)
+}
+
 // Stream transfers its managed lease to the returned stream until terminal
 // consumption or Close. Keep ctx alive for the full streaming lifetime.
 func (c *Client) Stream(ctx context.Context, method string, request any) (*Stream, error) {

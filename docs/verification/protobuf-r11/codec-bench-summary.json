@@ -1,0 +1,90 @@
+{
+  "empty/json/encode": {
+    "ns/op": 83.71,
+    "body-bytes": 2.0,
+    "B/op": 8.0,
+    "allocs/op": 1.0
+  },
+  "empty/json/decode": {
+    "ns/op": 72.93,
+    "B/op": 128.0,
+    "allocs/op": 1.0
+  },
+  "empty/protobuf/encode": {
+    "ns/op": 44.56,
+    "body-bytes": 0.0,
+    "B/op": 0.0,
+    "allocs/op": 0.0
+  },
+  "empty/protobuf/decode": {
+    "ns/op": 73.08,
+    "B/op": 128.0,
+    "allocs/op": 1.0
+  },
+  "short_text/json/encode": {
+    "ns/op": 129.2,
+    "body-bytes": 30.0,
+    "B/op": 32.0,
+    "allocs/op": 1.0
+  },
+  "short_text/json/decode": {
+    "ns/op": 206.0,
+    "B/op": 128.0,
+    "allocs/op": 1.0
+  },
+  "short_text/protobuf/encode": {
+    "ns/op": 89.38,
+    "body-bytes": 13.0,
+    "B/op": 16.0,
+    "allocs/op": 1.0
+  },
+  "short_text/protobuf/decode": {
+    "ns/op": 173.7,
+    "B/op": 144.0,
+    "allocs/op": 2.0
+  },
+  "long_text/json/encode": {
+    "ns/op": 4028.0,
+    "body-bytes": 3083.0,
+    "B/op": 3201.0,
+    "allocs/op": 1.0
+  },
+  "long_text/json/decode": {
+    "ns/op": 5318.0,
+    "B/op": 3202.0,
+    "allocs/op": 2.0
+  },
+  "long_text/protobuf/encode": {
+    "ns/op": 1985.0,
+    "body-bytes": 3075.0,
+    "B/op": 3200.0,
+    "allocs/op": 1.0
+  },
+  "long_text/protobuf/decode": {
+    "ns/op": 1264.0,
+    "B/op": 3200.0,
+    "allocs/op": 2.0
+  },
+  "numbers/json/encode": {
+    "ns/op": 4380.0,
+    "body-bytes": 926.0,
+    "B/op": 1024.0,
+    "allocs/op": 1.0
+  },
+  "numbers/json/decode": {
+    "ns/op": 13951.0,
+    "B/op": 4218.0,
+    "allocs/op": 10.0
+  },
+  "numbers/protobuf/encode": {
+    "ns/op": 1566.0,
+    "body-bytes": 387.0,
+    "B/op": 416.0,
+    "allocs/op": 1.0
+  },
+  "numbers/protobuf/decode": {
+    "ns/op": 1457.0,
+    "B/op": 2176.0,
+    "allocs/op": 2.0
+  }
+}

@@ -131,6 +131,8 @@ func (s *Server) ServeQUIC(listener *QUICListener) error {
 }
 
 type quicServerSession struct {
+	helloSeen, used    bool // server.mu; negotiation precedes all business streams
+	frameLimit         uint32
 	server             *Server
 	conn               *quic.Conn
 	ctx                context.Context
@@ -191,6 +193,9 @@ func (p *quicServerSession) run() {
 		peer.link.resources = s.resources
 		// A stream that never supplies Open must not retain its reader forever.
 		s.mu.Lock()
+		if p.frameLimit != 0 {
+			peer.link.cfg.MaxFrameBytes = p.frameLimit
+		}
 		s.stats.NativeStreams++
 		s.notifyLocked()
 		s.mu.Unlock()
@@ -323,19 +328,20 @@ type QUICStats struct {
 // QUICClient owns one authenticated physical session. Each Call/Stream opens
 // an independent native exchange, with no retries or hidden TCP downgrade.
 type QUICClient struct {
-	resources *resources
-	conn      *quic.Conn
-	packet    net.PacketConn // explicitly owned; quic.Dial does not own this socket
-	cfg       ClientConfig
-	mu        sync.Mutex
-	closed    bool
-	children  map[*Client]struct{}
-	stats     QUICStats
-	wg        sync.WaitGroup
-	ctx       context.Context
-	cancel    context.CancelFunc
-	closeOnce sync.Once
-	stopConn  func() bool
+	capabilities Capabilities
+	resources    *resources
+	conn         *quic.Conn
+	packet       net.PacketConn // explicitly owned; quic.Dial does not own this socket
+	cfg          ClientConfig
+	mu           sync.Mutex
+	closed       bool
+	children     map[*Client]struct{}
+	stats        QUICStats
+	wg           sync.WaitGroup
+	ctx          context.Context
+	cancel       context.CancelFunc
+	closeOnce    sync.Once
+	stopConn     func() bool
 }
 
 func DialQUIC(ctx context.Context, address string, security TLSOptions, options QUICConfig, cfg ClientConfig) (*QUICClient, error) {
@@ -382,6 +388,32 @@ func DialQUIC(ctx context.Context, address string, security TLSOptions, options 
 		return nil, err
 	}
 	client := &QUICClient{conn: conn, packet: packet, cfg: cfg, children: make(map[*Client]struct{}), ctx: owner, cancel: stop, resources: res}
+	if cfg.RequiredFeatures != 0 {
+		stream, err := conn.OpenStreamSync(budget)
+		if err == nil {
+			channel := &nativeChannel{Stream: stream}
+			link := newLink(channel, cfg.IO)
+			link.resources = res
+			client.capabilities, err = negotiate(budget, link, cfg)
+			if err == nil {
+				err = channel.AwaitEnd(budget)
+			}
+			if err == nil {
+				channel.Finish()
+				client.cfg.negotiatedFeatures = client.capabilities.Features
+				client.cfg.IO.MaxFrameBytes = client.capabilities.MaxFrameBytes
+			} else {
+				_ = channel.Close()
+			}
+		}
+		if err != nil {
+			stop()
+			_ = conn.CloseWithError(nativeShutdown, "capability negotiation failed")
+			_ = packet.Close()
+			res.ownerClosed()
+			return nil, err
+		}
+	}
 	client.stopConn = context.AfterFunc(conn.Context(), func() { res.admission.close(); stop(); _ = packet.Close() })
 	return client, nil
 }

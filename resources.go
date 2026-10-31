@@ -303,7 +303,9 @@ func newClientResources(c ClientConfig) (*resources, error) {
 	}
 	return r, nil
 }
-func dataKind(kind wire.Kind) bool { return kind == wire.Open || kind == wire.Data }
+func dataKind(kind wire.Kind) bool {
+	return kind == wire.Open || kind == wire.OpenEncoded || kind == wire.Data || kind == wire.DataEncoded
+}
 func (r *resources) reserveRead(kind wire.Kind, n uint32) (func(), error) {
 	if !dataKind(kind) {
 		if n > 4096 {
@@ -312,9 +314,9 @@ func (r *resources) reserveRead(kind wire.Kind, n uint32) (func(), error) {
 		return r.controlReceive.take(int64(n))
 	}
 	size := int64(n)
-	if kind == wire.Open {
+	if kind == wire.Open || kind == wire.OpenEncoded {
 		size *= 2
-	} // frame plus JSON request/metadata copies
+	} // Frame plus request/metadata copies; shared by both payload codecs.
 	return r.receive.take(size)
 }
 func (r *resources) reserveWrite(kind wire.Kind, n int) (func(), error) {
