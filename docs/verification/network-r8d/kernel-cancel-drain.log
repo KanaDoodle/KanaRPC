@@ -1,0 +1,24 @@
+=== RUN   TestNetworkCancelAndDeadlineDrainPhysicalTransports
+=== RUN   TestNetworkCancelAndDeadlineDrainPhysicalTransports/tcp
+    network_cancel_test.go:118: qdisc netem 8054: root refcnt 2 limit 1000 loss 100%
+         Sent 0 bytes 0 pkt (dropped 2, overlimits 0 requeues 0) 
+         backlog 0b 0p requeues 0
+        
+    network_cancel_test.go:137: {"drain_ns":40872166,"executions":1,"kernel_blackhole":true,"scope":"owned physical loopback; kernel blackhole only when explicitly running isolated Linux container","server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":0,"InFlight":0,"Executing":0,"Admitted":1,"Completed":1,"Rejected":0,"Canceled":1,"Delivered":0,"LostTerminals":0},"transport":"tcp"}
+=== RUN   TestNetworkCancelAndDeadlineDrainPhysicalTransports/tls
+    network_cancel_test.go:118: qdisc netem 8055: root refcnt 2 limit 1000 loss 100%
+         Sent 0 bytes 0 pkt (dropped 2, overlimits 0 requeues 0) 
+         backlog 0b 0p requeues 0
+        
+    network_cancel_test.go:137: {"drain_ns":40273459,"executions":1,"kernel_blackhole":true,"scope":"owned physical loopback; kernel blackhole only when explicitly running isolated Linux container","server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":0,"InFlight":0,"Executing":0,"Admitted":1,"Completed":1,"Rejected":0,"Canceled":1,"Delivered":0,"LostTerminals":0},"transport":"tls"}
+=== RUN   TestNetworkCancelAndDeadlineDrainPhysicalTransports/quic
+    network_cancel_test.go:118: qdisc netem 8056: root refcnt 2 limit 1000 loss 100%
+         Sent 0 bytes 0 pkt (dropped 8, overlimits 0 requeues 0) 
+         backlog 0b 0p requeues 0
+        
+    network_cancel_test.go:137: {"drain_ns":40969542,"executions":1,"kernel_blackhole":true,"scope":"owned physical loopback; kernel blackhole only when explicitly running isolated Linux container","server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":0,"InFlight":0,"Executing":0,"Admitted":1,"Completed":1,"Rejected":0,"Canceled":1,"Delivered":0,"LostTerminals":0},"transport":"quic"}
+--- PASS: TestNetworkCancelAndDeadlineDrainPhysicalTransports (0.50s)
+    --- PASS: TestNetworkCancelAndDeadlineDrainPhysicalTransports/tcp (0.07s)
+    --- PASS: TestNetworkCancelAndDeadlineDrainPhysicalTransports/tls (0.07s)
+    --- PASS: TestNetworkCancelAndDeadlineDrainPhysicalTransports/quic (0.37s)
+PASS

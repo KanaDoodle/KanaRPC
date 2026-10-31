@@ -1,0 +1,66 @@
+[
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "status": "PASS",
+    "operations": {
+      "ok": 11883615
+    },
+    "client_fd": 9,
+    "server_fd": 11,
+    "client_goroutines": 4,
+    "server_goroutines": 7,
+    "client_heap_min": 308992,
+    "client_heap_max": 367352,
+    "server_heap_min": 313280,
+    "server_heap_max": 364048
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "status": "PASS",
+    "operations": {
+      "ok": 11143477
+    },
+    "client_fd": 9,
+    "server_fd": 11,
+    "client_goroutines": 4,
+    "server_goroutines": 7,
+    "client_heap_min": 314032,
+    "client_heap_max": 365304,
+    "server_heap_min": 313016,
+    "server_heap_max": 359360
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "status": "PASS",
+    "operations": {
+      "ok": 2849651
+    },
+    "client_fd": 9,
+    "server_fd": 10,
+    "client_goroutines": 7,
+    "server_goroutines": 13,
+    "client_heap_min": 471784,
+    "client_heap_max": 669432,
+    "server_heap_min": 546072,
+    "server_heap_max": 775664
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "status": "PASS",
+    "operations": {
+      "ok": 3473532
+    },
+    "client_fd": 9,
+    "server_fd": 10,
+    "client_goroutines": 7,
+    "server_goroutines": 13,
+    "client_heap_min": 483672,
+    "client_heap_max": 822336,
+    "server_heap_min": 567712,
+    "server_heap_max": 902912
+  }
+]

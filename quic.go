@@ -273,6 +273,7 @@ type QUICStats struct {
 type QUICClient struct {
 	resources *resources
 	conn      *quic.Conn
+	packet    net.PacketConn // explicitly owned; quic.Dial does not own this socket
 	cfg       ClientConfig
 	mu        sync.Mutex
 	closed    bool
@@ -304,14 +305,26 @@ func DialQUIC(ctx context.Context, address string, security TLSOptions, options 
 	}
 	budget, cancel := context.WithTimeout(ctx, timeout)
 	defer cancel()
-	conn, err := quic.DialAddr(budget, address, tlsConfig, config)
+	remote, host, err := resolveQUICAddress(budget, address, net.DefaultResolver)
 	if err != nil {
+		return nil, err
+	}
+	if tlsConfig.ServerName == "" {
+		tlsConfig.ServerName = host
+	}
+	packet, err := listenQUICPacket(budget, remote)
+	if err != nil {
+		return nil, err
+	}
+	conn, err := quic.Dial(budget, packet, remote, tlsConfig, config)
+	if err != nil {
+		_ = packet.Close()
 		return nil, nativeError(err)
 	}
 	owner, stop := context.WithCancel(context.Background())
 	res := newClientResources(cfg)
-	client := &QUICClient{conn: conn, cfg: cfg, children: make(map[*Client]struct{}), ctx: owner, cancel: stop, resources: res}
-	client.stopConn = context.AfterFunc(conn.Context(), func() { res.admission.close(); stop() })
+	client := &QUICClient{conn: conn, packet: packet, cfg: cfg, children: make(map[*Client]struct{}), ctx: owner, cancel: stop, resources: res}
+	client.stopConn = context.AfterFunc(conn.Context(), func() { res.admission.close(); stop(); _ = packet.Close() })
 	return client, nil
 }
 func (c *QUICClient) Stats() QUICStats {
@@ -477,6 +490,9 @@ func (c *QUICClient) Close() {
 		c.stats.CloseConfirmed = confirmed
 		c.mu.Unlock()
 		_ = c.conn.CloseWithError(nativeShutdown, "client closed")
+		if c.packet != nil {
+			_ = c.packet.Close()
+		}
 	})
 }
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Serialized, owned R8A/R8B resource and transport controls; no model."""
+"""Serialized, owned baseline/current resource and transport controls; no model."""
 import argparse
 import hashlib
 import importlib.util
@@ -99,7 +99,7 @@ def main():
     for name in ['go.mod','go.sum']:shutil.copy2(ROOT/name,current/name)
     (current/'scripts').mkdir();shutil.copy2(ROOT/'scripts/verify-transports.py',current/'scripts/verify-transports.py')
     binaries={}
-    metadata={"go_version":subprocess.check_output(["go","version"],text=True).strip(),"baseline_commit":subprocess.check_output(["git","rev-parse",args.baseline],cwd=ROOT,text=True).strip(),"duration":args.duration,"cycles":args.cycles,"race":args.race,"scope":"bounded loopback resource observation; same added resource driver on R8A baseline; no real inference or infinite-leak/RSS claim","versions":{}}
+    metadata={"go_version":subprocess.check_output(["go","version"],text=True).strip(),"baseline_commit":subprocess.check_output(["git","rev-parse",args.baseline],cwd=ROOT,text=True).strip(),"duration":args.duration,"cycles":args.cycles,"race":args.race,"scope":"bounded loopback resource observation; same added resource driver on selected baseline; no real inference or infinite-leak/RSS claim","versions":{}}
     for name,root in [("baseline",baseline),("current",current)]:
         directory=output/name;directory.mkdir();binaries[name]=build(root,directory,args.race)
         metadata["versions"][name]={"binary_sha256":hashlib.sha256(binaries[name].read_bytes()).hexdigest(),"source_sha256":{str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.rglob('*.go')) if not any(x in p.relative_to(root).parts for x in ['tools','docs'])}}

@@ -1,0 +1,63 @@
+{"Time":"2026-10-31T18:00:52.361147+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T18:00:52.939339+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICAddressResolutionBudgetAndFamily"}
+{"Time":"2026-10-31T18:00:52.93941+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICAddressResolutionBudgetAndFamily","Output":"=== RUN   TestQUICAddressResolutionBudgetAndFamily\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:52.940685+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICAddressResolutionBudgetAndFamily","Output":"--- PASS: TestQUICAddressResolutionBudgetAndFamily (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:52.940754+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICAddressResolutionBudgetAndFamily","Elapsed":0}
+{"Time":"2026-10-31T18:00:52.940788+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICOwnedPacketCloseFailureAndPeerShutdown"}
+{"Time":"2026-10-31T18:00:52.940794+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICOwnedPacketCloseFailureAndPeerShutdown","Output":"=== RUN   TestQUICOwnedPacketCloseFailureAndPeerShutdown\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.059134+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICOwnedPacketCloseFailureAndPeerShutdown","Output":"--- PASS: TestQUICOwnedPacketCloseFailureAndPeerShutdown (0.12s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.059191+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICOwnedPacketCloseFailureAndPeerShutdown","Elapsed":0.12}
+{"Time":"2026-10-31T18:00:53.061718+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection"}
+{"Time":"2026-10-31T18:00:53.061734+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection","Output":"=== RUN   TestQUICHostnameInferenceAndIPv6AfterFamilySelection\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.061747+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection/localhost"}
+{"Time":"2026-10-31T18:00:53.061755+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection/localhost","Output":"=== RUN   TestQUICHostnameInferenceAndIPv6AfterFamilySelection/localhost\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.073133+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection/localhost","Output":"--- PASS: TestQUICHostnameInferenceAndIPv6AfterFamilySelection/localhost (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.073184+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection/localhost","Elapsed":0.01}
+{"Time":"2026-10-31T18:00:53.073198+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection/::1"}
+{"Time":"2026-10-31T18:00:53.07321+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection/::1","Output":"=== RUN   TestQUICHostnameInferenceAndIPv6AfterFamilySelection/::1\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.080413+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection/::1","Output":"--- PASS: TestQUICHostnameInferenceAndIPv6AfterFamilySelection/::1 (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.080431+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection/::1","Elapsed":0.01}
+{"Time":"2026-10-31T18:00:53.080437+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection","Output":"--- PASS: TestQUICHostnameInferenceAndIPv6AfterFamilySelection (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.080451+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHostnameInferenceAndIPv6AfterFamilySelection","Elapsed":0.02}
+{"Time":"2026-10-31T18:00:53.080455+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision"}
+{"Time":"2026-10-31T18:00:53.080458+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Output":"=== RUN   TestQUICDarwinCrossFamilyPortCollision\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.084014+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Output":"    quic_address_test.go:198: acquired owned cross-family collision port=58854 after 227 allocations\n"}
+{"Time":"2026-10-31T18:00:53.094461+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Output":"--- PASS: TestQUICDarwinCrossFamilyPortCollision (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.094491+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Elapsed":0.01}
+{"Time":"2026-10-31T18:00:53.09451+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC"}
+{"Time":"2026-10-31T18:00:53.094517+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Output":"=== RUN   TestQUICCollisionBlocksHandshakeBeforeRPC\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.10196+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Output":"    quic_address_test.go:255: acquired owned cross-family collision port=60996 after 244 allocations\n"}
+{"Time":"2026-10-31T18:00:53.414757+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Output":"--- PASS: TestQUICCollisionBlocksHandshakeBeforeRPC (0.32s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.414879+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Elapsed":0.32}
+{"Time":"2026-10-31T18:00:53.4149+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHandshakeChurnDiagnostic"}
+{"Time":"2026-10-31T18:00:53.414913+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHandshakeChurnDiagnostic","Output":"=== RUN   TestQUICHandshakeChurnDiagnostic\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.417603+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHandshakeChurnDiagnostic/rpc"}
+{"Time":"2026-10-31T18:00:53.417682+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHandshakeChurnDiagnostic/rpc","Output":"=== RUN   TestQUICHandshakeChurnDiagnostic/rpc\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.436293+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHandshakeChurnDiagnostic/rpc","Output":"    quic_diagnostic_test.go:185: mode=rpc failures=0 limit=2\n"}
+{"Time":"2026-10-31T18:00:53.436375+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHandshakeChurnDiagnostic/rpc","Output":"--- PASS: TestQUICHandshakeChurnDiagnostic/rpc (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.436383+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHandshakeChurnDiagnostic/rpc","Elapsed":0.02}
+{"Time":"2026-10-31T18:00:53.436397+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHandshakeChurnDiagnostic","Output":"--- PASS: TestQUICHandshakeChurnDiagnostic (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.436416+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICHandshakeChurnDiagnostic","Elapsed":0.02}
+{"Time":"2026-10-31T18:00:53.43906+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress"}
+{"Time":"2026-10-31T18:00:53.439075+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"=== RUN   FuzzQUICLiteralAddress\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.439325+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#0"}
+{"Time":"2026-10-31T18:00:53.439332+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#0","Output":"=== RUN   FuzzQUICLiteralAddress/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.4394+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#0","Output":"--- PASS: FuzzQUICLiteralAddress/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.439408+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#0","Elapsed":0}
+{"Time":"2026-10-31T18:00:53.439533+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#1"}
+{"Time":"2026-10-31T18:00:53.439539+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#1","Output":"=== RUN   FuzzQUICLiteralAddress/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.439559+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#1","Output":"--- PASS: FuzzQUICLiteralAddress/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.439567+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#1","Elapsed":0}
+{"Time":"2026-10-31T18:00:53.439734+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#2"}
+{"Time":"2026-10-31T18:00:53.439741+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#2","Output":"=== RUN   FuzzQUICLiteralAddress/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.439778+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#2","Output":"--- PASS: FuzzQUICLiteralAddress/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.439804+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#2","Elapsed":0}
+{"Time":"2026-10-31T18:00:53.439921+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#3"}
+{"Time":"2026-10-31T18:00:53.439928+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#3","Output":"=== RUN   FuzzQUICLiteralAddress/seed#3\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.439956+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#3","Output":"--- PASS: FuzzQUICLiteralAddress/seed#3 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.439969+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress/seed#3","Elapsed":0}
+{"Time":"2026-10-31T18:00:53.439975+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"--- PASS: FuzzQUICLiteralAddress (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:53.439982+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Elapsed":0}
+{"Time":"2026-10-31T18:00:53.44031+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:00:54.447922+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t2.086s\n"}
+{"Time":"2026-10-31T18:00:54.448009+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":2.087}

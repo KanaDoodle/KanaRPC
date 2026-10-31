@@ -1,0 +1,7 @@
+=== RUN   TestQUICHandshakeChurnDiagnostic
+    quic_diagnostic_test.go:82: owned IPv4 background port reservations=64
+=== RUN   TestQUICHandshakeChurnDiagnostic/native
+    quic_diagnostic_test.go:177: mode=native failures=0 limit=5000
+--- PASS: TestQUICHandshakeChurnDiagnostic (4.34s)
+    --- PASS: TestQUICHandshakeChurnDiagnostic/native (4.33s)
+PASS

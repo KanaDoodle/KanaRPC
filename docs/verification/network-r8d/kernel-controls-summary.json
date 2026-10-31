@@ -1,0 +1,2774 @@
+[
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "5dd4d93accfbf0f14862a78356615916241313d3f6b43d50207d78435864e069",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 17846333,
+      "P50": 656708,
+      "P95": 1096875,
+      "P99": 1398541,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 83000,
+        "BytesSent": 127031,
+        "BytesReceived": 574911,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 155138\nuser_usec 84980\nsystem_usec 70158\nnice_usec 0\nnr_periods 3\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "71d0a68e395bb9ed9493ac4483f9038309144163f730c425c3032538cefe36a9",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 18232250,
+      "P50": 655417,
+      "P95": 1339541,
+      "P99": 1797375,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 63000,
+        "BytesSent": 127421,
+        "BytesReceived": 575049,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 146927\nuser_usec 80706\nsystem_usec 66220\nnice_usec 0\nnr_periods 3\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "e265f57fc6c553712c01d2f06804d75fb1b788ec0114b84f76774ebe9cd5210b",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 14404209,
+      "P50": 467250,
+      "P95": 1479666,
+      "P99": 1630834,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 110000,
+        "BytesSent": 76450,
+        "BytesReceived": 68336,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 147678\nuser_usec 65747\nsystem_usec 81931\nnice_usec 0\nnr_periods 5\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "5b882255b56347eb3e08b274c81de0e520d77f1f1ac3e2ee4c08840a6d01db52",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 14247000,
+      "P50": 439125,
+      "P95": 1174125,
+      "P99": 1526208,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 115000,
+        "BytesSent": 75816,
+        "BytesReceived": 67363,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 116497\nuser_usec 62971\nsystem_usec 53525\nnice_usec 0\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "7ca7f14c976be7d2bdc4bba0f327d19aa1ad1fd3422d292583a63d7c043f2c71",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 29876292,
+      "P50": 1111125,
+      "P95": 1982167,
+      "P99": 2280709,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 148910\nuser_usec 68297\nsystem_usec 80612\nnice_usec 0\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "1c5f3d73fd371efcea0971dab926f3d72aef6a6794802711cfb050918771d631",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 27272916,
+      "P50": 909875,
+      "P95": 2212333,
+      "P99": 2496583,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 139441\nuser_usec 64740\nsystem_usec 74700\nnice_usec 0\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "58d0161b6832207b073bbdf05a4c465de818b57ca723ec5d5e8c9b151a25965e",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 9807458,
+      "P50": 339833,
+      "P95": 781500,
+      "P99": 1363250,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 91839\nuser_usec 40244\nsystem_usec 51595\nnice_usec 0\nnr_periods 5\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "f95b6639bbcc84a35d3017327266badedb1aba9b6eb2d06677a799efcb4292f8",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 11732292,
+      "P50": 219541,
+      "P95": 1803083,
+      "P99": 3540667,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 100466\nuser_usec 48612\nsystem_usec 51853\nnice_usec 0\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "27e4a085688ad4dbd66e246985ec1d39be5c9fa9320efce3bf02434f10287c4a",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 29749500,
+      "P50": 917584,
+      "P95": 3396292,
+      "P99": 5745458,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 165676\nuser_usec 63017\nsystem_usec 102658\nnice_usec 0\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "97541aabf6347c042f14d0172896a98328ec1eaf7f2d2bda7783687bf0db2b6e",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 25148458,
+      "P50": 903125,
+      "P95": 1625959,
+      "P99": 2334667,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 181649\nuser_usec 86394\nsystem_usec 95255\nnice_usec 0\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "c648c4c0f69026c1d16f5efb2e00671973b36aa91097d6bb5b78546c0135d1c5",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 6717041,
+      "P50": 245875,
+      "P95": 538458,
+      "P99": 589459,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 111361\nuser_usec 51166\nsystem_usec 60195\nnice_usec 0\nnr_periods 5\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "baseline",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [],
+    "owned_container": "cc9952459fee719c52b300e163af99ba5599c6b793213f5f2ed9a36384623b99",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 7230208,
+      "P50": 269250,
+      "P95": 462209,
+      "P99": 763208,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc noqueue 0: root refcnt 2 \n Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 88243\nuser_usec 42020\nsystem_usec 46222\nnice_usec 0\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "003c860c611756c05a3f2365ee43e8b985a0c95e70948b06fec30afa051abc6f",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "6dc290ae7c0f714e236c178ba247ba40b455ce24e0990b42e74bd257bf0b0a1d",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "93af9c94a79d5bd96377fde76242d0288f5b494395d8a471f644aecbcae7445f",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "08e224865401320661b680d60e43e2eb33ff9ff82bc2b74ffa983083cf28bd90",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "97ba2103ee006ccdc849a0f815af090e49a39cf22b90975d82157741939b83e0",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "64def476d5a739bb6389f1689491f7bb1381232cac11968f3aeb6ac805151780",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "e11b8154cfdb907a2e0064b673f210db75d14426758e119be470beaf20718369",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "66d80386680d76b7bbb73220e2a4a74b472d1736a912c4a575aec0c57cfed1b3",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "d46ec5f7ddc80fea239d67d3d813775e48e284c515fc2c40444b50ab0e8ae9fb",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "f48c58ce8a19f255fea3bb7e1e4fa214fa70058203b6251c8025de6303bc4546",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "10ca894fe0a77d97c582901c770acfaf76da71b53a674c01063e275a29fa3635",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "combined",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "20ms",
+      "loss",
+      "1%",
+      "rate",
+      "512kbit",
+      "seed",
+      "7"
+    ],
+    "owned_container": "12474c6a3c509f1e31b7a81fa5d23f4371382dc7a568bf8110f628ac5a43de19",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "18597e13b743f845db37e86686717f9aaa9edee41a33f6c053e259e2d3a28404",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 1713124835,
+      "P50": 68959375,
+      "P95": 71125375,
+      "P99": 72290542,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 22855000,
+        "BytesSent": 117975,
+        "BytesReceived": 574652,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 800d: root refcnt 2 limit 1000 delay 10ms\n Sent 775533 bytes 1973 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 246840\nuser_usec 155958\nsystem_usec 90882\nnice_usec 0\nnr_periods 64\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "f6597e7094c9084b8f7597aed6585ee9e02b7d1666fd07f369c7805592bedb0d",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 1729039417,
+      "P50": 69616333,
+      "P95": 70738583,
+      "P99": 70825416,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 22843000,
+        "BytesSent": 117916,
+        "BytesReceived": 574275,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 800c: root refcnt 2 limit 1000 delay 10ms\n Sent 774047 bytes 1948 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 238532\nuser_usec 144495\nsystem_usec 94036\nnice_usec 0\nnr_periods 64\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "bfb06b63db176811f9a522cf54688343a65c17f065c2d8749039596490cfca5b",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 1090397959,
+      "P50": 43546166,
+      "P95": 45491708,
+      "P99": 45604167,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 21828000,
+        "BytesSent": 76517,
+        "BytesReceived": 68893,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8007: root refcnt 2 limit 1000 delay 10ms\n Sent 186358 bytes 974 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 172291\nuser_usec 104643\nsystem_usec 67648\nnice_usec 0\nnr_periods 41\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "98fbdfc8f23f38e766bbc71bb7f1f841a90113293987cd877d0efb693404f5f1",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 1073869959,
+      "P50": 42698667,
+      "P95": 44609250,
+      "P99": 45289125,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 21334000,
+        "BytesSent": 77022,
+        "BytesReceived": 68909,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8006: root refcnt 2 limit 1000 delay 10ms\n Sent 187719 bytes 994 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 197294\nuser_usec 102541\nsystem_usec 94753\nnice_usec 0\nnr_periods 42\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "4978d7d12dd5a6f6eb15c0356188b0b93004efbe1be720dffbf61065f4cc4a46",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 1174395875,
+      "P50": 46044875,
+      "P95": 48971417,
+      "P99": 67573875,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8009: root refcnt 2 limit 1000 delay 10ms\n Sent 982307 bytes 5322 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 154140\nuser_usec 93418\nsystem_usec 60722\nnice_usec 0\nnr_periods 43\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "72ef13ec3fb83ac3452035e47ad4178418c7b403b0d95f55785796eebf3dfcea",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 1159962709,
+      "P50": 45470750,
+      "P95": 49453208,
+      "P99": 63191583,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8008: root refcnt 2 limit 1000 delay 10ms\n Sent 985415 bytes 5356 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 150301\nuser_usec 75150\nsystem_usec 75150\nnice_usec 0\nnr_periods 42\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "4fd9e1dabda8931af84b9c7600e543295aab34f68a597b3b6a35f3ea25ed9289",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 531659583,
+      "P50": 20908917,
+      "P95": 22977042,
+      "P99": 24458791,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8003: root refcnt 2 limit 1000 delay 10ms\n Sent 155876 bytes 863 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 90856\nuser_usec 40618\nsystem_usec 50238\nnice_usec 0\nnr_periods 22\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "92d3f4cc6f1b02751e7110b6fd859866a9b9580718da3ef06b44f94de6806259",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 541500292,
+      "P50": 21500083,
+      "P95": 23374708,
+      "P99": 24333625,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8002: root refcnt 2 limit 1000 delay 10ms\n Sent 155942 bytes 864 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 90927\nuser_usec 51146\nsystem_usec 39780\nnice_usec 0\nnr_periods 22\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "24778b6918b08975bc1226c02a1f8aef7a7b1b771dbe42583fb3317fc09e6f8c",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 1161668375,
+      "P50": 45254542,
+      "P95": 49689458,
+      "P99": 66610459,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 800b: root refcnt 2 limit 1000 delay 10ms\n Sent 1072319 bytes 5117 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 168970\nuser_usec 85003\nsystem_usec 83967\nnice_usec 0\nnr_periods 44\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "bf6e160d9d94a50a9fb0c12d4d939d84b4d42859b1b2549ea74d7e6b61d1cb2c",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 1166657334,
+      "P50": 46445417,
+      "P95": 48874291,
+      "P99": 66088417,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 800a: root refcnt 2 limit 1000 delay 10ms\n Sent 1072617 bytes 5125 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 168447\nuser_usec 95414\nsystem_usec 73033\nnice_usec 0\nnr_periods 44\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "30cdf35952ab249233522d1c77b9d8d973ec3fe4f4f68ceefbade0adacffe724",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 536248792,
+      "P50": 21438542,
+      "P95": 22714917,
+      "P99": 22999125,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8005: root refcnt 2 limit 1000 delay 10ms\n Sent 175030 bytes 868 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 99608\nuser_usec 49804\nsystem_usec 49804\nnice_usec 0\nnr_periods 21\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "delay",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "delay",
+      "10ms"
+    ],
+    "owned_container": "d9c8be8ec10008254ce54ac9c9e791a5b4260a0d5cdd1dddc280aa7d1490f640",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 535742291,
+      "P50": 21066458,
+      "P95": 23085792,
+      "P99": 24621750,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8004: root refcnt 2 limit 1000 delay 10ms\n Sent 173769 bytes 858 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 101760\nuser_usec 53558\nsystem_usec 48202\nnice_usec 0\nnr_periods 22\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "d398378c2cbaadfea446c5cdd3dd9a66c2033f6c97d6db3c27329563cb45092c",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "7d1f29e218c1057e1c991249b92addf9201e90b5b36cefa45598bb7de5383cbc",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "0116e8b0bc3266982d8a548a01d5d4db2e51e76213d86177165d8220dc11c9c9",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "7a8eb2d2e10c7733139446124c097a6732be29b33d805cafce198b6a58c7738b",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "81edeafc717bbe1dab341e53b0e78004fa98baf0d71dc514be3b8f58b435e0b6",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "f1fd67484667a885ea55bfe2469be08f2453d574ffe8bbfebf1080b26db45232",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "ad21751d89effb6e3245b42fe66c0d80ce85f4073d96fd22643f34b699f07fd0",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "45a160e142539de51e9e4343960478fe589dfcd2c731631937e911828b677da1",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "cbdfb4c54ec015dcdc00975a6ef84d04402672dc1406a07ecbf062baede65195",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "5bda8b76aa6ee2aa5abdf2c8d853ba9195a6246165b65abf93fe45114df8012c",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "3d8adec24cd04c28f74d58dac12dcaa67770b482f10ceacaee3b5dc52b5fb8c1",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "loss",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "loss",
+      "2%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "ae4b1da84ec6b799c832629e54f1a585e5677e3ae6825b17862ab45989673ed3",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "273176ab61a1bc3185a6847172f72ac8ff15a68edef8cc56efdd720696a712c7",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 15655422090,
+      "P50": 622850375,
+      "P95": 662197042,
+      "P99": 663266959,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 115002000,
+        "BytesSent": 161797,
+        "BytesReceived": 581304,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 803c: root refcnt 2 limit 1000 rate 256Kbit\n Sent 842899 bytes 2373 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 557187\nuser_usec 320634\nsystem_usec 236552\nnice_usec 0\nnr_periods 263\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "2af2bac335e046f9f945f7a4d58f58826faf250edc0db1ff08ffd452ea773031",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 15629750215,
+      "P50": 623052417,
+      "P95": 646399375,
+      "P99": 654712624,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 114725000,
+        "BytesSent": 160984,
+        "BytesReceived": 580786,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8041: root refcnt 2 limit 1000 rate 256Kbit\n Sent 840182 bytes 2340 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 538616\nuser_usec 307247\nsystem_usec 231368\nnice_usec 0\nnr_periods 263\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "7f4abf3bf42239e6bf160f1ed4c1ba3047b75ef1ec9d151cd6a28ec2e6eaee0f",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 3438712251,
+      "P50": 138053209,
+      "P95": 142184375,
+      "P99": 142836208,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 45010000,
+        "BytesSent": 81379,
+        "BytesReceived": 71691,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8012: root refcnt 2 limit 1000 rate 256Kbit\n Sent 200662 bytes 1130 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 268177\nuser_usec 157031\nsystem_usec 111145\nnice_usec 0\nnr_periods 67\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "28993d8d3b5c30813e63b70701df3bc82d429813f1f890383c10e933fe8f43bc",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "quic",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 3413620669,
+      "P50": 136701000,
+      "P95": 143240541,
+      "P99": 149130958,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 164,
+        "Retired": 164,
+        "RTT": 43242000,
+        "BytesSent": 81269,
+        "BytesReceived": 71555,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8013: root refcnt 2 limit 1000 rate 256Kbit\n Sent 199954 bytes 1119 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 268428\nuser_usec 154705\nsystem_usec 113723\nnice_usec 0\nnr_periods 66\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "34449dfa34e0dacd2066da4f0fa983a861adcd1e81def5275f25bed123436c20",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 20205164592,
+      "P50": 824662250,
+      "P95": 825797292,
+      "P99": 848554542,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8015: root refcnt 2 limit 1000 rate 256Kbit\n Sent 1071007 bytes 6392 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 904b 12p requeues 0\n",
+    "cgroup_cpu": "usage_usec 636820\nuser_usec 296872\nsystem_usec 339947\nnice_usec 0\nnr_periods 336\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "40965d745827c63f7ca835b1fd53b080b50d710a98c2ce81854ef7b7b444483f",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 20165408218,
+      "P50": 824643376,
+      "P95": 825814542,
+      "P99": 830645542,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8017: root refcnt 2 limit 1000 rate 256Kbit\n Sent 1070195 bytes 6382 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 660b 10p requeues 0\n",
+    "cgroup_cpu": "usage_usec 652250\nuser_usec 323914\nsystem_usec 328336\nnice_usec 0\nnr_periods 333\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "5b34be047279944a99f2fd99d5746718be52245fd6bbabd1a29740434e54a7cf",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 3162673252,
+      "P50": 127431459,
+      "P95": 128199209,
+      "P99": 128376709,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 800e: root refcnt 2 limit 1000 rate 256Kbit\n Sent 167918 bytes 992 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 157401\nuser_usec 76912\nsystem_usec 80489\nnice_usec 0\nnr_periods 55\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "c02b862651e6307e5ee35dc5db27bedef8fa1fdd43d023b152d2eaf76ee97ec8",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tcp",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 3162858709,
+      "P50": 127428542,
+      "P95": 128196082,
+      "P99": 128236125,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 800f: root refcnt 2 limit 1000 rate 256Kbit\n Sent 167918 bytes 992 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 154643\nuser_usec 69280\nsystem_usec 85363\nnice_usec 0\nnr_periods 55\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "34392f7793483eb5057e401df5e13c7d6e68ceed1e8166ca3d4fa7a21b353e4a",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 22575522218,
+      "P50": 920988126,
+      "P95": 923388501,
+      "P99": 934867042,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8020: root refcnt 2 limit 1000 rate 256Kbit\n Sent 1201161 bytes 6407 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 396b 6p requeues 0\n",
+    "cgroup_cpu": "usage_usec 713745\nuser_usec 365200\nsystem_usec 348545\nnice_usec 0\nnr_periods 377\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "dc480645ff1dd35f53d8be45285481d0382a904f555c7310b2e8101bdccdef65",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "stream",
+      "completed": 100,
+      "elapsed_ns": 22572662093,
+      "P50": 921029792,
+      "P95": 924160209,
+      "P99": 934519167,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8032: root refcnt 2 limit 1000 rate 256Kbit\n Sent 1199762 bytes 6393 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 1354b 14p requeues 0\n",
+    "cgroup_cpu": "usage_usec 766939\nuser_usec 422287\nsystem_usec 344652\nnice_usec 0\nnr_periods 376\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "693184e57f22986f1c0e5ec415a3bfc1c7e75c0f5dcdd8fe9d2eb3bf64b0cada",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 3502740793,
+      "P50": 141126916,
+      "P95": 142035000,
+      "P99": 142121625,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8010: root refcnt 2 limit 1000 rate 256Kbit\n Sent 190099 bytes 996 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 171157\nuser_usec 89041\nsystem_usec 82116\nnice_usec 0\nnr_periods 62\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "rate",
+    "planned_offered": 100,
+    "actual_offered": 100,
+    "netem": [
+      "rate",
+      "256kbit"
+    ],
+    "owned_container": "a79a72c4829ba47f9a884c1769a73ad97bb8c86d68bda39a8c92435c13ae064b",
+    "client_exit_code": 0,
+    "client": {
+      "transport": "tls",
+      "workload": "unary",
+      "completed": 100,
+      "elapsed_ns": 3503031835,
+      "P50": 141161667,
+      "P95": 142073042,
+      "P99": 142331500,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 164,
+        "Completed": 164,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "qdisc_after": "qdisc netem 8011: root refcnt 2 limit 1000 rate 256Kbit\n Sent 190036 bytes 995 pkt (dropped 0, overlimits 0 requeues 0) \n backlog 0b 0p requeues 0\n",
+    "cgroup_cpu": "usage_usec 168389\nuser_usec 96798\nsystem_usec 71590\nnice_usec 0\nnr_periods 62\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "worker_exit_code": 0,
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 164,
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 164,
+        "Completed": 164,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 164,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "3923a3f1663119efa9afe16bd3594931ab4d4cb5a09c424265c2b70a84bd26d5",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "stream",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "a7889843afc927277006a44aea4282f9bad6cb5db70e914728e462bd162b7eca",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "a61c232dcad421e474d09c83fb063cbfced31402adb866964585c0d4b8fbd26f",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "unary",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "0e0a698b453e1aa589a14e4b7da1ec5392b5429a8e36788eb1a88adf55b06e14",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "c9b4a26bcdde38990e07710f54ca038b94910bdd58516826a75ca3a91f47ae2b",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "stream",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "e1d20acf4d407fe1db1e34d31db10a9e857d0a9617154999a1a9288cad9de2db",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "c36c3b1339abaf911f5d0d84eb2c617288ec97350b6311a4fe68467e960bc21f",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "workload": "unary",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "8e5d9da418318447584a9b0eacac328cdabd877b072ceacd9ca9e817f278b674",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "cf367b70f981167d2501409848ba4ff40eddfd2165ece15ec3df5ce3fc6b062d",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "stream",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "e7d7eafaef88d6fc681fa91f9a3b41d1241bcff73bd47e8eeb9d4c51105bcaba",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "baseline",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "c675317dc952639fbe525f6ac6a0c9796003951c46ac242ff06451f440648ada",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  },
+  {
+    "version": "current",
+    "transport": "tls",
+    "workload": "unary",
+    "profile": "reorder",
+    "planned_offered": 100,
+    "actual_offered": 0,
+    "netem": [
+      "delay",
+      "10ms",
+      "reorder",
+      "25%",
+      "50%",
+      "seed",
+      "7"
+    ],
+    "owned_container": "3a165db5af6dbd5513b561ef042f8eadef75ef91cd86f0361f2501e0a4d791e1",
+    "status": "FAIL",
+    "failure": "RuntimeError('owned worker startup failed')",
+    "owned_container_reaped": true
+  }
+]

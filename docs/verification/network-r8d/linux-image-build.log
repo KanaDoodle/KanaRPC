@@ -1,0 +1,102 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 185B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.25.9-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/golang:1.25.9-bookworm@sha256:298734aec230b5f3e8cee450ce6d7eccc39f1797ba548ee90d57e9803030c6c3
+#4 resolve docker.io/library/golang:1.25.9-bookworm@sha256:298734aec230b5f3e8cee450ce6d7eccc39f1797ba548ee90d57e9803030c6c3 done
+#4 CACHED
+
+#5 [2/3] RUN apt-get update && apt-get install -y --no-install-recommends iproute2 && rm -rf /var/lib/apt/lists/*
+#5 1.238 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#5 1.566 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#5 1.900 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [34.8 kB]
+#5 4.399 Get:4 http://deb.debian.org/debian bookworm/main arm64 Packages [8689 kB]
+#5 4.669 Get:5 http://deb.debian.org/debian bookworm-updates/main arm64 Packages [6936 B]
+#5 5.225 Get:6 http://deb.debian.org/debian-security bookworm-security/main arm64 Packages [357 kB]
+#5 5.252 Fetched 9295 kB in 5s (1813 kB/s)
+#5 5.252 Reading package lists...
+#5 5.587 Reading package lists...
+#5 5.890 Building dependency tree...
+#5 5.987 Reading state information...
+#5 6.096 The following additional packages will be installed:
+#5 6.096   libbpf1 libcap2 libcap2-bin libelf1 libmnl0 libxtables12
+#5 6.097 Suggested packages:
+#5 6.097   iproute2-doc
+#5 6.097 Recommended packages:
+#5 6.097   libatm1 libpam-cap
+#5 6.130 The following NEW packages will be installed:
+#5 6.130   iproute2 libbpf1 libcap2-bin libelf1 libmnl0 libxtables12
+#5 6.131 The following packages will be upgraded:
+#5 6.131   libcap2
+#5 6.450 1 upgraded, 6 newly installed, 0 to remove and 42 not upgraded.
+#5 6.450 Need to get 1420 kB of archives.
+#5 6.450 After this operation, 6231 kB of additional disk space will be used.
+#5 6.450 Get:1 http://deb.debian.org/debian bookworm/main arm64 libcap2 arm64 1:2.66-4+deb12u3+b1 [27.1 kB]
+#5 6.930 Get:2 http://deb.debian.org/debian bookworm/main arm64 libelf1 arm64 0.188-2.1 [173 kB]
+#5 7.313 Get:3 http://deb.debian.org/debian bookworm/main arm64 libbpf1 arm64 1:1.1.2-0+deb12u1 [136 kB]
+#5 7.557 Get:4 http://deb.debian.org/debian bookworm/main arm64 libmnl0 arm64 1.0.4-3 [12.1 kB]
+#5 7.857 Get:5 http://deb.debian.org/debian bookworm/main arm64 libxtables12 arm64 1.8.9-2 [29.6 kB]
+#5 8.143 Get:6 http://deb.debian.org/debian bookworm/main arm64 libcap2-bin arm64 1:2.66-4+deb12u3+b1 [34.5 kB]
+#5 8.685 Get:7 http://deb.debian.org/debian bookworm/main arm64 iproute2 arm64 6.1.0-3 [1008 kB]
+#5 8.781 debconf: delaying package configuration, since apt-utils is not installed
+#5 8.796 Fetched 1420 kB in 3s (556 kB/s)
+#5 8.810 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 15641 files and directories currently installed.)
+#5 8.850 Preparing to unpack .../libcap2_1%3a2.66-4+deb12u3+b1_arm64.deb ...
+#5 8.855 Unpacking libcap2:arm64 (1:2.66-4+deb12u3+b1) over (1:2.66-4+deb12u2+b2) ...
+#5 8.880 Setting up libcap2:arm64 (1:2.66-4+deb12u3+b1) ...
+#5 8.897 Selecting previously unselected package libelf1:arm64.
+#5 8.897 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 15641 files and directories currently installed.)
+#5 8.901 Preparing to unpack .../0-libelf1_0.188-2.1_arm64.deb ...
+#5 8.903 Unpacking libelf1:arm64 (0.188-2.1) ...
+#5 8.927 Selecting previously unselected package libbpf1:arm64.
+#5 8.928 Preparing to unpack .../1-libbpf1_1%3a1.1.2-0+deb12u1_arm64.deb ...
+#5 8.929 Unpacking libbpf1:arm64 (1:1.1.2-0+deb12u1) ...
+#5 8.949 Selecting previously unselected package libmnl0:arm64.
+#5 8.950 Preparing to unpack .../2-libmnl0_1.0.4-3_arm64.deb ...
+#5 8.951 Unpacking libmnl0:arm64 (1.0.4-3) ...
+#5 8.965 Selecting previously unselected package libxtables12:arm64.
+#5 8.966 Preparing to unpack .../3-libxtables12_1.8.9-2_arm64.deb ...
+#5 8.967 Unpacking libxtables12:arm64 (1.8.9-2) ...
+#5 8.979 Selecting previously unselected package libcap2-bin.
+#5 8.980 Preparing to unpack .../4-libcap2-bin_1%3a2.66-4+deb12u3+b1_arm64.deb ...
+#5 8.982 Unpacking libcap2-bin (1:2.66-4+deb12u3+b1) ...
+#5 9.000 Selecting previously unselected package iproute2.
+#5 9.001 Preparing to unpack .../5-iproute2_6.1.0-3_arm64.deb ...
+#5 9.003 Unpacking iproute2 (6.1.0-3) ...
+#5 9.067 Setting up libcap2-bin (1:2.66-4+deb12u3+b1) ...
+#5 9.071 Setting up libmnl0:arm64 (1.0.4-3) ...
+#5 9.076 Setting up libxtables12:arm64 (1.8.9-2) ...
+#5 9.080 Setting up libelf1:arm64 (0.188-2.1) ...
+#5 9.083 Setting up libbpf1:arm64 (1:1.1.2-0+deb12u1) ...
+#5 9.087 Setting up iproute2 (6.1.0-3) ...
+#5 9.131 debconf: unable to initialize frontend: Dialog
+#5 9.131 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#5 9.131 debconf: falling back to frontend: Readline
+#5 9.135 debconf: unable to initialize frontend: Readline
+#5 9.135 debconf: (This frontend requires a controlling tty.)
+#5 9.135 debconf: falling back to frontend: Teletype
+#5 9.150 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#5 DONE 9.3s
+
+#6 [3/3] WORKDIR /lab
+#6 DONE 0.0s
+
+#7 exporting to image
+#7 exporting layers
+#7 exporting layers 0.2s done
+#7 exporting manifest sha256:de524b382ac5a5f6a0c202561ea7b2504f6148ced9112e016bdea7e1bca1bd9d done
+#7 exporting config sha256:c8e3f0e2dfd8fa19a831e92999c6e059aeb7cfae97f106e387b9f9d203935086 done
+#7 exporting attestation manifest sha256:790427c67ba1f5008219ff8098dfdf9178df63ef20133991393c40da93b924de 0.0s done
+#7 exporting manifest list sha256:e3580f01c2c363691c694500caa59de6665a83b9ea7c59dbf0fb65da2cad0112 done
+#7 naming to docker.io/library/kanarpc-r8d-network:20261031 done
+#7 unpacking to docker.io/library/kanarpc-r8d-network:20261031 0.1s done
+#7 DONE 0.4s

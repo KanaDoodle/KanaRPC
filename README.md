@@ -28,6 +28,7 @@ python3 scripts/verify-governance.py --output /tmp/kanarpc-governance --cross-tr
 python3 scripts/verify-resources.py --output /tmp/kanarpc-resources --duration 180 --cycles 12
 python3 scripts/verify-routing.py --output /tmp/kanarpc-routing
 python3 scripts/verify-sdk.py --output /tmp/kanarpc-sdk
+python3 scripts/verify-network.py --baseline-source /tmp/kanarpc-r8c-baseline --output /tmp/kanarpc-netem
 ```
 
 `verify-core.py` 启动两个独立进程，在真实 loopback TCP 上验证普通调用、20 个流式 chunk、用户取消，并在已接纳的流执行中发 SIGTERM。`verify-discovery.py` 要求本机 etcd，创建独立单成员实例并实际执行 lease/watch/compaction；直接 `go test` 未配置该服务时会跳过相应用例。`verify-transports.py` 比较 TCP/TLS/QUIC，`verify-governance.py` 比较固定并发/FIFO、公平、自适应和反馈辅助，保留全部 offered 与退化结果。数据与定时器是 fixture，没有调用模型。输出目录必须不存在，二进制和日志归该验收目录所有。
@@ -38,8 +39,10 @@ python3 scripts/verify-sdk.py --output /tmp/kanarpc-sdk
 
 R7B 的 API、关闭协议与发现新鲜度见 [传输与发现](docs/transport-r7b.md)，R7C 配置与控制边界见 [过载治理](docs/governance-r7c.md)，R8A 已增加 [控制回退与复位](docs/control-r8a.md)并完成[验收](docs/verification/control-r8a/report.md)。R8B 已增加[编码前资源接纳与有限资源长测](docs/resources-r8b.md)，R8C 已增加[连接生命周期与独立 SDK 消费](docs/connections-r8c.md)：去重建连、快照新鲜度门槛、旧 endpoint 退休和未读流引用保护。返回 routing.Stream 包装类型；显式 Close/Wait，无业务重放。
 
-最终 Go 1.27.1 / 1.26.0 的普通与 race 四轮各 213 项通过，真实隔离 etcd、零跳过。分钟级资源曲线与完整基线/退化记录见 R8B/C 报告，不能写成长期生产无泄漏或普遍性能收益。下一阶段 R8D 是 Linux 双机与真实网络故障验收。R7D CampusTrace 迁移按用户要求暂缓；旧版本的功能清单、294 项检查和 R6 性能结果不能计为新版验收。尚未发布稳定版本，CampusTrace 默认依赖未修改。不是生产框架。
+R8D 已定位本轮复现的 Darwin QUIC 建连超时：双栈临时 UDP 端口与 IPv4 socket 冲突，修复为按目标地址族建连并显式回收 socket。Go 1.27.1 / 1.26.0 的普通与 race 四轮各 241 项通过，真实隔离 etcd、零跳过；另有本地 Linux VM 的内核 netem 与取消/drain 验证。步骤、环境边界、长测及失败/退化记录见 [网络验收](docs/network-r8d.md)和 [R8D 报告](docs/verification/network-r8d/report.md)。真实双机、物理 NIC/WAN、多成员 etcd 与小时/天级压力尚未验证；有限资源观察不能写成生产长期无泄漏或普遍性能收益。
 
-设计与后续步骤：[重写计划](docs/rewrite-plan.md)、[v2 协议](docs/protocol-v2.md)。实际验收与遗留风险：[R7A 报告](docs/verification/core-r7/report.md)、[R7B 报告](docs/verification/transport-r7b/report.md)、[R7C 报告](docs/verification/governance-r7c/report.md)、[R8A 报告](docs/verification/control-r8a/report.md)、[R8B 报告](docs/verification/resources-r8b/report.md)、[R8C 报告](docs/verification/connections-r8c/report.md)。
+R7D CampusTrace 迁移按用户要求暂缓；旧版本的功能清单、294 项检查和 R6 性能结果不能计为新版验收。尚未发布稳定版本，CampusTrace 默认依赖未修改。不是生产框架。
+
+设计与后续步骤：[重写计划](docs/rewrite-plan.md)、[v2 协议](docs/protocol-v2.md)。实际验收与遗留风险：[R7A 报告](docs/verification/core-r7/report.md)、[R7B 报告](docs/verification/transport-r7b/report.md)、[R7C 报告](docs/verification/governance-r7c/report.md)、[R8A 报告](docs/verification/control-r8a/report.md)、[R8B 报告](docs/verification/resources-r8b/report.md)、[R8C 报告](docs/verification/connections-r8c/report.md)、[R8D 报告](docs/verification/network-r8d/report.md)。
 
 许可沿用 AGPL-3.0，标准许可证正文在 [LICENSE](LICENSE)。依赖库和通用算法不属于本项目原创发明。

@@ -1,0 +1,367 @@
+=== RUN   TestUnmetTargetOriginalAIMDCharacterization
+    control_guard_test.go:42: original controller stays at Min=2 for 20ms service / 5ms target; synthetic characterization, not performance evidence
+--- PASS: TestUnmetTargetOriginalAIMDCharacterization (0.00s)
+=== RUN   TestAdaptiveGuardLatchesAndManualResetFencesOldSamples
+--- PASS: TestAdaptiveGuardLatchesAndManualResetFencesOldSamples (0.00s)
+=== RUN   TestAdaptiveGuardNeverRaisesLimitFromFailureWindows
+=== RUN   TestAdaptiveGuardNeverRaisesLimitFromFailureWindows/unavailable
+=== RUN   TestAdaptiveGuardNeverRaisesLimitFromFailureWindows/resource_exhausted
+=== RUN   TestAdaptiveGuardNeverRaisesLimitFromFailureWindows/deadline_exceeded
+=== RUN   TestAdaptiveGuardNeverRaisesLimitFromFailureWindows/internal
+=== RUN   TestAdaptiveGuardNeverRaisesLimitFromFailureWindows/invalid_argument
+--- PASS: TestAdaptiveGuardNeverRaisesLimitFromFailureWindows (0.00s)
+    --- PASS: TestAdaptiveGuardNeverRaisesLimitFromFailureWindows/unavailable (0.00s)
+    --- PASS: TestAdaptiveGuardNeverRaisesLimitFromFailureWindows/resource_exhausted (0.00s)
+    --- PASS: TestAdaptiveGuardNeverRaisesLimitFromFailureWindows/deadline_exceeded (0.00s)
+    --- PASS: TestAdaptiveGuardNeverRaisesLimitFromFailureWindows/internal (0.00s)
+    --- PASS: TestAdaptiveGuardNeverRaisesLimitFromFailureWindows/invalid_argument (0.00s)
+=== RUN   TestAdaptiveGuardCancellationNeutralAndReachableTarget
+--- PASS: TestAdaptiveGuardCancellationNeutralAndReachableTarget (0.00s)
+=== RUN   TestAdaptiveGuardPolicyValidationAndCopy
+--- PASS: TestAdaptiveGuardPolicyValidationAndCopy (0.00s)
+=== RUN   TestResetAdaptiveBoundsAndLifecycle
+--- PASS: TestResetAdaptiveBoundsAndLifecycle (0.00s)
+=== RUN   TestResetAdaptiveKeepsRunningCallsAndConcurrentSnapshots
+=== RUN   TestResetAdaptiveKeepsRunningCallsAndConcurrentSnapshots/tcp
+=== RUN   TestResetAdaptiveKeepsRunningCallsAndConcurrentSnapshots/quic
+--- PASS: TestResetAdaptiveKeepsRunningCallsAndConcurrentSnapshots (0.02s)
+    --- PASS: TestResetAdaptiveKeepsRunningCallsAndConcurrentSnapshots/tcp (0.01s)
+    --- PASS: TestResetAdaptiveKeepsRunningCallsAndConcurrentSnapshots/quic (0.01s)
+=== RUN   TestAdaptiveFallbackPressureAndResetOnRealTransports
+=== RUN   TestAdaptiveFallbackPressureAndResetOnRealTransports/tcp
+=== RUN   TestAdaptiveFallbackPressureAndResetOnRealTransports/quic
+--- PASS: TestAdaptiveFallbackPressureAndResetOnRealTransports (0.08s)
+    --- PASS: TestAdaptiveFallbackPressureAndResetOnRealTransports/tcp (0.04s)
+    --- PASS: TestAdaptiveFallbackPressureAndResetOnRealTransports/quic (0.04s)
+=== RUN   TestUnaryAndStreamShareMultiplexedConnection
+--- PASS: TestUnaryAndStreamShareMultiplexedConnection (0.01s)
+=== RUN   TestDefaultUnaryCancellationAndDeadlineReleaseRemoteWork
+=== RUN   TestDefaultUnaryCancellationAndDeadlineReleaseRemoteWork/false
+=== RUN   TestDefaultUnaryCancellationAndDeadlineReleaseRemoteWork/true
+--- PASS: TestDefaultUnaryCancellationAndDeadlineReleaseRemoteWork (0.12s)
+    --- PASS: TestDefaultUnaryCancellationAndDeadlineReleaseRemoteWork/false (0.00s)
+    --- PASS: TestDefaultUnaryCancellationAndDeadlineReleaseRemoteWork/true (0.12s)
+=== RUN   TestBackpressureKeepsControlAndOtherRequestsLive
+--- PASS: TestBackpressureKeepsControlAndOtherRequestsLive (0.03s)
+=== RUN   TestAdmissionRejectsWithoutBlockingCancellation
+--- PASS: TestAdmissionRejectsWithoutBlockingCancellation (0.00s)
+=== RUN   TestDrainSealsAdmissionAndDeliversExistingCall
+--- PASS: TestDrainSealsAdmissionAndDeliversExistingCall (0.00s)
+=== RUN   TestDrainDeadlineDoesNotPretendToKillUncooperativeHandler
+--- PASS: TestDrainDeadlineDoesNotPretendToKillUncooperativeHandler (0.03s)
+=== RUN   TestDrainWaitsForExactReceiptAndMissingReceiptIsVisible
+=== RUN   TestDrainWaitsForExactReceiptAndMissingReceiptIsVisible/true
+=== RUN   TestDrainWaitsForExactReceiptAndMissingReceiptIsVisible/false
+--- PASS: TestDrainWaitsForExactReceiptAndMissingReceiptIsVisible (0.11s)
+    --- PASS: TestDrainWaitsForExactReceiptAndMissingReceiptIsVisible/true (0.00s)
+    --- PASS: TestDrainWaitsForExactReceiptAndMissingReceiptIsVisible/false (0.10s)
+=== RUN   TestInvalidControlAndReusedIDsCloseConnection
+=== RUN   TestInvalidControlAndReusedIDsCloseConnection/premature-ack
+=== RUN   TestInvalidControlAndReusedIDsCloseConnection/wrong-receipt
+=== RUN   TestInvalidControlAndReusedIDsCloseConnection/extra-credit
+=== RUN   TestInvalidControlAndReusedIDsCloseConnection/reuse-id
+--- PASS: TestInvalidControlAndReusedIDsCloseConnection (0.01s)
+    --- PASS: TestInvalidControlAndReusedIDsCloseConnection/premature-ack (0.00s)
+    --- PASS: TestInvalidControlAndReusedIDsCloseConnection/wrong-receipt (0.00s)
+    --- PASS: TestInvalidControlAndReusedIDsCloseConnection/extra-credit (0.00s)
+    --- PASS: TestInvalidControlAndReusedIDsCloseConnection/reuse-id (0.00s)
+=== RUN   TestErrorsAreTypedAndUnexpectedErrorsDoNotLeak
+--- PASS: TestErrorsAreTypedAndUnexpectedErrorsDoNotLeak (0.00s)
+=== RUN   TestHandlerCancellationStatusDoesNotDropReply
+--- PASS: TestHandlerCancellationStatusDoesNotDropReply (0.00s)
+=== RUN   TestErrorClassificationContainsTypedNilAndPanickingErrors
+--- PASS: TestErrorClassificationContainsTypedNilAndPanickingErrors (0.00s)
+=== RUN   TestFinalInFlightBufferedChunksSurviveFastTerminal
+--- PASS: TestFinalInFlightBufferedChunksSurviveFastTerminal (0.15s)
+=== RUN   TestEmptyStreamAndChunksBeforeRemoteError
+--- PASS: TestEmptyStreamAndChunksBeforeRemoteError (0.00s)
+=== RUN   TestServerExecutionBudgetWorksWithoutClientCancellation
+--- PASS: TestServerExecutionBudgetWorksWithoutClientCancellation (0.03s)
+=== RUN   TestClientCloseStopsRemoteAndJoinsOwnedWorkers
+--- PASS: TestClientCloseStopsRemoteAndJoinsOwnedWorkers (0.00s)
+=== RUN   TestRegistrationAndConfigurationValidation
+--- PASS: TestRegistrationAndConfigurationValidation (0.00s)
+=== RUN   TestLateResponseDoesNotCompleteAnotherCall
+--- PASS: TestLateResponseDoesNotCompleteAnotherCall (0.03s)
+=== RUN   TestEndpointRejectsUnusableAddresses
+--- PASS: TestEndpointRejectsUnusableAddresses (0.00s)
+=== RUN   TestTerminalCompletionReleasesFeedbackBeforeRetirement
+--- PASS: TestTerminalCompletionReleasesFeedbackBeforeRetirement (0.00s)
+=== RUN   TestDelayedPressureCannotRestartFullTTLAtReceipt
+--- PASS: TestDelayedPressureCannotRestartFullTTLAtReceipt (0.08s)
+=== RUN   TestFeedbackSequenceScopeExpiryAndEpoch
+--- PASS: TestFeedbackSequenceScopeExpiryAndEpoch (0.00s)
+=== RUN   TestFeedbackRejectsTTLOverflowAndMalformedPressure
+--- PASS: TestFeedbackRejectsTTLOverflowAndMalformedPressure (0.00s)
+=== RUN   TestGovernancePolicyMustMatchRegisteredMethodBeforeServe
+=== RUN   TestGovernancePolicyMustMatchRegisteredMethodBeforeServe/tcp
+=== RUN   TestGovernancePolicyMustMatchRegisteredMethodBeforeServe/quic
+--- PASS: TestGovernancePolicyMustMatchRegisteredMethodBeforeServe (0.00s)
+    --- PASS: TestGovernancePolicyMustMatchRegisteredMethodBeforeServe/tcp (0.00s)
+    --- PASS: TestGovernancePolicyMustMatchRegisteredMethodBeforeServe/quic (0.00s)
+=== RUN   TestRemovedQueueEntriesDoNotRetainRequestGraph
+--- PASS: TestRemovedQueueEntriesDoNotRetainRequestGraph (0.00s)
+=== RUN   TestQUICCloseBarrierUsesSharedReceiveBudget
+--- PASS: TestQUICCloseBarrierUsesSharedReceiveBudget (0.25s)
+=== RUN   TestNativeGovernanceQueueCancellationAndDeadlineDrain
+--- PASS: TestNativeGovernanceQueueCancellationAndDeadlineDrain (0.01s)
+=== RUN   TestNativePressureAdmissionIsSharedAcrossExchanges
+--- PASS: TestNativePressureAdmissionIsSharedAcrossExchanges (0.00s)
+=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame
+=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp
+=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic
+--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)
+    --- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)
+    --- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.00s)
+=== RUN   TestMethodFairQueueAgainstWorkConservingFIFO
+=== RUN   TestMethodFairQueueAgainstWorkConservingFIFO/fifo
+    governance_test.go:73: first after blocked request: /demo/slow:1
+=== RUN   TestMethodFairQueueAgainstWorkConservingFIFO/method_fair
+    governance_test.go:73: first after blocked request: /demo/fast:3
+--- PASS: TestMethodFairQueueAgainstWorkConservingFIFO (0.01s)
+    --- PASS: TestMethodFairQueueAgainstWorkConservingFIFO/fifo (0.01s)
+    --- PASS: TestMethodFairQueueAgainstWorkConservingFIFO/method_fair (0.01s)
+=== RUN   TestQueuedCancelAndExpiryNeverInvokeHandler
+=== RUN   TestQueuedCancelAndExpiryNeverInvokeHandler/false
+=== RUN   TestQueuedCancelAndExpiryNeverInvokeHandler/true
+--- PASS: TestQueuedCancelAndExpiryNeverInvokeHandler (0.05s)
+    --- PASS: TestQueuedCancelAndExpiryNeverInvokeHandler/false (0.04s)
+    --- PASS: TestQueuedCancelAndExpiryNeverInvokeHandler/true (0.01s)
+=== RUN   TestGovernedDrainRunsAlreadyAcceptedQueue
+--- PASS: TestGovernedDrainRunsAlreadyAcceptedQueue (0.00s)
+=== RUN   TestTerminalWaitDoesNotConsumeExecutionSlots
+--- PASS: TestTerminalWaitDoesNotConsumeExecutionSlots (0.00s)
+=== RUN   TestFullQueueDoesNotRejectMethodWithFreeExecutionCapacity
+--- PASS: TestFullQueueDoesNotRejectMethodWithFreeExecutionCapacity (0.00s)
+=== RUN   TestExpiredRequestDoesNotInvokeScheduledHandler
+--- PASS: TestExpiredRequestDoesNotInvokeScheduledHandler (0.00s)
+=== RUN   TestMethodWeightedRotationUnderBacklog
+--- PASS: TestMethodWeightedRotationUnderBacklog (0.00s)
+=== RUN   TestAIMDBoundsAndNeutralCancellationSyntheticSamples
+    governance_test.go:307: synthetic controller input, not measured backend performance
+--- PASS: TestAIMDBoundsAndNeutralCancellationSyntheticSamples (0.00s)
+=== RUN   TestPressureIgnoresIdleConnectionsAndClientGateIsPreSend
+--- PASS: TestPressureIgnoresIdleConnectionsAndClientGateIsPreSend (0.00s)
+=== RUN   TestBlockedOpenAndACKRespectCallerBudget
+=== RUN   TestBlockedOpenAndACKRespectCallerBudget/false
+=== RUN   TestBlockedOpenAndACKRespectCallerBudget/true
+--- PASS: TestBlockedOpenAndACKRespectCallerBudget (0.06s)
+    --- PASS: TestBlockedOpenAndACKRespectCallerBudget/false (0.03s)
+    --- PASS: TestBlockedOpenAndACKRespectCallerBudget/true (0.03s)
+=== RUN   TestIODeadlineRaceKeepsContextErrorIdentity
+--- PASS: TestIODeadlineRaceKeepsContextErrorIdentity (0.08s)
+=== RUN   TestCanceledWriterWaitDoesNotAllocateOrCloseConnection
+--- PASS: TestCanceledWriterWaitDoesNotAllocateOrCloseConnection (0.02s)
+=== RUN   TestCancelBetweenWriterPermitAndOpenDoesNotPoisonConnection
+--- PASS: TestCancelBetweenWriterPermitAndOpenDoesNotPoisonConnection (0.26s)
+=== RUN   TestClientCapacityAndPreCanceledRequestDoNotExecute
+--- PASS: TestClientCapacityAndPreCanceledRequestDoNotExecute (0.00s)
+=== RUN   TestExpiredDeadlineDoesNotTouchConnectionBeforeCancellationPropagation
+--- PASS: TestExpiredDeadlineDoesNotTouchConnectionBeforeCancellationPropagation (0.00s)
+=== RUN   TestConfiguredBudgetIncludesRequestEncoding
+--- PASS: TestConfiguredBudgetIncludesRequestEncoding (0.02s)
+=== RUN   TestMalformedPeerIsBoundedAndCancelsOwnedWork
+--- PASS: TestMalformedPeerIsBoundedAndCancelsOwnedWork (0.00s)
+=== RUN   TestClientRejectsSequenceGapsAndUnknownRequest
+=== RUN   TestClientRejectsSequenceGapsAndUnknownRequest/false
+=== RUN   TestClientRejectsSequenceGapsAndUnknownRequest/true
+--- PASS: TestClientRejectsSequenceGapsAndUnknownRequest (0.00s)
+    --- PASS: TestClientRejectsSequenceGapsAndUnknownRequest/false (0.00s)
+    --- PASS: TestClientRejectsSequenceGapsAndUnknownRequest/true (0.00s)
+=== RUN   TestCloseAndDrainRaceWithRequestStarts
+--- PASS: TestCloseAndDrainRaceWithRequestStarts (0.02s)
+=== RUN   TestACKFollowedByImmediateDisconnectStillCountsDelivered
+--- PASS: TestACKFollowedByImmediateDisconnectStillCountsDelivered (0.15s)
+=== RUN   TestProtocolFailureWinsSecondaryOpenWriteError
+--- PASS: TestProtocolFailureWinsSecondaryOpenWriteError (0.00s)
+=== RUN   TestRemoteRejectionWinsSecondaryOpenWriteError
+--- PASS: TestRemoteRejectionWinsSecondaryOpenWriteError (0.00s)
+=== RUN   TestReceivedACKWinsDisconnectDuringWriterRetirement
+--- PASS: TestReceivedACKWinsDisconnectDuringWriterRetirement (0.00s)
+=== RUN   TestNetworkCancelAndDeadlineDrainPhysicalTransports
+=== RUN   TestNetworkCancelAndDeadlineDrainPhysicalTransports/tcp
+    network_cancel_test.go:137: {"drain_ns":18083,"executions":1,"kernel_blackhole":false,"scope":"owned physical loopback; kernel blackhole only when explicitly running isolated Linux container","server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":0,"InFlight":0,"Executing":0,"Admitted":1,"Completed":1,"Rejected":0,"Canceled":1,"Delivered":0,"LostTerminals":0},"transport":"tcp"}
+=== RUN   TestNetworkCancelAndDeadlineDrainPhysicalTransports/tls
+    network_cancel_test.go:137: {"drain_ns":23084,"executions":1,"kernel_blackhole":false,"scope":"owned physical loopback; kernel blackhole only when explicitly running isolated Linux container","server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":0,"InFlight":0,"Executing":0,"Admitted":1,"Completed":1,"Rejected":0,"Canceled":1,"Delivered":0,"LostTerminals":0},"transport":"tls"}
+=== RUN   TestNetworkCancelAndDeadlineDrainPhysicalTransports/quic
+    network_cancel_test.go:137: {"drain_ns":22291,"executions":1,"kernel_blackhole":false,"scope":"owned physical loopback; kernel blackhole only when explicitly running isolated Linux container","server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":0,"InFlight":0,"Executing":0,"Admitted":1,"Completed":1,"Rejected":0,"Canceled":1,"Delivered":0,"LostTerminals":0},"transport":"quic"}
+--- PASS: TestNetworkCancelAndDeadlineDrainPhysicalTransports (0.01s)
+    --- PASS: TestNetworkCancelAndDeadlineDrainPhysicalTransports/tcp (0.00s)
+    --- PASS: TestNetworkCancelAndDeadlineDrainPhysicalTransports/tls (0.00s)
+    --- PASS: TestNetworkCancelAndDeadlineDrainPhysicalTransports/quic (0.00s)
+=== RUN   TestQUICInjectedPathBaselineDelayLossAndRate
+=== RUN   TestQUICInjectedPathBaselineDelayLossAndRate/baseline
+    network_fault_test.go:124: {"elapsed_ns":112625,"evidence":"real loopback UDP application relay; not kernel netem, dual host or inference performance","plan":{"Delay":0,"BytesPerSecond":0,"DropNext":0,"DropEvery":0,"Blackhole":false},"profile":"baseline","relay":{"ToServer":{"Received":10,"Forwarded":10,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":4355,"BytesForwarded":4355,"PendingBytes":0,"PeakPendingBytes":1280},"ToClient":{"Received":9,"Forwarded":9,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":3184,"BytesForwarded":3184,"PendingBytes":0,"PeakPendingBytes":1280},"Generation":2,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":0,"Delivered":2,"LostTerminals":0}}
+=== RUN   TestQUICInjectedPathBaselineDelayLossAndRate/delay
+    network_fault_test.go:124: {"elapsed_ns":14635833,"evidence":"real loopback UDP application relay; not kernel netem, dual host or inference performance","plan":{"Delay":2000000,"BytesPerSecond":0,"DropNext":0,"DropEvery":0,"Blackhole":false},"profile":"delay","relay":{"ToServer":{"Received":12,"Forwarded":12,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":7135,"BytesForwarded":7135,"PendingBytes":0,"PeakPendingBytes":1409},"ToClient":{"Received":11,"Forwarded":10,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":4574,"BytesForwarded":4550,"PendingBytes":24,"PeakPendingBytes":1366},"Generation":2,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":0,"Delivered":2,"LostTerminals":0}}
+=== RUN   TestQUICInjectedPathBaselineDelayLossAndRate/loss
+    network_fault_test.go:124: {"elapsed_ns":28741083,"evidence":"real loopback UDP application relay; not kernel netem, dual host or inference performance","plan":{"Delay":0,"BytesPerSecond":0,"DropNext":1,"DropEvery":0,"Blackhole":false},"profile":"loss","relay":{"ToServer":{"Received":15,"Forwarded":14,"Dropped":1,"Foreign":0,"WriteErrors":0,"BytesReceived":6070,"BytesForwarded":5918,"PendingBytes":0,"PeakPendingBytes":1366},"ToClient":{"Received":14,"Forwarded":13,"Dropped":1,"Foreign":0,"WriteErrors":0,"BytesReceived":4647,"BytesForwarded":4624,"PendingBytes":0,"PeakPendingBytes":1366},"Generation":2,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":0,"Delivered":2,"LostTerminals":0}}
+=== RUN   TestQUICInjectedPathBaselineDelayLossAndRate/rate
+    network_fault_test.go:124: {"elapsed_ns":506893000,"evidence":"real loopback UDP application relay; not kernel netem, dual host or inference performance","plan":{"Delay":0,"BytesPerSecond":32768,"DropNext":0,"DropEvery":0,"Blackhole":false},"profile":"rate","relay":{"ToServer":{"Received":36,"Forwarded":36,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":18700,"BytesForwarded":18700,"PendingBytes":0,"PeakPendingBytes":1409},"ToClient":{"Received":36,"Forwarded":35,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":17377,"BytesForwarded":16097,"PendingBytes":1280,"PeakPendingBytes":1409},"Generation":2,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":0,"Delivered":2,"LostTerminals":0}}
+--- PASS: TestQUICInjectedPathBaselineDelayLossAndRate (0.61s)
+    --- PASS: TestQUICInjectedPathBaselineDelayLossAndRate/baseline (0.00s)
+    --- PASS: TestQUICInjectedPathBaselineDelayLossAndRate/delay (0.03s)
+    --- PASS: TestQUICInjectedPathBaselineDelayLossAndRate/loss (0.03s)
+    --- PASS: TestQUICInjectedPathBaselineDelayLossAndRate/rate (0.55s)
+=== RUN   TestQUICReverseBlackholeCancellationAndRecovery
+    network_fault_test.go:152: {"case":"cancel_reverse_blackhole_restore","client":{"CloseConfirmed":false,"Active":0,"Opened":2,"Retired":2,"RTT":242000,"BytesSent":5702,"BytesReceived":3041,"PacketsLost":0},"executions":2,"relay":{"ToServer":{"Received":11,"Forwarded":11,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":5702,"BytesForwarded":5702,"PendingBytes":0,"PeakPendingBytes":1366},"ToClient":{"Received":9,"Forwarded":8,"Dropped":1,"Foreign":0,"WriteErrors":0,"BytesReceived":3070,"BytesForwarded":3041,"PendingBytes":0,"PeakPendingBytes":1280},"Generation":2,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":1,"Delivered":1,"LostTerminals":0}}
+--- PASS: TestQUICReverseBlackholeCancellationAndRecovery (0.01s)
+=== RUN   TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole
+=== RUN   TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole/slow_consumer_neighbor_and_cancel
+    network_fault_test.go:174: {"case":"slow_consumer_cancel","client":{"CloseConfirmed":false,"Active":0,"Opened":2,"Retired":2,"RTT":204000,"BytesSent":5705,"BytesReceived":4495,"PacketsLost":0},"memory":{"Receive":{"Limit":16777216,"Used":0,"Peak":12,"Rejected":0},"Send":{"Limit":16777216,"Used":0,"Peak":118,"Rejected":0},"ControlReceive":{"Limit":65536,"Used":0,"Peak":58,"Rejected":0},"ControlSend":{"Limit":65536,"Used":0,"Peak":40,"Rejected":0},"Encoding":{"Limit":16777216,"Used":0,"Peak":2097152,"Rejected":0}},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":1,"Delivered":1,"LostTerminals":0}}
+=== RUN   TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole/blackhole_deadline_drain
+    network_fault_test.go:208: {"case":"blackhole_deadline_drain","client_admission":{"Limit":64,"Active":0,"Preparing":0,"Encoding":0,"Peak":1,"EncodingWaiters":0,"Rejected":0,"Closed":true},"elapsed_ns":41290084,"relay":{"ToServer":{"Received":20,"Forwarded":12,"Dropped":8,"Foreign":0,"WriteErrors":0,"BytesReceived":5132,"BytesForwarded":4572,"PendingBytes":0,"PeakPendingBytes":1280},"ToClient":{"Received":7,"Forwarded":2,"Dropped":5,"Foreign":0,"WriteErrors":0,"BytesReceived":4763,"BytesForwarded":2498,"PendingBytes":0,"PeakPendingBytes":1280},"Generation":4,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":0,"InFlight":0,"Executing":0,"Admitted":1,"Completed":1,"Rejected":0,"Canceled":1,"Delivered":0,"LostTerminals":0}}
+--- PASS: TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole (0.35s)
+    --- PASS: TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole/slow_consumer_neighbor_and_cancel (0.01s)
+    --- PASS: TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole/blackhole_deadline_drain (0.35s)
+=== RUN   TestQUICParentCauseDoesNotReplaceWrappedCodecError
+--- PASS: TestQUICParentCauseDoesNotReplaceWrappedCodecError (0.00s)
+=== RUN   TestClosedQUICParentPreservesTerminalCauseBeforeEncoding
+=== RUN   TestClosedQUICParentPreservesTerminalCauseBeforeEncoding/true
+=== RUN   TestClosedQUICParentPreservesTerminalCauseBeforeEncoding/false
+--- PASS: TestClosedQUICParentPreservesTerminalCauseBeforeEncoding (0.01s)
+    --- PASS: TestClosedQUICParentPreservesTerminalCauseBeforeEncoding/true (0.00s)
+    --- PASS: TestClosedQUICParentPreservesTerminalCauseBeforeEncoding/false (0.00s)
+=== RUN   TestClosedQUICParentDoesNotInvokeEncoder
+--- PASS: TestClosedQUICParentDoesNotInvokeEncoder (0.00s)
+=== RUN   TestEncodingCapacityWaitCancellationAndCloseAccounting
+--- PASS: TestEncodingCapacityWaitCancellationAndCloseAccounting (0.01s)
+=== RUN   TestPreparedBytesStayChargedDuringWriterWait
+--- PASS: TestPreparedBytesStayChargedDuringWriterWait (0.00s)
+=== RUN   TestCloseWhileWaitingEncodingCapacityReturnsClosed
+--- PASS: TestCloseWhileWaitingEncodingCapacityReturnsClosed (0.00s)
+=== RUN   TestEncodingFailureOversizeAndPanicReleaseResources
+--- PASS: TestEncodingFailureOversizeAndPanicReleaseResources (0.00s)
+=== RUN   TestQUICPreparationAdmissionPrecedesNativeStream
+--- PASS: TestQUICPreparationAdmissionPrecedesNativeStream (0.00s)
+=== RUN   TestClientAdmissionPrecedesRequestEncoding
+--- PASS: TestClientAdmissionPrecedesRequestEncoding (0.00s)
+=== RUN   TestClosedClientDoesNotInvokeUserEncoder
+--- PASS: TestClosedClientDoesNotInvokeUserEncoder (0.00s)
+=== RUN   TestFeedbackRefusalPrecedesUserEncoding
+--- PASS: TestFeedbackRefusalPrecedesUserEncoding (0.00s)
+=== RUN   TestQUICAddressResolutionBudgetAndFamily
+--- PASS: TestQUICAddressResolutionBudgetAndFamily (0.00s)
+=== RUN   TestQUICOwnedPacketCloseFailureAndPeerShutdown
+--- PASS: TestQUICOwnedPacketCloseFailureAndPeerShutdown (0.12s)
+=== RUN   TestQUICHostnameInferenceAndIPv6AfterFamilySelection
+=== RUN   TestQUICHostnameInferenceAndIPv6AfterFamilySelection/localhost
+=== RUN   TestQUICHostnameInferenceAndIPv6AfterFamilySelection/::1
+--- PASS: TestQUICHostnameInferenceAndIPv6AfterFamilySelection (0.01s)
+    --- PASS: TestQUICHostnameInferenceAndIPv6AfterFamilySelection/localhost (0.00s)
+    --- PASS: TestQUICHostnameInferenceAndIPv6AfterFamilySelection/::1 (0.00s)
+=== RUN   TestQUICDarwinCrossFamilyPortCollision
+    quic_address_test.go:177: Darwin-specific cross-family UDP demultiplexing; Linux has a separate control
+--- SKIP: TestQUICDarwinCrossFamilyPortCollision (0.00s)
+=== RUN   TestQUICCollisionBlocksHandshakeBeforeRPC
+    quic_address_test.go:217: Darwin-specific collision reproduction
+--- SKIP: TestQUICCollisionBlocksHandshakeBeforeRPC (0.00s)
+=== RUN   TestQUICHandshakeChurnDiagnostic
+=== RUN   TestQUICHandshakeChurnDiagnostic/rpc
+    quic_diagnostic_test.go:177: mode=rpc failures=0 limit=2
+--- PASS: TestQUICHandshakeChurnDiagnostic (0.00s)
+    --- PASS: TestQUICHandshakeChurnDiagnostic/rpc (0.00s)
+=== RUN   TestNativeQUICConformanceAndPhysicalSessionAccounting
+--- PASS: TestNativeQUICConformanceAndPhysicalSessionAccounting (0.00s)
+=== RUN   TestNativeQUICCancelAndBadFrameDoNotCloseOtherExchanges
+=== RUN   TestNativeQUICCancelAndBadFrameDoNotCloseOtherExchanges/false
+=== RUN   TestNativeQUICCancelAndBadFrameDoNotCloseOtherExchanges/true
+--- PASS: TestNativeQUICCancelAndBadFrameDoNotCloseOtherExchanges (0.01s)
+    --- PASS: TestNativeQUICCancelAndBadFrameDoNotCloseOtherExchanges/false (0.00s)
+    --- PASS: TestNativeQUICCancelAndBadFrameDoNotCloseOtherExchanges/true (0.00s)
+=== RUN   TestNativeQUICDrainDeliversAndReleasesUDPPort
+--- PASS: TestNativeQUICDrainDeliversAndReleasesUDPPort (0.00s)
+=== RUN   TestNativeQUICStreamMustContainOnlyOneRequest
+--- PASS: TestNativeQUICStreamMustContainOnlyOneRequest (0.00s)
+=== RUN   TestNativeQUICFirstRecordTimeout
+--- PASS: TestNativeQUICFirstRecordTimeout (0.10s)
+=== RUN   TestNativeQUICPerSessionCapacityAndClientLimit
+--- PASS: TestNativeQUICPerSessionCapacityAndClientLimit (0.00s)
+=== RUN   TestNativeQUICReceiptACKBeforeFIN
+--- PASS: TestNativeQUICReceiptACKBeforeFIN (0.00s)
+=== RUN   TestNativeQUICImmediateClientClosePreservesSuccessfulExchange
+--- PASS: TestNativeQUICImmediateClientClosePreservesSuccessfulExchange (0.11s)
+=== RUN   TestNativeQUICVerifiedTrustAndMutualTLS
+--- PASS: TestNativeQUICVerifiedTrustAndMutualTLS (0.01s)
+=== RUN   TestNativeQUICPhysicalSessionCapacityIsStructured
+--- PASS: TestNativeQUICPhysicalSessionCapacityIsStructured (0.00s)
+=== RUN   TestNativeQUICStreamSlotWaitHonorsCancellation
+--- PASS: TestNativeQUICStreamSlotWaitHonorsCancellation (0.06s)
+=== RUN   TestNativeQUICMissingReceiptACKIsBoundedAndVisible
+--- PASS: TestNativeQUICMissingReceiptACKIsBoundedAndVisible (0.03s)
+=== RUN   TestNativePartialOpenClaimsRespectSharedByteBudget
+--- PASS: TestNativePartialOpenClaimsRespectSharedByteBudget (0.01s)
+=== RUN   TestCompletedUnreadStreamsStayChargedAndCloseReleasesBytes
+=== RUN   TestCompletedUnreadStreamsStayChargedAndCloseReleasesBytes/tcp
+=== RUN   TestCompletedUnreadStreamsStayChargedAndCloseReleasesBytes/quic
+--- PASS: TestCompletedUnreadStreamsStayChargedAndCloseReleasesBytes (0.01s)
+    --- PASS: TestCompletedUnreadStreamsStayChargedAndCloseReleasesBytes/tcp (0.01s)
+    --- PASS: TestCompletedUnreadStreamsStayChargedAndCloseReleasesBytes/quic (0.01s)
+=== RUN   TestByteSaturationKeepsCancelAndTerminalControlWritable
+--- PASS: TestByteSaturationKeepsCancelAndTerminalControlWritable (0.00s)
+=== RUN   TestByteReservationsReleaseOnceUnderRace
+--- PASS: TestByteReservationsReleaseOnceUnderRace (0.00s)
+=== RUN   TestTLSVerifiedAndMutualAuthentication
+=== RUN   TestTLSVerifiedAndMutualAuthentication/server-auth
+=== RUN   TestTLSVerifiedAndMutualAuthentication/mutual
+--- PASS: TestTLSVerifiedAndMutualAuthentication (0.01s)
+    --- PASS: TestTLSVerifiedAndMutualAuthentication/server-auth (0.00s)
+    --- PASS: TestTLSVerifiedAndMutualAuthentication/mutual (0.00s)
+=== RUN   TestTLSStalledHandshakeIsBoundedAndDoesNotBlockAccept
+--- PASS: TestTLSStalledHandshakeIsBoundedAndDoesNotBlockAccept (0.04s)
+=== RUN   TestRejectUnsafeTLSConfig
+--- PASS: TestRejectUnsafeTLSConfig (0.00s)
+=== RUN   TestTransportFaultBlastRadiusControls
+=== RUN   TestTransportFaultBlastRadiusControls/tcp
+    transport_fault_test.go:105: {"hold_executions":1,"neighbor_completed":false,"next_on_same_transport_completed":false,"scope":"application-frame corruption, not packet loss","transport":"tcp"}
+=== RUN   TestTransportFaultBlastRadiusControls/tls
+    transport_fault_test.go:105: {"hold_executions":1,"neighbor_completed":false,"next_on_same_transport_completed":false,"scope":"application-frame corruption, not packet loss","transport":"tls"}
+=== RUN   TestTransportFaultBlastRadiusControls/quic
+    transport_fault_test.go:105: {"hold_executions":1,"neighbor_completed":true,"next_on_same_transport_completed":true,"scope":"application-frame corruption, not packet loss","transport":"quic"}
+--- PASS: TestTransportFaultBlastRadiusControls (0.01s)
+    --- PASS: TestTransportFaultBlastRadiusControls/tcp (0.00s)
+    --- PASS: TestTransportFaultBlastRadiusControls/tls (0.00s)
+    --- PASS: TestTransportFaultBlastRadiusControls/quic (0.00s)
+=== RUN   FuzzAdaptiveGuard
+=== RUN   FuzzAdaptiveGuard/seed#0
+--- PASS: FuzzAdaptiveGuard (0.00s)
+    --- PASS: FuzzAdaptiveGuard/seed#0 (0.00s)
+=== RUN   FuzzEndpoint
+=== RUN   FuzzEndpoint/seed#0
+=== RUN   FuzzEndpoint/seed#1
+--- PASS: FuzzEndpoint (0.00s)
+    --- PASS: FuzzEndpoint/seed#0 (0.00s)
+    --- PASS: FuzzEndpoint/seed#1 (0.00s)
+=== RUN   FuzzPressure
+=== RUN   FuzzPressure/seed#0
+--- PASS: FuzzPressure (0.00s)
+    --- PASS: FuzzPressure/seed#0 (0.00s)
+=== RUN   FuzzPreparedOpen
+=== RUN   FuzzPreparedOpen/seed#0
+=== RUN   FuzzPreparedOpen/seed#1
+--- PASS: FuzzPreparedOpen (0.00s)
+    --- PASS: FuzzPreparedOpen/seed#0 (0.00s)
+    --- PASS: FuzzPreparedOpen/seed#1 (0.00s)
+=== RUN   FuzzQUICLiteralAddress
+=== RUN   FuzzQUICLiteralAddress/seed#0
+=== RUN   FuzzQUICLiteralAddress/seed#1
+=== RUN   FuzzQUICLiteralAddress/seed#2
+=== RUN   FuzzQUICLiteralAddress/seed#3
+--- PASS: FuzzQUICLiteralAddress (0.00s)
+    --- PASS: FuzzQUICLiteralAddress/seed#0 (0.00s)
+    --- PASS: FuzzQUICLiteralAddress/seed#1 (0.00s)
+    --- PASS: FuzzQUICLiteralAddress/seed#2 (0.00s)
+    --- PASS: FuzzQUICLiteralAddress/seed#3 (0.00s)
+=== RUN   FuzzByteBudget
+=== RUN   FuzzByteBudget/seed#0
+--- PASS: FuzzByteBudget (0.00s)
+    --- PASS: FuzzByteBudget/seed#0 (0.00s)
+=== RUN   FuzzTerminalEncoding
+=== RUN   FuzzTerminalEncoding/seed#0
+=== RUN   FuzzTerminalEncoding/seed#1
+=== RUN   FuzzTerminalEncoding/seed#2
+--- PASS: FuzzTerminalEncoding (0.00s)
+    --- PASS: FuzzTerminalEncoding/seed#0 (0.00s)
+    --- PASS: FuzzTerminalEncoding/seed#1 (0.00s)
+    --- PASS: FuzzTerminalEncoding/seed#2 (0.00s)
+PASS

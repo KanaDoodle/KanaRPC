@@ -1,0 +1,15 @@
+{"Time":"2026-10-31T17:09:25.93495+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T17:09:26.314732+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision"}
+{"Time":"2026-10-31T17:09:26.314817+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Output":"=== RUN   TestQUICDarwinCrossFamilyPortCollision\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:09:26.318517+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Output":"    quic_address_test.go:48: acquired owned cross-family collision port=62164 after 328 allocations\n"}
+{"Time":"2026-10-31T17:09:26.329949+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Output":"--- PASS: TestQUICDarwinCrossFamilyPortCollision (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:09:26.329979+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Elapsed":0.02}
+{"Time":"2026-10-31T17:09:26.329995+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC"}
+{"Time":"2026-10-31T17:09:26.329999+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Output":"=== RUN   TestQUICCollisionBlocksHandshakeBeforeRPC\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:09:26.338673+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Output":"    quic_address_test.go:105: acquired owned cross-family collision port=61764 after 562 allocations\n"}
+{"Time":"2026-10-31T17:09:26.653004+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Output":"    quic_address_test.go:134: RPC IPv4 destination still uses cross-family wildcard socket [::]:49847\n","OutputType":"error"}
+{"Time":"2026-10-31T17:09:26.653275+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Output":"--- FAIL: TestQUICCollisionBlocksHandshakeBeforeRPC (0.32s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:09:26.65331+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Elapsed":0.32}
+{"Time":"2026-10-31T17:09:26.65411+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:09:26.655036+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.718s\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:09:26.655062+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.72}

@@ -1,0 +1,5 @@
+{
+  "baseline_commit": "5b034addc2e4c251d228255ad90e4813e93ba74f",
+  "correction": "The historical driver scope string says R8A, but --baseline 5b034ad selected actual R8C, verified from baseline_commit and frozen sources. No historical metadata relabelled.",
+  "resource_scope": "600 seconds active windows per version/transport, 20 cycles; observer writes JSONL; concurrent correctness/VM work makes timing non-comparable; process-local heap/FD/budget observations only."
+}

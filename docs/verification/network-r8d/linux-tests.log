@@ -1,0 +1,41 @@
+=== RUN   TestQUICInjectedPathBaselineDelayLossAndRate
+=== RUN   TestQUICInjectedPathBaselineDelayLossAndRate/baseline
+    network_fault_test.go:124: {"elapsed_ns":345084,"evidence":"real loopback UDP application relay; not kernel netem, dual host or inference performance","plan":{"Delay":0,"BytesPerSecond":0,"DropNext":0,"DropEvery":0,"Blackhole":false},"profile":"baseline","relay":{"ToServer":{"Received":11,"Forwarded":11,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":4377,"BytesForwarded":4377,"PendingBytes":0,"PeakPendingBytes":1280},"ToClient":{"Received":10,"Forwarded":10,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":3213,"BytesForwarded":3213,"PendingBytes":0,"PeakPendingBytes":1280},"Generation":2,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":0,"Delivered":2,"LostTerminals":0}}
+=== RUN   TestQUICInjectedPathBaselineDelayLossAndRate/delay
+    network_fault_test.go:124: {"elapsed_ns":12551583,"evidence":"real loopback UDP application relay; not kernel netem, dual host or inference performance","plan":{"Delay":2000000,"BytesPerSecond":0,"DropNext":0,"DropEvery":0,"Blackhole":false},"profile":"delay","relay":{"ToServer":{"Received":11,"Forwarded":11,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":5726,"BytesForwarded":5726,"PendingBytes":0,"PeakPendingBytes":1366},"ToClient":{"Received":10,"Forwarded":9,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":4545,"BytesForwarded":4521,"PendingBytes":24,"PeakPendingBytes":1366},"Generation":2,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":0,"Delivered":2,"LostTerminals":0}}
+=== RUN   TestQUICInjectedPathBaselineDelayLossAndRate/loss
+    network_fault_test.go:124: {"elapsed_ns":30771250,"evidence":"real loopback UDP application relay; not kernel netem, dual host or inference performance","plan":{"Delay":0,"BytesPerSecond":0,"DropNext":1,"DropEvery":0,"Blackhole":false},"profile":"loss","relay":{"ToServer":{"Received":13,"Forwarded":12,"Dropped":1,"Foreign":0,"WriteErrors":0,"BytesReceived":5898,"BytesForwarded":5746,"PendingBytes":0,"PeakPendingBytes":1366},"ToClient":{"Received":13,"Forwarded":12,"Dropped":1,"Foreign":0,"WriteErrors":0,"BytesReceived":4629,"BytesForwarded":4606,"PendingBytes":0,"PeakPendingBytes":1366},"Generation":2,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":0,"Delivered":2,"LostTerminals":0}}
+=== RUN   TestQUICInjectedPathBaselineDelayLossAndRate/rate
+    network_fault_test.go:124: {"elapsed_ns":503320209,"evidence":"real loopback UDP application relay; not kernel netem, dual host or inference performance","plan":{"Delay":0,"BytesPerSecond":32768,"DropNext":0,"DropEvery":0,"Blackhole":false},"profile":"rate","relay":{"ToServer":{"Received":36,"Forwarded":36,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":18714,"BytesForwarded":18714,"PendingBytes":0,"PeakPendingBytes":1409},"ToClient":{"Received":36,"Forwarded":35,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":17409,"BytesForwarded":16129,"PendingBytes":1280,"PeakPendingBytes":1409},"Generation":2,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":0,"Delivered":2,"LostTerminals":0}}
+--- PASS: TestQUICInjectedPathBaselineDelayLossAndRate (0.62s)
+    --- PASS: TestQUICInjectedPathBaselineDelayLossAndRate/baseline (0.01s)
+    --- PASS: TestQUICInjectedPathBaselineDelayLossAndRate/delay (0.02s)
+    --- PASS: TestQUICInjectedPathBaselineDelayLossAndRate/loss (0.04s)
+    --- PASS: TestQUICInjectedPathBaselineDelayLossAndRate/rate (0.55s)
+=== RUN   TestQUICReverseBlackholeCancellationAndRecovery
+    network_fault_test.go:152: {"case":"cancel_reverse_blackhole_restore","client":{"CloseConfirmed":false,"Active":0,"Opened":2,"Retired":2,"RTT":484000,"BytesSent":4331,"BytesReceived":3022,"PacketsLost":0},"executions":2,"relay":{"ToServer":{"Received":10,"Forwarded":10,"Dropped":0,"Foreign":0,"WriteErrors":0,"BytesReceived":4331,"BytesForwarded":4331,"PendingBytes":0,"PeakPendingBytes":1280},"ToClient":{"Received":9,"Forwarded":7,"Dropped":2,"Foreign":0,"WriteErrors":0,"BytesReceived":3342,"BytesForwarded":3022,"PendingBytes":0,"PeakPendingBytes":1280},"Generation":2,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":1,"Delivered":1,"LostTerminals":0}}
+--- PASS: TestQUICReverseBlackholeCancellationAndRecovery (0.01s)
+=== RUN   TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole
+=== RUN   TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole/slow_consumer_neighbor_and_cancel
+    network_fault_test.go:174: {"case":"slow_consumer_cancel","client":{"CloseConfirmed":false,"Active":0,"Opened":2,"Retired":2,"RTT":349000,"BytesSent":5700,"BytesReceived":4492,"PacketsLost":0},"memory":{"Receive":{"Limit":16777216,"Used":0,"Peak":12,"Rejected":0},"Send":{"Limit":16777216,"Used":0,"Peak":118,"Rejected":0},"ControlReceive":{"Limit":65536,"Used":0,"Peak":58,"Rejected":0},"ControlSend":{"Limit":65536,"Used":0,"Peak":40,"Rejected":0},"Encoding":{"Limit":16777216,"Used":0,"Peak":2097152,"Rejected":0}},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":1,"InFlight":0,"Executing":0,"Admitted":2,"Completed":2,"Rejected":0,"Canceled":1,"Delivered":1,"LostTerminals":0}}
+=== RUN   TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole/blackhole_deadline_drain
+    network_fault_test.go:208: {"case":"blackhole_deadline_drain","client_admission":{"Limit":64,"Active":0,"Preparing":0,"Encoding":0,"Peak":1,"EncodingWaiters":0,"Rejected":0,"Closed":true},"elapsed_ns":40403291,"relay":{"ToServer":{"Received":15,"Forwarded":13,"Dropped":2,"Foreign":0,"WriteErrors":0,"BytesReceived":6052,"BytesForwarded":4657,"PendingBytes":0,"PeakPendingBytes":1280},"ToClient":{"Received":6,"Forwarded":3,"Dropped":3,"Foreign":0,"WriteErrors":0,"BytesReceived":4226,"BytesForwarded":2799,"PendingBytes":0,"PeakPendingBytes":1280},"Generation":4,"Closed":false},"server":{"Queued":0,"IncompleteExchanges":0,"NativeStreams":0,"Connections":0,"InFlight":0,"Executing":0,"Admitted":1,"Completed":1,"Rejected":0,"Canceled":1,"Delivered":0,"LostTerminals":0}}
+--- PASS: TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole (0.35s)
+    --- PASS: TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole/slow_consumer_neighbor_and_cancel (0.01s)
+    --- PASS: TestQUICSlowConsumerAndDeadlineDrainUnderBlackhole/blackhole_deadline_drain (0.34s)
+=== RUN   TestQUICAddressResolutionBudgetAndFamily
+--- PASS: TestQUICAddressResolutionBudgetAndFamily (0.00s)
+=== RUN   TestQUICOwnedPacketCloseFailureAndPeerShutdown
+--- PASS: TestQUICOwnedPacketCloseFailureAndPeerShutdown (0.12s)
+=== RUN   TestQUICHostnameInferenceAndIPv6AfterFamilySelection
+=== RUN   TestQUICHostnameInferenceAndIPv6AfterFamilySelection/localhost
+=== RUN   TestQUICHostnameInferenceAndIPv6AfterFamilySelection/::1
+--- PASS: TestQUICHostnameInferenceAndIPv6AfterFamilySelection (0.01s)
+    --- PASS: TestQUICHostnameInferenceAndIPv6AfterFamilySelection/localhost (0.00s)
+    --- PASS: TestQUICHostnameInferenceAndIPv6AfterFamilySelection/::1 (0.00s)
+=== RUN   TestQUICHandshakeChurnDiagnostic
+=== RUN   TestQUICHandshakeChurnDiagnostic/rpc
+    quic_diagnostic_test.go:172: mode=rpc failures=0 limit=2
+--- PASS: TestQUICHandshakeChurnDiagnostic (0.00s)
+    --- PASS: TestQUICHandshakeChurnDiagnostic/rpc (0.00s)
+PASS

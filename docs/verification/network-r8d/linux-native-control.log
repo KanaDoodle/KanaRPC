@@ -1,0 +1,6 @@
+=== RUN   TestQUICHandshakeChurnDiagnostic
+=== RUN   TestQUICHandshakeChurnDiagnostic/native
+    quic_diagnostic_test.go:172: mode=native failures=0 limit=5000
+--- PASS: TestQUICHandshakeChurnDiagnostic (4.53s)
+    --- PASS: TestQUICHandshakeChurnDiagnostic/native (4.52s)
+PASS

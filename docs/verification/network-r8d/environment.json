@@ -1,0 +1,7 @@
+{
+  "go": "go version go1.27.1 darwin/arm64",
+  "vm_image_id": "sha256:e3580f01c2c363691c694500caa59de6665a83b9ea7c59dbf0fb65da2cad0112",
+  "vm_arch": "arm64",
+  "scope": "local Docker Linux VM, isolated network namespaces; not physical dual host",
+  "host": "Darwin 27.0.0 arm64"
+}

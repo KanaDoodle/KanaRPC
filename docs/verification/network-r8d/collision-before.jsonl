@@ -1,0 +1,14 @@
+{"Time":"2026-10-31T17:07:50.205903+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T17:07:50.727382+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision"}
+{"Time":"2026-10-31T17:07:50.727508+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Output":"=== RUN   TestQUICDarwinCrossFamilyPortCollision\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:07:50.72772+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Output":"    quic_address_test.go:28: listen udp 0.0.0.0:55504: bind: address already in use\n","OutputType":"error"}
+{"Time":"2026-10-31T17:07:50.727863+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Output":"--- FAIL: TestQUICDarwinCrossFamilyPortCollision (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:07:50.727878+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICDarwinCrossFamilyPortCollision","Elapsed":0}
+{"Time":"2026-10-31T17:07:50.727891+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC"}
+{"Time":"2026-10-31T17:07:50.727896+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Output":"=== RUN   TestQUICCollisionBlocksHandshakeBeforeRPC\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:07:50.729908+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Output":"    quic_address_test.go:89: listen udp 0.0.0.0:64303: bind: address already in use\n","OutputType":"error"}
+{"Time":"2026-10-31T17:07:50.729962+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Output":"--- FAIL: TestQUICCollisionBlocksHandshakeBeforeRPC (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:07:50.72999+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestQUICCollisionBlocksHandshakeBeforeRPC","Elapsed":0}
+{"Time":"2026-10-31T17:07:50.730078+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:07:50.7306+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.524s\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:07:50.730615+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.525}

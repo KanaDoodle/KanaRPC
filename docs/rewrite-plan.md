@@ -15,7 +15,7 @@
 | R8A，已完成 | 自适应控制回退：持续最低并发仍超目标时，按服务端明确配置切换固定限额，记录状态并支持人工复位 | [配置与步骤](control-r8a.md)、[报告](verification/control-r8a/report.md)；保留固定 8 优胜、容量切换小幅退化；不宣称自动证明目标不可达 |
 | R8B，已完成 | 编码前共享名额、编码容量预留/缩减、WaitIdle、分钟级 heap/goroutine/GC 观察 | [步骤和 API](resources-r8b.md)、[报告](verification/resources-r8b/report.md)；修正观察器自身累积，保留小请求性能退化；不宣称任意编码器/RSS 硬上限或无限期无泄漏 |
 | R8C，已完成 | routing 消费发现快照、有界连接与建连去重、endpoint 退休、未读流引用、独立 SDK 消费 | [步骤和 API](connections-r8c.md)、[报告](verification/connections-r8c/report.md)；真实 etcd + 三传输更新/删除/取消/故障；保留快照成本与握手 churn，不隐式重放业务 |
-| R8D，后续 | RPC 独立故障与网络验收 | Linux 双机 TCP/TLS/QUIC、RTT/丢包/限带宽、长流/慢消费者、etcd 多成员；环境缺失时明确未验证 |
+| R8D，本地/VM 验收已完成，真实双机待验 | QUIC 建连超时根因与最小修复、故障取消/drain、Linux VM 内核 netem、有限长时资源观察 | [步骤](network-r8d.md)、[根因](verification/network-r8d/handshake-report.md)、[报告](verification/network-r8d/report.md)；新旧基线、失败/未启动/退化分别保留。真实双机、物理链路、etcd 多成员、小时/天级压力未验证 |
 
 R7A 的通过只代表第一阶段。不会为兼容旧包名而调用旧 internal，也不会自动把旧测试结果搬成新版本结果。新协议不做隐式 downgrade；真正迁移时新旧端点显式分离。
 
@@ -26,6 +26,7 @@ R7A 的通过只代表第一阶段。不会为兼容旧包名而调用旧 intern
 - **请求终态**：本地取消、传输失败、远端终态用锁保护的单次完成竞争；本地取消丢弃未读块，远端终态允许先消费已经接收的块。
 - **有界接纳**：同时限制服务端总请求、每连接请求、物理连接、编码前客户端准备/在途、帧大小和逐流信用。R8B 在调用用户编码器前取得名额和编码容量，QUIC 也在准备后才分配业务流。满载不创建处理器 goroutine；处理器或信用等待不占用控制 reader。同步拒绝写仍可能受慢 socket 阻塞，最终由写期限收敛。
 - **发现连接**：routing 独立依赖根 RPC 与 discovery；显式 transport，快照版本/cluster/新鲜度门槛，按 endpoint 去重建连。dialing/retiring/closing 计入连接上限；已结束未读流由包装 Stream 持有引用，直到 EOF/error/Close 和进行中 Recv 结束。源失效停止新路由，但不是逐 wire 发送的线性一致保证，也没有业务重放。
+- **QUIC 地址与 socket**：先在握手预算内解析目标并保留 TLS hostname，显式创建 udp4/udp6 socket；失败、父连接终止和公开 Close 回收该 socket。不是通过延长超时或重试规避已确认的 Darwin 双栈临时端口冲突。
 - **连接损坏语义**：只等待写锁时取消不伤连接；部分记录写失败会关闭整个有序字节流，不能假装仅影响一个 TCP 请求。取消从未写出的 Open 不发送未来 ID 控制帧。
 - **关闭**：drain 与接纳共用同一把状态锁；先封闭接纳，等待已接纳请求及正常终态 ACK，再回收连接。截止后返回错误并取消资源，忽略 Context 的用户函数仍保留在统计中。
 

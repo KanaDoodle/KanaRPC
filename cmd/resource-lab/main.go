@@ -38,7 +38,7 @@ type ready struct {
 	CA       []byte
 }
 type heap struct {
-	Goroutines                                     int
+	Goroutines, FDs                                int
 	HeapAlloc, HeapObjects, StackInuse, TotalAlloc uint64
 	NumGC                                          uint32
 }
@@ -46,7 +46,14 @@ type heap struct {
 func memory() heap {
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
-	return heap{runtime.NumGoroutine(), m.HeapAlloc, m.HeapObjects, m.StackInuse, m.TotalAlloc, m.NumGC}
+	fds := -1
+	for _, path := range []string{"/proc/self/fd", "/dev/fd"} {
+		if entries, err := os.ReadDir(path); err == nil {
+			fds = len(entries)
+			break
+		}
+	}
+	return heap{runtime.NumGoroutine(), fds, m.HeapAlloc, m.HeapObjects, m.StackInuse, m.TotalAlloc, m.NumGC}
 }
 func save(path string, value any) error {
 	b, e := json.MarshalIndent(value, "", "  ")

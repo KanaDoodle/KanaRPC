@@ -1,0 +1,18 @@
+{
+  "runtime_and_module_hashes_unchanged": true,
+  "validation_only_changes": [
+    {
+      "path": "quic_address_test.go",
+      "measured_sha256": "683e353c4a81d95bca3893e380b78e0cffe71240f4b5406d9f4e6d67b5a2e1fb",
+      "final_sha256": "8b76933dec2fa84d5a10c6c8f10d25c22e7ec9d25a2d22d9e61fff22e5183aa0",
+      "change": "gofmt only; dedicated race regression rerun"
+    },
+    {
+      "path": "quic_diagnostic_test.go",
+      "measured_sha256": "62a0737ab141dbbc8ffe92f6f8dcec9400094696cc19ff4530eb5f52edc83655",
+      "final_sha256": "6081e6c0c9af5115d571d4d27c2b66f0dd9de46dce7ef9e979445fa64aad221e",
+      "change": "gofmt only; dedicated race regression rerun"
+    }
+  ],
+  "regression": "formatted-tests-regression.jsonl"
+}

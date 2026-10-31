@@ -1,0 +1,17 @@
+Linux 7.0.12-linuxkit
+iproute2	6.1.0-3
+qdisc netem 8016: root refcnt 2 limit 1000 delay 10ms
+ Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) 
+ backlog 0b 0p requeues 0
+qdisc netem 8016: root refcnt 2 limit 1000 loss 2%
+ Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) 
+ backlog 0b 0p requeues 0
+qdisc netem 8016: root refcnt 2 limit 1000 delay 10ms reorder 25% 50% gap 1
+ Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) 
+ backlog 0b 0p requeues 0
+qdisc netem 8016: root refcnt 2 limit 1000 reorder 25% 50% rate 256Kbit
+ Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) 
+ backlog 0b 0p requeues 0
+qdisc netem 8016: root refcnt 2 limit 1000 delay 20ms loss 1% reorder 25% 50% rate 512Kbit
+ Sent 0 bytes 0 pkt (dropped 0, overlimits 0 requeues 0) 
+ backlog 0b 0p requeues 0

@@ -1,0 +1,16 @@
+{"Time":"2026-10-31T17:34:31.521648+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T17:34:31.921372+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress"}
+{"Time":"2026-10-31T17:34:31.921467+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"=== RUN   FuzzQUICLiteralAddress\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:34:31.922122+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"fuzz: elapsed: 0s, gathering baseline coverage: 0/4 completed\n"}
+{"Time":"2026-10-31T17:34:31.932454+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"fuzz: elapsed: 0s, gathering baseline coverage: 4/4 completed, now fuzzing with 2 workers\n"}
+{"Time":"2026-10-31T17:34:34.923199+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"fuzz: elapsed: 3s, execs: 17410 (5801/sec), new interesting: 17 (total: 21)\n"}
+{"Time":"2026-10-31T17:34:37.92223+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"fuzz: elapsed: 6s, execs: 17410 (0/sec), new interesting: 17 (total: 21)\n"}
+{"Time":"2026-10-31T17:34:40.922203+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"fuzz: elapsed: 9s, execs: 17410 (0/sec), new interesting: 17 (total: 21)\n"}
+{"Time":"2026-10-31T17:34:43.922358+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"fuzz: elapsed: 12s, execs: 17410 (0/sec), new interesting: 17 (total: 21)\n"}
+{"Time":"2026-10-31T17:34:46.922253+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"fuzz: elapsed: 15s, execs: 17410 (0/sec), new interesting: 17 (total: 21)\n"}
+{"Time":"2026-10-31T17:34:47.927728+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"fuzz: elapsed: 16s, execs: 17410 (0/sec), new interesting: 17 (total: 21)\n"}
+{"Time":"2026-10-31T17:34:47.92778+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Output":"--- PASS: FuzzQUICLiteralAddress (16.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:34:47.92779+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzQUICLiteralAddress","Elapsed":16.01}
+{"Time":"2026-10-31T17:34:47.930094+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T17:34:47.930475+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t16.408s\n"}
+{"Time":"2026-10-31T17:34:47.930497+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":16.409}
