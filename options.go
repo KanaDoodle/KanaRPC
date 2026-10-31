@@ -26,6 +26,7 @@ type ClientConfig struct {
 	ControlTimeout time.Duration
 }
 type ServerConfig struct {
+	Trace          *TraceRecorder // nil disables the bounded local decision journal
 	Governance     *GovernanceConfig
 	Memory         MemoryConfig
 	IO             IOConfig

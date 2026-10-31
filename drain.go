@@ -52,6 +52,7 @@ func (s *Server) DrainWithReport(ctx context.Context) (report DrainReport, err e
 	s.mu.Unlock()
 	report.MemoryBefore = s.MemoryStats()
 	report.PriorFaults = deliveryFaults(report.Before)
+	s.trace(TraceRef{}, "drain_started", "new_admission_sealed", OK, 0)
 	defer func() {
 		s.mu.Lock()
 		report.After = s.stats
@@ -66,6 +67,13 @@ func (s *Server) DrainWithReport(ctx context.Context) (report DrainReport, err e
 			} else {
 				err = errors.Join(err, ErrDelivery)
 			}
+		}
+		if s.cfg.Trace != nil {
+			code := OK
+			if err != nil {
+				code = statusOf(err).Code
+			}
+			s.trace(TraceRef{}, "drain_finished", "snapshot_not_business_commit", code, int64(report.TotalFaults.LostTerminals))
 		}
 	}()
 	if l != nil {
@@ -96,6 +104,7 @@ func (r *execution) cancelRequest() {
 	if !r.cancelObserved {
 		r.cancelObserved = true
 		s.stats.Outcomes.CancelRequests++
+		r.trace("cancel_received", "first_cancel_control", Canceled, 0)
 	}
 	r.cancel(context.Canceled)
 	s.mu.Unlock()

@@ -156,6 +156,7 @@ func (s *Server) serveRecords(listener net.Listener, security *tls.Config, hands
 		}
 		ctx, cancel := context.WithCancelCause(context.Background())
 		peer := &serverConn{server: s, link: newLink(conn, s.cfg.IO), ctx: ctx, cancel: cancel, requests: make(map[uint64]*execution)}
+		peer.traceChannel = s.cfg.Trace.newChannel()
 		if security != nil {
 			tlsConn := tls.Server(conn, security)
 			peer.link = newLink(tlsConn, s.cfg.IO)
@@ -236,19 +237,20 @@ func (s *Server) Drain(ctx context.Context) error {
 }
 
 type serverConn struct {
-	server    *Server
-	link      *link
-	ctx       context.Context
-	cancel    context.CancelCauseFunc
-	once      sync.Once
-	mu        sync.Mutex
-	requests  map[uint64]*execution
-	lastOpen  uint64
-	handshake func() error
-	native    *quicServerSession
-	bound     bool
-	peerFIN   chan struct{}
-	demand    map[string]int
+	server       *Server
+	link         *link
+	ctx          context.Context
+	cancel       context.CancelCauseFunc
+	once         sync.Once
+	mu           sync.Mutex
+	requests     map[uint64]*execution
+	lastOpen     uint64
+	handshake    func() error
+	native       *quicServerSession
+	bound        bool
+	peerFIN      chan struct{}
+	demand       map[string]int
+	traceChannel uint64
 }
 
 func (p *serverConn) close(err error) {
@@ -286,6 +288,7 @@ func (p *serverConn) readLoop() {
 		if err != nil {
 			if p.native != nil && errors.Is(err, io.EOF) {
 				close(p.peerFIN)
+				p.trace(p.lastOpen, "", "peer_fin", "native_send_direction_finished", OK, 0)
 			}
 			p.close(err)
 			return
@@ -367,6 +370,7 @@ func (p *serverConn) reject(id uint64, code Code, reason string, path ...string)
 		s.stats.Outcomes.NotFoundRejected++
 	}
 	s.mu.Unlock()
+	p.trace(id, "", "rejected", reason, code, 0)
 	var pressure *Pressure
 	if len(path) > 0 {
 		pressure = s.pressure(p, path[0])
@@ -379,7 +383,15 @@ func (p *serverConn) reject(id uint64, code Code, reason string, path ...string)
 }
 func (p *serverConn) open(f wire.Frame) (bool, error) {
 	var request openRecord
-	if json.Unmarshal(f.Payload, &request) != nil || !validMethod(request.Method) || request.BudgetNanos <= 0 || request.Window < 1 || request.Window > 32 || !json.Valid(request.Request) {
+	decodeErr := json.Unmarshal(f.Payload, &request)
+	if p.server.cfg.Trace != nil {
+		traceMethod := request.Method
+		if !validMethod(traceMethod) {
+			traceMethod = ""
+		}
+		p.trace(f.ID, traceMethod, "open", "record_parsed", OK, 0)
+	}
+	if decodeErr != nil || !validMethod(request.Method) || request.BudgetNanos <= 0 || request.Window < 1 || request.Window > 32 || !json.Valid(request.Request) {
 		return false, p.reject(f.ID, InvalidArgument, "invalid")
 	}
 	if !request.Stream && request.Window != 1 {
@@ -421,6 +433,9 @@ func (p *serverConn) open(f wire.Frame) (bool, error) {
 	}
 	budget, stop := context.WithTimeout(p.ctx, duration)
 	ctx, cancel := context.WithCancelCause(budget)
+	if s.cfg.Trace != nil {
+		ctx = context.WithValue(ctx, requestTraceKey{}, TraceRef{p.traceChannel, f.ID, request.Method})
+	}
 	r := &execution{peer: p, id: f.ID, ctx: ctx, cancel: cancel, stop: stop, window: request.Window, credits: request.Window, changed: make(chan struct{}), ack: make(chan struct{}), input: f, path: request.Method}
 	p.requests[f.ID] = r
 	p.bound = true
@@ -429,6 +444,7 @@ func (p *serverConn) open(f wire.Frame) (bool, error) {
 	}
 	s.stats.InFlight++
 	s.stats.Admitted++
+	r.trace("admitted", "request_capacity_reserved", OK, 0)
 	s.demandLocked(p, r.path, 1)
 	s.notifyLocked()
 	p.mu.Unlock()
@@ -483,6 +499,9 @@ func (out *Sender) Send(body json.RawMessage) error {
 	}
 	release, err := r.peer.server.resources.send.take(int64(len(body)))
 	if err != nil {
+		if r.peer.server.cfg.Trace != nil {
+			r.trace("budget_rejected", "local_send_reservation", statusOf(err).Code, 0)
+		}
 		return err
 	}
 	defer release()
@@ -507,6 +526,9 @@ func (out *Sender) Send(body json.RawMessage) error {
 			number := r.sequence
 			r.mu.Unlock()
 			touched, err := r.peer.link.send(r.ctx, wire.Frame{Kind: wire.Data, ID: r.id, Number: number, Payload: body})
+			if err == nil {
+				r.trace("data_sent", "credit_consumed", OK, int64(number))
+			}
 			if err != nil && touched {
 				r.peer.close(err)
 			}
@@ -543,9 +565,10 @@ func (r *execution) acknowledge(receipt []byte) bool {
 		return false
 	}
 	if r.receiptResolved {
+		r.trace("late_ack", "settlement_already_frozen", OK, 0)
 		return true // A receipt after settlement cannot rewrite historical loss.
 	}
-	r.ackOnce.Do(func() { close(r.ack) })
+	r.ackOnce.Do(func() { close(r.ack); r.trace("ack_received", "protocol_receipt_observed", OK, 0) })
 	return true
 }
 
@@ -573,6 +596,7 @@ func (r *execution) run(h method, body json.RawMessage) {
 		r.peer.mu.Unlock()
 		s.stats.InFlight--
 		s.stats.Completed++
+		r.trace("retired", "server_request_released", OK, 0)
 		s.notifyLocked()
 		s.mu.Unlock()
 		if r.peer.native != nil {
@@ -581,10 +605,13 @@ func (r *execution) run(h method, body json.RawMessage) {
 	}()
 	err := r.queueError
 	var executionDuration time.Duration
+	invokedHandler := false
 	if !r.started.IsZero() {
 		err = deadlineError(r.ctx)
 		if err == nil {
+			r.trace("handler_started", "execution_slot_acquired", OK, 0)
 			invoked := time.Now()
+			invokedHandler = true
 			err = invoke(h, r.ctx, body, &Sender{request: r})
 			executionDuration = time.Since(invoked)
 		}
@@ -596,6 +623,11 @@ func (r *execution) run(h method, body json.RawMessage) {
 		err = r.ctx.Err()
 	}
 	classified := statusOf(err)
+	if invokedHandler {
+		r.trace("handler_done", "handler_returned", classified.Code, 0)
+	} else {
+		r.trace("execution_skipped", "dispatch_context_finished", classified.Code, 0)
+	}
 	s.mu.Lock()
 	if !r.started.IsZero() {
 		s.handlerDoneLocked(r, classified, executionDuration)
@@ -623,6 +655,7 @@ func (r *execution) run(h method, body json.RawMessage) {
 		status.Receipt = hex.EncodeToString(r.receipt[:])
 	}
 	r.mu.Unlock()
+	r.trace("terminal_ready", "handler_result_classified", classified.Code, 0)
 	status.Pressure = s.pressure(r.peer, r.path)
 	b := marshalEnd(status, s.cfg.IO.MaxFrameBytes)
 	ctx, cancel := context.WithTimeout(r.peer.ctx, s.cfg.AckTimeout)
@@ -638,8 +671,10 @@ func (r *execution) run(h method, body json.RawMessage) {
 		return
 	}
 	if !wantACK {
+		r.trace("terminal_sent", "request_deadline_no_receipt", classified.Code, 0)
 		return
 	}
+	r.trace("terminal_sent", "receipt_expected", classified.Code, 0)
 	select {
 	case <-r.ack:
 	case <-r.ctx.Done():
@@ -660,6 +695,7 @@ func (r *execution) run(h method, body json.RawMessage) {
 			s.mu.Lock()
 			if !(r.cancelObserved && context.Cause(r.ctx) == context.Canceled) && r.ctx.Err() != context.DeadlineExceeded {
 				s.stats.IncompleteExchanges++
+				r.trace("exchange_incomplete", "client_fin_not_observed", Unavailable, 0)
 			}
 			s.mu.Unlock()
 		}
@@ -682,16 +718,20 @@ func (r *execution) recordDelivery() bool {
 	select {
 	case <-r.ack:
 		s.stats.Delivered++
+		r.trace("receipt_acknowledged", "delivery_receipt_confirmed", OK, 0)
 		return true
 	default:
 		cause := context.Cause(r.ctx)
 		switch {
 		case cause == context.Canceled && r.cancelObserved:
 			s.stats.Outcomes.ReceiptsCanceled++
+			r.trace("receipt_canceled", "explicit_cancel_won", Canceled, 0)
 		case r.ctx.Err() == context.DeadlineExceeded:
 			s.stats.Outcomes.ReceiptsDeadlineExceeded++
+			r.trace("receipt_deadline", "request_deadline", DeadlineExceeded, 0)
 		default:
 			s.stats.LostTerminals++
+			r.trace("receipt_lost", "terminal_not_acknowledged", Unavailable, 0)
 		}
 	}
 	return false

@@ -1,0 +1,15 @@
+{
+  "page": "http://127.0.0.1:8080",
+  "overload_control_observed": "slow 12 -> 9 -> 7 from real browser interaction",
+  "manual_load_control": {
+    "rate": 5,
+    "capacity": 7,
+    "actual_requests_observed": true
+  },
+  "stream_cancel": "CANCEL, handler_done and retired observed in selected trace",
+  "normal_drain": "Quiescent true, no delivery error",
+  "fault_drain": "Quiescent true, AddedFaults.LostTerminals 1, ErrDelivery retained",
+  "screenshot": "showcase-final.png",
+  "screenshot_exit_code": 0,
+  "scope": "local UI and same-process real QUIC only; no dual-host or inference validation"
+}

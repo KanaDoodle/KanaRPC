@@ -271,6 +271,7 @@ func (s *Server) enqueueLocked(r *execution, h method, body []byte) {
 	r.body = body
 	r.queuedAt = time.Now()
 	r.jobState = jobQueued
+	r.trace("queued", "method_scheduler", OK, 0)
 	if len(g.queue) >= g.cfg.QueueCapacity && s.canRunLocked(r.path) {
 		g.methods[r.path].queued++
 		s.stats.Queued++
@@ -321,6 +322,9 @@ func (s *Server) removeQueuedLocked(index int, err error) {
 	s.stats.Queued--
 	r.jobState = jobFinished
 	r.queueError = err
+	if s.cfg.Trace != nil {
+		r.trace("queue_expired", "queue_context_finished", statusOf(err).Code, 0)
+	}
 	if r.queueStop != nil {
 		r.queueStop()
 		r.queueCancel()
@@ -454,6 +458,9 @@ func (s *Server) handlerDoneLocked(r *execution, status Status, duration time.Du
 				}
 				if old != m.limit || previous != m.mode {
 					g.recordDecision(ControlDecision{Method: r.path, Reason: reason, Previous: old, Next: m.limit, P90: m.p90, PreviousMode: previous, NextMode: m.mode, Generation: m.generation})
+					if s.cfg.Trace != nil {
+						s.cfg.Trace.record(TraceEvent{TraceRef: TraceRef{Method: r.path}, Kind: "control_adjusted", Reason: reason, Value: int64(old), Next: int64(m.limit)})
+					}
 				}
 				m.window = m.window[:0]
 				m.saturated = false

@@ -1,0 +1,3 @@
+KanaRPC 决策演示台
+  http://127.0.0.1:58253
+本机真实 QUIC；timer/slot fixture；真实双机与推理未验证。Ctrl+C 退出。

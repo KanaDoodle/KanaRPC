@@ -187,6 +187,7 @@ func (p *quicServerSession) run() {
 		ctx, cancel := context.WithCancelCause(p.ctx)
 		channel := &nativeChannel{Stream: stream}
 		peer := &serverConn{server: s, native: p, link: newLink(channel, s.cfg.IO), ctx: ctx, cancel: cancel, requests: make(map[uint64]*execution), peerFIN: make(chan struct{})}
+		peer.traceChannel = s.cfg.Trace.newChannel()
 		peer.link.resources = s.resources
 		// A stream that never supplies Open must not retain its reader forever.
 		s.mu.Lock()

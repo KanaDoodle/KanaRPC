@@ -1,0 +1,257 @@
+{
+  "scope": "同机同进程真实 QUIC socket；timer/slot fixture；真实双机、WAN 与模型推理未验证",
+  "now": "2026-10-31T22:15:52.091989+08:00",
+  "session": 1,
+  "mode": "adaptive",
+  "state": "running",
+  "endpoint": "127.0.0.1:62814",
+  "busy": false,
+  "message": "新会话已就绪；历史交付故障继续保留。",
+  "config": {
+    "rate": 120,
+    "slow_percent": 85,
+    "slow_ms": 80,
+    "capacity": 2
+  },
+  "active": 9,
+  "generated": 64,
+  "generator_dropped": 0,
+  "metrics": {
+    "/showcase/fast": {
+      "calls": 10,
+      "success": 10,
+      "canceled": 0,
+      "failed": 0,
+      "resource_exhausted": 0,
+      "budget_refusals": 0,
+      "p95_ms": 5.5385
+    },
+    "/showcase/slow": {
+      "calls": 45,
+      "success": 12,
+      "canceled": 0,
+      "failed": 33,
+      "resource_exhausted": 33,
+      "budget_refusals": 0,
+      "p95_ms": 262.422209,
+      "last_error": "resource_exhausted: local pressure admission"
+    }
+  },
+  "stats": {
+    "Outcomes": {
+      "CapacityRejected": 0,
+      "PolicyRejected": 0,
+      "DrainingRejected": 0,
+      "InvalidRejected": 0,
+      "NotFoundRejected": 0,
+      "CancelRequests": 0,
+      "RequestDeadlines": 0,
+      "TransportAborts": 0,
+      "ShutdownAborts": 0,
+      "BudgetAborts": 0,
+      "ReceiptsResolved": 22,
+      "ReceiptsCanceled": 0,
+      "ReceiptsDeadlineExceeded": 0
+    },
+    "Queued": 0,
+    "IncompleteExchanges": 0,
+    "NativeStreams": 9,
+    "Connections": 1,
+    "InFlight": 9,
+    "Executing": 9,
+    "Admitted": 31,
+    "Completed": 22,
+    "Rejected": 0,
+    "Canceled": 0,
+    "Delivered": 22,
+    "LostTerminals": 0
+  },
+  "memory": {
+    "Receive": {
+      "Limit": 16777216,
+      "Used": 1722,
+      "Peak": 2486,
+      "Rejected": 0
+    },
+    "Send": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 84,
+      "Rejected": 0
+    },
+    "ControlReceive": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 32,
+      "Rejected": 0
+    },
+    "ControlSend": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 606,
+      "Rejected": 0
+    },
+    "Encoding": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    }
+  },
+  "client_memory": {
+    "Receive": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 18,
+      "Rejected": 0
+    },
+    "Send": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 240,
+      "Rejected": 0
+    },
+    "ControlReceive": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 558,
+      "Rejected": 0
+    },
+    "ControlSend": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 80,
+      "Rejected": 0
+    },
+    "Encoding": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 6291456,
+      "Rejected": 0
+    }
+  },
+  "governance": {
+    "Enabled": true,
+    "Adaptive": true,
+    "Epoch": "2fec222eff4b66eb2a02e87462b3183f",
+    "Executing": 9,
+    "Queued": 0,
+    "Methods": [
+      {
+        "Method": "/showcase/drain",
+        "Limit": 1,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 1,
+        "Samples": 0,
+        "P90": 0,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      },
+      {
+        "Method": "/showcase/fast",
+        "Limit": 8,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 3,
+        "Samples": 10,
+        "P90": 2455667,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      },
+      {
+        "Method": "/showcase/slow",
+        "Limit": 9,
+        "Running": 9,
+        "Queued": 0,
+        "Weight": 1,
+        "Samples": 12,
+        "P90": 219856667,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      },
+      {
+        "Method": "/showcase/stream",
+        "Limit": 1,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 1,
+        "Samples": 0,
+        "P90": 0,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      }
+    ],
+    "Decisions": [
+      {
+        "Method": "/showcase/slow",
+        "Reason": "latency_or_overload",
+        "Previous": 12,
+        "Next": 9,
+        "P90": 219856667,
+        "PreviousMode": "adaptive",
+        "NextMode": "adaptive",
+        "Generation": 0
+      }
+    ],
+    "DroppedDecisions": 0
+  },
+  "feedback": {
+    "Enabled": true,
+    "Accepted": 18,
+    "Ignored": 4,
+    "Limited": 33,
+    "Methods": [
+      {
+        "Method": "/showcase/fast",
+        "Active": 0,
+        "Recommended": 8,
+        "Sequence": 22,
+        "Fresh": true
+      },
+      {
+        "Method": "/showcase/slow",
+        "Active": 9,
+        "Recommended": 9,
+        "Sequence": 21,
+        "Fresh": false
+      }
+    ]
+  },
+  "fault_ref": {
+    "channel": 0,
+    "request": 0,
+    "method": ""
+  },
+  "total_lost": 0,
+  "total_incomplete": 0,
+  "history": null,
+  "trace": {
+    "capacity": 4096,
+    "sample_every": 1,
+    "last": 290,
+    "oldest": 1,
+    "dropped": 11,
+    "overwritten": 0,
+    "sampled_out": 0,
+    "gap": false,
+    "events_artifact": {
+      "archive": "raw-states.tar.gz",
+      "member": "smoke-initial/overload.json",
+      "count": 290,
+      "root": "docs/verification/showcase-r10"
+    }
+  }
+}

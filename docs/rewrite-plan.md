@@ -25,6 +25,8 @@
 
 | R9D，稳定性复验完成，优化候选未采纳 | 配对短跑/延长复验、收尾同步 profile、候选基线与回退 | [步骤](quic-r9d.md)、[报告](verification/quic-r9d/report.md)；原降幅未稳定复现，三候选无足够整体收益证据且有局部退化，保持 R9C 库代码；按用户要求收缩后续测试，仅保留必要回归与可展示证据 |
 
+| R10，交互演示完成 | 默认关闭的有界本地决策日志，一键 QUIC 页面、可调负载、流式取消、正常/缺 ACK drain | [步骤与启动](showcase-r10.md)、[验证与失败记录](verification/showcase-r10/report.md)；真实本机 socket，不扩展 wire、不宣称推理或双机性能，CampusTrace 不动；只做必要 race 与现场流程检查 |
+
 R7A 的通过只代表第一阶段。不会为兼容旧包名而调用旧 internal，也不会自动把旧测试结果搬成新版本结果。新协议不做隐式 downgrade；真正迁移时新旧端点显式分离。
 
 ## 已落实的架构选择

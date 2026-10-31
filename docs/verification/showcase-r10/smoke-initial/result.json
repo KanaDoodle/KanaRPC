@@ -1,0 +1,17 @@
+{
+  "scope": "same-process real loopback QUIC/HTTP; timer/slot fixture; no dual-host, WAN or inference validation",
+  "steps": [
+    "ready-state",
+    "overload",
+    "streaming",
+    "canceled",
+    "failure-state"
+  ],
+  "owned_pid": 54828,
+  "url": "http://127.0.0.1:59272",
+  "status": "FAIL",
+  "failure": "KeyError('drain_error')",
+  "exit_code": 0,
+  "owned_process_reaped": true,
+  "race_reported": false
+}

@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "scope": "real local UI after omitted ACK drain; isolated temporary browser profile",
+  "image": "showcase-drain.png"
+}

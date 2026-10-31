@@ -1,0 +1,226 @@
+{
+  "trace_start": 0,
+  "scope": "同机同进程真实 QUIC socket；timer/slot fixture；真实双机、WAN 与模型推理未验证",
+  "now": "2026-10-31T22:21:47.97077+08:00",
+  "session": 1,
+  "mode": "adaptive",
+  "state": "running",
+  "endpoint": "127.0.0.1:53170",
+  "busy": false,
+  "message": "新会话已就绪；历史交付故障继续保留。",
+  "config": {
+    "rate": 0,
+    "slow_percent": 80,
+    "slow_ms": 40,
+    "capacity": 8
+  },
+  "active": 0,
+  "generated": 0,
+  "generator_dropped": 0,
+  "metrics": {
+    "/showcase/fast": {
+      "calls": 0,
+      "success": 0,
+      "canceled": 0,
+      "failed": 0,
+      "resource_exhausted": 0,
+      "budget_refusals": 0,
+      "p95_ms": 0
+    },
+    "/showcase/slow": {
+      "calls": 0,
+      "success": 0,
+      "canceled": 0,
+      "failed": 0,
+      "resource_exhausted": 0,
+      "budget_refusals": 0,
+      "p95_ms": 0
+    }
+  },
+  "stats": {
+    "Outcomes": {
+      "CapacityRejected": 0,
+      "PolicyRejected": 0,
+      "DrainingRejected": 0,
+      "InvalidRejected": 0,
+      "NotFoundRejected": 0,
+      "CancelRequests": 0,
+      "RequestDeadlines": 0,
+      "TransportAborts": 0,
+      "ShutdownAborts": 0,
+      "BudgetAborts": 0,
+      "ReceiptsResolved": 0,
+      "ReceiptsCanceled": 0,
+      "ReceiptsDeadlineExceeded": 0
+    },
+    "Queued": 0,
+    "IncompleteExchanges": 0,
+    "NativeStreams": 0,
+    "Connections": 1,
+    "InFlight": 0,
+    "Executing": 0,
+    "Admitted": 0,
+    "Completed": 0,
+    "Rejected": 0,
+    "Canceled": 0,
+    "Delivered": 0,
+    "LostTerminals": 0
+  },
+  "memory": {
+    "Receive": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    },
+    "Send": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    },
+    "ControlReceive": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    },
+    "ControlSend": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    },
+    "Encoding": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    }
+  },
+  "client_memory": {
+    "Receive": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    },
+    "Send": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    },
+    "ControlReceive": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    },
+    "ControlSend": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    },
+    "Encoding": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    }
+  },
+  "governance": {
+    "Enabled": true,
+    "Adaptive": true,
+    "Epoch": "0ad9c0500978ce15ac0eba9bb19dc2e4",
+    "Executing": 0,
+    "Queued": 0,
+    "Methods": [
+      {
+        "Method": "/showcase/drain",
+        "Limit": 1,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 1,
+        "Samples": 0,
+        "P90": 0,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      },
+      {
+        "Method": "/showcase/fast",
+        "Limit": 8,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 3,
+        "Samples": 0,
+        "P90": 0,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      },
+      {
+        "Method": "/showcase/slow",
+        "Limit": 12,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 1,
+        "Samples": 0,
+        "P90": 0,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      },
+      {
+        "Method": "/showcase/stream",
+        "Limit": 1,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 1,
+        "Samples": 0,
+        "P90": 0,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      }
+    ],
+    "Decisions": null,
+    "DroppedDecisions": 0
+  },
+  "feedback": {
+    "Enabled": true,
+    "Accepted": 0,
+    "Ignored": 0,
+    "Limited": 0,
+    "Methods": null
+  },
+  "fault_ref": {
+    "channel": 0,
+    "request": 0,
+    "method": ""
+  },
+  "total_lost": 0,
+  "total_incomplete": 0,
+  "history": null,
+  "trace": {
+    "events": null,
+    "capacity": 4096,
+    "sample_every": 1,
+    "last": 0,
+    "oldest": 0,
+    "dropped": 0,
+    "overwritten": 0,
+    "sampled_out": 0,
+    "gap": false
+  }
+}

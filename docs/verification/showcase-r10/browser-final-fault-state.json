@@ -1,0 +1,391 @@
+{
+  "trace_start": 0,
+  "scope": "同机同进程真实 QUIC socket；timer/slot fixture；真实双机、WAN 与模型推理未验证",
+  "now": "2026-10-31T22:23:28.733879+08:00",
+  "session": 1,
+  "mode": "adaptive",
+  "state": "drain_failed",
+  "endpoint": "127.0.0.1:64834",
+  "busy": false,
+  "message": "Drain 已结束；资源退出和交付结果分别展示。",
+  "config": {
+    "rate": 0,
+    "slow_percent": 80,
+    "slow_ms": 40,
+    "capacity": 7
+  },
+  "active": 0,
+  "generated": 73,
+  "generator_dropped": 0,
+  "metrics": {
+    "/showcase/fast": {
+      "calls": 15,
+      "success": 15,
+      "canceled": 0,
+      "failed": 0,
+      "resource_exhausted": 0,
+      "budget_refusals": 0,
+      "p95_ms": 3.918417
+    },
+    "/showcase/slow": {
+      "calls": 58,
+      "success": 58,
+      "canceled": 0,
+      "failed": 0,
+      "resource_exhausted": 0,
+      "budget_refusals": 0,
+      "p95_ms": 41.846083
+    }
+  },
+  "stats": {
+    "Outcomes": {
+      "CapacityRejected": 0,
+      "PolicyRejected": 0,
+      "DrainingRejected": 0,
+      "InvalidRejected": 0,
+      "NotFoundRejected": 0,
+      "CancelRequests": 0,
+      "RequestDeadlines": 0,
+      "TransportAborts": 0,
+      "ShutdownAborts": 0,
+      "BudgetAborts": 0,
+      "ReceiptsResolved": 75,
+      "ReceiptsCanceled": 0,
+      "ReceiptsDeadlineExceeded": 0
+    },
+    "Queued": 0,
+    "IncompleteExchanges": 0,
+    "NativeStreams": 0,
+    "Connections": 0,
+    "InFlight": 0,
+    "Executing": 0,
+    "Admitted": 75,
+    "Completed": 75,
+    "Rejected": 0,
+    "Canceled": 0,
+    "Delivered": 74,
+    "LostTerminals": 1
+  },
+  "memory": {
+    "Receive": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 224,
+      "Rejected": 0
+    },
+    "Send": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 84,
+      "Rejected": 0
+    },
+    "ControlReceive": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 16,
+      "Rejected": 0
+    },
+    "ControlSend": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 299,
+      "Rejected": 0
+    },
+    "Encoding": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    }
+  },
+  "client_memory": {
+    "Receive": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 23,
+      "Rejected": 0
+    },
+    "Send": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 136,
+      "Rejected": 0
+    },
+    "ControlReceive": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 275,
+      "Rejected": 0
+    },
+    "ControlSend": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 40,
+      "Rejected": 0
+    },
+    "Encoding": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 2097152,
+      "Rejected": 0
+    }
+  },
+  "governance": {
+    "Enabled": true,
+    "Adaptive": true,
+    "Epoch": "20a6667c5494d4e9cf0173f5dca5fae6",
+    "Executing": 0,
+    "Queued": 0,
+    "Methods": [
+      {
+        "Method": "/showcase/drain",
+        "Limit": 1,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 1,
+        "Samples": 1,
+        "P90": 0,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      },
+      {
+        "Method": "/showcase/fast",
+        "Limit": 8,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 3,
+        "Samples": 16,
+        "P90": 2371750,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      },
+      {
+        "Method": "/showcase/slow",
+        "Limit": 12,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 1,
+        "Samples": 58,
+        "P90": 40237458,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      },
+      {
+        "Method": "/showcase/stream",
+        "Limit": 1,
+        "Running": 0,
+        "Queued": 0,
+        "Weight": 1,
+        "Samples": 0,
+        "P90": 0,
+        "Mode": "adaptive",
+        "UnmetWindows": 0,
+        "Generation": 0,
+        "Fallbacks": 0,
+        "Resets": 0
+      }
+    ],
+    "Decisions": null,
+    "DroppedDecisions": 0
+  },
+  "feedback": {
+    "Enabled": true,
+    "Accepted": 73,
+    "Ignored": 1,
+    "Limited": 0,
+    "Methods": [
+      {
+        "Method": "/showcase/drain",
+        "Active": 0,
+        "Recommended": 0,
+        "Sequence": 0,
+        "Fresh": false
+      },
+      {
+        "Method": "/showcase/fast",
+        "Active": 0,
+        "Recommended": 8,
+        "Sequence": 70,
+        "Fresh": false
+      },
+      {
+        "Method": "/showcase/slow",
+        "Active": 0,
+        "Recommended": 12,
+        "Sequence": 73,
+        "Fresh": false
+      }
+    ]
+  },
+  "fault_ref": {
+    "channel": 74,
+    "request": 1,
+    "method": "/showcase/fast"
+  },
+  "report": {
+    "Before": {
+      "Outcomes": {
+        "CapacityRejected": 0,
+        "PolicyRejected": 0,
+        "DrainingRejected": 0,
+        "InvalidRejected": 0,
+        "NotFoundRejected": 0,
+        "CancelRequests": 0,
+        "RequestDeadlines": 0,
+        "TransportAborts": 0,
+        "ShutdownAborts": 0,
+        "BudgetAborts": 0,
+        "ReceiptsResolved": 73,
+        "ReceiptsCanceled": 0,
+        "ReceiptsDeadlineExceeded": 0
+      },
+      "Queued": 0,
+      "IncompleteExchanges": 0,
+      "NativeStreams": 2,
+      "Connections": 2,
+      "InFlight": 2,
+      "Executing": 1,
+      "Admitted": 75,
+      "Completed": 73,
+      "Rejected": 0,
+      "Canceled": 0,
+      "Delivered": 73,
+      "LostTerminals": 0
+    },
+    "After": {
+      "Outcomes": {
+        "CapacityRejected": 0,
+        "PolicyRejected": 0,
+        "DrainingRejected": 0,
+        "InvalidRejected": 0,
+        "NotFoundRejected": 0,
+        "CancelRequests": 0,
+        "RequestDeadlines": 0,
+        "TransportAborts": 0,
+        "ShutdownAborts": 0,
+        "BudgetAborts": 0,
+        "ReceiptsResolved": 75,
+        "ReceiptsCanceled": 0,
+        "ReceiptsDeadlineExceeded": 0
+      },
+      "Queued": 0,
+      "IncompleteExchanges": 0,
+      "NativeStreams": 0,
+      "Connections": 0,
+      "InFlight": 0,
+      "Executing": 0,
+      "Admitted": 75,
+      "Completed": 75,
+      "Rejected": 0,
+      "Canceled": 0,
+      "Delivered": 74,
+      "LostTerminals": 1
+    },
+    "MemoryBefore": {
+      "Receive": {
+        "Limit": 16777216,
+        "Used": 224,
+        "Peak": 224,
+        "Rejected": 0
+      },
+      "Send": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 84,
+        "Rejected": 0
+      },
+      "ControlReceive": {
+        "Limit": 65536,
+        "Used": 0,
+        "Peak": 16,
+        "Rejected": 0
+      },
+      "ControlSend": {
+        "Limit": 65536,
+        "Used": 0,
+        "Peak": 299,
+        "Rejected": 0
+      },
+      "Encoding": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 0,
+        "Rejected": 0
+      }
+    },
+    "MemoryAfter": {
+      "Receive": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 224,
+        "Rejected": 0
+      },
+      "Send": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 84,
+        "Rejected": 0
+      },
+      "ControlReceive": {
+        "Limit": 65536,
+        "Used": 0,
+        "Peak": 16,
+        "Rejected": 0
+      },
+      "ControlSend": {
+        "Limit": 65536,
+        "Used": 0,
+        "Peak": 299,
+        "Rejected": 0
+      },
+      "Encoding": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 0,
+        "Rejected": 0
+      }
+    },
+    "PriorFaults": {
+      "LostTerminals": 0,
+      "IncompleteExchanges": 0
+    },
+    "AddedFaults": {
+      "LostTerminals": 1,
+      "IncompleteExchanges": 0
+    },
+    "TotalFaults": {
+      "LostTerminals": 1,
+      "IncompleteExchanges": 0
+    },
+    "Quiescent": true
+  },
+  "drain_error": "kanarpc: terminal receipt not acknowledged",
+  "total_lost": 1,
+  "total_incomplete": 0,
+  "history": null,
+  "trace": {
+    "capacity": 4096,
+    "sample_every": 1,
+    "last": 900,
+    "oldest": 1,
+    "dropped": 0,
+    "overwritten": 0,
+    "sampled_out": 0,
+    "gap": false,
+    "events_artifact": {
+      "archive": "raw-states.tar.gz",
+      "member": "browser-final-fault-state.json",
+      "count": 512,
+      "root": "docs/verification/showcase-r10"
+    }
+  }
+}

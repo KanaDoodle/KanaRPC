@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "live_url": "http://127.0.0.1:8080",
+  "live_state": "running",
+  "generated_load_rate": 0,
+  "intentional_historical_lost": 1,
+  "root_and_showcase_race": "PASS",
+  "http_quic_walkthrough": "PASS",
+  "vet": "PASS",
+  "initial_failures_preserved": [
+    "idle connection closure",
+    "optional JSON field in validation runner"
+  ],
+  "scope": "local same-process QUIC, no dual-host/WAN/inference validation"
+}

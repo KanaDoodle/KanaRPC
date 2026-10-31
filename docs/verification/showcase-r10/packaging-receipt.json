@@ -1,0 +1,28 @@
+{
+  "archive": "raw-states.tar.gz",
+  "archive_sha256": "38c1804050e1b2ecabeeda659f5a06d90617bdab3a73c09c0be552d91f9597a4",
+  "members": {
+    "browser-drain-state-before-ui-labels.json": "a2378ffdad211513e68f2658c26587bf9282455a3c8d0dfda98a18819b90803f",
+    "browser-final-fault-state.json": "c8e0bbb20f4840f8bf03bb306f82d6b73cfbf2ffd04b243129f987a038c74eb0",
+    "release-live-state.json": "8ec2be67f0be7e396f2430512ca05b0fde28a5e63bc23a08bf414aee3e365f83",
+    "smoke-initial/overload.json": "2af2b7bef31aacb206e663e19d33efc35c4634f946b6383c657867911534e0f3",
+    "smoke-initial/failure-state.json": "2a38398a9d2221b6fd65e45f6d1d66d6a1fd143556db81013a3e4a6ba2d20831",
+    "smoke-initial/canceled.json": "e259c9968a7f1cafbf0f776774e94cefc8a0b29b3e72eae551c7a2325f28abd0",
+    "smoke-initial/streaming.json": "6c615849e2273413883dbed55078fa87ee36da12be605b7ee6f8678918a0f765",
+    "smoke-fixed/overload.json": "308cfb83e8b8f8c983d82e81bbc734b4fe70e4f6ff1f6b84ec00430bd9953cb5",
+    "smoke-fixed/normal-drain.json": "1ab04107bb5e8f0cb698344c6615aa11d47851852b010eef987a7b4fbedfeaeb",
+    "smoke-fixed/history-retained.json": "22f59cdfee96198b18a8bd8c810221376413023bbee886778c56712d3599cbab",
+    "smoke-fixed/missing-ack-drain.json": "0da611a65d95cab699e297d9e4eea5494ac6adadfbc346b99c06292ca61b8601",
+    "smoke-fixed/canceled.json": "94d5624426b49b9215f2fba8a53a606de3b2c1d659b8b23278ee35fae77d31a8",
+    "smoke-fixed/streaming.json": "d09c542630b2f0c0213485ff2387be762adfc2b936944d9f8877c698505eaa2b",
+    "smoke-final/overload.json": "a3220753d0af7e4d2656432a99145e1b7e281671202a030a71703d568e837a9f",
+    "smoke-final/normal-drain.json": "79598a84ef720f1bc44918f0727b7ca8ac193c9f8731a5c5489ca420439708f8",
+    "smoke-final/history-retained.json": "f78aedd83b82b471acd4345bebe4c1184cd3085157aa52a5180b7c377e1cf22e",
+    "smoke-final/missing-ack-drain.json": "1854b275d6fb884bd2d5607e7016e0a1c40e7886f71cf0f708d69f56ce395825",
+    "smoke-final/canceled.json": "fabb358ac2af9f5326e7f935b4ed12ec01ffbfa967110ee77995d719307f594d",
+    "smoke-final/streaming.json": "0740394610485062cd00e6b86991dd9d2951fcedef8327469b0080c7e73d2d08"
+  },
+  "all_members_verified_before_thinning": true,
+  "raw_trace_events": 7247,
+  "scope": "complete original snapshots retained losslessly; adjacent JSON keeps readable state and a raw-events reference"
+}

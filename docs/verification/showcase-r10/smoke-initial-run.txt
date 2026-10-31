@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-showcase.py", line 88, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-showcase.py", line 62, in main
+    assert not drained['drain_error'] and drained['report']['Quiescent'] and drained['stats']['LostTerminals']==0,drained['drain_error'];save('normal-drain',drained)
+               ~~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'drain_error'

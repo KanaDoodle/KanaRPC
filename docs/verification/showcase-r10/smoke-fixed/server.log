@@ -1,0 +1,4 @@
+KanaRPC 决策演示台
+  http://127.0.0.1:59466
+本机真实 QUIC；timer/slot fixture；真实双机与推理未验证。Ctrl+C 退出。
+已停止 HTTP 接纳，正在回收演示拥有的 RPC 与负载。

@@ -1,0 +1,2 @@
+ok  	github.com/KanaDoodle/KanaRPC	6.610s
+ok  	github.com/KanaDoodle/KanaRPC/cmd/showcase	1.409s
