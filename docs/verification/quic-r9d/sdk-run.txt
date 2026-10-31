@@ -1,0 +1,1 @@
+{"scope": "independent local module replacement, public API only, real TCP echo/stream and drain report; not a published version or model test", "example_sha256": "d34bb0f4a0e30072ce53b25572c43c98d71ae724b5531a5b469e11a032e00c7c", "lifecycle_example_sha256": "8a985da17b81ad3316f3faedce90776536c7f70b5081a97691f18bc8d6bc8724", "status": "PASS"}

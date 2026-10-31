@@ -20,9 +20,13 @@ def cpu():
     return value.ru_utime + value.ru_stime
 
 
-def case(worker_binary, client_binary, directory, transport, workload, strategy, seed, count, workers, payload_bytes=None):
+def case(worker_binary, client_binary, directory, transport, workload, strategy, seed, count, workers, payload_bytes=None, profile=False):
     directory.mkdir()
     env = dict(os.environ, GOWORK="off", GOMAXPROCS="2")
+    # A caller's ambient lab flag must not silently contaminate performance.
+    env.pop("KANARPC_LAB_PROFILE", None)
+    if profile:
+        env["KANARPC_LAB_PROFILE"] = "1"
     processes, logs, ready = [], [], []
     result = dict(transport=transport, workload=workload, strategy=strategy, seed=seed)
     before = cpu()

@@ -1,0 +1,31 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/KanaDoodle/KanaRPC
+cpu: Apple M5
+BenchmarkStopObservation/acked_live-2         	383371598	         0.9934 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_live-2         	343655594	         1.058 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_live-2         	338025391	         1.054 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_live-2         	327216579	         1.035 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_live-2         	349394421	         1.071 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_fin-2          	12310778	        28.28 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_fin-2          	13426782	        27.88 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_fin-2          	13357058	        28.09 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_fin-2          	12169116	        28.89 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_fin-2          	12103976	        29.25 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_deadline-2     	 3090074	       116.8 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_deadline-2     	 3085290	       117.3 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_deadline-2     	 3066588	       117.4 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_deadline-2     	 3144876	       116.4 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/acked_deadline-2     	 3076358	       116.6 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/canceled-2           	 3690979	        98.33 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/canceled-2           	 3725800	        98.43 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/canceled-2           	 3627726	       103.0 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/canceled-2           	 3476661	       103.1 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/canceled-2           	 3462276	       101.7 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/transport-2          	 4360344	        69.71 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/transport-2          	 5142483	        70.64 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/transport-2          	 5061297	        70.47 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/transport-2          	 5286249	        70.78 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+BenchmarkStopObservation/transport-2          	 5182941	        70.42 ns/op	       384.0 execution-bytes	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/KanaDoodle/KanaRPC	11.791s

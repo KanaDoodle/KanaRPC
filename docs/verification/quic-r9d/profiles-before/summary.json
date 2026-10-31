@@ -1,0 +1,190 @@
+[
+  {
+    "version": "r9b",
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 13420.738726963269,
+        "min": 13420.738726963269,
+        "max": 13420.738726963269,
+        "samples": [
+          13420.738726963269
+        ]
+      },
+      "p95_ms": {
+        "median": 0.898041,
+        "min": 0.898041,
+        "max": 0.898041,
+        "samples": [
+          0.898041
+        ]
+      },
+      "p99_ms": {
+        "median": 1.127,
+        "min": 1.127,
+        "max": 1.127,
+        "samples": [
+          1.127
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 32.44322999999999,
+        "min": 32.44322999999999,
+        "max": 32.44322999999999,
+        "samples": [
+          32.44322999999999
+        ]
+      }
+    },
+    "offered": 100000,
+    "completed": 100000
+  },
+  {
+    "version": "r9b",
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 24165.755089073915,
+        "min": 24165.755089073915,
+        "max": 24165.755089073915,
+        "samples": [
+          24165.755089073915
+        ]
+      },
+      "p95_ms": {
+        "median": 0.539541,
+        "min": 0.539541,
+        "max": 0.539541,
+        "samples": [
+          0.539541
+        ]
+      },
+      "p99_ms": {
+        "median": 0.743917,
+        "min": 0.743917,
+        "max": 0.743917,
+        "samples": [
+          0.743917
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 17.508590999999996,
+        "min": 17.508590999999996,
+        "max": 17.508590999999996,
+        "samples": [
+          17.508590999999996
+        ]
+      }
+    },
+    "offered": 100000,
+    "completed": 100000
+  },
+  {
+    "version": "r9c",
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 13022.757567852335,
+        "min": 13022.757567852335,
+        "max": 13022.757567852335,
+        "samples": [
+          13022.757567852335
+        ]
+      },
+      "p95_ms": {
+        "median": 0.930917,
+        "min": 0.930917,
+        "max": 0.930917,
+        "samples": [
+          0.930917
+        ]
+      },
+      "p99_ms": {
+        "median": 1.179708,
+        "min": 1.179708,
+        "max": 1.179708,
+        "samples": [
+          1.179708
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 33.31462900000001,
+        "min": 33.31462900000001,
+        "max": 33.31462900000001,
+        "samples": [
+          33.31462900000001
+        ]
+      }
+    },
+    "offered": 100000,
+    "completed": 100000
+  },
+  {
+    "version": "r9c",
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 24056.474257272144,
+        "min": 24056.474257272144,
+        "max": 24056.474257272144,
+        "samples": [
+          24056.474257272144
+        ]
+      },
+      "p95_ms": {
+        "median": 0.548041,
+        "min": 0.548041,
+        "max": 0.548041,
+        "samples": [
+          0.548041
+        ]
+      },
+      "p99_ms": {
+        "median": 0.7485,
+        "min": 0.7485,
+        "max": 0.7485,
+        "samples": [
+          0.7485
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 17.505391000000003,
+        "min": 17.505391000000003,
+        "max": 17.505391000000003,
+        "samples": [
+          17.505391000000003
+        ]
+      }
+    },
+    "offered": 100000,
+    "completed": 100000
+  }
+]

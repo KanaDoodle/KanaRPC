@@ -1,0 +1,806 @@
+[
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "managed",
+    "seed": 7,
+    "payload_bytes": 128,
+    "client": {
+      "P50": 294000,
+      "P95": 539541,
+      "P99": 743917,
+      "completed": 100000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 4138087125,
+      "evidence": "loopback integer/JSON fixture; two fixed local snapshot endpoints; no real discovery latency or model performance",
+      "memory": {
+        "Memory": {
+          "Receive": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 1416,
+            "Rejected": 0
+          },
+          "Send": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 566,
+            "Rejected": 0
+          },
+          "ControlReceive": {
+            "Limit": 65536,
+            "Used": 0,
+            "Peak": 464,
+            "Rejected": 0
+          },
+          "ControlSend": {
+            "Limit": 65536,
+            "Used": 0,
+            "Peak": 120,
+            "Rejected": 0
+          },
+          "Encoding": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 6291456,
+            "Rejected": 0
+          }
+        },
+        "Data": {
+          "Limit": 33554432,
+          "Used": 0,
+          "Peak": 6291810,
+          "Rejected": 0
+        },
+        "Total": {
+          "Limit": 33685504,
+          "Used": 0,
+          "Peak": 6291926,
+          "Rejected": 0
+        },
+        "Active": {
+          "Accounts": 0,
+          "Leases": 0,
+          "EncodingWaiters": 0,
+          "Bytes": {
+            "Receive": 0,
+            "Send": 0,
+            "ControlReceive": 0,
+            "ControlSend": 0,
+            "Encoding": 0
+          },
+          "DataBytes": 0,
+          "Unread": {
+            "Streams": 0,
+            "Chunks": 0,
+            "Bytes": 0
+          }
+        },
+        "Retired": {
+          "Accounts": 0,
+          "Leases": 0,
+          "EncodingWaiters": 0,
+          "Bytes": {
+            "Receive": 0,
+            "Send": 0,
+            "ControlReceive": 0,
+            "ControlSend": 0,
+            "Encoding": 0
+          },
+          "DataBytes": 0,
+          "Unread": {
+            "Streams": 0,
+            "Chunks": 0,
+            "Bytes": 0
+          }
+        },
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 7,
+          "PeakChunks": 7,
+          "PeakBytes": 1239
+        },
+        "Accounts": 0,
+        "PeakAccounts": 2,
+        "Limit": 2,
+        "Created": 2,
+        "Released": 2,
+        "Sealed": true
+      },
+      "offered": 100000,
+      "payload_bytes": 128,
+      "stats": {
+        "Ready": false,
+        "Closed": true,
+        "Endpoints": 2,
+        "Connections": 0,
+        "Dialing": 0,
+        "Retiring": 0,
+        "Closing": 0,
+        "ActiveCalls": 0,
+        "PeakConnections": 2,
+        "PeakCalls": 8,
+        "Dials": 2,
+        "DialFailures": 0,
+        "Coalesced": 0,
+        "Reused": 100062,
+        "Retired": 2,
+        "Rejected": 0,
+        "SnapshotErrors": 0,
+        "Revision": 1,
+        "ClusterID": 1
+      },
+      "strategy": "managed",
+      "transport": "quic",
+      "wait_error": "",
+      "workload": "unary"
+    },
+    "workers": [
+      {
+        "drain_error": "",
+        "duplicates": 0,
+        "evidence": "fixture-no-model",
+        "executions": 50032,
+        "stats": {
+          "Queued": 0,
+          "IncompleteExchanges": 0,
+          "NativeStreams": 0,
+          "Connections": 0,
+          "InFlight": 0,
+          "Executing": 0,
+          "Admitted": 50032,
+          "Completed": 50032,
+          "Rejected": 0,
+          "Canceled": 0,
+          "Delivered": 50032,
+          "LostTerminals": 0
+        }
+      },
+      {
+        "drain_error": "",
+        "duplicates": 0,
+        "evidence": "fixture-no-model",
+        "executions": 50032,
+        "stats": {
+          "Queued": 0,
+          "IncompleteExchanges": 0,
+          "NativeStreams": 0,
+          "Connections": 0,
+          "InFlight": 0,
+          "Executing": 0,
+          "Admitted": 50032,
+          "Completed": 50032,
+          "Rejected": 0,
+          "Canceled": 0,
+          "Delivered": 50032,
+          "LostTerminals": 0
+        }
+      }
+    ],
+    "status": "PASS",
+    "process_triple_cpu_seconds": 17.508590999999996,
+    "owned_processes_reaped": true,
+    "pool_invariants": "PASS",
+    "version": "r9b"
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "managed",
+    "seed": 7,
+    "payload_bytes": 128,
+    "client": {
+      "P50": 293458,
+      "P95": 548041,
+      "P99": 748500,
+      "completed": 100000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 4156885125,
+      "evidence": "loopback integer/JSON fixture; two fixed local snapshot endpoints; no real discovery latency or model performance",
+      "memory": {
+        "Memory": {
+          "Receive": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 1416,
+            "Rejected": 0
+          },
+          "Send": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 566,
+            "Rejected": 0
+          },
+          "ControlReceive": {
+            "Limit": 65536,
+            "Used": 0,
+            "Peak": 464,
+            "Rejected": 0
+          },
+          "ControlSend": {
+            "Limit": 65536,
+            "Used": 0,
+            "Peak": 120,
+            "Rejected": 0
+          },
+          "Encoding": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 6291456,
+            "Rejected": 0
+          }
+        },
+        "Data": {
+          "Limit": 33554432,
+          "Used": 0,
+          "Peak": 6291810,
+          "Rejected": 0
+        },
+        "Total": {
+          "Limit": 33685504,
+          "Used": 0,
+          "Peak": 6291926,
+          "Rejected": 0
+        },
+        "Active": {
+          "Accounts": 0,
+          "Leases": 0,
+          "EncodingWaiters": 0,
+          "Bytes": {
+            "Receive": 0,
+            "Send": 0,
+            "ControlReceive": 0,
+            "ControlSend": 0,
+            "Encoding": 0
+          },
+          "DataBytes": 0,
+          "Unread": {
+            "Streams": 0,
+            "Chunks": 0,
+            "Bytes": 0
+          }
+        },
+        "Retired": {
+          "Accounts": 0,
+          "Leases": 0,
+          "EncodingWaiters": 0,
+          "Bytes": {
+            "Receive": 0,
+            "Send": 0,
+            "ControlReceive": 0,
+            "ControlSend": 0,
+            "Encoding": 0
+          },
+          "DataBytes": 0,
+          "Unread": {
+            "Streams": 0,
+            "Chunks": 0,
+            "Bytes": 0
+          }
+        },
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 7,
+          "PeakChunks": 7,
+          "PeakBytes": 1238
+        },
+        "Accounts": 0,
+        "PeakAccounts": 2,
+        "Limit": 2,
+        "Created": 2,
+        "Released": 2,
+        "Sealed": true
+      },
+      "offered": 100000,
+      "payload_bytes": 128,
+      "stats": {
+        "Ready": false,
+        "Closed": true,
+        "Endpoints": 2,
+        "Connections": 0,
+        "Dialing": 0,
+        "Retiring": 0,
+        "Closing": 0,
+        "ActiveCalls": 0,
+        "PeakConnections": 2,
+        "PeakCalls": 8,
+        "Dials": 2,
+        "DialFailures": 0,
+        "Coalesced": 0,
+        "Reused": 100062,
+        "Retired": 2,
+        "Rejected": 0,
+        "SnapshotErrors": 0,
+        "Revision": 1,
+        "ClusterID": 1
+      },
+      "strategy": "managed",
+      "transport": "quic",
+      "wait_error": "",
+      "workload": "unary"
+    },
+    "workers": [
+      {
+        "drain_error": "",
+        "duplicates": 0,
+        "evidence": "fixture-no-model",
+        "executions": 50032,
+        "stats": {
+          "Outcomes": {
+            "CapacityRejected": 0,
+            "PolicyRejected": 0,
+            "DrainingRejected": 0,
+            "InvalidRejected": 0,
+            "NotFoundRejected": 0,
+            "CancelRequests": 0,
+            "RequestDeadlines": 0,
+            "TransportAborts": 0,
+            "ShutdownAborts": 0,
+            "BudgetAborts": 0,
+            "ReceiptsResolved": 50032,
+            "ReceiptsCanceled": 0,
+            "ReceiptsDeadlineExceeded": 0
+          },
+          "Queued": 0,
+          "IncompleteExchanges": 0,
+          "NativeStreams": 0,
+          "Connections": 0,
+          "InFlight": 0,
+          "Executing": 0,
+          "Admitted": 50032,
+          "Completed": 50032,
+          "Rejected": 0,
+          "Canceled": 0,
+          "Delivered": 50032,
+          "LostTerminals": 0
+        }
+      },
+      {
+        "drain_error": "",
+        "duplicates": 0,
+        "evidence": "fixture-no-model",
+        "executions": 50032,
+        "stats": {
+          "Outcomes": {
+            "CapacityRejected": 0,
+            "PolicyRejected": 0,
+            "DrainingRejected": 0,
+            "InvalidRejected": 0,
+            "NotFoundRejected": 0,
+            "CancelRequests": 0,
+            "RequestDeadlines": 0,
+            "TransportAborts": 0,
+            "ShutdownAborts": 0,
+            "BudgetAborts": 0,
+            "ReceiptsResolved": 50032,
+            "ReceiptsCanceled": 0,
+            "ReceiptsDeadlineExceeded": 0
+          },
+          "Queued": 0,
+          "IncompleteExchanges": 0,
+          "NativeStreams": 0,
+          "Connections": 0,
+          "InFlight": 0,
+          "Executing": 0,
+          "Admitted": 50032,
+          "Completed": 50032,
+          "Rejected": 0,
+          "Canceled": 0,
+          "Delivered": 50032,
+          "LostTerminals": 0
+        }
+      }
+    ],
+    "status": "PASS",
+    "process_triple_cpu_seconds": 17.505391000000003,
+    "owned_processes_reaped": true,
+    "pool_invariants": "PASS",
+    "version": "r9c"
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "seed": 7,
+    "payload_bytes": 128,
+    "client": {
+      "P50": 555166,
+      "P95": 898041,
+      "P99": 1127000,
+      "completed": 100000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 7451154667,
+      "evidence": "loopback integer/JSON fixture; two fixed local snapshot endpoints; no real discovery latency or model performance",
+      "memory": {
+        "Memory": {
+          "Receive": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 11370,
+            "Rejected": 0
+          },
+          "Send": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 566,
+            "Rejected": 0
+          },
+          "ControlReceive": {
+            "Limit": 65536,
+            "Used": 0,
+            "Peak": 464,
+            "Rejected": 0
+          },
+          "ControlSend": {
+            "Limit": 65536,
+            "Used": 0,
+            "Peak": 144,
+            "Rejected": 0
+          },
+          "Encoding": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 4194740,
+            "Rejected": 0
+          }
+        },
+        "Data": {
+          "Limit": 33554432,
+          "Used": 0,
+          "Peak": 4201414,
+          "Rejected": 0
+        },
+        "Total": {
+          "Limit": 33685504,
+          "Used": 0,
+          "Peak": 4201704,
+          "Rejected": 0
+        },
+        "Active": {
+          "Accounts": 0,
+          "Leases": 0,
+          "EncodingWaiters": 0,
+          "Bytes": {
+            "Receive": 0,
+            "Send": 0,
+            "ControlReceive": 0,
+            "ControlSend": 0,
+            "Encoding": 0
+          },
+          "DataBytes": 0,
+          "Unread": {
+            "Streams": 0,
+            "Chunks": 0,
+            "Bytes": 0
+          }
+        },
+        "Retired": {
+          "Accounts": 0,
+          "Leases": 0,
+          "EncodingWaiters": 0,
+          "Bytes": {
+            "Receive": 0,
+            "Send": 0,
+            "ControlReceive": 0,
+            "ControlSend": 0,
+            "Encoding": 0
+          },
+          "DataBytes": 0,
+          "Unread": {
+            "Streams": 0,
+            "Chunks": 0,
+            "Bytes": 0
+          }
+        },
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 8,
+          "PeakChunks": 61,
+          "PeakBytes": 10845
+        },
+        "Accounts": 0,
+        "PeakAccounts": 2,
+        "Limit": 2,
+        "Created": 2,
+        "Released": 2,
+        "Sealed": true
+      },
+      "offered": 100000,
+      "payload_bytes": 128,
+      "stats": {
+        "Ready": false,
+        "Closed": true,
+        "Endpoints": 2,
+        "Connections": 0,
+        "Dialing": 0,
+        "Retiring": 0,
+        "Closing": 0,
+        "ActiveCalls": 0,
+        "PeakConnections": 2,
+        "PeakCalls": 8,
+        "Dials": 2,
+        "DialFailures": 0,
+        "Coalesced": 0,
+        "Reused": 100062,
+        "Retired": 2,
+        "Rejected": 0,
+        "SnapshotErrors": 0,
+        "Revision": 1,
+        "ClusterID": 1
+      },
+      "strategy": "managed",
+      "transport": "quic",
+      "wait_error": "",
+      "workload": "stream"
+    },
+    "workers": [
+      {
+        "drain_error": "",
+        "duplicates": 0,
+        "evidence": "fixture-no-model",
+        "executions": 50032,
+        "stats": {
+          "Queued": 0,
+          "IncompleteExchanges": 0,
+          "NativeStreams": 0,
+          "Connections": 0,
+          "InFlight": 0,
+          "Executing": 0,
+          "Admitted": 50032,
+          "Completed": 50032,
+          "Rejected": 0,
+          "Canceled": 0,
+          "Delivered": 50032,
+          "LostTerminals": 0
+        }
+      },
+      {
+        "drain_error": "",
+        "duplicates": 0,
+        "evidence": "fixture-no-model",
+        "executions": 50032,
+        "stats": {
+          "Queued": 0,
+          "IncompleteExchanges": 0,
+          "NativeStreams": 0,
+          "Connections": 0,
+          "InFlight": 0,
+          "Executing": 0,
+          "Admitted": 50032,
+          "Completed": 50032,
+          "Rejected": 0,
+          "Canceled": 0,
+          "Delivered": 50032,
+          "LostTerminals": 0
+        }
+      }
+    ],
+    "status": "PASS",
+    "process_triple_cpu_seconds": 32.44322999999999,
+    "owned_processes_reaped": true,
+    "pool_invariants": "PASS",
+    "version": "r9b"
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "seed": 7,
+    "payload_bytes": 128,
+    "client": {
+      "P50": 569291,
+      "P95": 930917,
+      "P99": 1179708,
+      "completed": 100000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 7678865208,
+      "evidence": "loopback integer/JSON fixture; two fixed local snapshot endpoints; no real discovery latency or model performance",
+      "memory": {
+        "Memory": {
+          "Receive": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 11364,
+            "Rejected": 0
+          },
+          "Send": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 566,
+            "Rejected": 0
+          },
+          "ControlReceive": {
+            "Limit": 65536,
+            "Used": 0,
+            "Peak": 464,
+            "Rejected": 0
+          },
+          "ControlSend": {
+            "Limit": 65536,
+            "Used": 0,
+            "Peak": 128,
+            "Rejected": 0
+          },
+          "Encoding": {
+            "Limit": 16777216,
+            "Used": 0,
+            "Peak": 6291456,
+            "Rejected": 0
+          }
+        },
+        "Data": {
+          "Limit": 33554432,
+          "Used": 0,
+          "Peak": 6291456,
+          "Rejected": 0
+        },
+        "Total": {
+          "Limit": 33685504,
+          "Used": 0,
+          "Peak": 6291456,
+          "Rejected": 0
+        },
+        "Active": {
+          "Accounts": 0,
+          "Leases": 0,
+          "EncodingWaiters": 0,
+          "Bytes": {
+            "Receive": 0,
+            "Send": 0,
+            "ControlReceive": 0,
+            "ControlSend": 0,
+            "Encoding": 0
+          },
+          "DataBytes": 0,
+          "Unread": {
+            "Streams": 0,
+            "Chunks": 0,
+            "Bytes": 0
+          }
+        },
+        "Retired": {
+          "Accounts": 0,
+          "Leases": 0,
+          "EncodingWaiters": 0,
+          "Bytes": {
+            "Receive": 0,
+            "Send": 0,
+            "ControlReceive": 0,
+            "ControlSend": 0,
+            "Encoding": 0
+          },
+          "DataBytes": 0,
+          "Unread": {
+            "Streams": 0,
+            "Chunks": 0,
+            "Bytes": 0
+          }
+        },
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 8,
+          "PeakChunks": 60,
+          "PeakBytes": 10656
+        },
+        "Accounts": 0,
+        "PeakAccounts": 2,
+        "Limit": 2,
+        "Created": 2,
+        "Released": 2,
+        "Sealed": true
+      },
+      "offered": 100000,
+      "payload_bytes": 128,
+      "stats": {
+        "Ready": false,
+        "Closed": true,
+        "Endpoints": 2,
+        "Connections": 0,
+        "Dialing": 0,
+        "Retiring": 0,
+        "Closing": 0,
+        "ActiveCalls": 0,
+        "PeakConnections": 2,
+        "PeakCalls": 8,
+        "Dials": 2,
+        "DialFailures": 0,
+        "Coalesced": 0,
+        "Reused": 100062,
+        "Retired": 2,
+        "Rejected": 0,
+        "SnapshotErrors": 0,
+        "Revision": 1,
+        "ClusterID": 1
+      },
+      "strategy": "managed",
+      "transport": "quic",
+      "wait_error": "",
+      "workload": "stream"
+    },
+    "workers": [
+      {
+        "drain_error": "",
+        "duplicates": 0,
+        "evidence": "fixture-no-model",
+        "executions": 50032,
+        "stats": {
+          "Outcomes": {
+            "CapacityRejected": 0,
+            "PolicyRejected": 0,
+            "DrainingRejected": 0,
+            "InvalidRejected": 0,
+            "NotFoundRejected": 0,
+            "CancelRequests": 0,
+            "RequestDeadlines": 0,
+            "TransportAborts": 0,
+            "ShutdownAborts": 0,
+            "BudgetAborts": 0,
+            "ReceiptsResolved": 50032,
+            "ReceiptsCanceled": 0,
+            "ReceiptsDeadlineExceeded": 0
+          },
+          "Queued": 0,
+          "IncompleteExchanges": 0,
+          "NativeStreams": 0,
+          "Connections": 0,
+          "InFlight": 0,
+          "Executing": 0,
+          "Admitted": 50032,
+          "Completed": 50032,
+          "Rejected": 0,
+          "Canceled": 0,
+          "Delivered": 50032,
+          "LostTerminals": 0
+        }
+      },
+      {
+        "drain_error": "",
+        "duplicates": 0,
+        "evidence": "fixture-no-model",
+        "executions": 50032,
+        "stats": {
+          "Outcomes": {
+            "CapacityRejected": 0,
+            "PolicyRejected": 0,
+            "DrainingRejected": 0,
+            "InvalidRejected": 0,
+            "NotFoundRejected": 0,
+            "CancelRequests": 0,
+            "RequestDeadlines": 0,
+            "TransportAborts": 0,
+            "ShutdownAborts": 0,
+            "BudgetAborts": 0,
+            "ReceiptsResolved": 50032,
+            "ReceiptsCanceled": 0,
+            "ReceiptsDeadlineExceeded": 0
+          },
+          "Queued": 0,
+          "IncompleteExchanges": 0,
+          "NativeStreams": 0,
+          "Connections": 0,
+          "InFlight": 0,
+          "Executing": 0,
+          "Admitted": 50032,
+          "Completed": 50032,
+          "Rejected": 0,
+          "Canceled": 0,
+          "Delivered": 50032,
+          "LostTerminals": 0
+        }
+      }
+    ],
+    "status": "PASS",
+    "process_triple_cpu_seconds": 33.31462900000001,
+    "owned_processes_reaped": true,
+    "pool_invariants": "PASS",
+    "version": "r9c"
+  }
+]

@@ -1,0 +1,130 @@
+{
+  "baseline": "r9c",
+  "candidate": "current",
+  "input": "docs/verification/quic-r9d/candidate-control",
+  "groups": [
+    {
+      "transport": "quic",
+      "workload": "stream",
+      "strategy": "managed",
+      "payload_bytes": 128,
+      "pairs": 5,
+      "failed_or_missing_pairs": [],
+      "status": "PASS",
+      "baseline_median_rps": 14076.236440491642,
+      "candidate_median_rps": 14296.225442508636,
+      "ratio_of_medians_percent": 1.5628396336408112,
+      "paired_median_change_percent": 1.4210241800302503,
+      "paired_change_range_percent": [
+        -0.7384360397301171,
+        2.1019451215305684
+      ],
+      "paired_median_bootstrap_95_percent": [
+        -0.7384360397301171,
+        2.1019451215305684
+      ],
+      "negative_pairs": 2,
+      "samples": [
+        {
+          "seed": 7,
+          "baseline_rps": 14076.236440491642,
+          "candidate_rps": 14372.111205647665,
+          "change_percent": 2.1019451215305684
+        },
+        {
+          "seed": 19,
+          "baseline_rps": 14068.732545240078,
+          "candidate_rps": 14296.225442508636,
+          "change_percent": 1.6170106051630606
+        },
+        {
+          "seed": 41,
+          "baseline_rps": 13788.17142886484,
+          "candidate_rps": 13686.354601814332,
+          "change_percent": -0.7384360397301171
+        },
+        {
+          "seed": 67,
+          "baseline_rps": 14257.196511698572,
+          "candidate_rps": 14459.794721524237,
+          "change_percent": 1.4210241800302503
+        },
+        {
+          "seed": 97,
+          "baseline_rps": 14271.721189298949,
+          "candidate_rps": 14213.129175112024,
+          "change_percent": -0.41054623622311937
+        }
+      ],
+      "baseline_median_elapsed_ns": 355208583,
+      "candidate_median_elapsed_ns": 349742666,
+      "baseline_p95_ms": 0.849625,
+      "candidate_p95_ms": 0.824459,
+      "baseline_cpu_seconds": 1.583748,
+      "candidate_cpu_seconds": 1.5571969999999986
+    },
+    {
+      "transport": "quic",
+      "workload": "unary",
+      "strategy": "managed",
+      "payload_bytes": 128,
+      "pairs": 5,
+      "failed_or_missing_pairs": [],
+      "status": "PASS",
+      "baseline_median_rps": 27366.67587683021,
+      "candidate_median_rps": 27452.415862833852,
+      "ratio_of_medians_percent": 0.31330069603459076,
+      "paired_median_change_percent": -0.3329384557364756,
+      "paired_change_range_percent": [
+        -3.466362279979318,
+        2.3528607069617014
+      ],
+      "paired_median_bootstrap_95_percent": [
+        -3.466362279979318,
+        2.3528607069617014
+      ],
+      "negative_pairs": 3,
+      "samples": [
+        {
+          "seed": 7,
+          "baseline_rps": 26930.749597216978,
+          "candidate_rps": 25997.232251463367,
+          "change_percent": -3.466362279979318
+        },
+        {
+          "seed": 19,
+          "baseline_rps": 27531.630925580615,
+          "candidate_rps": 27439.96753873792,
+          "change_percent": -0.3329384557364756
+        },
+        {
+          "seed": 41,
+          "baseline_rps": 27121.242852867697,
+          "candidate_rps": 27759.36791919248,
+          "change_percent": 2.3528607069617014
+        },
+        {
+          "seed": 67,
+          "baseline_rps": 27366.67587683021,
+          "candidate_rps": 27452.415862833852,
+          "change_percent": 0.31330069603459076
+        },
+        {
+          "seed": 97,
+          "baseline_rps": 27759.117482137008,
+          "candidate_rps": 27528.353006112942,
+          "change_percent": -0.8313105637186124
+        }
+      ],
+      "baseline_median_elapsed_ns": 182703958,
+      "candidate_median_elapsed_ns": 182133333,
+      "baseline_p95_ms": 0.475334,
+      "candidate_p95_ms": 0.468833,
+      "baseline_cpu_seconds": 0.8156879999999944,
+      "candidate_cpu_seconds": 0.8167860000000005
+    }
+  ],
+  "bootstrap_seed": 737,
+  "bootstrap_resamples": 10000,
+  "scope": "paired local descriptive bootstrap; shared-host drift and non-independent repetitions remain; not a production or causal confidence guarantee"
+}

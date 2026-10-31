@@ -1,0 +1,22 @@
+{
+  "accepted_rpc_runtime": "R9C c02d770, all 21 library source files byte-identical",
+  "original_regression_reproduced_stably": false,
+  "runtime_optimization_adopted": false,
+  "rollback_race": {
+    "pass": 339,
+    "skip": 0,
+    "fail": 0
+  },
+  "stages": {
+    "stability-short": "15 paired repeats, 1000 offers/case, R9B vs R9C",
+    "stability-long": "15 paired repeats, 20000 offers/case, R9B vs R9C",
+    "profiles-before": "diagnostic CPU/mutex/allocs only, not throughput",
+    "candidate-control": "first Err precheck candidate vs R9C, rejected",
+    "resources": "Err reuse candidate and R9C, finite resource observations, not throughput",
+    "reuse-profiles-after": "rejected Err reuse candidate, diagnostic only",
+    "final-resources": "last conservative candidate, not accepted runtime",
+    "final-small": "last conservative candidate vs R9B/R9C, 5 paired repeats, rejected",
+    "go-*": "conservative candidate normal/race checks before rollback",
+    "rollback-race": "only final rollback validation, unchanged R9C runtime"
+  }
+}

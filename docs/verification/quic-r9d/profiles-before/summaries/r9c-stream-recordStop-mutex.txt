@@ -1,0 +1,23 @@
+Total: 211.27ms
+ROUTINE ======================== github.com/KanaDoodle/KanaRPC.(*execution).recordStop in /private/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9c/drain.go
+         0   847.61us (flat, cum)   0.4% of Total
+         .          .    105:func (r *execution) recordStop() {
+         .          .    106:	cause := context.Cause(r.ctx)
+         .          .    107:	if cause == nil {
+         .          .    108:		return
+         .          .    109:	}
+         .          .    110:	s := r.peer.server
+         .          .    111:	s.mu.Lock()
+         .          .    112:	defer s.mu.Unlock()
+         .          .    113:	if r.ctx.Err() == context.DeadlineExceeded {
+         .          .    114:		s.stats.Outcomes.RequestDeadlines++
+         .          .    115:		return
+         .          .    116:	}
+         .          .    117:	select {
+         .          .    118:	case <-r.ack: // Native FIN following an ACK is ordinary transport cleanup.
+         .   847.61us    119:		return
+         .          .    120:	default:
+         .          .    121:	}
+         .          .    122:	if cause == context.Canceled && r.cancelObserved {
+         .          .    123:		return
+         .          .    124:	}

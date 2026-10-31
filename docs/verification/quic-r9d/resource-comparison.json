@@ -1,0 +1,88 @@
+[
+  {
+    "version": "current",
+    "tight": false,
+    "status": "PASS",
+    "offered": 218529,
+    "outcomes": {
+      "canceled": 54634,
+      "success": 163895
+    },
+    "lost": 0,
+    "incomplete": 0,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "reaped": true
+  },
+  {
+    "version": "baseline",
+    "tight": false,
+    "status": "PASS",
+    "offered": 235322,
+    "outcomes": {
+      "canceled": 58832,
+      "success": 176490
+    },
+    "lost": 0,
+    "incomplete": 0,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "reaped": true
+  },
+  {
+    "version": "current",
+    "tight": true,
+    "status": "DEGRADED",
+    "offered": 166826,
+    "outcomes": {
+      "canceled": 16789,
+      "status_resource_exhausted": 132394,
+      "success": 17643
+    },
+    "lost": 25092,
+    "incomplete": 0,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "reaped": true
+  },
+  {
+    "version": "baseline",
+    "tight": true,
+    "status": "DEGRADED",
+    "offered": 173947,
+    "outcomes": {
+      "canceled": 17547,
+      "status_resource_exhausted": 137906,
+      "success": 18494
+    },
+    "lost": 25988,
+    "incomplete": 0,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "reaped": true
+  }
+]

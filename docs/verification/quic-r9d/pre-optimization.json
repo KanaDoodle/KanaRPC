@@ -1,0 +1,13 @@
+{
+  "runtime_identical_to_r9c": {
+    "server.go": "f4ecffca110b1576d6d873f23b3348f75f55c536a9466dbe30e1908eac7cf901",
+    "drain.go": "9fbe001f8b1eb7ab8663af80b536e28e0de01637daa267a8311ea031fc4281bb",
+    "resources.go": "d9c4252b9e0b0c49560d23c63c8bf65c434771a404cf2b32286d62e09fb78f40",
+    "memory_pool.go": "5d5f30c45dee58a8c7925b1383b447b16abd281536145a3e2315c3a2fd4d0f5e",
+    "quic.go": "e96f35bbc257404ce364c36775b2a744c03dbb5712c91ca77e1423ce6534c573",
+    "client.go": "ea5f34f5d86c2c8dfa32e8b40855b4a3b660b4f17e085dd5a9922f9cdf5eb0c4",
+    "routing/client.go": "784ee194f0390a45b4557f53fed736aa077c186f909dc5b4362854f4444690ea"
+  },
+  "diagnostic_only_driver_changes": true,
+  "scope": "no runtime optimization before stability/profile/microbench evidence"
+}

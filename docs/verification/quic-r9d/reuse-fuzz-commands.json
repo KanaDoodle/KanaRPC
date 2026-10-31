@@ -1,0 +1,33 @@
+[
+  {
+    "command": [
+      "go",
+      "test",
+      "-run",
+      "^$",
+      "-fuzz",
+      "^FuzzReceiptSettlement$",
+      "-fuzztime=10s",
+      "-parallel=2",
+      "-timeout=40s",
+      "."
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "-run",
+      "^$",
+      "-fuzz",
+      "^FuzzReceiptSettlement$",
+      "-fuzztime=10s",
+      "-parallel=2",
+      "-timeout=40s",
+      "."
+    ],
+    "exit_code": 0
+  }
+]

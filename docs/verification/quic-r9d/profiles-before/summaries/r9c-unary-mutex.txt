@@ -1,0 +1,156 @@
+File: r9c-transport-lab
+Type: delay
+Time: 2026-10-31 21:25:28 CST
+Showing nodes accounting for 162991.87us, 100% of 162991.87us total
+Showing top 150 nodes out of 285
+      flat  flat%   sum%        cum   cum%
+150656.45us 92.43% 92.43% 150659.79us 92.43%  sync.(*Mutex).Unlock (partial-inline)
+ 8308.38us  5.10% 97.53% 59144.12us 36.29%  sync.(*RWMutex).Unlock
+ 2612.54us  1.60% 99.13%  2612.54us  1.60%  sync.(*RWMutex).RUnlock (inline)
+ 1377.95us  0.85%   100%  1377.95us  0.85%  runtime.unlock (inline)
+   36.54us 0.022%   100%    36.54us 0.022%  runtime._LostContendedRuntimeLock
+         0     0%   100%    61.50us 0.038%  _.goready.func1
+         0     0%   100%   757.33us  0.46%  context.(*cancelCtx).cancel
+         0     0%   100%      162us 0.099%  context.(*cancelCtx).propagateCancel
+         0     0%   100%   188.08us  0.12%  context.(*timerCtx).cancel
+         0     0%   100%      162us 0.099%  context.WithCancelCause
+         0     0%   100%   757.33us  0.46%  context.WithCancelCause.func1
+         0     0%   100%    11.29us 0.0069%  context.WithDeadline
+         0     0%   100%    11.29us 0.0069%  context.WithDeadlineCause
+         0     0%   100%    11.29us 0.0069%  context.WithTimeout
+         0     0%   100%   383.33us  0.24%  context.removeChild
+         0     0%   100%      162us 0.099%  context.withCancel
+         0     0%   100%     0.46us 0.00028%  encoding/json.Marshal
+         0     0%   100%     1.46us 0.00089%  encoding/json.Unmarshal
+         0     0%   100%     1.46us 0.00089%  encoding/json/jsontext.export.GetBufferedDecoder
+         0     0%   100%     0.46us 0.00028%  encoding/json/jsontext.export.GetBufferedEncoder
+         0     0%   100%     1.46us 0.00089%  encoding/json/jsontext.getBufferedDecoder
+         0     0%   100%     0.46us 0.00028%  encoding/json/jsontext.getBufferedEncoder
+         0     0%   100%     0.46us 0.00028%  encoding/json/v2.Marshal
+         0     0%   100%     1.46us 0.00089%  encoding/json/v2.Unmarshal
+         0     0%   100%  1161.98us  0.71%  github.com/KanaDoodle/KanaRPC.(*Sender).Send
+         0     0%   100%  1317.73us  0.81%  github.com/KanaDoodle/KanaRPC.(*Server).HandleUnary.func1
+         0     0%   100% 10018.74us  6.15%  github.com/KanaDoodle/KanaRPC.(*Server).ServeQUIC.gowrap1
+         0     0%   100%    49.17us  0.03%  github.com/KanaDoodle/KanaRPC.(*Server).notifyLocked
+         0     0%   100%   176.67us  0.11%  github.com/KanaDoodle/KanaRPC.(*Server).pressure
+         0     0%   100%   296.67us  0.18%  github.com/KanaDoodle/KanaRPC.(*byteBudget).lease
+         0     0%   100%   296.67us  0.18%  github.com/KanaDoodle/KanaRPC.(*byteBudget).lease.deferwrap1
+         0     0%   100%   296.67us  0.18%  github.com/KanaDoodle/KanaRPC.(*byteBudget).take (inline)
+         0     0%   100%   321.09us   0.2%  github.com/KanaDoodle/KanaRPC.(*byteBudget).unlock
+         0     0%   100%    24.42us 0.015%  github.com/KanaDoodle/KanaRPC.(*byteLease).release
+         0     0%   100%    24.42us 0.015%  github.com/KanaDoodle/KanaRPC.(*byteLease).release-fm
+         0     0%   100%    24.42us 0.015%  github.com/KanaDoodle/KanaRPC.(*byteLease).release.deferwrap1
+         0     0%   100%   134.25us 0.082%  github.com/KanaDoodle/KanaRPC.(*execution).acknowledge
+         0     0%   100%  3406.65us  2.09%  github.com/KanaDoodle/KanaRPC.(*execution).recordDelivery
+         0     0%   100%  2074.56us  1.27%  github.com/KanaDoodle/KanaRPC.(*execution).recordStop
+         0     0%   100% 16821.57us 10.32%  github.com/KanaDoodle/KanaRPC.(*execution).run
+         0     0%   100%  6990.92us  4.29%  github.com/KanaDoodle/KanaRPC.(*execution).run.func1
+         0     0%   100% 46458.02us 28.50%  github.com/KanaDoodle/KanaRPC.(*link).read (inline)
+         0     0%   100% 46745.10us 28.68%  github.com/KanaDoodle/KanaRPC.(*link).readWithin
+         0     0%   100%  2367.12us  1.45%  github.com/KanaDoodle/KanaRPC.(*link).send
+         0     0%   100%  2367.12us  1.45%  github.com/KanaDoodle/KanaRPC.(*link).writeLocked
+         0     0%   100%   674.31us  0.41%  github.com/KanaDoodle/KanaRPC.(*nativeChannel).Close
+         0     0%   100%   674.31us  0.41%  github.com/KanaDoodle/KanaRPC.(*nativeChannel).Close.func1
+         0     0%   100% 46558.56us 28.56%  github.com/KanaDoodle/KanaRPC.(*nativeChannel).Read
+         0     0%   100%     6.08us 0.0037%  github.com/KanaDoodle/KanaRPC.(*nativeChannel).SetWriteDeadline
+         0     0%   100%  2271.34us  1.39%  github.com/KanaDoodle/KanaRPC.(*nativeChannel).Write
+         0     0%   100% 10032.41us  6.16%  github.com/KanaDoodle/KanaRPC.(*quicServerSession).run
+         0     0%   100% 118102.78us 72.46%  github.com/KanaDoodle/KanaRPC.(*quicServerSession).run.gowrap1
+         0     0%   100%   170.37us   0.1%  github.com/KanaDoodle/KanaRPC.(*resources).reserveRead
+         0     0%   100%   170.37us   0.1%  github.com/KanaDoodle/KanaRPC.(*resources).reserveRead-fm
+         0     0%   100%    83.67us 0.051%  github.com/KanaDoodle/KanaRPC.(*resources).reserveWrite
+         0     0%   100% 31847.66us 19.54%  github.com/KanaDoodle/KanaRPC.(*serverConn).close
+         0     0%   100%  1277.77us  0.78%  github.com/KanaDoodle/KanaRPC.(*serverConn).close.func1
+         0     0%   100% 20810.75us 12.77%  github.com/KanaDoodle/KanaRPC.(*serverConn).handleFrame
+         0     0%   100%     1.96us 0.0012%  github.com/KanaDoodle/KanaRPC.(*serverConn).handleFrame.func1
+         0     0%   100% 20674.54us 12.68%  github.com/KanaDoodle/KanaRPC.(*serverConn).open
+         0     0%   100% 16696.69us 10.24%  github.com/KanaDoodle/KanaRPC.(*serverConn).open.gowrap1
+         0     0%   100% 118195.44us 72.52%  github.com/KanaDoodle/KanaRPC.(*serverConn).readLoop
+         0     0%   100% 18791.93us 11.53%  github.com/KanaDoodle/KanaRPC.(*serverConn).readLoop.func1
+         0     0%   100%   155.75us 0.096%  github.com/KanaDoodle/KanaRPC.RegisterUnary[go.shape.struct { ID int "json:\"id\""; Payload string "json:\"payload\""; Count int "json:\"count\""; Sequence int "json:\"sequence\"" },go.shape.struct { ID int "json:\"id\""; Payload string "json:\"payload\""; Count int "json:\"count\""; Sequence int "json:\"sequence\"" }].func1
+         0     0%   100%   674.31us  0.41%  github.com/KanaDoodle/KanaRPC.closeSocket
+         0     0%   100%  1317.73us  0.81%  github.com/KanaDoodle/KanaRPC.invoke
+         0     0%   100%     0.79us 0.00049%  github.com/KanaDoodle/KanaRPC.nativeError
+         0     0%   100%    18.09us 0.011%  github.com/KanaDoodle/KanaRPC/internal/wire.(*Frame).Release
+         0     0%   100% 46745.10us 28.68%  github.com/KanaDoodle/KanaRPC/internal/wire.ReadReserved
+         0     0%   100%  2271.34us  1.39%  github.com/KanaDoodle/KanaRPC/internal/wire.Write
+         0     0%   100%  7966.92us  4.89%  github.com/quic-go/quic-go.(*Conn).AcceptStream (inline)
+         0     0%   100%  6400.01us  3.93%  github.com/quic-go/quic-go.(*Conn).appendOneShortHeaderPacket
+         0     0%   100%  9338.11us  5.73%  github.com/quic-go/quic-go.(*Conn).handleFrames
+         0     0%   100%  9338.61us  5.73%  github.com/quic-go/quic-go.(*Conn).handleOnePacket
+         0     0%   100%   390.79us  0.24%  github.com/quic-go/quic-go.(*Conn).handlePacket
+         0     0%   100%  9758.24us  5.99%  github.com/quic-go/quic-go.(*Conn).handlePackets
+         0     0%   100%  9338.11us  5.73%  github.com/quic-go/quic-go.(*Conn).handleShortHeaderPacket
+         0     0%   100%  9338.11us  5.73%  github.com/quic-go/quic-go.(*Conn).handleUnpackedShortHeaderPacket
+         0     0%   100%   674.31us  0.41%  github.com/quic-go/quic-go.(*Conn).onHasStreamControlFrame
+         0     0%   100%  3819.62us  2.34%  github.com/quic-go/quic-go.(*Conn).onHasStreamData
+         0     0%   100% 45780.17us 28.09%  github.com/quic-go/quic-go.(*Conn).onStreamCompleted
+         0     0%   100%   355.71us  0.22%  github.com/quic-go/quic-go.(*Conn).queueControlFrame
+         0     0%   100%     0.17us 0.0001%  github.com/quic-go/quic-go.(*Conn).registerPackedShortHeaderPacket
+         0     0%   100% 16651.33us 10.22%  github.com/quic-go/quic-go.(*Conn).run
+         0     0%   100%    55.17us 0.034%  github.com/quic-go/quic-go.(*Conn).run.func3
+         0     0%   100%    17.67us 0.011%  github.com/quic-go/quic-go.(*Conn).scheduleSending
+         0     0%   100%  6683.30us  4.10%  github.com/quic-go/quic-go.(*Conn).sendPackets
+         0     0%   100%  6428.38us  3.94%  github.com/quic-go/quic-go.(*Conn).sendPacketsWithoutGSO
+         0     0%   100%  6683.30us  4.10%  github.com/quic-go/quic-go.(*Conn).triggerSending
+         0     0%   100% 46557.77us 28.56%  github.com/quic-go/quic-go.(*ReceiveStream).Read
+         0     0%   100%     3.25us 0.002%  github.com/quic-go/quic-go.(*ReceiveStream).dequeueNextFrame
+         0     0%   100%   380.23us  0.23%  github.com/quic-go/quic-go.(*ReceiveStream).handleStreamFrame
+         0     0%   100%   118.31us 0.073%  github.com/quic-go/quic-go.(*ReceiveStream).handleStreamFrameImpl
+         0     0%   100%   777.60us  0.48%  github.com/quic-go/quic-go.(*ReceiveStream).readImpl
+         0     0%   100%     4.75us 0.0029%  github.com/quic-go/quic-go.(*ReceiveStream).signalRead
+         0     0%   100%   674.31us  0.41%  github.com/quic-go/quic-go.(*SendStream).CancelWrite
+         0     0%   100%  1724.91us  1.06%  github.com/quic-go/quic-go.(*SendStream).Close
+         0     0%   100%     6.08us 0.0037%  github.com/quic-go/quic-go.(*SendStream).SetWriteDeadline
+         0     0%   100%  2271.34us  1.39%  github.com/quic-go/quic-go.(*SendStream).TryWriteAll
+         0     0%   100%   260.88us  0.16%  github.com/quic-go/quic-go.(*SendStream).popStreamFrame
+         0     0%   100%    22.75us 0.014%  github.com/quic-go/quic-go.(*SendStream).tryWriteAll
+         0     0%   100%   674.31us  0.41%  github.com/quic-go/quic-go.(*Stream).CancelWrite (inline)
+         0     0%   100%  1724.91us  1.06%  github.com/quic-go/quic-go.(*Stream).Close (inline)
+         0     0%   100% 46557.77us 28.56%  github.com/quic-go/quic-go.(*Stream).Read (inline)
+         0     0%   100%     6.08us 0.0037%  github.com/quic-go/quic-go.(*Stream).SetWriteDeadline
+         0     0%   100%  2271.34us  1.39%  github.com/quic-go/quic-go.(*Stream).TryWriteAll (inline)
+         0     0%   100% 45780.17us 28.09%  github.com/quic-go/quic-go.(*Stream).checkIfCompleted (inline)
+         0     0%   100%   380.23us  0.23%  github.com/quic-go/quic-go.(*Stream).handleStreamFrame
+         0     0%   100%   390.79us  0.24%  github.com/quic-go/quic-go.(*Transport).handlePacket
+         0     0%   100%   441.54us  0.27%  github.com/quic-go/quic-go.(*Transport).init.func1.1
+         0     0%   100%   441.54us  0.27%  github.com/quic-go/quic-go.(*Transport).listen
+         0     0%   100% 16412.16us 10.07%  github.com/quic-go/quic-go.(*baseServer).handleInitialImpl.gowrap1
+         0     0%   100%   753.76us  0.46%  github.com/quic-go/quic-go.(*connectionFlowController).AddBytesRead
+         0     0%   100%   254.92us  0.16%  github.com/quic-go/quic-go.(*connectionFlowController).GetWindowUpdate
+         0     0%   100%   113.56us  0.07%  github.com/quic-go/quic-go.(*connectionFlowController).IncrementHighestReceived
+         0     0%   100%    21.37us 0.013%  github.com/quic-go/quic-go.(*connectionFlowController).IsNewlyBlocked
+         0     0%   100%     9.83us 0.006%  github.com/quic-go/quic-go.(*connectionFlowController).TryAddBytesSent
+         0     0%   100%  3810.08us  2.34%  github.com/quic-go/quic-go.(*framer).AddActiveStream
+         0     0%   100%   666.19us  0.41%  github.com/quic-go/quic-go.(*framer).AddStreamWithControlFrames
+         0     0%   100%  5575.26us  3.42%  github.com/quic-go/quic-go.(*framer).Append
+         0     0%   100%   824.58us  0.51%  github.com/quic-go/quic-go.(*framer).HasData
+         0     0%   100%   355.71us  0.22%  github.com/quic-go/quic-go.(*framer).QueueControlFrame
+         0     0%   100%   517.05us  0.32%  github.com/quic-go/quic-go.(*framer).RemoveActiveStream
+         0     0%   100%   260.88us  0.16%  github.com/quic-go/quic-go.(*framer).getNextIncrementalStreamFrame
+         0     0%   100%   260.88us  0.16%  github.com/quic-go/quic-go.(*framer).getNextStreamFrame
+         0     0%   100%   260.88us  0.16%  github.com/quic-go/quic-go.(*framer).popStreamFrame
+         0     0%   100%  7966.92us  4.89%  github.com/quic-go/quic-go.(*incomingStreamsMap[go.shape.*uint8]).AcceptStream
+         0     0%   100% 45263.11us 27.77%  github.com/quic-go/quic-go.(*incomingStreamsMap[go.shape.*uint8]).DeleteStream
+         0     0%   100% 44900.78us 27.55%  github.com/quic-go/quic-go.(*incomingStreamsMap[go.shape.*uint8]).DeleteStream.deferwrap1
+         0     0%   100%  8957.89us  5.50%  github.com/quic-go/quic-go.(*incomingStreamsMap[go.shape.*uint8]).GetOrOpenStream
+         0     0%   100%   362.33us  0.22%  github.com/quic-go/quic-go.(*incomingStreamsMap[go.shape.*uint8]).deleteStream
+         0     0%   100%    50.75us 0.031%  github.com/quic-go/quic-go.(*oobConn).ReadPacket
+         0     0%   100%     0.50us 0.00031%  github.com/quic-go/quic-go.(*packetBuffer).MaybeRelease
+         0     0%   100%     0.83us 0.00051%  github.com/quic-go/quic-go.(*packetBuffer).Release
+         0     0%   100%     1.33us 0.00082%  github.com/quic-go/quic-go.(*packetBuffer).putBack
+         0     0%   100%  6399.84us  3.93%  github.com/quic-go/quic-go.(*packetPacker).AppendPacket
+         0     0%   100%  6399.84us  3.93%  github.com/quic-go/quic-go.(*packetPacker).appendPacket
+         0     0%   100%  6399.84us  3.93%  github.com/quic-go/quic-go.(*packetPacker).composeNextPacket
+         0     0%   100%  6399.84us  3.93%  github.com/quic-go/quic-go.(*packetPacker).maybeGetAppDataPacket
+         0     0%   100%  6399.84us  3.93%  github.com/quic-go/quic-go.(*packetPacker).maybeGetShortHeaderPacket
+         0     0%   100%    55.17us 0.034%  github.com/quic-go/quic-go.(*sendQueue).Run
+         0     0%   100%    21.29us 0.013%  github.com/quic-go/quic-go.(*sendQueue).Send
+         0     0%   100%   753.76us  0.46%  github.com/quic-go/quic-go.(*streamFlowController).AddBytesRead
+         0     0%   100%     9.83us 0.006%  github.com/quic-go/quic-go.(*streamFlowController).TryAddBytesSent
+         0     0%   100%   113.56us  0.07%  github.com/quic-go/quic-go.(*streamFlowController).UpdateHighestReceived
+         0     0%   100%  7966.92us  4.89%  github.com/quic-go/quic-go.(*streamsMap).AcceptStream
+         0     0%   100% 45263.11us 27.77%  github.com/quic-go/quic-go.(*streamsMap).DeleteStream
+         0     0%   100%  9338.11us  5.73%  github.com/quic-go/quic-go.(*streamsMap).HandleStreamFrame
+         0     0%   100%  8957.89us  5.50%  github.com/quic-go/quic-go.(*streamsMap).getReceiveStream
+         0     0%   100%    68.92us 0.042%  github.com/quic-go/quic-go.(*streamsMap).initMaps.func2

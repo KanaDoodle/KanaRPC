@@ -1,0 +1,38 @@
+[
+  {
+    "version": "r9b",
+    "command": [
+      "go",
+      "test",
+      "-run",
+      "^$",
+      "-bench",
+      "^BenchmarkExecutionAllocation$",
+      "-benchmem",
+      "-benchtime=300ms",
+      "-count=5",
+      "-cpu=2",
+      "."
+    ],
+    "exit_code": 0,
+    "benchmark_sha256": "80d8c383068a1207bccbc663f12b27ca4e26b64124e9a771c278c28af85ef972"
+  },
+  {
+    "version": "r9c",
+    "command": [
+      "go",
+      "test",
+      "-run",
+      "^$",
+      "-bench",
+      "^BenchmarkExecutionAllocation$",
+      "-benchmem",
+      "-benchtime=300ms",
+      "-count=5",
+      "-cpu=2",
+      "."
+    ],
+    "exit_code": 0,
+    "benchmark_sha256": "80d8c383068a1207bccbc663f12b27ca4e26b64124e9a771c278c28af85ef972"
+  }
+]

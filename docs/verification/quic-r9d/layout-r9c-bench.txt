@@ -1,0 +1,11 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/KanaDoodle/KanaRPC
+cpu: Apple M5
+BenchmarkExecutionAllocation-2   	 5823884	        71.47 ns/op	       384.0 execution-bytes	     384 B/op	       1 allocs/op
+BenchmarkExecutionAllocation-2   	 5644741	        62.59 ns/op	       384.0 execution-bytes	     384 B/op	       1 allocs/op
+BenchmarkExecutionAllocation-2   	 5493373	        66.12 ns/op	       384.0 execution-bytes	     384 B/op	       1 allocs/op
+BenchmarkExecutionAllocation-2   	 6078732	        61.38 ns/op	       384.0 execution-bytes	     384 B/op	       1 allocs/op
+BenchmarkExecutionAllocation-2   	 5975218	        75.64 ns/op	       384.0 execution-bytes	     384 B/op	       1 allocs/op
+PASS
+ok  	github.com/KanaDoodle/KanaRPC	3.063s

@@ -1,0 +1,155 @@
+[
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-top",
+      "-nodefraction=0",
+      "-nodecount=150",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9b-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9b/worker-0.json.cpu.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9b/worker-1.json.cpu.pprof"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-top",
+      "-nodefraction=0",
+      "-nodecount=150",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9b-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9b/worker-0.json.mutex.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9b/worker-1.json.mutex.pprof"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-top",
+      "-nodefraction=0",
+      "-nodecount=150",
+      "-sample_index=alloc_objects",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9b-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9b/worker-0.json.allocs.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9b/worker-1.json.allocs.pprof"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-top",
+      "-nodefraction=0",
+      "-nodecount=150",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9c-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-unary-quic-managed-r9c/worker-0.json.cpu.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-unary-quic-managed-r9c/worker-1.json.cpu.pprof"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-top",
+      "-nodefraction=0",
+      "-nodecount=150",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9c-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-unary-quic-managed-r9c/worker-0.json.mutex.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-unary-quic-managed-r9c/worker-1.json.mutex.pprof"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-top",
+      "-nodefraction=0",
+      "-nodecount=150",
+      "-sample_index=alloc_objects",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9c-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-unary-quic-managed-r9c/worker-0.json.allocs.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-unary-quic-managed-r9c/worker-1.json.allocs.pprof"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-list=recordStop",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9c-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-unary-quic-managed-r9c/worker-0.json.mutex.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-unary-quic-managed-r9c/worker-1.json.mutex.pprof"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-top",
+      "-nodefraction=0",
+      "-nodecount=150",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9c-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9c/worker-0.json.cpu.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9c/worker-1.json.cpu.pprof"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-top",
+      "-nodefraction=0",
+      "-nodecount=150",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9c-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9c/worker-0.json.mutex.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9c/worker-1.json.mutex.pprof"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-top",
+      "-nodefraction=0",
+      "-nodecount=150",
+      "-sample_index=alloc_objects",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9c-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9c/worker-0.json.allocs.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9c/worker-1.json.allocs.pprof"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "tool",
+      "pprof",
+      "-list=recordStop",
+      "/var/folders/6v/tm9cllks01lc624s72bg7x180000gn/T/kanarpc-r9b-perf-ecg_j4_m/r9c-transport-lab",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9c/worker-0.json.mutex.pprof",
+      "docs/verification/quic-r9d/profiles-before/7-128-stream-quic-managed-r9c/worker-1.json.mutex.pprof"
+    ],
+    "exit_code": 0
+  }
+]

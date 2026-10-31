@@ -1,0 +1,211 @@
+{
+  "drain_error": "kanarpc: terminal receipt not acknowledged",
+  "drain_report": {
+    "Before": {
+      "Outcomes": {
+        "CapacityRejected": 0,
+        "PolicyRejected": 0,
+        "DrainingRejected": 0,
+        "InvalidRejected": 0,
+        "NotFoundRejected": 0,
+        "CancelRequests": 16642,
+        "RequestDeadlines": 0,
+        "TransportAborts": 66535,
+        "ShutdownAborts": 0,
+        "BudgetAborts": 0,
+        "ReceiptsResolved": 2689,
+        "ReceiptsCanceled": 0,
+        "ReceiptsDeadlineExceeded": 0
+      },
+      "Queued": 0,
+      "IncompleteExchanges": 0,
+      "NativeStreams": 0,
+      "Connections": 0,
+      "InFlight": 0,
+      "Executing": 0,
+      "Admitted": 83419,
+      "Completed": 83419,
+      "Rejected": 0,
+      "Canceled": 80729,
+      "Delivered": 241,
+      "LostTerminals": 2448
+    },
+    "After": {
+      "Outcomes": {
+        "CapacityRejected": 0,
+        "PolicyRejected": 0,
+        "DrainingRejected": 0,
+        "InvalidRejected": 0,
+        "NotFoundRejected": 0,
+        "CancelRequests": 16642,
+        "RequestDeadlines": 0,
+        "TransportAborts": 66535,
+        "ShutdownAborts": 0,
+        "BudgetAborts": 0,
+        "ReceiptsResolved": 2689,
+        "ReceiptsCanceled": 0,
+        "ReceiptsDeadlineExceeded": 0
+      },
+      "Queued": 0,
+      "IncompleteExchanges": 0,
+      "NativeStreams": 0,
+      "Connections": 0,
+      "InFlight": 0,
+      "Executing": 0,
+      "Admitted": 83419,
+      "Completed": 83419,
+      "Rejected": 0,
+      "Canceled": 80729,
+      "Delivered": 241,
+      "LostTerminals": 2448
+    },
+    "MemoryBefore": {
+      "Receive": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 297170,
+        "Rejected": 0
+      },
+      "Send": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 263040,
+        "Rejected": 0
+      },
+      "ControlReceive": {
+        "Limit": 65536,
+        "Used": 0,
+        "Peak": 16,
+        "Rejected": 0
+      },
+      "ControlSend": {
+        "Limit": 65536,
+        "Used": 0,
+        "Peak": 82,
+        "Rejected": 0
+      },
+      "Encoding": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 0,
+        "Rejected": 0
+      }
+    },
+    "MemoryAfter": {
+      "Receive": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 297170,
+        "Rejected": 0
+      },
+      "Send": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 263040,
+        "Rejected": 0
+      },
+      "ControlReceive": {
+        "Limit": 65536,
+        "Used": 0,
+        "Peak": 16,
+        "Rejected": 0
+      },
+      "ControlSend": {
+        "Limit": 65536,
+        "Used": 0,
+        "Peak": 82,
+        "Rejected": 0
+      },
+      "Encoding": {
+        "Limit": 16777216,
+        "Used": 0,
+        "Peak": 0,
+        "Rejected": 0
+      }
+    },
+    "PriorFaults": {
+      "LostTerminals": 2448,
+      "IncompleteExchanges": 0
+    },
+    "AddedFaults": {
+      "LostTerminals": 0,
+      "IncompleteExchanges": 0
+    },
+    "TotalFaults": {
+      "LostTerminals": 2448,
+      "IncompleteExchanges": 0
+    },
+    "Quiescent": true
+  },
+  "handler_calls": 83419,
+  "heap": {
+    "Goroutines": 3,
+    "FDs": 8,
+    "HeapAlloc": 427096,
+    "HeapObjects": 1648,
+    "StackInuse": 557056,
+    "TotalAlloc": 12201758536,
+    "NumGC": 4315
+  },
+  "memory": {
+    "Receive": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 297170,
+      "Rejected": 0
+    },
+    "Send": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 263040,
+      "Rejected": 0
+    },
+    "ControlReceive": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 16,
+      "Rejected": 0
+    },
+    "ControlSend": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 82,
+      "Rejected": 0
+    },
+    "Encoding": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    }
+  },
+  "rpc": {
+    "Outcomes": {
+      "CapacityRejected": 0,
+      "PolicyRejected": 0,
+      "DrainingRejected": 0,
+      "InvalidRejected": 0,
+      "NotFoundRejected": 0,
+      "CancelRequests": 16642,
+      "RequestDeadlines": 0,
+      "TransportAborts": 66535,
+      "ShutdownAborts": 0,
+      "BudgetAborts": 0,
+      "ReceiptsResolved": 2689,
+      "ReceiptsCanceled": 0,
+      "ReceiptsDeadlineExceeded": 0
+    },
+    "Queued": 0,
+    "IncompleteExchanges": 0,
+    "NativeStreams": 0,
+    "Connections": 0,
+    "InFlight": 0,
+    "Executing": 0,
+    "Admitted": 83419,
+    "Completed": 83419,
+    "Rejected": 0,
+    "Canceled": 80729,
+    "Delivered": 241,
+    "LostTerminals": 2448
+  }
+}

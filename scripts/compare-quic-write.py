@@ -44,6 +44,7 @@ def snapshot(root, ref=None):
             shutil.copy2(ROOT / name, root / name)
     # An experiment driver is deliberately common to all runtime versions.
     shutil.copy2(ROOT / "cmd/routing-lab/main.go", root / "cmd/routing-lab/main.go")
+    shutil.copy2(ROOT / "cmd/transport-lab/main.go", root / "cmd/transport-lab/main.go")
 
 
 def main():
@@ -51,24 +52,26 @@ def main():
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--count", type=int, default=1000)
     parser.add_argument("--workers", type=int, default=8)
+    parser.add_argument("--profile", action="store_true", help="diagnostic CPU/mutex/block/alloc profiles; not throughput evidence")
     parser.add_argument("--seeds", type=int, nargs="+", default=[7, 19, 41, 67, 97])
     parser.add_argument("--payloads", type=int, nargs="+", default=[128, 900, 1024, 4096, 16384])
     parser.add_argument("--transports", nargs="+", choices=["tcp", "tls", "quic"], default=["tcp", "quic"])
     parser.add_argument("--workloads", nargs="+", choices=["unary", "stream"], default=["unary", "stream"])
     parser.add_argument("--strategies", nargs="+", choices=["direct", "managed"], default=["direct", "managed"])
-    parser.add_argument("--versions", nargs="+", choices=["r8d", "r9a", "r9b", "current"], default=["r8d", "r9a", "current"])
+    parser.add_argument("--versions", nargs="+", choices=["r8d", "r9a", "r9b", "r9c", "current"], default=["r8d", "r9a", "current"])
     args = parser.parse_args()
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=False)
     work = Path(tempfile.mkdtemp(prefix="kanarpc-r9b-perf-"))
     env = dict(os.environ, GOWORK="off", GOMAXPROCS="2")
-    refs = {"r8d": "90af591", "r9a": "478ab3d", "r9b": "0b33dad", "current": None}
+    refs = {"r8d": "90af591", "r9a": "478ab3d", "r9b": "0b33dad", "r9c": "c02d770", "current": None}
     metadata = {
         "go": subprocess.check_output(["go", "version"], text=True).strip(),
         "work": str(work), "count": args.count, "workers": args.workers,
         "seeds": args.seeds, "payloads": args.payloads, "GOMAXPROCS": 2,
         "transports": args.transports, "workloads": args.workloads,
         "strategies": args.strategies, "versions": {},
+        "profiled_diagnostic_only": args.profile,
         "load_average_at_start": os.getloadavg(), "driver_sha256": digest(Path(__file__)),
         "scope": "serial owned loopback, paired runtime worker/client versions, one common payload-aware driver; direct reuses two connections; managed has two connections and default pool budgets; fixed snapshot fixture; 64 warmups excluded from timed offers; shared-host background load uncontrolled; no real dual-host, inference or production-capacity claim",
     }
@@ -124,7 +127,7 @@ def main():
                             for version in order:
                                 directory = output / f"{seed}-{payload}-{workload}-{transport}-{strategy}-{version}"
                                 try:
-                                    result = controls.case(binaries[version]["transport-lab"], binaries[version]["routing-lab"], directory, transport, workload, strategy, seed, args.count, args.workers, payload)
+                                    result = controls.case(binaries[version]["transport-lab"], binaries[version]["routing-lab"], directory, transport, workload, strategy, seed, args.count, args.workers, payload, profile=args.profile)
                                     memory = result["client"].get("memory")
                                     if strategy == "managed" and version != "r8d":
                                         assert memory is not None

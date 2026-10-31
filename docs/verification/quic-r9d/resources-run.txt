@@ -1,0 +1,5 @@
+current quic False PASS
+baseline quic False PASS
+current quic True DEGRADED
+baseline quic True DEGRADED
+{"cases": 4, "failed": 0}

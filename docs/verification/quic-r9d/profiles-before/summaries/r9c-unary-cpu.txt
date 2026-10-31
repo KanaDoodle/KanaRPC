@@ -1,0 +1,157 @@
+File: r9c-transport-lab
+Type: cpu
+Time: 2026-10-31 21:25:23 CST
+Duration: 9.72s, Total samples = 8.88s (91.39%)
+Showing nodes accounting for 8.88s, 100% of 8.88s total
+Showing top 150 nodes out of 478
+      flat  flat%   sum%        cum   cum%
+     4.90s 55.18% 55.18%      4.90s 55.18%  syscall.rawsyscalln
+     1.46s 16.44% 71.62%      1.47s 16.55%  runtime.kevent
+     0.29s  3.27% 74.89%      0.29s  3.27%  runtime.pthread_cond_signal
+     0.21s  2.36% 77.25%      0.21s  2.36%  runtime.pthread_cond_wait
+     0.18s  2.03% 79.28%      0.18s  2.03%  runtime.nanotime1
+     0.07s  0.79% 80.07%      0.07s  0.79%  runtime.usleep
+     0.04s  0.45% 80.52%      0.13s  1.46%  runtime.pcvalue
+     0.04s  0.45% 80.97%      0.04s  0.45%  runtime.pthread_cond_timedwait_relative_np
+     0.03s  0.34% 81.31%      0.03s  0.34%  runtime.(*moduledata).textAddr
+     0.03s  0.34% 81.64%      0.03s  0.34%  runtime.acquirem (inline)
+     0.03s  0.34% 81.98%      0.03s  0.34%  runtime.getcallerfp
+     0.03s  0.34% 82.32%      0.03s  0.34%  runtime.mallocgcSmallScanNoHeaderSC2
+     0.03s  0.34% 82.66%      0.03s  0.34%  runtime.memmove
+     0.03s  0.34% 83.00%      0.03s  0.34%  runtime.releasem (inline)
+     0.03s  0.34% 83.33%      0.15s  1.69%  runtime.selectgo
+     0.03s  0.34% 83.67%      0.06s  0.68%  runtime.unlock2
+     0.02s  0.23% 83.90%      0.02s  0.23%  encoding/json/internal/jsonwire.ConsumeSimpleString (inline)
+     0.02s  0.23% 84.12%      0.02s  0.23%  encoding/json/jsontext.(*decoderState).reset
+     0.02s  0.23% 84.35%      0.06s  0.68%  encoding/json/v2.makeStructArshaler.func3
+     0.02s  0.23% 84.57%      0.03s  0.34%  github.com/KanaDoodle/KanaRPC.(*Server).handlerDoneLocked
+     0.02s  0.23% 84.80%      0.02s  0.23%  github.com/quic-go/quic-go.(*SendStream).popNewStreamFrameForPacket
+     0.02s  0.23% 85.02%      0.09s  1.01%  github.com/quic-go/quic-go.(*packetPacker).appendPacket
+     0.02s  0.23% 85.25%      0.02s  0.23%  github.com/quic-go/quic-go/internal/protocol.EncryptionLevel.PacketNumberSpace (inline)
+     0.02s  0.23% 85.47%      0.05s  0.56%  internal/sync.(*Mutex).Unlock (inline)
+     0.02s  0.23% 85.70%      0.09s  1.01%  runtime.adjustframe
+     0.02s  0.23% 85.92%      0.02s  0.23%  runtime.casgstatus
+     0.02s  0.23% 86.15%      0.02s  0.23%  runtime.findfunc
+     0.02s  0.23% 86.37%      0.02s  0.23%  runtime.madvise
+     0.02s  0.23% 86.60%      0.02s  0.23%  runtime.mapassign_fast64
+     0.02s  0.23% 86.82%      0.02s  0.23%  runtime.procPin (inline)
+     0.02s  0.23% 87.05%      0.02s  0.23%  runtime.step
+     0.02s  0.23% 87.27%      0.02s  0.23%  runtime.tryDeferToSpanScan
+     0.02s  0.23% 87.50%      0.02s  0.23%  runtime.walltime
+     0.02s  0.23% 87.73%      3.74s 42.12%  syscall.sendmsg
+     0.01s  0.11% 87.84%      0.01s  0.11%  context.parentCancelCtx
+     0.01s  0.11% 87.95%      0.01s  0.11%  crypto/internal/fips140/aes/gcm.gcmAesFinish
+     0.01s  0.11% 88.06%      0.01s  0.11%  crypto/internal/fips140/alias.InexactOverlap (inline)
+     0.01s  0.11% 88.18%      0.02s  0.23%  encoding/json.checkValid
+     0.01s  0.11% 88.29%      0.01s  0.11%  encoding/json/internal/jsonwire.AppendQuote
+     0.01s  0.11% 88.40%      0.01s  0.11%  encoding/json/internal/jsonwire.ConsumeWhitespace (inline)
+     0.01s  0.11% 88.51%      0.01s  0.11%  encoding/json/jsontext.(*Decoder).PeekKind
+     0.01s  0.11% 88.63%      0.02s  0.23%  encoding/json/jsontext.(*decoderState).ReadValue
+     0.01s  0.11% 88.74%      0.01s  0.11%  encoding/json/jsontext.(*decoderState).checkEOF
+     0.01s  0.11% 88.85%      0.04s  0.45%  encoding/json/jsontext.(*decoderState).consumeObject
+     0.01s  0.11% 88.96%      0.05s  0.56%  encoding/json/jsontext.(*decoderState).consumeValue
+     0.01s  0.11% 89.08%      0.02s  0.23%  encoding/json/jsontext.(*encoderState).WriteToken
+     0.01s  0.11% 89.19%      0.01s  0.11%  encoding/json/jsontext.(*objectNameStack).pop (inline)
+     0.01s  0.11% 89.30%      0.03s  0.34%  github.com/KanaDoodle/KanaRPC.(*Server).notifyLocked
+     0.01s  0.11% 89.41%      0.17s  1.91%  github.com/KanaDoodle/KanaRPC.RegisterUnary[go.shape.struct { ID int "json:\"id\""; Payload string "json:\"payload\""; Count int "json:\"count\""; Sequence int "json:\"sequence\"" },go.shape.struct { ID int "json:\"id\""; Payload string "json:\"payload\""; Count int "json:\"count\""; Sequence int "json:\"sequence\"" }].func1
+     0.01s  0.11% 89.53%      0.02s  0.23%  github.com/KanaDoodle/KanaRPC.closeSocket
+     0.01s  0.11% 89.64%      0.22s  2.48%  github.com/quic-go/quic-go.(*Conn).handleShortHeaderPacket
+     0.01s  0.11% 89.75%      0.01s  0.11%  github.com/quic-go/quic-go.(*Conn).handleShortHeaderPacket.func1
+     0.01s  0.11% 89.86%      0.06s  0.68%  github.com/quic-go/quic-go.(*ReceiveStream).handleStreamFrame
+     0.01s  0.11% 89.98%      0.13s  1.46%  github.com/quic-go/quic-go.(*ReceiveStream).readImpl
+     0.01s  0.11% 90.09%      0.02s  0.23%  github.com/quic-go/quic-go.(*SendStream).Close
+     0.01s  0.11% 90.20%      0.01s  0.11%  github.com/quic-go/quic-go.(*connectionFlowController).TryAddBytesSent
+     0.01s  0.11% 90.32%      0.01s  0.11%  github.com/quic-go/quic-go.(*frameSorter).findEndGap
+     0.01s  0.11% 90.43%      0.01s  0.11%  github.com/quic-go/quic-go.(*frameSorter).findStartGap (inline)
+     0.01s  0.11% 90.54%      0.02s  0.23%  github.com/quic-go/quic-go.(*framer).AddActiveStream
+     0.01s  0.11% 90.65%      0.07s  0.79%  github.com/quic-go/quic-go.(*framer).Append
+     0.01s  0.11% 90.77%      0.03s  0.34%  github.com/quic-go/quic-go.(*framer).popStreamFrame
+     0.01s  0.11% 90.88%      0.02s  0.23%  github.com/quic-go/quic-go.(*packetBuffer).Release
+     0.01s  0.11% 90.99%      0.10s  1.13%  github.com/quic-go/quic-go.(*packetPacker).AppendPacket
+     0.01s  0.11% 91.10%      0.01s  0.11%  github.com/quic-go/quic-go.(*sconn).capabilities
+     0.01s  0.11% 91.22%      0.01s  0.11%  github.com/quic-go/quic-go.(*streamFlowController).UpdateHighestReceived
+     0.01s  0.11% 91.33%      0.01s  0.11%  github.com/quic-go/quic-go/internal/ackhandler.(*packet).IsAckEliciting
+     0.01s  0.11% 91.44%      0.01s  0.11%  github.com/quic-go/quic-go/internal/ackhandler.(*sentPacketHandler).detectAndRemoveAckedPackets-range2 (inline)
+     0.01s  0.11% 91.55%      0.01s  0.11%  github.com/quic-go/quic-go/internal/ackhandler.(*sentPacketHandler).lossDetectionTime
+     0.01s  0.11% 91.67%      0.01s  0.11%  github.com/quic-go/quic-go/internal/ackhandler.(*sentPacketHistory).Remove
+     0.01s  0.11% 91.78%      0.01s  0.11%  github.com/quic-go/quic-go/internal/ackhandler.(*sentPacketHistory).SentPacket
+     0.01s  0.11% 91.89%      0.01s  0.11%  github.com/quic-go/quic-go/internal/congestion.(*cubicSender).CanSend
+     0.01s  0.11% 92.00%      0.01s  0.11%  github.com/quic-go/quic-go/internal/congestion.(*cubicSender).pacingRate
+     0.01s  0.11% 92.12%      0.01s  0.11%  github.com/quic-go/quic-go/internal/monotime.Time.Sub
+     0.01s  0.11% 92.23%      0.01s  0.11%  github.com/quic-go/quic-go/internal/utils.(*defaultLogger).Debug
+     0.01s  0.11% 92.34%      0.02s  0.23%  github.com/quic-go/quic-go/internal/wire.(*FrameParser).ParseType
+     0.01s  0.11% 92.45%      0.01s  0.11%  github.com/quic-go/quic-go/internal/wire.ParseConnectionID
+     0.01s  0.11% 92.57%      0.01s  0.11%  github.com/quic-go/quic-go/quicvarint.Parse
+     0.01s  0.11% 92.68%      0.01s  0.11%  internal/poll.(*fdMutex).rwunlock
+     0.01s  0.11% 92.79%      0.01s  0.11%  internal/runtime/atomic.(*Uintptr).Swap
+     0.01s  0.11% 92.91%      0.01s  0.11%  internal/runtime/maps.(*Map).Used (inline)
+     0.01s  0.11% 93.02%      0.01s  0.11%  internal/runtime/maps.(*Map).getWithoutKeySmallFastStr
+     0.01s  0.11% 93.13%      0.01s  0.11%  net.IP.Equal
+     0.01s  0.11% 93.24%      0.01s  0.11%  runtime.(*inlineUnwinder).next
+     0.01s  0.11% 93.36%      0.01s  0.11%  runtime.(*mLockProfile).store (inline)
+     0.01s  0.11% 93.47%      0.01s  0.11%  runtime.(*maybeTraceablePtr).set (inline)
+     0.01s  0.11% 93.58%      0.01s  0.11%  runtime.(*mspan).base (inline)
+     0.01s  0.11% 93.69%      0.01s  0.11%  runtime.(*mspan).moveInlineMarks
+     0.01s  0.11% 93.81%      0.01s  0.11%  runtime.(*mspan).writeHeapBitsSmall
+     0.01s  0.11% 93.92%      0.01s  0.11%  runtime.(*pallocBits).summarize
+     0.01s  0.11% 94.03%      0.01s  0.11%  runtime.(*spanSet).reset
+     0.01s  0.11% 94.14%      0.02s  0.23%  runtime.(*sweepLocked).sweep
+     0.01s  0.11% 94.26%      0.04s  0.45%  runtime.(*timers).check
+     0.01s  0.11% 94.37%      0.01s  0.11%  runtime.(*timers).unlock (inline)
+     0.01s  0.11% 94.48%      0.01s  0.11%  runtime.(*waitq).dequeue (inline)
+     0.01s  0.11% 94.59%      0.01s  0.11%  runtime.(*waitq).dequeueSudoG (inline)
+     0.01s  0.11% 94.71%      0.01s  0.11%  runtime.adjustpointers
+     0.01s  0.11% 94.82%      0.16s  1.80%  runtime.chansend
+     0.01s  0.11% 94.93%      0.01s  0.11%  runtime.chansend.func1
+     0.01s  0.11% 95.05%      0.01s  0.11%  runtime.cheaprandu64 (inline)
+     0.01s  0.11% 95.16%      0.03s  0.34%  runtime.closechan
+     0.01s  0.11% 95.27%      0.01s  0.11%  runtime.exitsyscall
+     0.01s  0.11% 95.38%      1.82s 20.50%  runtime.findRunnable
+     0.01s  0.11% 95.50%      0.07s  0.79%  runtime.fpTracebackPartialExpand
+     0.01s  0.11% 95.61%      0.04s  0.45%  runtime.funcInfo.entry (inline)
+     0.01s  0.11% 95.72%      0.01s  0.11%  runtime.funcMaxSPDelta
+     0.01s  0.11% 95.83%      0.01s  0.11%  runtime.funcdata (inline)
+     0.01s  0.11% 95.95%      0.02s  0.23%  runtime.isSystemGoroutine
+     0.01s  0.11% 96.06%      0.01s  0.11%  runtime.libcCall
+     0.01s  0.11% 96.17%      0.12s  1.35%  runtime.lock2
+     0.01s  0.11% 96.28%      0.01s  0.11%  runtime.mallocgcSmallNoScanSC6
+     0.01s  0.11% 96.40%      0.03s  0.34%  runtime.mallocgcSmallNoscan
+     0.01s  0.11% 96.51%      0.01s  0.11%  runtime.mallocgcSmallScanNoHeaderSC3
+     0.01s  0.11% 96.62%      0.02s  0.23%  runtime.mallocgcSmallScanNoHeaderSC5
+     0.01s  0.11% 96.73%      0.02s  0.23%  runtime.mallocgcSmallScanNoHeaderSC6
+     0.01s  0.11% 96.85%      0.02s  0.23%  runtime.mapaccess2_fast64
+     0.01s  0.11% 96.96%      0.02s  0.23%  runtime.mapaccess2_faststr
+     0.01s  0.11% 97.07%      0.03s  0.34%  runtime.mapassign
+     0.01s  0.11% 97.18%      0.02s  0.23%  runtime.markroot
+     0.01s  0.11% 97.30%      0.01s  0.11%  runtime.memclrNoHeapPointers
+     0.01s  0.11% 97.41%      0.02s  0.23%  runtime.mutexSampleContention (inline)
+     0.01s  0.11% 97.52%      1.48s 16.67%  runtime.netpoll
+     0.01s  0.11% 97.64%      0.05s  0.56%  runtime.newInlineUnwinder
+     0.01s  0.11% 97.75%      0.01s  0.11%  runtime.newMarkBits
+     0.01s  0.11% 97.86%      0.01s  0.11%  runtime.nextslicecap (inline)
+     0.01s  0.11% 97.97%      0.01s  0.11%  runtime.pMask.clear (inline)
+     0.01s  0.11% 98.09%      0.01s  0.11%  runtime.pthread_kill
+     0.01s  0.11% 98.20%      0.01s  0.11%  runtime.rand
+     0.01s  0.11% 98.31%      0.01s  0.11%  runtime.runqempty (inline)
+     0.01s  0.11% 98.42%      0.05s  0.56%  runtime.runqgrab
+     0.01s  0.11% 98.54%      0.02s  0.23%  runtime.scanObjectsSmall
+     0.01s  0.11% 98.65%      0.01s  0.11%  runtime.scanblock
+     0.01s  0.11% 98.76%      1.83s 20.61%  runtime.schedule
+     0.01s  0.11% 98.87%      0.01s  0.11%  runtime.spanSetScans
+     0.01s  0.11% 98.99%      0.01s  0.11%  runtime.stackfree
+     0.01s  0.11% 99.10%      0.01s  0.11%  runtime.stkbucket
+     0.01s  0.11% 99.21%      0.01s  0.11%  runtime.typePointers.nextFast
+     0.01s  0.11% 99.32%      0.01s  0.11%  runtime.typedmemmove
+     0.01s  0.11% 99.44%      0.02s  0.23%  runtime.wakeNetPoller
+     0.01s  0.11% 99.55%      0.01s  0.11%  strings.genSplit
+     0.01s  0.11% 99.66%      0.05s  0.56%  sync.(*Once).doSlow
+     0.01s  0.11% 99.77%      0.02s  0.23%  sync.(*Pool).Get
+     0.01s  0.11% 99.89%      0.02s  0.23%  sync.(*Pool).Put
+     0.01s  0.11%   100%      0.01s  0.11%  sync/atomic.CompareAndSwapPointer
+         0     0%   100%      0.20s  2.25%  _.goready.func1
+         0     0%   100%      0.01s  0.11%  bytes.Clone
+         0     0%   100%      0.03s  0.34%  context.(*cancelCtx).Done
+         0     0%   100%      0.05s  0.56%  context.(*cancelCtx).propagateCancel
+         0     0%   100%      0.01s  0.11%  context.AfterFunc
+         0     0%   100%      0.01s  0.11%  context.WithCancelCause
+         0     0%   100%      0.06s  0.68%  context.WithDeadline

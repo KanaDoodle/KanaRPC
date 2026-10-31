@@ -1,0 +1,37 @@
+diff --git a/drain.go b/drain.go
+index a4238bb..ce74715 100644
+--- a/drain.go
++++ b/drain.go
+@@ -103,6 +103,21 @@ func (r *execution) cancelRequest() {
+ 
+ // Called before cleanup's artificial ErrClosed cancellation, once per run.
+ func (r *execution) recordStop() {
++	// Most successful native exchanges have already ACKed before peer FIN
++	// cancels the channel. No abort counter needs either Cause's context mutex
++	// or the server-wide statistics lock in that case. An observed request
++	// deadline still takes precedence, including when an ACK was received.
++	err := r.ctx.Err()
++	if err == nil {
++		return
++	}
++	if err != context.DeadlineExceeded {
++		select {
++		case <-r.ack:
++			return
++		default:
++		}
++	}
+ 	cause := context.Cause(r.ctx)
+ 	if cause == nil {
+ 		return
+@@ -110,7 +125,9 @@ func (r *execution) recordStop() {
+ 	s := r.peer.server
+ 	s.mu.Lock()
+ 	defer s.mu.Unlock()
+-	if r.ctx.Err() == context.DeadlineExceeded {
++	// A non-nil Context.Err never changes category. Reuse the observation
++	// instead of paying for another canceled-context synchronization.
++	if err == context.DeadlineExceeded {
+ 		s.stats.Outcomes.RequestDeadlines++
+ 		return
+ 	}

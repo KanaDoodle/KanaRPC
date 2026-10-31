@@ -1,0 +1,130 @@
+{
+  "baseline": "r9b",
+  "candidate": "current",
+  "input": "docs/verification/quic-r9d/final-small",
+  "groups": [
+    {
+      "transport": "quic",
+      "workload": "stream",
+      "strategy": "managed",
+      "payload_bytes": 128,
+      "pairs": 5,
+      "failed_or_missing_pairs": [],
+      "status": "PASS",
+      "baseline_median_rps": 13763.001220823626,
+      "candidate_median_rps": 13746.993340098614,
+      "ratio_of_medians_percent": -0.11631097366170406,
+      "paired_median_change_percent": 1.0706862346461232,
+      "paired_change_range_percent": [
+        -8.554810372357412,
+        5.136005739069516
+      ],
+      "paired_median_bootstrap_95_percent": [
+        -8.554810372357412,
+        5.136005739069516
+      ],
+      "negative_pairs": 2,
+      "samples": [
+        {
+          "seed": 7,
+          "baseline_rps": 13853.525533008991,
+          "candidate_rps": 13518.544147425131,
+          "change_percent": -2.418022652686458
+        },
+        {
+          "seed": 19,
+          "baseline_rps": 13443.219698868195,
+          "candidate_rps": 13746.993340098614,
+          "change_percent": 2.2596792140203936
+        },
+        {
+          "seed": 41,
+          "baseline_rps": 13763.001220823626,
+          "candidate_rps": 13910.359780369163,
+          "change_percent": 1.0706862346461232
+        },
+        {
+          "seed": 67,
+          "baseline_rps": 13968.847600818366,
+          "candidate_rps": 12773.839177364756,
+          "change_percent": -8.554810372357412
+        },
+        {
+          "seed": 97,
+          "baseline_rps": 13300.949953845704,
+          "candidate_rps": 13984.087506825983,
+          "change_percent": 5.136005739069516
+        }
+      ],
+      "baseline_median_elapsed_ns": 726585709,
+      "candidate_median_elapsed_ns": 727431792,
+      "baseline_p95_ms": 0.868792,
+      "candidate_p95_ms": 0.878084,
+      "baseline_cpu_seconds": 3.1944149999999922,
+      "candidate_cpu_seconds": 3.165267
+    },
+    {
+      "transport": "quic",
+      "workload": "unary",
+      "strategy": "managed",
+      "payload_bytes": 128,
+      "pairs": 5,
+      "failed_or_missing_pairs": [],
+      "status": "PASS",
+      "baseline_median_rps": 27497.752656796427,
+      "candidate_median_rps": 27179.66161576777,
+      "ratio_of_medians_percent": -1.1567892292828397,
+      "paired_median_change_percent": 0.9768086395007591,
+      "paired_change_range_percent": [
+        -3.002409114982496,
+        2.5435044644939175
+      ],
+      "paired_median_bootstrap_95_percent": [
+        -3.002409114982496,
+        2.5435044644939175
+      ],
+      "negative_pairs": 2,
+      "samples": [
+        {
+          "seed": 7,
+          "baseline_rps": 25988.693857833132,
+          "candidate_rps": 26649.717446370774,
+          "change_percent": 2.5435044644939175
+        },
+        {
+          "seed": 19,
+          "baseline_rps": 27497.752656796427,
+          "candidate_rps": 27766.353080416564,
+          "change_percent": 0.9768086395007591
+        },
+        {
+          "seed": 41,
+          "baseline_rps": 27533.541876968433,
+          "candidate_rps": 27179.66161576777,
+          "change_percent": -1.2852696641134975
+        },
+        {
+          "seed": 67,
+          "baseline_rps": 26986.34387372429,
+          "candidate_rps": 27557.5597299153,
+          "change_percent": 2.1166848642553138
+        },
+        {
+          "seed": 97,
+          "baseline_rps": 27712.774693456806,
+          "candidate_rps": 26880.723820045896,
+          "change_percent": -3.002409114982496
+        }
+      ],
+      "baseline_median_elapsed_ns": 363666083,
+      "candidate_median_elapsed_ns": 367922167,
+      "baseline_p95_ms": 0.474833,
+      "candidate_p95_ms": 0.481667,
+      "baseline_cpu_seconds": 1.5759100000000075,
+      "candidate_cpu_seconds": 1.5851750000000067
+    }
+  ],
+  "bootstrap_seed": 737,
+  "bootstrap_resamples": 10000,
+  "scope": "paired local descriptive bootstrap; shared-host drift and non-independent repetitions remain; not a production or causal confidence guarantee"
+}

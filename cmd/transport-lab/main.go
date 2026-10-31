@@ -15,6 +15,8 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"runtime"
+	"runtime/pprof"
 	"sort"
 	"sync"
 	"syscall"
@@ -86,7 +88,45 @@ func main() {
 		os.Exit(1)
 	}
 }
-func worker(kind rpc.Transport, readyPath, output string) error {
+
+// Profiles are opt-in fixture diagnostics. Profiled cases must never be used
+// as throughput evidence. The same driver is injected into every runtime.
+func labProfiles(prefix string) (func() error, error) {
+	f, err := os.Create(prefix + ".cpu.pprof")
+	if err != nil {
+		return nil, err
+	}
+	if err = pprof.StartCPUProfile(f); err != nil {
+		_ = f.Close()
+		return nil, err
+	}
+	old := runtime.SetMutexProfileFraction(1)
+	runtime.SetBlockProfileRate(1)
+	return func() error {
+		pprof.StopCPUProfile()
+		result := f.Close()
+		runtime.SetMutexProfileFraction(old)
+		runtime.SetBlockProfileRate(0)
+		for _, name := range []string{"mutex", "block", "allocs"} {
+			file, err := os.Create(prefix + "." + name + ".pprof")
+			if err != nil {
+				result = errors.Join(result, err)
+				continue
+			}
+			result = errors.Join(result, pprof.Lookup(name).WriteTo(file, 0), file.Close())
+		}
+		return result
+	}, nil
+}
+
+func worker(kind rpc.Transport, readyPath, output string) (err error) {
+	if os.Getenv("KANARPC_LAB_PROFILE") == "1" {
+		stop, e := labProfiles(output)
+		if e != nil {
+			return e
+		}
+		defer func() { err = errors.Join(err, stop()) }()
+	}
 	credentials, err := testcert.New()
 	if err != nil {
 		return err

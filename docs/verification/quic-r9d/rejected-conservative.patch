@@ -1,0 +1,26 @@
+diff --git a/drain.go b/drain.go
+index a4238bb..54e1e4d 100644
+--- a/drain.go
++++ b/drain.go
+@@ -107,6 +107,21 @@ func (r *execution) recordStop() {
+ 	if cause == nil {
+ 		return
+ 	}
++	// A settled native exchange can observe peer FIN before cleanup. An ACK
++	// rules out abort counters; only an actual request deadline still counts.
++	// Keep the unacknowledged slow path below unchanged, including its second
++	// ACK check under the accounting lock.
++	select {
++	case <-r.ack:
++		if r.ctx.Err() == context.DeadlineExceeded {
++			s := r.peer.server
++			s.mu.Lock()
++			s.stats.Outcomes.RequestDeadlines++
++			s.mu.Unlock()
++		}
++		return
++	default:
++	}
+ 	s := r.peer.server
+ 	s.mu.Lock()
+ 	defer s.mu.Unlock()

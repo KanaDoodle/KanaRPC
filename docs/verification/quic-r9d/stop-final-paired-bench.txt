@@ -1,0 +1,24 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/KanaDoodle/KanaRPC
+cpu: Apple M5
+BenchmarkStopObservationPaired/acked_fin/reference-2         	 4913529	        48.93 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_fin/reference-2         	 4900821	        49.15 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_fin/reference-2         	 4742610	        50.37 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_fin/runtime-2           	 3522129	        70.84 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_fin/runtime-2           	 3480402	        68.90 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_fin/runtime-2           	 3428488	        69.02 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_deadline/reference-2    	 5202476	        45.55 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_deadline/reference-2    	 5322786	        45.51 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_deadline/reference-2    	 5337499	        45.05 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_deadline/runtime-2      	 2070502	       116.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_deadline/runtime-2      	 2058906	       117.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/acked_deadline/runtime-2      	 2058523	       116.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/canceled/reference-2          	 4747550	        50.15 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/canceled/reference-2          	 4783111	        50.22 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/canceled/reference-2          	 4752784	        49.66 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/canceled/runtime-2            	 4501033	        53.62 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/canceled/runtime-2            	 4558035	        53.66 ns/op	       0 B/op	       0 allocs/op
+BenchmarkStopObservationPaired/canceled/runtime-2            	 4441815	        53.46 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/KanaDoodle/KanaRPC	5.882s

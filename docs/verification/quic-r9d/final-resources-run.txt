@@ -1,0 +1,3 @@
+current quic False PASS
+current quic True DEGRADED
+{"cases": 2, "failed": 0}

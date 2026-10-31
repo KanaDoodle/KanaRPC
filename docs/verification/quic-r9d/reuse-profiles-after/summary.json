@@ -1,0 +1,96 @@
+[
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 13527.073642571311,
+        "min": 13527.073642571311,
+        "max": 13527.073642571311,
+        "samples": [
+          13527.073642571311
+        ]
+      },
+      "p95_ms": {
+        "median": 0.884458,
+        "min": 0.884458,
+        "max": 0.884458,
+        "samples": [
+          0.884458
+        ]
+      },
+      "p99_ms": {
+        "median": 1.0865,
+        "min": 1.0865,
+        "max": 1.0865,
+        "samples": [
+          1.0865
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 32.694796999999994,
+        "min": 32.694796999999994,
+        "max": 32.694796999999994,
+        "samples": [
+          32.694796999999994
+        ]
+      }
+    },
+    "offered": 100000,
+    "completed": 100000
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "managed",
+    "payload_bytes": 128,
+    "cases": 1,
+    "statuses": [
+      "PASS"
+    ],
+    "metrics": {
+      "requests_per_second": {
+        "median": 26909.08885421503,
+        "min": 26909.08885421503,
+        "max": 26909.08885421503,
+        "samples": [
+          26909.08885421503
+        ]
+      },
+      "p95_ms": {
+        "median": 0.459041,
+        "min": 0.459041,
+        "max": 0.459041,
+        "samples": [
+          0.459041
+        ]
+      },
+      "p99_ms": {
+        "median": 0.598583,
+        "min": 0.598583,
+        "max": 0.598583,
+        "samples": [
+          0.598583
+        ]
+      },
+      "triple_cpu_seconds": {
+        "median": 16.163883000000002,
+        "min": 16.163883000000002,
+        "max": 16.163883000000002,
+        "samples": [
+          16.163883000000002
+        ]
+      }
+    },
+    "offered": 100000,
+    "completed": 100000
+  }
+]

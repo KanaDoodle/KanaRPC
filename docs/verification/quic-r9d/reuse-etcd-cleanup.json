@@ -1,0 +1,26 @@
+[
+  {
+    "path": "docs/verification/quic-r9d/go-local/data",
+    "owned_pid": 50900,
+    "reaped": true,
+    "bytes": 80891904
+  },
+  {
+    "path": "docs/verification/quic-r9d/go-race/data",
+    "owned_pid": 50897,
+    "reaped": true,
+    "bytes": 80891904
+  },
+  {
+    "path": "docs/verification/quic-r9d/go-minimum/data",
+    "owned_pid": 50899,
+    "reaped": true,
+    "bytes": 80891904
+  },
+  {
+    "path": "docs/verification/quic-r9d/go-minimum-race/data",
+    "owned_pid": 50898,
+    "reaped": true,
+    "bytes": 80891904
+  }
+]
