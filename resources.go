@@ -16,6 +16,48 @@ type ByteStats struct {
 	Rejected          uint64
 }
 type MemoryStats struct{ Receive, Send, ControlReceive, ControlSend, Encoding ByteStats }
+
+// BudgetError identifies a local framework reservation refusal. Across the
+// wire only Status is transmitted: a remote ResourceExhausted or reset does
+// not establish which budget (or whether a budget) refused the peer.
+// Scope is owner, pool_class, pool_data, or closed_owner. Used is the usage
+// used for this decision (zero for an impossible absolute-size reservation).
+type BudgetError struct {
+	Class, Scope           string
+	Requested, Used, Limit int64
+	status                 Status
+}
+
+func (e *BudgetError) Error() string { return e.status.Error() }
+func (e *BudgetError) Unwrap() error { return &e.status }
+
+func (b *byteBudget) refusalLocked(n int64, absolute bool, message string) error {
+	e := &BudgetError{Class: [...]string{"receive", "send", "control_receive", "control_send", "encoding"}[b.kind], Scope: "owner", Requested: n, Used: b.stats.Used, Limit: b.stats.Limit, status: Status{Code: ResourceExhausted, Message: message}}
+	if absolute {
+		e.Used = 0
+	}
+	if n < 0 || n > e.Limit-e.Used || b.account == nil {
+		return e
+	}
+	a := b.account
+	if a.released || a.ownerClosed {
+		e.Scope = "closed_owner"
+		return e
+	}
+	e.Scope, e.Used, e.Limit = "pool_class", a.pool.classes[b.kind].Used, a.pool.classes[b.kind].Limit
+	if absolute {
+		e.Used = 0
+	}
+	if n > e.Limit-e.Used || !b.kind.data() {
+		return e
+	}
+	e.Scope, e.Used, e.Limit = "pool_data", a.pool.data.Used, a.pool.data.Limit
+	if absolute {
+		e.Used = 0
+	}
+	return e
+}
+
 type byteBudget struct {
 	mu      sync.Mutex
 	stats   ByteStats
@@ -117,7 +159,7 @@ func (b *byteBudget) lease(n int64) (*byteLease, error) {
 	defer b.unlock()
 	if !b.capacityLocked(n, false) {
 		b.rejectedLocked(n)
-		return nil, &Status{Code: ResourceExhausted, Message: "record byte budget"}
+		return nil, b.refusalLocked(n, false, "record byte budget")
 	}
 	return b.leaseLocked(n), nil
 }
@@ -129,8 +171,9 @@ func (b *byteBudget) waitLease(ctx context.Context, n int64) (*byteLease, error)
 		b.lock()
 		if !b.capacityLocked(n, true) {
 			b.rejectedLocked(n)
+			err := b.refusalLocked(n, true, "encoding capacity")
 			b.unlock()
-			return nil, &Status{Code: ResourceExhausted, Message: "encoding capacity"}
+			return nil, err
 		}
 		if b.capacityLocked(n, false) {
 			l := b.leaseLocked(n)
@@ -236,7 +279,7 @@ type resources struct {
 }
 
 func newResources(c MemoryConfig) *resources {
-	return &resources{receive: byteBudget{stats: ByteStats{Limit: c.ReceiveBytes}}, send: byteBudget{stats: ByteStats{Limit: c.SendBytes}}, controlReceive: byteBudget{stats: ByteStats{Limit: c.ControlBytes}}, controlSend: byteBudget{stats: ByteStats{Limit: c.ControlBytes}}, encoding: byteBudget{stats: ByteStats{Limit: c.EncodingBytes}}, buffers: bufferOwner{entries: make(map[*pending]struct{})}}
+	return &resources{receive: byteBudget{kind: receiveMemory, stats: ByteStats{Limit: c.ReceiveBytes}}, send: byteBudget{kind: sendMemory, stats: ByteStats{Limit: c.SendBytes}}, controlReceive: byteBudget{kind: controlReceiveMemory, stats: ByteStats{Limit: c.ControlBytes}}, controlSend: byteBudget{kind: controlSendMemory, stats: ByteStats{Limit: c.ControlBytes}}, encoding: byteBudget{kind: encodingMemory, stats: ByteStats{Limit: c.EncodingBytes}}, buffers: bufferOwner{entries: make(map[*pending]struct{})}}
 }
 func (r *resources) snapshotLocked() MemoryStats {
 	return MemoryStats{r.receive.stats, r.send.stats, r.controlReceive.stats, r.controlSend.stats, r.encoding.stats}

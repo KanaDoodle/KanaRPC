@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Serialized R8D/R9A/current controls with one common payload-aware driver."""
+"""Serialized historical/current controls with one common payload-aware driver."""
 import argparse
 import hashlib
 import importlib.util
@@ -56,13 +56,13 @@ def main():
     parser.add_argument("--transports", nargs="+", choices=["tcp", "tls", "quic"], default=["tcp", "quic"])
     parser.add_argument("--workloads", nargs="+", choices=["unary", "stream"], default=["unary", "stream"])
     parser.add_argument("--strategies", nargs="+", choices=["direct", "managed"], default=["direct", "managed"])
-    parser.add_argument("--versions", nargs="+", choices=["r8d", "r9a", "current"], default=["r8d", "r9a", "current"])
+    parser.add_argument("--versions", nargs="+", choices=["r8d", "r9a", "r9b", "current"], default=["r8d", "r9a", "current"])
     args = parser.parse_args()
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=False)
     work = Path(tempfile.mkdtemp(prefix="kanarpc-r9b-perf-"))
     env = dict(os.environ, GOWORK="off", GOMAXPROCS="2")
-    refs = {"r8d": "90af591", "r9a": "478ab3d", "current": None}
+    refs = {"r8d": "90af591", "r9a": "478ab3d", "r9b": "0b33dad", "current": None}
     metadata = {
         "go": subprocess.check_output(["go", "version"], text=True).strip(),
         "work": str(work), "count": args.count, "workers": args.workers,
@@ -95,9 +95,15 @@ def main():
             for relative in sources:
                 archive.add(root / relative, arcname=relative)
     if "r9a" in roots and "current" in roots:
-        for path in ["resources.go", "memory_pool.go", "routing/client.go"]:
+        # R9C adds local budget provenance in resources.go; the ledger and
+        # routing runtime remain byte-identical to the R9A resource mechanism.
+        for path in ["memory_pool.go", "routing/client.go"]:
             assert digest(roots["r9a"] / path) == digest(roots["current"] / path), path
-        metadata["pool_implementation_identical_to_r9a"] = True
+        metadata["pool_ledger_and_routing_identical_to_r9a"] = True
+    if "r9b" in roots and "current" in roots:
+        for path in ["quic.go", "memory_pool.go", "routing/client.go"]:
+            assert digest(roots["r9b"] / path) == digest(roots["current"] / path), path
+        metadata["native_write_and_pool_identical_to_r9b"] = True
     controls_path = work / "verify-routing.py"
     shutil.copy2(ROOT / "scripts/verify-routing.py", controls_path)
     metadata["controls_sha256"] = digest(controls_path)

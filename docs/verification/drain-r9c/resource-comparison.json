@@ -1,0 +1,322 @@
+[
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "tight": false,
+    "status": "PASS",
+    "offered": 787617,
+    "outcomes": {
+      "canceled": 196903,
+      "success": 590714
+    },
+    "lost": 0,
+    "incomplete": 0,
+    "server_outcomes": {},
+    "final_heap": {
+      "fds": 8,
+      "gc": 65176,
+      "goroutines": 5,
+      "heap_alloc": 1044784,
+      "heap_objects": 4127,
+      "total_alloc": 132553428568
+    },
+    "idle_goroutines": [
+      7
+    ],
+    "idle_fds": [
+      9
+    ],
+    "all_processes_reaped": true,
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "source": "resources/baseline-tcp-roomy"
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "tight": false,
+    "status": "PASS",
+    "offered": 211647,
+    "outcomes": {
+      "canceled": 52911,
+      "success": 158736
+    },
+    "lost": 0,
+    "incomplete": 0,
+    "server_outcomes": {},
+    "final_heap": {
+      "fds": 8,
+      "gc": 24065,
+      "goroutines": 5,
+      "heap_alloc": 1070064,
+      "heap_objects": 4291,
+      "total_alloc": 40402777504
+    },
+    "idle_goroutines": [
+      10
+    ],
+    "idle_fds": [
+      9
+    ],
+    "all_processes_reaped": true,
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "source": "resources/baseline-quic-roomy"
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "tight": true,
+    "status": "DEGRADED",
+    "offered": 526960,
+    "outcomes": {
+      "canceled": 15220,
+      "closed": 40538,
+      "status_resource_exhausted": 434991,
+      "status_unavailable": 8678,
+      "success": 27533
+    },
+    "lost": 96740,
+    "incomplete": 0,
+    "server_outcomes": {},
+    "final_heap": {
+      "fds": 8,
+      "gc": 22085,
+      "goroutines": 5,
+      "heap_alloc": 1039936,
+      "heap_objects": 4048,
+      "total_alloc": 43849626280
+    },
+    "idle_goroutines": [
+      6
+    ],
+    "idle_fds": [
+      8
+    ],
+    "all_processes_reaped": true,
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "source": "resources/baseline-tcp-tight"
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "tight": true,
+    "status": "DEGRADED",
+    "offered": 89071,
+    "outcomes": {
+      "canceled": 9680,
+      "status_resource_exhausted": 69405,
+      "success": 9986
+    },
+    "lost": 12941,
+    "incomplete": 0,
+    "server_outcomes": {},
+    "final_heap": {
+      "fds": 8,
+      "gc": 7290,
+      "goroutines": 5,
+      "heap_alloc": 1078040,
+      "heap_objects": 4374,
+      "total_alloc": 12370508168
+    },
+    "idle_goroutines": [
+      10
+    ],
+    "idle_fds": [
+      9
+    ],
+    "all_processes_reaped": true,
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "source": "resources/baseline-quic-tight"
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": false,
+    "status": "PASS",
+    "offered": 399060,
+    "outcomes": {
+      "canceled": 99765,
+      "success": 299295
+    },
+    "lost": 0,
+    "incomplete": 0,
+    "server_outcomes": {
+      "CapacityRejected": 0,
+      "PolicyRejected": 0,
+      "DrainingRejected": 0,
+      "InvalidRejected": 0,
+      "NotFoundRejected": 0,
+      "CancelRequests": 99765,
+      "RequestDeadlines": 0,
+      "TransportAborts": 0,
+      "ShutdownAborts": 0,
+      "BudgetAborts": 0,
+      "ReceiptsResolved": 299307,
+      "ReceiptsCanceled": 0,
+      "ReceiptsDeadlineExceeded": 0
+    },
+    "final_heap": {
+      "fds": 8,
+      "gc": 32776,
+      "goroutines": 5,
+      "heap_alloc": 1042344,
+      "heap_objects": 4099,
+      "total_alloc": 67183169472
+    },
+    "idle_goroutines": [
+      7
+    ],
+    "idle_fds": [
+      9
+    ],
+    "all_processes_reaped": true,
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "source": "final-resources/current-tcp-roomy"
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": false,
+    "status": "PASS",
+    "offered": 175771,
+    "outcomes": {
+      "canceled": 43943,
+      "success": 131828
+    },
+    "lost": 0,
+    "incomplete": 0,
+    "server_outcomes": {
+      "CapacityRejected": 0,
+      "PolicyRejected": 0,
+      "DrainingRejected": 0,
+      "InvalidRejected": 0,
+      "NotFoundRejected": 0,
+      "CancelRequests": 43943,
+      "RequestDeadlines": 0,
+      "TransportAborts": 0,
+      "ShutdownAborts": 0,
+      "BudgetAborts": 0,
+      "ReceiptsResolved": 131840,
+      "ReceiptsCanceled": 0,
+      "ReceiptsDeadlineExceeded": 0
+    },
+    "final_heap": {
+      "fds": 8,
+      "gc": 19770,
+      "goroutines": 5,
+      "heap_alloc": 1082944,
+      "heap_objects": 4340,
+      "total_alloc": 33627459304
+    },
+    "idle_goroutines": [
+      10
+    ],
+    "idle_fds": [
+      9
+    ],
+    "all_processes_reaped": true,
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "source": "final-resources/current-quic-roomy"
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": true,
+    "status": "DEGRADED",
+    "offered": 590213,
+    "outcomes": {
+      "canceled": 15739,
+      "closed": 43066,
+      "status_resource_exhausted": 492222,
+      "status_unavailable": 9324,
+      "success": 29862
+    },
+    "lost": 109668,
+    "incomplete": 0,
+    "server_outcomes": {
+      "CapacityRejected": 0,
+      "PolicyRejected": 0,
+      "DrainingRejected": 0,
+      "InvalidRejected": 0,
+      "NotFoundRejected": 0,
+      "CancelRequests": 13014,
+      "RequestDeadlines": 0,
+      "TransportAborts": 475482,
+      "ShutdownAborts": 0,
+      "BudgetAborts": 0,
+      "ReceiptsResolved": 131884,
+      "ReceiptsCanceled": 0,
+      "ReceiptsDeadlineExceeded": 0
+    },
+    "final_heap": {
+      "fds": 8,
+      "gc": 24628,
+      "goroutines": 5,
+      "heap_alloc": 1036240,
+      "heap_objects": 4038,
+      "total_alloc": 49040956776
+    },
+    "idle_goroutines": [
+      6
+    ],
+    "idle_fds": [
+      8
+    ],
+    "all_processes_reaped": true,
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "source": "final-resources/current-tcp-tight"
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": true,
+    "status": "DEGRADED",
+    "offered": 131287,
+    "outcomes": {
+      "canceled": 13901,
+      "status_resource_exhausted": 102964,
+      "success": 14422
+    },
+    "lost": 19961,
+    "incomplete": 0,
+    "server_outcomes": {
+      "CapacityRejected": 0,
+      "PolicyRejected": 0,
+      "DrainingRejected": 0,
+      "InvalidRejected": 0,
+      "NotFoundRejected": 0,
+      "CancelRequests": 13901,
+      "RequestDeadlines": 0,
+      "TransportAborts": 102970,
+      "ShutdownAborts": 0,
+      "BudgetAborts": 0,
+      "ReceiptsResolved": 34389,
+      "ReceiptsCanceled": 0,
+      "ReceiptsDeadlineExceeded": 0
+    },
+    "final_heap": {
+      "fds": 8,
+      "gc": 11005,
+      "goroutines": 5,
+      "heap_alloc": 1072120,
+      "heap_objects": 4296,
+      "total_alloc": 17966827464
+    },
+    "idle_goroutines": [
+      10
+    ],
+    "idle_fds": [
+      9
+    ],
+    "all_processes_reaped": true,
+    "final_accounts": 0,
+    "final_bytes": 0,
+    "source": "final-resources/current-quic-tight"
+  }
+]

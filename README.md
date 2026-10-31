@@ -47,6 +47,8 @@ R9A 已加入[池级共享字节预算与退休对象统计](docs/pool-r9a.md)�
 
 R9B 已增加[有界原子发送批量与安全回退](docs/quic-r9b.md)，保留 reset 正确性、池级预算和退休统计。本轮四个完整矩阵各 278 项通过；600 组本地对照中，128B QUIC 管理池流式约 6,555→13,130 req/s，接近同轮 R8D 的 13,327。大包收益较小，负变化与饱和 drain 错误继续保留，详见 [R9B 报告](docs/verification/quic-r9b/report.md)；不是实际双机或推理性能收益。
 
+R9C 已补齐[过载、取消与 drain 的行为边界](docs/drain-r9c.md)：本机 BudgetError、累计生命周期观察及 DrainWithReport，区分历史/本次新增交付故障与资源退出；drain 同时超时和存在累计故障时保留两个错误。四个最终完整普通/race 矩阵各 332 项通过；预算饱和的未回执和退化继续保留，[报告](docs/verification/drain-r9c/report.md)含复现、回归与 R9B 内部基线。真实双机仍待验证。
+
 R7D CampusTrace 迁移按用户要求暂缓；旧版本的功能清单、294 项检查和 R6 性能结果不能计为新版验收。尚未发布稳定版本，CampusTrace 默认依赖未修改。不是生产框架。
 
 设计与后续步骤：[重写计划](docs/rewrite-plan.md)、[v2 协议](docs/protocol-v2.md)。实际验收与遗留风险：[R7A 报告](docs/verification/core-r7/report.md)、[R7B 报告](docs/verification/transport-r7b/report.md)、[R7C 报告](docs/verification/governance-r7c/report.md)、[R8A 报告](docs/verification/control-r8a/report.md)、[R8B 报告](docs/verification/resources-r8b/report.md)、[R8C 报告](docs/verification/connections-r8c/report.md)、[R8D 报告](docs/verification/network-r8d/report.md)。

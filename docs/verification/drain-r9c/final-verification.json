@@ -1,0 +1,71 @@
+{
+  "final-local": {
+    "status": "PASS",
+    "checks": {
+      "pass": 332,
+      "skip": 0,
+      "fail": 0
+    }
+  },
+  "final-race": {
+    "status": "PASS",
+    "checks": {
+      "pass": 332,
+      "skip": 0,
+      "fail": 0
+    }
+  },
+  "final-minimum": {
+    "status": "PASS",
+    "checks": {
+      "pass": 332,
+      "skip": 0,
+      "fail": 0
+    }
+  },
+  "final-minimum-race": {
+    "status": "PASS",
+    "checks": {
+      "pass": 332,
+      "skip": 0,
+      "fail": 0
+    }
+  },
+  "final-contracts-race": {
+    "pass": 460,
+    "fail": 0,
+    "skip": 0
+  },
+  "control-cause-after-race": {
+    "pass": 20,
+    "fail": 0,
+    "skip": 0
+  },
+  "network-reset-race": {
+    "pass": 30,
+    "fail": 0,
+    "skip": 0
+  },
+  "environment": {
+    "go": "go version go1.27.1 darwin/arm64",
+    "minimum_go": "go version go1.26.0 darwin/arm64",
+    "platform": "Darwin arm64",
+    "scope": "local loopback and finite observations; not real dual-host, inference or production capacity"
+  },
+  "performance": {
+    "cases": 80,
+    "offered": 80000,
+    "completed": 80000,
+    "all_reaped": true
+  },
+  "resource_controls": {
+    "formal_cases": 8,
+    "formal_active_seconds": 360,
+    "formal_cycles": 48,
+    "intermediate_current_cases_preserved": 4,
+    "intermediate_active_seconds": 180,
+    "intermediate_cycles": 24,
+    "tight_status": "DEGRADED, cumulative ErrDelivery retained"
+  },
+  "runtime_manifest_consistent": true
+}

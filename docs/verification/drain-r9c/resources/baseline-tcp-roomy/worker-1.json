@@ -1,0 +1,60 @@
+{
+  "drain_error": "\u003cnil\u003e",
+  "drain_report": null,
+  "handler_calls": 393814,
+  "heap": {
+    "Goroutines": 3,
+    "FDs": 8,
+    "HeapAlloc": 287368,
+    "HeapObjects": 1346,
+    "StackInuse": 393216,
+    "TotalAlloc": 59250349280,
+    "NumGC": 19382
+  },
+  "memory": {
+    "Receive": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 264144,
+      "Rejected": 0
+    },
+    "Send": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 147876,
+      "Rejected": 0
+    },
+    "ControlReceive": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 16,
+      "Rejected": 0
+    },
+    "ControlSend": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 82,
+      "Rejected": 0
+    },
+    "Encoding": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    }
+  },
+  "rpc": {
+    "Queued": 0,
+    "IncompleteExchanges": 0,
+    "NativeStreams": 0,
+    "Connections": 0,
+    "InFlight": 0,
+    "Executing": 0,
+    "Admitted": 393814,
+    "Completed": 393814,
+    "Rejected": 0,
+    "Canceled": 6727,
+    "Delivered": 387087,
+    "LostTerminals": 0
+  }
+}

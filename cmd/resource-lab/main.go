@@ -195,9 +195,23 @@ func worker(kind rpc.Transport, readyPath, output string) error {
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
-	err = s.Drain(ctx)
+	// The same driver runs on historical runtimes without the additive report.
+	// Never turn a sticky delivery failure into a successful resource check.
+	var report any
+	if method := reflect.ValueOf(s).MethodByName("DrainWithReport"); method.IsValid() {
+		values := method.Call([]reflect.Value{reflect.ValueOf(ctx)})
+		report = values[0].Interface()
+		if !values[1].IsNil() {
+			err = values[1].Interface().(error)
+		}
+	} else {
+		err = s.Drain(ctx)
+	}
 	serveErr := <-done
-	if e := save(output, snapshot()); e != nil {
+	final := snapshot()
+	final["drain_report"] = report
+	final["drain_error"] = fmt.Sprint(err)
+	if e := save(output, final); e != nil {
 		return e
 	}
 	if err != nil {

@@ -1,0 +1,16 @@
+{"Time":"2026-10-31T20:59:12.838609+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T20:59:13.408035+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryBudgetRejectionHasLocalProvenance"}
+{"Time":"2026-10-31T20:59:13.408453+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryBudgetRejectionHasLocalProvenance","Output":"=== RUN   TestBoundaryBudgetRejectionHasLocalProvenance\n","OutputType":"frame"}
+{"Time":"2026-10-31T20:59:13.408533+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryBudgetRejectionHasLocalProvenance","Output":"--- PASS: TestBoundaryBudgetRejectionHasLocalProvenance (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T20:59:13.408544+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryBudgetRejectionHasLocalProvenance","Elapsed":0}
+{"Time":"2026-10-31T20:59:13.408564+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryCancelAfterTerminalIsObserved"}
+{"Time":"2026-10-31T20:59:13.408573+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryCancelAfterTerminalIsObserved","Output":"=== RUN   TestBoundaryCancelAfterTerminalIsObserved\n","OutputType":"frame"}
+{"Time":"2026-10-31T20:59:13.413777+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryCancelAfterTerminalIsObserved","Output":"--- PASS: TestBoundaryCancelAfterTerminalIsObserved (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T20:59:13.413904+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryCancelAfterTerminalIsObserved","Elapsed":0.01}
+{"Time":"2026-10-31T20:59:13.413949+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryDrainPreservesDeliveryFaultAlongsideCancellation"}
+{"Time":"2026-10-31T20:59:13.413959+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryDrainPreservesDeliveryFaultAlongsideCancellation","Output":"=== RUN   TestBoundaryDrainPreservesDeliveryFaultAlongsideCancellation\n","OutputType":"frame"}
+{"Time":"2026-10-31T20:59:13.446079+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryDrainPreservesDeliveryFaultAlongsideCancellation","Output":"--- PASS: TestBoundaryDrainPreservesDeliveryFaultAlongsideCancellation (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T20:59:13.446167+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestBoundaryDrainPreservesDeliveryFaultAlongsideCancellation","Elapsed":0.03}
+{"Time":"2026-10-31T20:59:13.44619+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T20:59:13.447422+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t0.609s\n"}
+{"Time":"2026-10-31T20:59:13.447475+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.609}

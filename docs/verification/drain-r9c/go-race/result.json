@@ -1,0 +1,42 @@
+{
+  "endpoint": "http://127.0.0.1:62004",
+  "etcd_version": "etcd Version: 3.7.1\nGit SHA: 5e7fd0de9\nGo Version: go1.26.5\nGo OS/Arch: darwin/arm64\n",
+  "scope": "owned single-member etcd; real lease, watch, compaction and TCP gate; not a quorum/production test",
+  "owned_pid": 45380,
+  "owned_membership": {
+    "header": {
+      "cluster_id": "9349883845124586025",
+      "member_id": "14276794547917364747",
+      "raft_term": "2"
+    },
+    "members": [
+      {
+        "ID": "14276794547917364747",
+        "name": "kanarpc-r7b-45366",
+        "peerURLs": [
+          "http://127.0.0.1:62006"
+        ],
+        "clientURLs": [
+          "http://127.0.0.1:62004"
+        ]
+      }
+    ]
+  },
+  "command": [
+    "go",
+    "test",
+    "-count=1",
+    "-timeout=120s",
+    "-json",
+    "-race",
+    "./..."
+  ],
+  "test_exit_code": 0,
+  "checks": {
+    "pass": 322,
+    "skip": 0,
+    "fail": 0
+  },
+  "status": "PASS",
+  "owned_process_reaped": true
+}

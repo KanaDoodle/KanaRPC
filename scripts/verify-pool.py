@@ -25,7 +25,8 @@ def main():
   if any(x in rel.parts for x in ['tools','docs','.git']):continue
   dest=current/rel;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(path,dest)
  for n in ['go.mod','go.sum','LICENSE']:shutil.copy2(ROOT/n,current/n)
- (baseline/'cmd/pool-lab').mkdir(exist_ok=True);shutil.copy2(ROOT/'cmd/pool-lab/main.go',baseline/'cmd/pool-lab/main.go')
+ for driver in ['pool-lab','resource-lab']:
+  (baseline/('cmd/'+driver)).mkdir(exist_ok=True);shutil.copy2(ROOT/('cmd/'+driver+'/main.go'),baseline/('cmd/'+driver+'/main.go'))
  bins={};meta={'work':str(work),'baseline':subprocess.check_output(['git','rev-parse',a.baseline],cwd=ROOT,text=True).strip(),'go':subprocess.check_output(['go','version'],text=True).strip(),'duration':a.duration,'cycles':a.cycles,'tight_duration':a.tight_duration,'GOMAXPROCS':2,'scope':'bounded loopback resource observation; no throughput or RSS/production leak claim; one fixed baseline worker version for both clients; absent baseline pool stats are unsupported','versions':{}}
  for name,root in [('baseline',baseline),('current',current)]:
   binary=work/('pool-'+name);subprocess.run(['go','build','-o',str(binary),'./cmd/pool-lab'],cwd=root,env=env,check=True);bins[name]=binary
@@ -77,6 +78,9 @@ def main():
        assert exits[n]==1 and w['rpc']['LostTerminals']>0 and (directory/f'worker-{n}.log').read_text().strip()=='kanarpc: terminal receipt not acknowledged',w
       assert all(w['rpc'][k]==0 for k in ['Connections','InFlight','Executing','NativeStreams','IncompleteExchanges']),w
       assert all(v['Used']==0 for v in w['memory'].values()),w
+      if version=='current':
+       report=w['drain_report'];assert report['Quiescent'] and report['TotalFaults']['LostTerminals']==w['rpc']['LostTerminals'] and report['TotalFaults']['IncompleteExchanges']==w['rpc']['IncompleteExchanges'],report
+       o=w['rpc']['Outcomes'];assert o['ReceiptsResolved']==w['rpc']['Delivered']+w['rpc']['LostTerminals']+o['ReceiptsCanceled']+o['ReceiptsDeadlineExceeded'],w
      result['status']='DEGRADED' if any(exits) else 'PASS'
     except Exception as e:result.update(status='FAIL',failure=repr(e),traceback=traceback.format_exc())
     finally:

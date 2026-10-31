@@ -1,0 +1,8 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/51 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 51/51 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 109547 (36510/sec), new interesting: 0 (total: 51)
+fuzz: elapsed: 6s, execs: 227973 (39467/sec), new interesting: 0 (total: 51)
+fuzz: elapsed: 9s, execs: 343913 (38655/sec), new interesting: 0 (total: 51)
+fuzz: elapsed: 10s, execs: 383088 (35786/sec), new interesting: 0 (total: 51)
+PASS
+ok  	github.com/KanaDoodle/KanaRPC	10.683s

@@ -1,0 +1,44 @@
+[
+  {
+    "path": "docs/verification/drain-r9c/go-local/data",
+    "owned_pid": 45379,
+    "process_reaped": true,
+    "bytes": 80891904
+  },
+  {
+    "path": "docs/verification/drain-r9c/go-race/data",
+    "owned_pid": 45380,
+    "process_reaped": true,
+    "bytes": 80891904
+  },
+  {
+    "path": "docs/verification/drain-r9c/go-minimum-race/data",
+    "owned_pid": 45671,
+    "process_reaped": true,
+    "bytes": 80891904
+  },
+  {
+    "path": "docs/verification/drain-r9c/final-local/data",
+    "owned_pid": 46314,
+    "process_reaped": true,
+    "bytes": 80891904
+  },
+  {
+    "path": "docs/verification/drain-r9c/final-race/data",
+    "owned_pid": 46317,
+    "process_reaped": true,
+    "bytes": 80891904
+  },
+  {
+    "path": "docs/verification/drain-r9c/final-minimum/data",
+    "owned_pid": 46316,
+    "process_reaped": true,
+    "bytes": 80891904
+  },
+  {
+    "path": "docs/verification/drain-r9c/final-minimum-race/data",
+    "owned_pid": 46315,
+    "process_reaped": true,
+    "bytes": 80891904
+  }
+]

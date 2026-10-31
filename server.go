@@ -33,6 +33,9 @@ const (
 )
 
 type ServerStats struct {
+	// Canceled is the legacy handler-status count, including deadline statuses.
+	// Outcomes records protocol observations separately from application codes.
+	Outcomes                                                          ServerOutcomes
 	Queued                                                            int
 	IncompleteExchanges                                               uint64
 	NativeStreams                                                     int
@@ -228,42 +231,8 @@ func (s *Server) Wait(ctx context.Context) error {
 // Drain seals admission under the same lock used by admit. Successful normal
 // results are kept alive through receipt ACK; the caller deadline bounds drain.
 func (s *Server) Drain(ctx context.Context) error {
-	s.mu.Lock()
-	if s.state == fresh {
-		s.state = closed
-	}
-	if s.state == serving {
-		s.state = draining
-	}
-	l := s.listener
-	s.notifyLocked()
-	s.mu.Unlock()
-	if l != nil {
-		_ = l.Close()
-	}
-	for {
-		s.mu.Lock()
-		quiet := !s.accepting && s.stats.InFlight == 0
-		changed := s.changed
-		s.mu.Unlock()
-		if quiet {
-			break
-		}
-		select {
-		case <-ctx.Done():
-			s.Close()
-			return ctx.Err()
-		case <-changed:
-		}
-	}
-	s.Close()
-	if err := s.Wait(ctx); err != nil {
-		return err
-	}
-	if stats := s.Stats(); stats.LostTerminals != 0 || stats.IncompleteExchanges != 0 {
-		return ErrDelivery
-	}
-	return nil
+	_, err := s.DrainWithReport(ctx)
+	return err
 }
 
 type serverConn struct {
@@ -302,6 +271,7 @@ func (p *serverConn) readLoop() {
 	}()
 	if p.handshake != nil {
 		if err := p.handshake(); err != nil {
+			p.close(err)
 			return
 		}
 	}
@@ -317,9 +287,11 @@ func (p *serverConn) readLoop() {
 			if p.native != nil && errors.Is(err, io.EOF) {
 				close(p.peerFIN)
 			}
+			p.close(err)
 			return
 		}
 		if !p.handleFrame(f) {
+			p.close(ErrProtocol)
 			return
 		}
 	}
@@ -344,6 +316,7 @@ func (p *serverConn) handleFrame(f wire.Frame) bool {
 		var err error
 		retained, err = p.open(f)
 		if err != nil {
+			p.close(err) // Preserve a local rejection-write failure, not ErrProtocol.
 			return false
 		}
 		if p.native != nil && !p.bound {
@@ -361,7 +334,7 @@ func (p *serverConn) handleFrame(f wire.Frame) bool {
 	switch f.Kind {
 	case wire.Cancel:
 		if r != nil {
-			r.cancel(context.Canceled)
+			r.cancelRequest()
 		}
 	case wire.Credit:
 		if r != nil && !r.credit() {
@@ -377,10 +350,22 @@ func (p *serverConn) handleFrame(f wire.Frame) bool {
 	return true
 }
 
-func (p *serverConn) reject(id uint64, code Code, path ...string) error {
+func (p *serverConn) reject(id uint64, code Code, reason string, path ...string) error {
 	s := p.server
 	s.mu.Lock()
 	s.stats.Rejected++
+	switch reason {
+	case "capacity":
+		s.stats.Outcomes.CapacityRejected++
+	case "policy":
+		s.stats.Outcomes.PolicyRejected++
+	case "draining":
+		s.stats.Outcomes.DrainingRejected++
+	case "invalid":
+		s.stats.Outcomes.InvalidRejected++
+	case "not_found":
+		s.stats.Outcomes.NotFoundRejected++
+	}
 	s.mu.Unlock()
 	var pressure *Pressure
 	if len(path) > 0 {
@@ -395,25 +380,25 @@ func (p *serverConn) reject(id uint64, code Code, path ...string) error {
 func (p *serverConn) open(f wire.Frame) (bool, error) {
 	var request openRecord
 	if json.Unmarshal(f.Payload, &request) != nil || !validMethod(request.Method) || request.BudgetNanos <= 0 || request.Window < 1 || request.Window > 32 || !json.Valid(request.Request) {
-		return false, p.reject(f.ID, InvalidArgument)
+		return false, p.reject(f.ID, InvalidArgument, "invalid")
 	}
 	if !request.Stream && request.Window != 1 {
-		return false, p.reject(f.ID, InvalidArgument)
+		return false, p.reject(f.ID, InvalidArgument, "invalid")
 	}
 	s := p.server
 	s.mu.Lock()
 	if s.state != serving || p.native != nil && p.native.stopping {
 		s.mu.Unlock()
-		return false, p.reject(f.ID, Unavailable, request.Method)
+		return false, p.reject(f.ID, Unavailable, "draining", request.Method)
 	}
 	h, ok := s.methods[request.Method]
 	if !ok {
 		s.mu.Unlock()
-		return false, p.reject(f.ID, NotFound)
+		return false, p.reject(f.ID, NotFound, "not_found")
 	}
 	if h.streaming != request.Stream {
 		s.mu.Unlock()
-		return false, p.reject(f.ID, InvalidArgument)
+		return false, p.reject(f.ID, InvalidArgument, "invalid")
 	}
 	p.mu.Lock()
 	count := len(p.requests)
@@ -423,12 +408,12 @@ func (p *serverConn) open(f wire.Frame) (bool, error) {
 	if s.stats.InFlight >= s.cfg.MaxInFlight || count >= s.cfg.MaxPerConnection {
 		p.mu.Unlock()
 		s.mu.Unlock()
-		return false, p.reject(f.ID, ResourceExhausted, request.Method)
+		return false, p.reject(f.ID, ResourceExhausted, "capacity", request.Method)
 	}
 	if s.governor != nil && !s.canAdmitLocked(request.Method) {
 		p.mu.Unlock()
 		s.mu.Unlock()
-		return false, p.reject(f.ID, ResourceExhausted, request.Method)
+		return false, p.reject(f.ID, ResourceExhausted, "policy", request.Method)
 	}
 	duration := time.Duration(request.BudgetNanos)
 	if duration > s.cfg.MaxRequestDuration {
@@ -483,6 +468,8 @@ type execution struct {
 	queueCancel                         context.CancelFunc
 	queueError                          error
 	controlGeneration                   uint64
+	cancelObserved                      bool // server.mu
+	receiptResolved                     bool // mu
 }
 
 // Sender is valid only during its handler invocation. Send is serialized and
@@ -555,6 +542,9 @@ func (r *execution) acknowledge(receipt []byte) bool {
 	if !r.terminal || string(r.receipt[:]) != string(receipt) {
 		return false
 	}
+	if r.receiptResolved {
+		return true // A receipt after settlement cannot rewrite historical loss.
+	}
 	r.ackOnce.Do(func() { close(r.ack) })
 	return true
 }
@@ -570,6 +560,7 @@ func invoke(h method, ctx context.Context, b json.RawMessage, out *Sender) (err 
 func (r *execution) run(h method, body json.RawMessage) {
 	s := r.peer.server
 	defer func() {
+		r.recordStop()
 		r.cancel(ErrClosed)
 		r.stop()
 		// Admission takes server then peer; cleanup follows the same lock order.
@@ -654,47 +645,56 @@ func (r *execution) run(h method, body json.RawMessage) {
 	case <-r.ctx.Done():
 	case <-ctx.Done():
 	}
-	r.recordDelivery()
-	if r.peer.native != nil {
+	acked := r.recordDelivery()
+	if r.peer.native != nil && acked {
+		channel := r.peer.link.conn.(*nativeChannel)
+		_ = channel.Stream.Close()
 		select {
-		case <-r.ack:
-			channel := r.peer.link.conn.(*nativeChannel)
-			_ = channel.Stream.Close()
-			select {
-			case <-r.peer.peerFIN:
-			case <-ctx.Done():
-			case <-r.ctx.Done():
-			}
-			select {
-			case <-r.peer.peerFIN:
-			default:
-				cause := context.Cause(r.ctx)
-				if cause != context.Canceled && cause != context.DeadlineExceeded {
-					s.mu.Lock()
-					s.stats.IncompleteExchanges++
-					s.mu.Unlock()
-				}
-			}
+		case <-r.peer.peerFIN:
+		case <-ctx.Done():
+		case <-r.ctx.Done():
+		}
+		select {
+		case <-r.peer.peerFIN:
 		default:
+			s.mu.Lock()
+			if !(r.cancelObserved && context.Cause(r.ctx) == context.Canceled) && r.ctx.Err() != context.DeadlineExceeded {
+				s.stats.IncompleteExchanges++
+			}
+			s.mu.Unlock()
 		}
 	}
 }
 
-func (r *execution) recordDelivery() {
+func (r *execution) recordDelivery() bool {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.receiptResolved {
+		return false
+	}
+	r.receiptResolved = true
 	s := r.peer.server
 	s.mu.Lock()
 	defer s.mu.Unlock()
+	s.stats.Outcomes.ReceiptsResolved++
 	// ACK is an irreversible protocol observation. A later socket close or a
 	// racing deadline must not overturn it, even if both select cases are ready.
 	select {
 	case <-r.ack:
 		s.stats.Delivered++
+		return true
 	default:
 		cause := context.Cause(r.ctx)
-		if cause != context.Canceled && cause != context.DeadlineExceeded {
+		switch {
+		case cause == context.Canceled && r.cancelObserved:
+			s.stats.Outcomes.ReceiptsCanceled++
+		case r.ctx.Err() == context.DeadlineExceeded:
+			s.stats.Outcomes.ReceiptsDeadlineExceeded++
+		default:
 			s.stats.LostTerminals++
 		}
 	}
+	return false
 }
 
 // RegisterUnary provides compile-time request/response types without reflection.

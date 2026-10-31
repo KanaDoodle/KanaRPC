@@ -1,0 +1,60 @@
+{
+  "drain_error": "kanarpc: terminal receipt not acknowledged",
+  "drain_report": null,
+  "handler_calls": 169562,
+  "heap": {
+    "Goroutines": 3,
+    "FDs": 8,
+    "HeapAlloc": 281784,
+    "HeapObjects": 1280,
+    "StackInuse": 458752,
+    "TotalAlloc": 23561074792,
+    "NumGC": 7878
+  },
+  "memory": {
+    "Receive": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 495318,
+      "Rejected": 0
+    },
+    "Send": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 147909,
+      "Rejected": 0
+    },
+    "ControlReceive": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 16,
+      "Rejected": 0
+    },
+    "ControlSend": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 82,
+      "Rejected": 0
+    },
+    "Encoding": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    }
+  },
+  "rpc": {
+    "Queued": 0,
+    "IncompleteExchanges": 0,
+    "NativeStreams": 0,
+    "Connections": 0,
+    "InFlight": 0,
+    "Executing": 0,
+    "Admitted": 225206,
+    "Completed": 225206,
+    "Rejected": 0,
+    "Canceled": 189255,
+    "Delivered": 2628,
+    "LostTerminals": 33011
+  }
+}

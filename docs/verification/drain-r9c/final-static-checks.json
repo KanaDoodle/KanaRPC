@@ -1,0 +1,19 @@
+[
+  {
+    "command": [
+      "go",
+      "vet",
+      "./..."
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "build",
+      "-mod=readonly",
+      "./..."
+    ],
+    "exit_code": 0
+  }
+]

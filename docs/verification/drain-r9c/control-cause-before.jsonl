@@ -1,0 +1,9 @@
+{"Time":"2026-10-31T21:07:01.223658+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T21:07:01.607236+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestRejectControlBudgetAbortRetainsLocalCause"}
+{"Time":"2026-10-31T21:07:01.607542+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestRejectControlBudgetAbortRetainsLocalCause","Output":"=== RUN   TestRejectControlBudgetAbortRetainsLocalCause\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:07:01.607578+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestRejectControlBudgetAbortRetainsLocalCause","Output":"    drain_test.go:537: kanarpc: invalid record byte bounds\n","OutputType":"error"}
+{"Time":"2026-10-31T21:07:01.607593+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestRejectControlBudgetAbortRetainsLocalCause","Output":"--- FAIL: TestRejectControlBudgetAbortRetainsLocalCause (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:07:01.6076+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestRejectControlBudgetAbortRetainsLocalCause","Elapsed":0}
+{"Time":"2026-10-31T21:07:01.607607+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:07:01.607888+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.383s\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:07:01.607916+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.384}

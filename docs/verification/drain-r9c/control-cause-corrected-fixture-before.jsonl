@@ -1,0 +1,9 @@
+{"Time":"2026-10-31T21:07:30.595167+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T21:07:30.970545+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestRejectControlBudgetAbortRetainsLocalCause"}
+{"Time":"2026-10-31T21:07:30.970662+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestRejectControlBudgetAbortRetainsLocalCause","Output":"=== RUN   TestRejectControlBudgetAbortRetainsLocalCause\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:07:30.973663+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestRejectControlBudgetAbortRetainsLocalCause","Output":"    drain_test.go:548: rejection write erased local budget cause {{0 0 0 0 1 0 0 1 0 0 0 0 0} 0 0 0 0 0 0 1 1 1 1 0 0} {{16777216 0 340 0} {16777216 0 0 0} {8192 0 0 0} {8192 8192 8192 1} {16777216 0 0 0}}\n","OutputType":"error"}
+{"Time":"2026-10-31T21:07:30.97378+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestRejectControlBudgetAbortRetainsLocalCause","Output":"--- FAIL: TestRejectControlBudgetAbortRetainsLocalCause (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:07:30.9738+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestRejectControlBudgetAbortRetainsLocalCause","Elapsed":0}
+{"Time":"2026-10-31T21:07:30.973824+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:07:30.974236+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.379s\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:07:30.974261+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.379}

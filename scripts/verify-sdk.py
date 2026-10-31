@@ -20,8 +20,11 @@ def main():
     (consumer/"go.mod").write_text("module example.com/independent-consumer\n\ngo 1.26.0\n\nrequire github.com/KanaDoodle/KanaRPC v0.0.0\n\nreplace github.com/KanaDoodle/KanaRPC => "+json.dumps(str(ROOT))+"\n")
     source = ROOT/"routing/example_test.go"
     shutil.copy2(source, consumer/"example_test.go")
+    lifecycle = consumer/"lifecycle"; lifecycle.mkdir()
+    lifecycle_source = ROOT/"drain_example_test.go"
+    shutil.copy2(lifecycle_source, lifecycle/"example_test.go")
     env = dict(os.environ, GOWORK="off")
-    result = dict(scope="independent local module replacement, public API only, real TCP echo/stream; not a published version or model test", example_sha256=hashlib.sha256(source.read_bytes()).hexdigest())
+    result = dict(scope="independent local module replacement, public API only, real TCP echo/stream and drain report; not a published version or model test", example_sha256=hashlib.sha256(source.read_bytes()).hexdigest(), lifecycle_example_sha256=hashlib.sha256(lifecycle_source.read_bytes()).hexdigest())
     try:
         with (output/"tidy.txt").open("wb") as log:
             subprocess.run(["go","mod","tidy"],cwd=consumer,env=env,stdout=log,stderr=log,check=True)

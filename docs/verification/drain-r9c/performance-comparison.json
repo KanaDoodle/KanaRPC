@@ -1,0 +1,98 @@
+[
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "payload_bytes": 128,
+    "r9b_rps": 55598.15609827263,
+    "current_rps": 53285.61216003246,
+    "r9b_p95_ms": 0.25175,
+    "current_p95_ms": 0.262458,
+    "r9b_cpu_seconds": 0.10346200000000039,
+    "current_cpu_seconds": 0.10595999999999606,
+    "throughput_change_percent": -4.159389628232679
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "payload_bytes": 16384,
+    "r9b_rps": 22051.56759081111,
+    "current_rps": 20901.881052244167,
+    "r9b_p95_ms": 0.616542,
+    "current_p95_ms": 0.670667,
+    "r9b_cpu_seconds": 0.2156310000000019,
+    "current_cpu_seconds": 0.22475600000000284,
+    "throughput_change_percent": -5.213627257256848
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "payload_bytes": 128,
+    "r9b_rps": 13092.611016078394,
+    "current_rps": 13074.658536007211,
+    "r9b_p95_ms": 0.938834,
+    "current_p95_ms": 0.948625,
+    "r9b_cpu_seconds": 0.40279700000002094,
+    "current_cpu_seconds": 0.4037039999999976,
+    "throughput_change_percent": -0.1371191739305111
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "payload_bytes": 16384,
+    "r9b_rps": 3525.6895739344473,
+    "current_rps": 3603.9986278279785,
+    "r9b_p95_ms": 3.325709,
+    "current_p95_ms": 3.227959,
+    "r9b_cpu_seconds": 1.2741480000000003,
+    "current_cpu_seconds": 1.2842099999999999,
+    "throughput_change_percent": 2.2210989439476636
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "payload_bytes": 128,
+    "r9b_rps": 26849.18167587383,
+    "current_rps": 25219.090851774792,
+    "r9b_p95_ms": 0.471167,
+    "current_p95_ms": 0.50125,
+    "r9b_cpu_seconds": 0.19527300000000025,
+    "current_cpu_seconds": 0.20317000000000007,
+    "throughput_change_percent": -6.071286804110709
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "payload_bytes": 16384,
+    "r9b_rps": 6534.301666308347,
+    "current_rps": 6778.672939198693,
+    "r9b_p95_ms": 1.764041,
+    "current_p95_ms": 1.642542,
+    "r9b_cpu_seconds": 0.7584439999999972,
+    "current_cpu_seconds": 0.7464039999999983,
+    "throughput_change_percent": 3.7398223309822676
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "payload_bytes": 128,
+    "r9b_rps": 13897.518475777988,
+    "current_rps": 13427.332177884544,
+    "r9b_p95_ms": 0.867625,
+    "current_p95_ms": 0.896584,
+    "r9b_cpu_seconds": 0.36595300000000464,
+    "current_cpu_seconds": 0.37013600000000224,
+    "throughput_change_percent": -3.3832392359321783
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "payload_bytes": 16384,
+    "r9b_rps": 1045.4654634404649,
+    "current_rps": 1039.5742970698261,
+    "r9b_p95_ms": 9.908625,
+    "current_p95_ms": 10.262375,
+    "r9b_cpu_seconds": 4.869190000000003,
+    "current_cpu_seconds": 4.9260850000000005,
+    "throughput_change_percent": -0.5634969854720784
+  }
+]

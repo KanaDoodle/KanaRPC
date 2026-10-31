@@ -38,7 +38,11 @@ method 为 `/service/method`，总长不超过 128 字节，段内只允许 ASCI
 
 远端错误允许已经到达的 DATA 先被消费；本地取消或传输失败清空尚在途请求的未读缓冲。过期请求的响应按 ID 丢弃，不匹配新调用。客户端 ACK 后才发布远端完成，但 ACK 仍只表示协议终态被收到，不是应用已消费所有块或业务已提交。
 
-未接纳拒绝及服务端预算耗尽的错误终态可以没有 receipt，不占额外 ACK 等待者。正常已接纳结果在 ACK、取消或 ACK 期限后退休；缺少非取消结果的 ACK 会保留为 `LostTerminals`，随后 Drain 返回 `ErrDelivery`。这个统计是服务端整个生命周期累计值。
+未接纳拒绝的错误终态没有 receipt，不占额外 ACK 等待者。已接纳的处理器若返回预算错误，只要请求 Context 仍有效，仍会发送带 receipt 的 ResourceExhausted END；若在读取 OPEN 前或写控制记录时预算已经不足，则可能只能关闭记录连接或 reset QUIC 交换。正常已接纳结果在 ACK、取消或 ACK 期限后退休；缺少非取消结果的 ACK 会保留为 `LostTerminals`，随后 Drain 返回 `ErrDelivery`。这个统计是服务端整个生命周期累计值。
+
+R9C 不改变帧或 END 格式。本机字节接纳失败可用 `errors.As(err, *BudgetError)` 区分；远端只收到 Status，不能反推对方预算或 reset 原因。`ServerStats.Outcomes` 把接纳拒绝、实际收到的 CANCEL、请求截止时间、连接故障和回执结算分别累计。`Canceled` 仍保留原有的处理器状态码计数，不等于主动取消数。迟于回执结算的 ACK 不改写累计故障；结算前已观察到 ACK 时，后续取消或连接关闭不能推翻它。
+
+`DrainWithReport` 区分 PriorFaults、AddedFaults、TotalFaults 与 Quiescent；资源退出和交付健康是两件事。累计故障不因重复 drain 或后续成功调用而清零；若 drain 同时超时/取消和存在交付故障，返回错误同时匹配 Context 错误和 ErrDelivery。ACK 只证明客户端协议层回执，不证明 UI 消费、持久化或业务提交。详见 [R9C 契约](drain-r9c.md)。
 
 R7B 对每个原生 QUIC 交换只允许一个 OPEN。客户端 END/ACK 后等服务端 FIN，先发送自身 FIN 再发布完成；服务端观察客户端 FIN 后退休正常交换。客户端 Close 通过 SESSION_BARRIER 等待父会话 quiescence 后关闭连接；超时仍强制回收并记录未确认。完整约束见 [transport-r7b.md](transport-r7b.md)。
 

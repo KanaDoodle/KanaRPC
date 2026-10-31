@@ -1,0 +1,16 @@
+{"Time":"2026-10-31T21:08:06.554275+08:00","Action":"start","Package":"example.com/independent-consumer"}
+{"Time":"2026-10-31T21:08:06.554461+08:00","Action":"start","Package":"example.com/independent-consumer/lifecycle"}
+{"Time":"2026-10-31T21:08:06.938933+08:00","Action":"run","Package":"example.com/independent-consumer/lifecycle","Test":"ExampleServer_DrainWithReport"}
+{"Time":"2026-10-31T21:08:06.93909+08:00","Action":"output","Package":"example.com/independent-consumer/lifecycle","Test":"ExampleServer_DrainWithReport","Output":"=== RUN   ExampleServer_DrainWithReport\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:08:06.941056+08:00","Action":"output","Package":"example.com/independent-consumer/lifecycle","Test":"ExampleServer_DrainWithReport","Output":"--- PASS: ExampleServer_DrainWithReport (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:08:06.941117+08:00","Action":"pass","Package":"example.com/independent-consumer/lifecycle","Test":"ExampleServer_DrainWithReport","Elapsed":0}
+{"Time":"2026-10-31T21:08:06.941149+08:00","Action":"output","Package":"example.com/independent-consumer/lifecycle","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:08:07.041069+08:00","Action":"run","Package":"example.com/independent-consumer","Test":"ExampleClient"}
+{"Time":"2026-10-31T21:08:07.041153+08:00","Action":"output","Package":"example.com/independent-consumer","Test":"ExampleClient","Output":"=== RUN   ExampleClient\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:08:07.043364+08:00","Action":"output","Package":"example.com/independent-consumer","Test":"ExampleClient","Output":"--- PASS: ExampleClient (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:08:07.043411+08:00","Action":"pass","Package":"example.com/independent-consumer","Test":"ExampleClient","Elapsed":0}
+{"Time":"2026-10-31T21:08:07.043418+08:00","Action":"output","Package":"example.com/independent-consumer","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T21:08:07.942688+08:00","Action":"output","Package":"example.com/independent-consumer/lifecycle","Output":"ok  \texample.com/independent-consumer/lifecycle\t1.388s\n"}
+{"Time":"2026-10-31T21:08:07.94276+08:00","Action":"pass","Package":"example.com/independent-consumer/lifecycle","Elapsed":1.388}
+{"Time":"2026-10-31T21:08:08.044495+08:00","Action":"output","Package":"example.com/independent-consumer","Output":"ok  \texample.com/independent-consumer\t1.490s\n"}
+{"Time":"2026-10-31T21:08:08.04454+08:00","Action":"pass","Package":"example.com/independent-consumer","Elapsed":1.49}

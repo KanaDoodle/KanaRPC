@@ -21,6 +21,8 @@
 
 | R9B，本地有限验收完成 | deadline 感知的 4 KiB 原子批量、零入队回退与安全 paced 写，保持预算和退休实现 | [步骤/API](quic-r9b.md)、[报告](verification/quic-r9b/report.md)；600 case 多 payload 对照，小记录流式恢复到 R8D 量级；保留大包/部分普通调用负变化，真实双机待验 |
 
+| R9C，本地有限验收完成 | 本机字节拒绝来源、累计取消/期限/中断与回执结算、带累计故障报告的 drain | [步骤/API](drain-r9c.md)、[报告](verification/drain-r9c/report.md)；332 项普通/race 四轮完整回归，保留饱和未回执与资源退出的区别；不做 gRPC 对照，真实双机待验 |
+
 R7A 的通过只代表第一阶段。不会为兼容旧包名而调用旧 internal，也不会自动把旧测试结果搬成新版本结果。新协议不做隐式 downgrade；真正迁移时新旧端点显式分离。
 
 ## 已落实的架构选择
