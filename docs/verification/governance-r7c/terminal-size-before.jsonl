@@ -1,0 +1,18 @@
+{"Time":"2026-10-31T13:36:08.307873+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T13:36:08.697149+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:08.697263+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:08.697341+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:08.697359+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:08.699649+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"    governance_boundary_test.go:252: oversized END lost structured error kanarpc: peer violated protocol\n","OutputType":"error"}
+{"Time":"2026-10-31T13:36:08.699712+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- FAIL: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:08.699726+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:08.699739+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:08.699747+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:08.705536+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"    governance_boundary_test.go:252: oversized END lost structured error kanarpc: peer violated protocol\n","OutputType":"error"}
+{"Time":"2026-10-31T13:36:08.705792+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- FAIL: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:08.705814+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:08.705845+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- FAIL: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:08.705855+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:08.705865+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:08.707106+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.399s\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:08.707138+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.399}

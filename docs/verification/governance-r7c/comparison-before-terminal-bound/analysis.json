@@ -1,0 +1,615 @@
+{
+  "cases": 66,
+  "offered": 108000,
+  "all_outcomes": {
+    "ok": 95144,
+    "local_pressure": 5039,
+    "deadline_exceeded": 5161,
+    "resource_exhausted": 2656
+  },
+  "actual_inference": "NOT_VALIDATED",
+  "source_matches_binary_manifest": true,
+  "owned_processes_reaped": true,
+  "feedback_active_zero": true,
+  "groups": [
+    {
+      "scene": "low-load",
+      "profile": "fixed-fifo",
+      "transport": "tcp",
+      "offered": 120,
+      "counts": {
+        "/lab/fast": {
+          "ok": 60
+        },
+        "/lab/slow": {
+          "ok": 60
+        }
+      },
+      "on_time": {
+        "/lab/fast": 60,
+        "/lab/slow": 60
+      },
+      "fast_p95_ms_mean": 1.6207363333333333,
+      "fast_p95_ms_each": [
+        1.531625,
+        1.687375,
+        1.643209
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "fixed-fair",
+      "transport": "tcp",
+      "offered": 120,
+      "counts": {
+        "/lab/fast": {
+          "ok": 60
+        },
+        "/lab/slow": {
+          "ok": 60
+        }
+      },
+      "on_time": {
+        "/lab/fast": 60,
+        "/lab/slow": 60
+      },
+      "fast_p95_ms_mean": 1.661875,
+      "fast_p95_ms_each": [
+        1.628,
+        1.648166,
+        1.709459
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "fixed4-fair",
+      "transport": "tcp",
+      "offered": 120,
+      "counts": {
+        "/lab/fast": {
+          "ok": 60
+        },
+        "/lab/slow": {
+          "ok": 60
+        }
+      },
+      "on_time": {
+        "/lab/fast": 60,
+        "/lab/slow": 60
+      },
+      "fast_p95_ms_mean": 1.838639,
+      "fast_p95_ms_each": [
+        1.627,
+        1.544917,
+        2.344
+      ],
+      "slow_final_limits": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "adaptive",
+      "transport": "tcp",
+      "offered": 120,
+      "counts": {
+        "/lab/fast": {
+          "ok": 60
+        },
+        "/lab/slow": {
+          "ok": 60
+        }
+      },
+      "on_time": {
+        "/lab/fast": 60,
+        "/lab/slow": 60
+      },
+      "fast_p95_ms_mean": 1.727028,
+      "fast_p95_ms_each": [
+        1.593958,
+        1.952542,
+        1.634584
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "feedback",
+      "transport": "tcp",
+      "offered": 120,
+      "counts": {
+        "/lab/fast": {
+          "ok": 60
+        },
+        "/lab/slow": {
+          "ok": 60
+        }
+      },
+      "on_time": {
+        "/lab/fast": 60,
+        "/lab/slow": 60
+      },
+      "fast_p95_ms_mean": 1.6249303333333334,
+      "fast_p95_ms_each": [
+        1.675791,
+        1.558333,
+        1.640667
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "fixed-fifo",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "ok": 7200
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 7200
+      },
+      "fast_p95_ms_mean": 1.380986,
+      "fast_p95_ms_each": [
+        1.360584,
+        1.405041,
+        1.377333
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "fixed-fair",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "ok": 7200
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 7200
+      },
+      "fast_p95_ms_mean": 1.3706803333333333,
+      "fast_p95_ms_each": [
+        1.377916,
+        1.363791,
+        1.370334
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "fixed4-fair",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 572,
+          "ok": 5919,
+          "resource_exhausted": 709
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 699
+      },
+      "fast_p95_ms_mean": 1.4941943333333334,
+      "fast_p95_ms_each": [
+        1.431042,
+        1.465916,
+        1.585625
+      ],
+      "slow_final_limits": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "adaptive",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "ok": 7200
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 7200
+      },
+      "fast_p95_ms_mean": 1.3394583333333334,
+      "fast_p95_ms_each": [
+        1.349125,
+        1.321708,
+        1.347542
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "feedback",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "ok": 7200
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 7200
+      },
+      "fast_p95_ms_mean": 1.401667,
+      "fast_p95_ms_each": [
+        1.409792,
+        1.398125,
+        1.397084
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "fixed-fifo",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "deadline_exceeded": 101,
+          "ok": 1009,
+          "resource_exhausted": 90
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 725,
+          "ok": 5975,
+          "resource_exhausted": 500
+        }
+      },
+      "on_time": {
+        "/lab/fast": 799,
+        "/lab/slow": 4998
+      },
+      "fast_p95_ms_mean": 60.778903,
+      "fast_p95_ms_each": [
+        60.839292,
+        60.691875,
+        60.805542
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "fixed-fair",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1149,
+          "resource_exhausted": 51
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 916,
+          "ok": 6002,
+          "resource_exhausted": 282
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1149,
+        "/lab/slow": 5002
+      },
+      "fast_p95_ms_mean": 4.659291666666666,
+      "fast_p95_ms_each": [
+        4.540625,
+        4.61825,
+        4.819
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "fixed4-fair",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 1446,
+          "ok": 5009,
+          "resource_exhausted": 745
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 698
+      },
+      "fast_p95_ms_mean": 1.415347,
+      "fast_p95_ms_each": [
+        1.452666,
+        1.3855,
+        1.407875
+      ],
+      "slow_final_limits": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "adaptive",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 962,
+          "ok": 5959,
+          "resource_exhausted": 279
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 4916
+      },
+      "fast_p95_ms_mean": 1.3518886666666667,
+      "fast_p95_ms_each": [
+        1.240458,
+        1.404416,
+        1.410792
+      ],
+      "slow_final_limits": [
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "feedback",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "local_pressure": 1542,
+          "ok": 5658
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 5646
+      },
+      "fast_p95_ms_mean": 1.392333,
+      "fast_p95_ms_each": [
+        1.367583,
+        1.404625,
+        1.404791
+      ],
+      "slow_final_limits": [
+        13,
+        15,
+        14
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "fixed-fifo",
+      "transport": "tcp",
+      "offered": 1320,
+      "counts": {
+        "/lab/fast": {
+          "ok": 120
+        },
+        "/lab/slow": {
+          "ok": 1198,
+          "deadline_exceeded": 2
+        }
+      },
+      "on_time": {
+        "/lab/fast": 120,
+        "/lab/slow": 843
+      },
+      "fast_p95_ms_mean": 2.7175136666666666,
+      "fast_p95_ms_each": [
+        1.582458,
+        4.961125,
+        1.608958
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "fixed-fair",
+      "transport": "tcp",
+      "offered": 1320,
+      "counts": {
+        "/lab/fast": {
+          "ok": 120
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 2,
+          "ok": 1198
+        }
+      },
+      "on_time": {
+        "/lab/fast": 120,
+        "/lab/slow": 843
+      },
+      "fast_p95_ms_mean": 2.460778,
+      "fast_p95_ms_each": [
+        1.467875,
+        4.380292,
+        1.534167
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "fixed4-fair",
+      "transport": "tcp",
+      "offered": 1320,
+      "counts": {
+        "/lab/fast": {
+          "ok": 120
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 4,
+          "ok": 1196
+        }
+      },
+      "on_time": {
+        "/lab/fast": 120,
+        "/lab/slow": 737
+      },
+      "fast_p95_ms_mean": 1.5488196666666667,
+      "fast_p95_ms_each": [
+        1.538584,
+        1.601667,
+        1.506208
+      ],
+      "slow_final_limits": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "adaptive",
+      "transport": "tcp",
+      "offered": 1320,
+      "counts": {
+        "/lab/fast": {
+          "ok": 120
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 431,
+          "ok": 769
+        }
+      },
+      "on_time": {
+        "/lab/fast": 120,
+        "/lab/slow": 298
+      },
+      "fast_p95_ms_mean": 1.5780003333333332,
+      "fast_p95_ms_each": [
+        1.553208,
+        1.603459,
+        1.577334
+      ],
+      "slow_final_limits": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "feedback",
+      "transport": "tcp",
+      "offered": 1320,
+      "counts": {
+        "/lab/fast": {
+          "ok": 120
+        },
+        "/lab/slow": {
+          "local_pressure": 494,
+          "ok": 706
+        }
+      },
+      "on_time": {
+        "/lab/fast": 120,
+        "/lab/slow": 699
+      },
+      "fast_p95_ms_mean": 1.6089023333333332,
+      "fast_p95_ms_each": [
+        1.626583,
+        1.661333,
+        1.538791
+      ],
+      "slow_final_limits": [
+        2,
+        2,
+        2
+      ]
+    }
+  ]
+}

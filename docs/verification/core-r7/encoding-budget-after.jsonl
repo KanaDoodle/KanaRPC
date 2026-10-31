@@ -1,0 +1,24 @@
+{"Time":"2026-10-31T11:32:44.525364+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T11:32:44.891486+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding"}
+{"Time":"2026-10-31T11:32:44.891593+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"=== RUN   TestConfiguredBudgetIncludesRequestEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:44.923275+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"--- PASS: TestConfiguredBudgetIncludesRequestEncoding (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:44.923337+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Elapsed":0.03}
+{"Time":"2026-10-31T11:32:44.923368+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding"}
+{"Time":"2026-10-31T11:32:44.923378+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"=== RUN   TestConfiguredBudgetIncludesRequestEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:44.950487+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"--- PASS: TestConfiguredBudgetIncludesRequestEncoding (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:44.951783+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Elapsed":0.03}
+{"Time":"2026-10-31T11:32:44.951797+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding"}
+{"Time":"2026-10-31T11:32:44.951806+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"=== RUN   TestConfiguredBudgetIncludesRequestEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:44.988941+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"--- PASS: TestConfiguredBudgetIncludesRequestEncoding (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:44.989012+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Elapsed":0.04}
+{"Time":"2026-10-31T11:32:44.989027+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding"}
+{"Time":"2026-10-31T11:32:44.989036+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"=== RUN   TestConfiguredBudgetIncludesRequestEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:45.024465+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"--- PASS: TestConfiguredBudgetIncludesRequestEncoding (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:45.024509+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Elapsed":0.04}
+{"Time":"2026-10-31T11:32:45.024793+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding"}
+{"Time":"2026-10-31T11:32:45.024808+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"=== RUN   TestConfiguredBudgetIncludesRequestEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:45.055494+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"--- PASS: TestConfiguredBudgetIncludesRequestEncoding (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:45.055551+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Elapsed":0.03}
+{"Time":"2026-10-31T11:32:45.055602+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:46.072281+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t1.547s\n"}
+{"Time":"2026-10-31T11:32:46.072375+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":1.5470000000000002}

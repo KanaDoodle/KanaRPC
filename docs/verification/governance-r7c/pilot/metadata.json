@@ -1,0 +1,55 @@
+{
+  "go_version": "go version go1.27.1 darwin/arm64",
+  "binary_sha256": "3b2e3df55c81eac22403e90d67b47129353d0c80d4a619766f7c972de102e6e2",
+  "duration": 1.0,
+  "seeds": [
+    7
+  ],
+  "profiles": [
+    "fixed-fifo",
+    "fixed-fair",
+    "fixed4-fair",
+    "adaptive",
+    "feedback"
+  ],
+  "scenes": [
+    "capacity-shift",
+    "unattainable"
+  ],
+  "source_sha256": {
+    "client.go": "c022cf372f75da0f2b82a2421d179f334ed7ff6e553add1a005e2d9cd4f33e98",
+    "cmd/governance-lab/main.go": "90d6ef4063b4c33a0bb6b270de08abd2269f3539d9cda46a825cccfe26dcfed3",
+    "cmd/lifecycle-demo/main.go": "6f39265e6ebc793afa48ede9cec1c9363412f65da871dad953d2164839b70c41",
+    "cmd/transport-lab/main.go": "8e49e7665788ff48fd24971cc6e022c14a3cf7a9292fce6e405aba4705eac55f",
+    "core_test.go": "e6caa2ba9397d5ff3a9778a329486a5deb4fab2126379c77c34fa8e4c978c35a",
+    "discovery/e2e_test.go": "fab374123f9fe7af8e0174db71e1083cc7169e42e98800b69b76d49d6ff8ac6f",
+    "discovery/registry.go": "679c8d57b99fbbecdd78652e5fe41cf5b582022ca97c088356702f3c7d323838",
+    "discovery/registry_test.go": "72dd44bdf9a9245c1354b998dc56dba6b543b95a402fb3fda06341b9b65dcdad",
+    "discovery/resolver.go": "f2ad690879aafeaa379beb18f5d8cc0656624e13ef45114f55e067ce1a3528b4",
+    "endpoint.go": "8e7577d7f4c0289fc3bee1c9f8de1e3c6482e831cd998f227b4b54596715e63c",
+    "endpoint_test.go": "f3e4f9d0bbb50e911500b418f902f4b79c9b317d81496d6e543920ea0594a9db",
+    "feedback.go": "a27ee3b2860bb0e3b1e87e77b7eec37ff753bb8747b68b7679c1231ad508f935",
+    "feedback_test.go": "d48bfde87dc13409d64a07b50b10e766dd734c3205d41c53431f2364da78bed8",
+    "governance.go": "5972de7e9fa4f18387344d111fc0af47d9f3751818926c9f3cdbeb1e5f4c8e6e",
+    "governance_test.go": "48bf525c73c9077772fa54db9dcb957ddfab75a2a8a9189392012a6d50cef0fa",
+    "internal/testcert/cert.go": "cc0cfeb498bc596c0a0bbcb7aa39b29fb4b98f4824b16d5edaeb48e668cb2acd",
+    "internal/wire/allocation_baseline_test.go": "5dff4367f5c3dc3ad11b500bed3c2ffafd08e41b0f339f59db07d2e6e217f0cf",
+    "internal/wire/frame.go": "e1e42ccb3ebe720cfa5cc18c221b2306ad152b47afe2fb831f80cbe315b014fb",
+    "internal/wire/frame_test.go": "7ca75db8a80d17f4455babf2f76241539627b26af42aea1580195b0288b900a1",
+    "io_test.go": "78092ec7019cec6d7e1da1c9141a300ac8b63bea55f38e87a765173a64aade6d",
+    "link.go": "8fb9883d3ee61a4d9aadb315000bfb9a1fd92a199b530cf1c20eea8cd29a223f",
+    "options.go": "7925328f778e7eca3259b82565d443d3ed63d1ceb14237751918ac1c56af7258",
+    "quic.go": "949b06a7035dcc71e389bc204a805ec5612d39f0477de17f5566327cf76a09b3",
+    "quic_test.go": "50c5c900e95b04bf9bee803cf487e846621e1f8773c37c41bfb0bc96f050dbcc",
+    "resources.go": "28769391b28186230bb36fed61c37bd9d078f0d291047e0d2cf3b57548c69140",
+    "resources_test.go": "11e23c378695a6b95ac5efc602eb217c19f874714afb23ebc25629cad7f4569f",
+    "security.go": "4d0c534fd4a450b42bb81b9a193835368242953f24015313dc7bc94271006e3f",
+    "security_test.go": "3768791275c88b0d99d23f3cc7f26fe138af37d12f20903851cf24818da6f8b7",
+    "server.go": "d2d4f89e0665a29e638c0d5456f5cb60f77962a01b77468e3c28ae7eb9d14dfb",
+    "status.go": "012615b2e90e215327d59e0f7cdf4145d2248670bf4f6c59df09480060522d88",
+    "transport_fault_test.go": "3b9dd698be06f900057e3894928d07ed70d5c7c48199559a022a67f42110e51d",
+    "go.mod": "95f155862d1bd1c5ae780731b367b45fb53ce4f5e64d13ca0c7f885a21109b15",
+    "go.sum": "dcdf42833d4af6f14c86c506a5e1f58cd8f32f61b0a811d9a043e4bf90a3cc1c"
+  },
+  "scope": "real serial loopback open-loop RPC, 4 clients, generator max 128 and lateness gate 50ms; dynamic-slot/timer fixture, no model or production-capacity claim"
+}

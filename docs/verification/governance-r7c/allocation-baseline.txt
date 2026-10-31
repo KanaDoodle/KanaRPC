@@ -1,0 +1,5 @@
+=== RUN   TestHeaderClaimsAllocationBaseline
+    allocation_baseline_test.go:52: unbudgeted reference reader offered 4194304 allocated payload bytes after headers, before any payload arrived; not RSS
+--- PASS: TestHeaderClaimsAllocationBaseline (0.00s)
+PASS
+ok  	github.com/KanaDoodle/KanaRPC/internal/wire	0.537s

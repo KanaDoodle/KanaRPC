@@ -1,0 +1,35 @@
+// Validation only. The new core does not depend on KanaRPC-Go.
+module kanarpc-lifecycle-compare
+
+go 1.26.0
+
+require (
+	github.com/KanaDoodle/KanaRPC v0.0.0
+	github.com/KanaDoodle/KanaRPC-Go v0.0.0
+)
+
+require (
+	github.com/coreos/go-semver v0.3.1 // indirect
+	github.com/coreos/go-systemd/v22 v22.5.0 // indirect
+	github.com/gogo/protobuf v1.3.2 // indirect
+	github.com/golang/protobuf v1.5.4 // indirect
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.26.3 // indirect
+	github.com/quic-go/quic-go v0.64.1 // indirect
+	go.etcd.io/etcd/api/v3 v3.6.7 // indirect
+	go.etcd.io/etcd/client/pkg/v3 v3.6.7 // indirect
+	go.etcd.io/etcd/client/v3 v3.6.7 // indirect
+	go.uber.org/multierr v1.11.0 // indirect
+	go.uber.org/zap v1.27.0 // indirect
+	golang.org/x/crypto v0.54.0 // indirect
+	golang.org/x/net v0.56.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
+	golang.org/x/text v0.40.0 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20250303144028-a0af3efb3deb // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20250303144028-a0af3efb3deb // indirect
+	google.golang.org/grpc v1.71.1 // indirect
+	google.golang.org/protobuf v1.36.11 // indirect
+)
+
+replace github.com/KanaDoodle/KanaRPC => ../..
+
+replace github.com/KanaDoodle/KanaRPC-Go => ../../../KanaRPC-Go

@@ -1,0 +1,615 @@
+{
+  "cases": 66,
+  "offered": 108000,
+  "all_outcomes": {
+    "ok": 95247,
+    "local_pressure": 4992,
+    "deadline_exceeded": 5092,
+    "resource_exhausted": 2669
+  },
+  "actual_inference": "NOT_VALIDATED",
+  "source_matches_binary_manifest": true,
+  "owned_processes_reaped": true,
+  "feedback_active_zero": true,
+  "groups": [
+    {
+      "scene": "low-load",
+      "profile": "fixed-fifo",
+      "transport": "tcp",
+      "offered": 120,
+      "counts": {
+        "/lab/fast": {
+          "ok": 60
+        },
+        "/lab/slow": {
+          "ok": 60
+        }
+      },
+      "on_time": {
+        "/lab/fast": 60,
+        "/lab/slow": 60
+      },
+      "fast_p95_ms_mean": 1.587736,
+      "fast_p95_ms_each": [
+        1.603875,
+        1.55575,
+        1.603583
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "fixed-fair",
+      "transport": "tcp",
+      "offered": 120,
+      "counts": {
+        "/lab/fast": {
+          "ok": 60
+        },
+        "/lab/slow": {
+          "ok": 60
+        }
+      },
+      "on_time": {
+        "/lab/fast": 60,
+        "/lab/slow": 60
+      },
+      "fast_p95_ms_mean": 1.5808333333333333,
+      "fast_p95_ms_each": [
+        1.552,
+        1.6005,
+        1.59
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "fixed4-fair",
+      "transport": "tcp",
+      "offered": 120,
+      "counts": {
+        "/lab/fast": {
+          "ok": 60
+        },
+        "/lab/slow": {
+          "ok": 60
+        }
+      },
+      "on_time": {
+        "/lab/fast": 60,
+        "/lab/slow": 60
+      },
+      "fast_p95_ms_mean": 1.5849303333333333,
+      "fast_p95_ms_each": [
+        1.540792,
+        1.664166,
+        1.549833
+      ],
+      "slow_final_limits": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "adaptive",
+      "transport": "tcp",
+      "offered": 120,
+      "counts": {
+        "/lab/fast": {
+          "ok": 60
+        },
+        "/lab/slow": {
+          "ok": 60
+        }
+      },
+      "on_time": {
+        "/lab/fast": 60,
+        "/lab/slow": 60
+      },
+      "fast_p95_ms_mean": 1.587097,
+      "fast_p95_ms_each": [
+        1.634292,
+        1.565541,
+        1.561458
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "feedback",
+      "transport": "tcp",
+      "offered": 120,
+      "counts": {
+        "/lab/fast": {
+          "ok": 60
+        },
+        "/lab/slow": {
+          "ok": 60
+        }
+      },
+      "on_time": {
+        "/lab/fast": 60,
+        "/lab/slow": 60
+      },
+      "fast_p95_ms_mean": 1.519708,
+      "fast_p95_ms_each": [
+        1.512833,
+        1.532291,
+        1.514
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "fixed-fifo",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "ok": 7200
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 7200
+      },
+      "fast_p95_ms_mean": 1.3137083333333333,
+      "fast_p95_ms_each": [
+        1.2455,
+        1.446459,
+        1.249166
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "fixed-fair",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "ok": 7200
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 7200
+      },
+      "fast_p95_ms_mean": 1.2715973333333335,
+      "fast_p95_ms_each": [
+        1.289125,
+        1.248625,
+        1.277042
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "fixed4-fair",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 513,
+          "ok": 5972,
+          "resource_exhausted": 715
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1198,
+        "/lab/slow": 681
+      },
+      "fast_p95_ms_mean": 1.3565696666666667,
+      "fast_p95_ms_each": [
+        1.438417,
+        1.303,
+        1.328292
+      ],
+      "slow_final_limits": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "adaptive",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "ok": 7200
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 7200
+      },
+      "fast_p95_ms_mean": 1.262278,
+      "fast_p95_ms_each": [
+        1.26025,
+        1.270584,
+        1.256
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "feedback",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "ok": 7200
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 7200
+      },
+      "fast_p95_ms_mean": 1.2431246666666667,
+      "fast_p95_ms_each": [
+        1.206375,
+        1.266916,
+        1.256083
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "fixed-fifo",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "deadline_exceeded": 113,
+          "ok": 993,
+          "resource_exhausted": 94
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 726,
+          "ok": 5981,
+          "resource_exhausted": 493
+        }
+      },
+      "on_time": {
+        "/lab/fast": 799,
+        "/lab/slow": 5005
+      },
+      "fast_p95_ms_mean": 60.54676366666666,
+      "fast_p95_ms_each": [
+        60.564916,
+        60.5915,
+        60.483875
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "fixed-fair",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1152,
+          "resource_exhausted": 48
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 914,
+          "ok": 6004,
+          "resource_exhausted": 282
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1152,
+        "/lab/slow": 4991
+      },
+      "fast_p95_ms_mean": 4.419930666666667,
+      "fast_p95_ms_each": [
+        4.532667,
+        4.18,
+        4.547125
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "fixed4-fair",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 1425,
+          "ok": 5020,
+          "resource_exhausted": 755
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 661
+      },
+      "fast_p95_ms_mean": 1.3093886666666668,
+      "fast_p95_ms_each": [
+        1.32825,
+        1.302416,
+        1.2975
+      ],
+      "slow_final_limits": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "adaptive",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 961,
+          "ok": 5957,
+          "resource_exhausted": 282
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 4870
+      },
+      "fast_p95_ms_mean": 1.2864586666666666,
+      "fast_p95_ms_each": [
+        1.291292,
+        1.269,
+        1.299084
+      ],
+      "slow_final_limits": [
+        14,
+        14,
+        15
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "feedback",
+      "transport": "tcp",
+      "offered": 8400,
+      "counts": {
+        "/lab/fast": {
+          "ok": 1200
+        },
+        "/lab/slow": {
+          "local_pressure": 1503,
+          "ok": 5697
+        }
+      },
+      "on_time": {
+        "/lab/fast": 1200,
+        "/lab/slow": 5684
+      },
+      "fast_p95_ms_mean": 1.300681,
+      "fast_p95_ms_each": [
+        1.295292,
+        1.309917,
+        1.296834
+      ],
+      "slow_final_limits": [
+        13,
+        13,
+        15
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "fixed-fifo",
+      "transport": "tcp",
+      "offered": 1320,
+      "counts": {
+        "/lab/fast": {
+          "ok": 120
+        },
+        "/lab/slow": {
+          "ok": 1198,
+          "deadline_exceeded": 2
+        }
+      },
+      "on_time": {
+        "/lab/fast": 120,
+        "/lab/slow": 865
+      },
+      "fast_p95_ms_mean": 1.942528,
+      "fast_p95_ms_each": [
+        1.455417,
+        2.91575,
+        1.456417
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "fixed-fair",
+      "transport": "tcp",
+      "offered": 1320,
+      "counts": {
+        "/lab/fast": {
+          "ok": 120
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 4,
+          "ok": 1196
+        }
+      },
+      "on_time": {
+        "/lab/fast": 120,
+        "/lab/slow": 865
+      },
+      "fast_p95_ms_mean": 1.489403,
+      "fast_p95_ms_each": [
+        1.419875,
+        1.65525,
+        1.393084
+      ],
+      "slow_final_limits": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "fixed4-fair",
+      "transport": "tcp",
+      "offered": 1320,
+      "counts": {
+        "/lab/fast": {
+          "ok": 120
+        },
+        "/lab/slow": {
+          "ok": 1197,
+          "deadline_exceeded": 3
+        }
+      },
+      "on_time": {
+        "/lab/fast": 120,
+        "/lab/slow": 730
+      },
+      "fast_p95_ms_mean": 1.4688616666666667,
+      "fast_p95_ms_each": [
+        1.518959,
+        1.452917,
+        1.434709
+      ],
+      "slow_final_limits": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "adaptive",
+      "transport": "tcp",
+      "offered": 1320,
+      "counts": {
+        "/lab/fast": {
+          "ok": 120
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 431,
+          "ok": 769
+        }
+      },
+      "on_time": {
+        "/lab/fast": 120,
+        "/lab/slow": 301
+      },
+      "fast_p95_ms_mean": 1.448417,
+      "fast_p95_ms_each": [
+        1.405417,
+        1.454792,
+        1.485042
+      ],
+      "slow_final_limits": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "feedback",
+      "transport": "tcp",
+      "offered": 1320,
+      "counts": {
+        "/lab/fast": {
+          "ok": 120
+        },
+        "/lab/slow": {
+          "local_pressure": 492,
+          "ok": 708
+        }
+      },
+      "on_time": {
+        "/lab/fast": 120,
+        "/lab/slow": 702
+      },
+      "fast_p95_ms_mean": 1.4761526666666667,
+      "fast_p95_ms_each": [
+        1.474667,
+        1.503666,
+        1.450125
+      ],
+      "slow_final_limits": [
+        2,
+        2,
+        2
+      ]
+    }
+  ]
+}

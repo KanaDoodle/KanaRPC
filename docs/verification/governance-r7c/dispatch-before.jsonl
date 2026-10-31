@@ -1,0 +1,14 @@
+{"Time":"2026-10-31T13:17:21.444598+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T13:17:22.086454+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFullQueueDoesNotRejectMethodWithFreeExecutionCapacity"}
+{"Time":"2026-10-31T13:17:22.086521+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFullQueueDoesNotRejectMethodWithFreeExecutionCapacity","Output":"=== RUN   TestFullQueueDoesNotRejectMethodWithFreeExecutionCapacity\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:17:22.091557+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFullQueueDoesNotRejectMethodWithFreeExecutionCapacity","Output":"    governance_test.go:211: available execution slot stranded behind another method's full queue 0 resource_exhausted: \n","OutputType":"error"}
+{"Time":"2026-10-31T13:17:22.091663+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFullQueueDoesNotRejectMethodWithFreeExecutionCapacity","Output":"--- FAIL: TestFullQueueDoesNotRejectMethodWithFreeExecutionCapacity (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:17:22.091689+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestFullQueueDoesNotRejectMethodWithFreeExecutionCapacity","Elapsed":0.01}
+{"Time":"2026-10-31T13:17:22.091757+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestExpiredRequestDoesNotInvokeScheduledHandler"}
+{"Time":"2026-10-31T13:17:22.091764+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestExpiredRequestDoesNotInvokeScheduledHandler","Output":"=== RUN   TestExpiredRequestDoesNotInvokeScheduledHandler\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:17:22.091866+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestExpiredRequestDoesNotInvokeScheduledHandler","Output":"    governance_test.go:226: canceled request still invoked handler\n","OutputType":"error"}
+{"Time":"2026-10-31T13:17:22.091883+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestExpiredRequestDoesNotInvokeScheduledHandler","Output":"--- FAIL: TestExpiredRequestDoesNotInvokeScheduledHandler (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:17:22.091891+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestExpiredRequestDoesNotInvokeScheduledHandler","Elapsed":0}
+{"Time":"2026-10-31T13:17:22.096121+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:17:22.096897+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.652s\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:17:22.096905+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.652}

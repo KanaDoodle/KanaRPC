@@ -1,0 +1,3551 @@
+[
+  {
+    "profile": "adaptive",
+    "scene": "capacity-shift",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 289,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 289,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 289,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 289,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 200
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 135,
+          "ok": 1023,
+          "resource_exhausted": 42
+        }
+      },
+      "elapsed_ns": 1003954042,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1385917,
+          "p95": 1574375,
+          "p99": 1932166
+        },
+        "/lab/slow": {
+          "p50": 4433709,
+          "p95": 67778125,
+          "p99": 77684792
+        }
+      },
+      "offered": 1400,
+      "profile": "adaptive",
+      "scene": "capacity-shift"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 200,
+        "/lab/slow": 1023
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 200,
+        "/lab/slow": 1023
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": true,
+        "Epoch": "b1e6bc5ca3c2bcb70f9bcab2148f6e71",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 200,
+            "P90": 1176167
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 14,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 1023,
+            "P90": 4227625
+          }
+        ],
+        "Decisions": [
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 16,
+            "Next": 12,
+            "P90": 32098708
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 12,
+            "Next": 9,
+            "P90": 38850625
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 9,
+            "Next": 7,
+            "P90": 72656875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 7,
+            "Next": 5,
+            "P90": 24484292
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 5,
+            "Next": 4,
+            "P90": 24876291
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 4,
+            "Next": 3,
+            "P90": 12376084
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 3,
+            "Next": 4,
+            "P90": 8374208
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 4,
+            "Next": 5,
+            "P90": 8420416
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 8282375
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 6,
+            "Next": 4,
+            "P90": 12306667
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 4,
+            "Next": 5,
+            "P90": 4183208
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 4178917
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 6,
+            "Next": 7,
+            "P90": 4261917
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 7,
+            "Next": 8,
+            "P90": 4173875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 8,
+            "Next": 9,
+            "P90": 4163416
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 9,
+            "Next": 10,
+            "P90": 4243834
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 10,
+            "Next": 11,
+            "P90": 7925958
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 11,
+            "Next": 12,
+            "P90": 7895000
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 12,
+            "Next": 13,
+            "P90": 8003625
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 13,
+            "Next": 14,
+            "P90": 8040125
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 14,
+            "Next": 15,
+            "P90": 8361167
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 15,
+            "Next": 12,
+            "P90": 11927875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 12,
+            "Next": 9,
+            "P90": 12733958
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 9,
+            "Next": 10,
+            "P90": 4226875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 10,
+            "Next": 11,
+            "P90": 4202500
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 11,
+            "Next": 12,
+            "P90": 4221875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 12,
+            "Next": 13,
+            "P90": 4188959
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 13,
+            "Next": 14,
+            "P90": 4205208
+          }
+        ],
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 34800,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 803,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 611,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 1358,
+        "Completed": 1358,
+        "Rejected": 42,
+        "Canceled": 135,
+        "Delivered": 1358,
+        "LostTerminals": 0
+      },
+      "unique_executions": 1223
+    },
+    "on_time": {
+      "/lab/fast": 200,
+      "/lab/slow": 822
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 0.7721840000000002,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "feedback",
+    "scene": "capacity-shift",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 290,
+            "Ignored": 0,
+            "Limited": 60,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1039,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 3,
+                "Sequence": 1106,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 290,
+            "Completed": 290,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 281,
+            "Ignored": 0,
+            "Limited": 69,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1072,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 5,
+                "Sequence": 1107,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 281,
+            "Completed": 281,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 265,
+            "Ignored": 0,
+            "Limited": 85,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1084,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 7,
+                "Sequence": 1108,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 265,
+            "Completed": 265,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 273,
+            "Ignored": 0,
+            "Limited": 77,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1070,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 15,
+                "Sequence": 1109,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 273,
+            "Completed": 273,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 200
+        },
+        "/lab/slow": {
+          "local_pressure": 291,
+          "ok": 909
+        }
+      },
+      "elapsed_ns": 1003752125,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1380042,
+          "p95": 1577208,
+          "p99": 1651916
+        },
+        "/lab/slow": {
+          "p50": 4403292,
+          "p95": 10938083,
+          "p99": 35829625
+        }
+      },
+      "offered": 1400,
+      "profile": "feedback",
+      "scene": "capacity-shift"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 200,
+        "/lab/slow": 909
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 200,
+        "/lab/slow": 909
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": true,
+        "Epoch": "7ca11071db77f9d848f9ad76ce24597c",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 200,
+            "P90": 1177291
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 15,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 909,
+            "P90": 4214250
+          }
+        ],
+        "Decisions": [
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 16,
+            "Next": 12,
+            "P90": 28631875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 12,
+            "Next": 9,
+            "P90": 44930167
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 9,
+            "Next": 7,
+            "P90": 54278875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 7,
+            "Next": 5,
+            "P90": 27281000
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 5,
+            "Next": 4,
+            "P90": 11607167
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 4,
+            "Next": 5,
+            "P90": 5928875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 5794541
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 6,
+            "Next": 4,
+            "P90": 12470417
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 4,
+            "Next": 3,
+            "P90": 12015833
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 3,
+            "Next": 4,
+            "P90": 7023042
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 4,
+            "Next": 5,
+            "P90": 4219125
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 4216792
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 6,
+            "Next": 7,
+            "P90": 4194208
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 7,
+            "Next": 8,
+            "P90": 4214708
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 8,
+            "Next": 9,
+            "P90": 4193375
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 9,
+            "Next": 10,
+            "P90": 4229209
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 10,
+            "Next": 11,
+            "P90": 4193625
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 11,
+            "Next": 12,
+            "P90": 4204500
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 12,
+            "Next": 13,
+            "P90": 4216791
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 13,
+            "Next": 14,
+            "P90": 4246625
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 14,
+            "Next": 15,
+            "P90": 4214250
+          }
+        ],
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 7888,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 652,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 596,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 1109,
+        "Completed": 1109,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 1109,
+        "LostTerminals": 0
+      },
+      "unique_executions": 1109
+    },
+    "on_time": {
+      "/lab/fast": 200,
+      "/lab/slow": 901
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 0.685999999999999,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "fixed-fair",
+    "scene": "capacity-shift",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 291,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 291,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 291,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 291,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 191,
+          "resource_exhausted": 9
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 124,
+          "ok": 1035,
+          "resource_exhausted": 41
+        }
+      },
+      "elapsed_ns": 1003780500,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1439542,
+          "p95": 5052666,
+          "p99": 5550292
+        },
+        "/lab/slow": {
+          "p50": 4419958,
+          "p95": 87704166,
+          "p99": 125441042
+        }
+      },
+      "offered": 1400,
+      "profile": "fixed-fair",
+      "scene": "capacity-shift"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 191,
+        "/lab/slow": 1035
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 191,
+        "/lab/slow": 1035
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": false,
+        "Epoch": "75587bd2f4f3a625ab2a6ed87d6300b4",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          }
+        ],
+        "Decisions": null,
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 37584,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 808,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 615,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 1350,
+        "Completed": 1350,
+        "Rejected": 50,
+        "Canceled": 124,
+        "Delivered": 1350,
+        "LostTerminals": 0
+      },
+      "unique_executions": 1226
+    },
+    "on_time": {
+      "/lab/fast": 191,
+      "/lab/slow": 855
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 0.73502,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "fixed-fifo",
+    "scene": "capacity-shift",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 291,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 291,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 291,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 291,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "deadline_exceeded": 24,
+          "ok": 165,
+          "resource_exhausted": 11
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 99,
+          "ok": 1028,
+          "resource_exhausted": 73
+        }
+      },
+      "elapsed_ns": 1003878791,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1325834,
+          "p95": 58367792,
+          "p99": 60970208
+        },
+        "/lab/slow": {
+          "p50": 4376375,
+          "p95": 84668250,
+          "p99": 128793667
+        }
+      },
+      "offered": 1400,
+      "profile": "fixed-fifo",
+      "scene": "capacity-shift"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 165,
+        "/lab/slow": 1028
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 165,
+        "/lab/slow": 1028
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": false,
+        "Epoch": "871e8d27daf9fc57b77171050966fb13",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          }
+        ],
+        "Decisions": null,
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 37584,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 958,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 615,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 1316,
+        "Completed": 1316,
+        "Rejected": 84,
+        "Canceled": 123,
+        "Delivered": 1316,
+        "LostTerminals": 0
+      },
+      "unique_executions": 1193
+    },
+    "on_time": {
+      "/lab/fast": 131,
+      "/lab/slow": 862
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 0.6489390000000002,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "fixed4-fair",
+    "scene": "capacity-shift",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 290,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 290,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 302,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 290,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 290,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 350,
+            "Completed": 350,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 200
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 248,
+          "ok": 844,
+          "resource_exhausted": 108
+        }
+      },
+      "elapsed_ns": 1063079875,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1402042,
+          "p95": 1574834,
+          "p99": 1704292
+        },
+        "/lab/slow": {
+          "p50": 61965833,
+          "p95": 67594208,
+          "p99": 75932250
+        }
+      },
+      "offered": 1400,
+      "profile": "fixed4-fair",
+      "scene": "capacity-shift"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 200,
+        "/lab/slow": 844
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 200,
+        "/lab/slow": 844
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": false,
+        "Epoch": "2efd5f77dee3f8c933ce54399898811a",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 4,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          }
+        ],
+        "Decisions": null,
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 32620,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 808,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 613,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 1292,
+        "Completed": 1292,
+        "Rejected": 108,
+        "Canceled": 248,
+        "Delivered": 1292,
+        "LostTerminals": 0
+      },
+      "unique_executions": 1044
+    },
+    "on_time": {
+      "/lab/fast": 200,
+      "/lab/slow": 207
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 0.7831239999999999,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "adaptive",
+    "scene": "unattainable",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 288,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 288,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 288,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 288,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 20
+        },
+        "/lab/slow": {
+          "deadline_exceeded": 43,
+          "ok": 157
+        }
+      },
+      "elapsed_ns": 1069690458,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1548500,
+          "p95": 1634042,
+          "p99": 1634042
+        },
+        "/lab/slow": {
+          "p50": 36315208,
+          "p95": 78878416,
+          "p99": 80604583
+        }
+      },
+      "offered": 220,
+      "profile": "adaptive",
+      "scene": "unattainable"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 20,
+        "/lab/slow": 157
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 20,
+        "/lab/slow": 157
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": true,
+        "Epoch": "bd0ee8d98bafdcc3ff3dfff8815855c1",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 20,
+            "P90": 1335666
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 2,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 157,
+            "P90": 20647917
+          }
+        ],
+        "Decisions": [
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 16,
+            "Next": 12,
+            "P90": 23313250
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 12,
+            "Next": 9,
+            "P90": 24354208
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 9,
+            "Next": 7,
+            "P90": 24402916
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 7,
+            "Next": 5,
+            "P90": 47108916
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 5,
+            "Next": 4,
+            "P90": 36435000
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 4,
+            "Next": 3,
+            "P90": 24556500
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 3,
+            "Next": 2,
+            "P90": 20655583
+          }
+        ],
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 7424,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 652,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 610,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 220,
+        "Completed": 220,
+        "Rejected": 0,
+        "Canceled": 43,
+        "Delivered": 220,
+        "LostTerminals": 0
+      },
+      "unique_executions": 177
+    },
+    "on_time": {
+      "/lab/fast": 20,
+      "/lab/slow": 103
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 0.1931820000000002,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "feedback",
+    "scene": "unattainable",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 41,
+            "Ignored": 0,
+            "Limited": 14,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 120,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 1,
+                "Sequence": 156,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 41,
+            "Completed": 41,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 41,
+            "Ignored": 0,
+            "Limited": 14,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 140,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 1,
+                "Sequence": 157,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 41,
+            "Completed": 41,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 40,
+            "Ignored": 0,
+            "Limited": 15,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 132,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 1,
+                "Sequence": 155,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 40,
+            "Completed": 40,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 36,
+            "Ignored": 0,
+            "Limited": 19,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 139,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 2,
+                "Sequence": 158,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 273,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 36,
+            "Completed": 36,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 20
+        },
+        "/lab/slow": {
+          "local_pressure": 62,
+          "ok": 138
+        }
+      },
+      "elapsed_ns": 1022174250,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1530000,
+          "p95": 1618667,
+          "p99": 1618667
+        },
+        "/lab/slow": {
+          "p50": 21695417,
+          "p95": 35961167,
+          "p99": 41014791
+        }
+      },
+      "offered": 220,
+      "profile": "feedback",
+      "scene": "unattainable"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 20,
+        "/lab/slow": 138
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 20,
+        "/lab/slow": 138
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": true,
+        "Epoch": "91a37166fa1f0290d25935d6ca0cd1ae",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 20,
+            "P90": 1335750
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 2,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 138,
+            "P90": 21490000
+          }
+        ],
+        "Decisions": [
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 16,
+            "Next": 12,
+            "P90": 23259459
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 12,
+            "Next": 9,
+            "P90": 26215750
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 9,
+            "Next": 7,
+            "P90": 24195375
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 7,
+            "Next": 5,
+            "P90": 27054750
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 5,
+            "Next": 4,
+            "P90": 22733708
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 4,
+            "Next": 3,
+            "P90": 21308208
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 3,
+            "Next": 2,
+            "P90": 21132000
+          }
+        ],
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 2772,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 652,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 591,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 158,
+        "Completed": 158,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 158,
+        "LostTerminals": 0
+      },
+      "unique_executions": 158
+    },
+    "on_time": {
+      "/lab/fast": 20,
+      "/lab/slow": 136
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 0.15917699999999968,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "fixed-fair",
+    "scene": "unattainable",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 302,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 20
+        },
+        "/lab/slow": {
+          "ok": 200
+        }
+      },
+      "elapsed_ns": 1040127709,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1534375,
+          "p95": 1579459,
+          "p99": 1579459
+        },
+        "/lab/slow": {
+          "p50": 23522459,
+          "p95": 69758208,
+          "p99": 98760917
+        }
+      },
+      "offered": 220,
+      "profile": "fixed-fair",
+      "scene": "unattainable"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 20,
+        "/lab/slow": 200
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 20,
+        "/lab/slow": 200
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": false,
+        "Epoch": "e11c3dcd9b8b5d657c5b492f1fae657c",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          }
+        ],
+        "Decisions": null,
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 4176,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 652,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 594,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 220,
+        "Completed": 220,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 220,
+        "LostTerminals": 0
+      },
+      "unique_executions": 220
+    },
+    "on_time": {
+      "/lab/fast": 20,
+      "/lab/slow": 176
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 0.1959509999999991,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "fixed-fifo",
+    "scene": "unattainable",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 20
+        },
+        "/lab/slow": {
+          "ok": 200
+        }
+      },
+      "elapsed_ns": 1039201208,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1545166,
+          "p95": 1623375,
+          "p99": 1623375
+        },
+        "/lab/slow": {
+          "p50": 23586458,
+          "p95": 66823125,
+          "p99": 96301833
+        }
+      },
+      "offered": 220,
+      "profile": "fixed-fifo",
+      "scene": "unattainable"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 20,
+        "/lab/slow": 200
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 20,
+        "/lab/slow": 200
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": false,
+        "Epoch": "c6ab866dfa2e745e77f7ab88b17c1f45",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          }
+        ],
+        "Decisions": null,
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 3712,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 477,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 594,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 220,
+        "Completed": 220,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 220,
+        "LostTerminals": 0
+      },
+      "unique_executions": 220
+    },
+    "on_time": {
+      "/lab/fast": 20,
+      "/lab/slow": 180
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 0.19658400000000142,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "fixed4-fair",
+    "scene": "unattainable",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": false,
+            "Accepted": 0,
+            "Ignored": 0,
+            "Limited": 0,
+            "Methods": null
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 151,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 256,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 274,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 55,
+            "Completed": 55,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 20
+        },
+        "/lab/slow": {
+          "ok": 200
+        }
+      },
+      "elapsed_ns": 1038328792,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1531209,
+          "p95": 1638625,
+          "p99": 1638625
+        },
+        "/lab/slow": {
+          "p50": 30647750,
+          "p95": 39861958,
+          "p99": 41779208
+        }
+      },
+      "offered": 220,
+      "profile": "fixed4-fair",
+      "scene": "unattainable"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 20,
+        "/lab/slow": 200
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 20,
+        "/lab/slow": 200
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": false,
+        "Epoch": "91a74c31adc0c2b047190655f8fa0992",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 4,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 0,
+            "P90": 0
+          }
+        ],
+        "Decisions": null,
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 4176,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 652,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 592,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 220,
+        "Completed": 220,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 220,
+        "LostTerminals": 0
+      },
+      "unique_executions": 220
+    },
+    "on_time": {
+      "/lab/fast": 20,
+      "/lab/slow": 200
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 0.18987599999999993,
+    "owned_processes_reaped": true
+  }
+]

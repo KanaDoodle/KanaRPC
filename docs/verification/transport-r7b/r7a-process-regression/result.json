@@ -1,0 +1,62 @@
+{
+  "server_ready": {
+    "address": "127.0.0.1:62383",
+    "evidence": "fixture-no-model",
+    "phase": "ready"
+  },
+  "client_drain_ready": {
+    "phase": "drain-ready"
+  },
+  "client": {
+    "chunks": 20,
+    "drain_eof": true,
+    "evidence": "fixture-no-model",
+    "phase": "passed",
+    "remote_canceled": 1,
+    "stats": {
+      "Pending": 0,
+      "InFlightBufferedChunks": 0,
+      "Started": 6,
+      "Completed": 6,
+      "Canceled": 1,
+      "LateFrames": 0
+    }
+  },
+  "server_drain_starting": {
+    "drain_handler_active": true,
+    "phase": "drain-starting",
+    "stats": {
+      "IncompleteExchanges": 0,
+      "NativeStreams": 0,
+      "Connections": 1,
+      "InFlight": 1,
+      "Executing": 1,
+      "Admitted": 6,
+      "Completed": 5,
+      "Rejected": 0,
+      "Canceled": 1,
+      "Delivered": 4,
+      "LostTerminals": 0
+    }
+  },
+  "server": {
+    "canceled_handlers": 1,
+    "error": "",
+    "phase": "drained",
+    "stats": {
+      "IncompleteExchanges": 0,
+      "NativeStreams": 0,
+      "Connections": 0,
+      "InFlight": 0,
+      "Executing": 0,
+      "Admitted": 6,
+      "Completed": 6,
+      "Rejected": 0,
+      "Canceled": 1,
+      "Delivered": 5,
+      "LostTerminals": 0
+    }
+  },
+  "status": "PASS",
+  "scope": "real loopback transport and process signal; integer/timer fixture, no model or performance claim"
+}

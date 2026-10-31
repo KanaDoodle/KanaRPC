@@ -1,0 +1,16 @@
+{"Time":"2026-10-31T13:26:07.827703+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T13:26:08.343995+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget"}
+{"Time":"2026-10-31T13:26:08.344118+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Output":"=== RUN   FuzzByteBudget\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:26:08.344766+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Output":"fuzz: elapsed: 0s, gathering baseline coverage: 0/1 completed\n"}
+{"Time":"2026-10-31T13:26:08.356747+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Output":"fuzz: elapsed: 0s, gathering baseline coverage: 1/1 completed, now fuzzing with 2 workers\n"}
+{"Time":"2026-10-31T13:26:11.345267+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Output":"fuzz: elapsed: 3s, execs: 59051 (19681/sec), new interesting: 26 (total: 27)\n"}
+{"Time":"2026-10-31T13:26:14.345826+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Output":"fuzz: elapsed: 6s, execs: 269986 (70297/sec), new interesting: 27 (total: 28)\n"}
+{"Time":"2026-10-31T13:26:17.34584+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Output":"fuzz: elapsed: 9s, execs: 458261 (62759/sec), new interesting: 29 (total: 30)\n"}
+{"Time":"2026-10-31T13:26:20.3459+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Output":"fuzz: elapsed: 12s, execs: 494110 (11949/sec), new interesting: 30 (total: 31)\n"}
+{"Time":"2026-10-31T13:26:23.345664+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Output":"fuzz: elapsed: 15s, execs: 494110 (0/sec), new interesting: 30 (total: 31)\n"}
+{"Time":"2026-10-31T13:26:24.349146+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Output":"fuzz: elapsed: 16s, execs: 494110 (0/sec), new interesting: 30 (total: 31)\n"}
+{"Time":"2026-10-31T13:26:24.349186+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Output":"--- PASS: FuzzByteBudget (16.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:26:24.349193+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzByteBudget","Elapsed":16.01}
+{"Time":"2026-10-31T13:26:24.349206+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:26:24.350142+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t16.522s\n"}
+{"Time":"2026-10-31T13:26:24.350157+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":16.522}

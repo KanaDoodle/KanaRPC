@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "captured_utc": "2026-10-31T05:43:22.901150+00:00",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "cpu": "Apple M5",
+  "matrix": {
+    "verified-test": {
+      "pass": 144,
+      "skip": 0,
+      "fail": 0
+    },
+    "verified-race": {
+      "pass": 144,
+      "skip": 0,
+      "fail": 0
+    },
+    "verified-min-test": {
+      "pass": 144,
+      "skip": 0,
+      "fail": 0
+    },
+    "verified-min-race": {
+      "pass": 144,
+      "skip": 0,
+      "fail": 0
+    }
+  },
+  "final_cases": 66,
+  "offered": 108000,
+  "final_go_module_hashes_match": true,
+  "gofmt_clean": true,
+  "artifact_links_valid": true,
+  "byte_peaks_within_limits_and_final_used_zero": true,
+  "feedback_active_zero": true,
+  "owned_experiment_processes_reaped": true,
+  "actual_inference": "NOT_VALIDATED",
+  "scope": "finite loopback, deterministic faults, race/fuzz, owned single-member etcd; no long-run, cross-machine or real-inference claim"
+}

@@ -1,0 +1,19 @@
+{"Time":"2026-10-31T11:39:38.981031+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T11:39:39.531887+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError"}
+{"Time":"2026-10-31T11:39:39.531984+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Output":"=== RUN   TestProtocolFailureWinsSecondaryOpenWriteError\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:39:39.534225+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Output":"    io_test.go:314: secondary socket error overturned a completed protocol failure context canceled\n","OutputType":"error"}
+{"Time":"2026-10-31T11:39:39.534267+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Output":"--- FAIL: TestProtocolFailureWinsSecondaryOpenWriteError (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:39:39.534283+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Elapsed":0}
+{"Time":"2026-10-31T11:39:39.534449+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError"}
+{"Time":"2026-10-31T11:39:39.534468+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Output":"=== RUN   TestProtocolFailureWinsSecondaryOpenWriteError\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:39:39.536012+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Output":"    io_test.go:314: secondary socket error overturned a completed protocol failure context canceled\n","OutputType":"error"}
+{"Time":"2026-10-31T11:39:39.536041+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Output":"--- FAIL: TestProtocolFailureWinsSecondaryOpenWriteError (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:39:39.536052+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Elapsed":0}
+{"Time":"2026-10-31T11:39:39.536335+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError"}
+{"Time":"2026-10-31T11:39:39.536352+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Output":"=== RUN   TestProtocolFailureWinsSecondaryOpenWriteError\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:39:39.537829+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Output":"    io_test.go:314: secondary socket error overturned a completed protocol failure context canceled\n","OutputType":"error"}
+{"Time":"2026-10-31T11:39:39.537857+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Output":"--- FAIL: TestProtocolFailureWinsSecondaryOpenWriteError (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:39:39.537872+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestProtocolFailureWinsSecondaryOpenWriteError","Elapsed":0}
+{"Time":"2026-10-31T11:39:39.537914+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:39:39.539176+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.558s\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:39:39.539223+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.558}

@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "milestone": "R7B",
+  "checks": {
+    "verified-test": {
+      "pass": 98,
+      "skip": 0,
+      "fail": 0
+    },
+    "verified-race": {
+      "pass": 98,
+      "skip": 0,
+      "fail": 0
+    },
+    "verified-min-test": {
+      "pass": 98,
+      "skip": 0,
+      "fail": 0
+    },
+    "verified-min-race": {
+      "pass": 98,
+      "skip": 0,
+      "fail": 0
+    }
+  },
+  "real_etcd": "owned 3.7.1 single-member process, client/api 3.6.7",
+  "quic_dependency": "quic-go v0.64.1",
+  "fuzz_executions": {
+    "frame": 2046675,
+    "endpoint": 527856,
+    "registration_record": 297067
+  },
+  "confirmed_implementation_issues_fixed": 8,
+  "additional_test_isolation": "per-iteration listener cleanup; version matrix serial; unique cause of early handshake timeout not proven",
+  "process_cases": 18,
+  "offered_requests": 54000,
+  "behavior_regression_cases": 18,
+  "duplicate_business_ids": 0,
+  "resource_counters_zero": true,
+  "source_matches_measured_runtime": true,
+  "owned_processes_reaped": true,
+  "limitations": [
+    "loopback closed-loop fixture",
+    "no production capacity claim",
+    "no multi-member etcd quorum validation",
+    "no global cross-stream byte budget",
+    "no R7C overload governance or R7D CampusTrace migration",
+    "no real vLLM/GPU or model-inference benefit validation"
+  ]
+}

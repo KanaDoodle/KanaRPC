@@ -1,0 +1,824 @@
+[
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "seed": 19,
+    "client": {
+      "transport": "quic",
+      "workload": "stream",
+      "completed": 3000,
+      "elapsed_ns": 224210292,
+      "P50": 580459,
+      "P95": 818333,
+      "P99": 982541,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 3064,
+        "Retired": 3064,
+        "RTT": 53000,
+        "BytesSent": 2227720,
+        "BytesReceived": 10651477,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.7104160000000004,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "seed": 19,
+    "client": {
+      "transport": "tcp",
+      "workload": "stream",
+      "completed": 3000,
+      "elapsed_ns": 347399709,
+      "P50": 909708,
+      "P95": 1186500,
+      "P99": 1315583,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 1.1964430000000004,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tls",
+    "workload": "stream",
+    "seed": 19,
+    "client": {
+      "transport": "tls",
+      "workload": "stream",
+      "completed": 3000,
+      "elapsed_ns": 336754750,
+      "P50": 873167,
+      "P95": 1180333,
+      "P99": 1314000,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 1.183145999999999,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "seed": 19,
+    "client": {
+      "transport": "quic",
+      "workload": "unary",
+      "completed": 3000,
+      "elapsed_ns": 101407750,
+      "P50": 250625,
+      "P95": 395292,
+      "P99": 488750,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 3064,
+        "Retired": 3064,
+        "RTT": 41000,
+        "BytesSent": 1215227,
+        "BytesReceived": 1090754,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.31824099999999955,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "seed": 19,
+    "client": {
+      "transport": "tcp",
+      "workload": "unary",
+      "completed": 3000,
+      "elapsed_ns": 70522125,
+      "P50": 178542,
+      "P95": 276792,
+      "P99": 327291,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.23415700000000061,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tls",
+    "workload": "unary",
+    "seed": 19,
+    "client": {
+      "transport": "tls",
+      "workload": "unary",
+      "completed": 3000,
+      "elapsed_ns": 74608875,
+      "P50": 189042,
+      "P95": 294792,
+      "P99": 360584,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.25131300000000056,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "seed": 41,
+    "client": {
+      "transport": "quic",
+      "workload": "stream",
+      "completed": 3000,
+      "elapsed_ns": 231544125,
+      "P50": 587500,
+      "P95": 877333,
+      "P99": 1038167,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 3064,
+        "Retired": 3064,
+        "RTT": 72000,
+        "BytesSent": 2220999,
+        "BytesReceived": 10652708,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.7363549999999996,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "seed": 41,
+    "client": {
+      "transport": "tcp",
+      "workload": "stream",
+      "completed": 3000,
+      "elapsed_ns": 350925667,
+      "P50": 916083,
+      "P95": 1197000,
+      "P99": 1306584,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 1.2063279999999992,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tls",
+    "workload": "stream",
+    "seed": 41,
+    "client": {
+      "transport": "tls",
+      "workload": "stream",
+      "completed": 3000,
+      "elapsed_ns": 333446083,
+      "P50": 868542,
+      "P95": 1153625,
+      "P99": 1292667,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 1.149521,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "seed": 41,
+    "client": {
+      "transport": "quic",
+      "workload": "unary",
+      "completed": 3000,
+      "elapsed_ns": 102554667,
+      "P50": 255750,
+      "P95": 400000,
+      "P99": 496791,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 3064,
+        "Retired": 3064,
+        "RTT": 40000,
+        "BytesSent": 1214122,
+        "BytesReceived": 1090060,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.32309199999999905,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "seed": 41,
+    "client": {
+      "transport": "tcp",
+      "workload": "unary",
+      "completed": 3000,
+      "elapsed_ns": 71918709,
+      "P50": 178792,
+      "P95": 284750,
+      "P99": 375875,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.2339840000000013,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tls",
+    "workload": "unary",
+    "seed": 41,
+    "client": {
+      "transport": "tls",
+      "workload": "unary",
+      "completed": 3000,
+      "elapsed_ns": 77570041,
+      "P50": 196250,
+      "P95": 305125,
+      "P99": 384792,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.25910799999999945,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "seed": 7,
+    "client": {
+      "transport": "quic",
+      "workload": "stream",
+      "completed": 3000,
+      "elapsed_ns": 227711667,
+      "P50": 580792,
+      "P95": 863208,
+      "P99": 1064250,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 3064,
+        "Retired": 3064,
+        "RTT": 42000,
+        "BytesSent": 2220511,
+        "BytesReceived": 10651685,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.7141899999999994,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "seed": 7,
+    "client": {
+      "transport": "tcp",
+      "workload": "stream",
+      "completed": 3000,
+      "elapsed_ns": 349558250,
+      "P50": 911083,
+      "P95": 1199041,
+      "P99": 1304625,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 1.206057,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tls",
+    "workload": "stream",
+    "seed": 7,
+    "client": {
+      "transport": "tls",
+      "workload": "stream",
+      "completed": 3000,
+      "elapsed_ns": 329422875,
+      "P50": 865417,
+      "P95": 1119083,
+      "P99": 1251542,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 1.1205850000000002,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "seed": 7,
+    "client": {
+      "transport": "quic",
+      "workload": "unary",
+      "completed": 3000,
+      "elapsed_ns": 103718250,
+      "P50": 255000,
+      "P95": 410375,
+      "P99": 534542,
+      "stats": {
+        "CloseConfirmed": true,
+        "Active": 0,
+        "Opened": 3064,
+        "Retired": 3064,
+        "RTT": 57000,
+        "BytesSent": 1211820,
+        "BytesReceived": 1086542,
+        "PacketsLost": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.3264370000000001,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "seed": 7,
+    "client": {
+      "transport": "tcp",
+      "workload": "unary",
+      "completed": 3000,
+      "elapsed_ns": 86146000,
+      "P50": 201583,
+      "P95": 399375,
+      "P99": 445958,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.29103900000000005,
+    "owned_processes_reaped": true
+  },
+  {
+    "transport": "tls",
+    "workload": "unary",
+    "seed": 7,
+    "client": {
+      "transport": "tls",
+      "workload": "unary",
+      "completed": 3000,
+      "elapsed_ns": 73837667,
+      "P50": 186459,
+      "P95": 285042,
+      "P99": 361417,
+      "stats": {
+        "Pending": 0,
+        "InFlightBufferedChunks": 0,
+        "Started": 3064,
+        "Completed": 3064,
+        "Canceled": 0,
+        "LateFrames": 0
+      },
+      "evidence": "closed-loop loopback fixture-no-model; warm connection; no inference claim"
+    },
+    "worker": {
+      "drain_error": "",
+      "duplicates": 0,
+      "evidence": "fixture-no-model",
+      "executions": 3064,
+      "stats": {
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 3064,
+        "Completed": 3064,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 3064,
+        "LostTerminals": 0
+      }
+    },
+    "status": "PASS",
+    "process_pair_cpu_seconds": 0.249544,
+    "owned_processes_reaped": true
+  }
+]

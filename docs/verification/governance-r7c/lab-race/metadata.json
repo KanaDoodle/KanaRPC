@@ -1,0 +1,53 @@
+{
+  "go_version": "go version go1.27.1 darwin/arm64",
+  "binary_sha256": "e870e24deaa1a5daf92e5a6efdaa3625cfa6a49c60cdb2018ccf3028ad6611d7",
+  "duration": 1.0,
+  "seeds": [
+    7
+  ],
+  "profiles": [
+    "feedback"
+  ],
+  "scenes": [
+    "capacity-shift"
+  ],
+  "source_sha256": {
+    "client.go": "c022cf372f75da0f2b82a2421d179f334ed7ff6e553add1a005e2d9cd4f33e98",
+    "cmd/governance-lab/main.go": "40b5284c66aebeba8711ba851e149e8a91e24e001a603b5f14a550416f90ecbf",
+    "cmd/lifecycle-demo/main.go": "6f39265e6ebc793afa48ede9cec1c9363412f65da871dad953d2164839b70c41",
+    "cmd/transport-lab/main.go": "8e49e7665788ff48fd24971cc6e022c14a3cf7a9292fce6e405aba4705eac55f",
+    "core_test.go": "e6caa2ba9397d5ff3a9778a329486a5deb4fab2126379c77c34fa8e4c978c35a",
+    "discovery/e2e_test.go": "fab374123f9fe7af8e0174db71e1083cc7169e42e98800b69b76d49d6ff8ac6f",
+    "discovery/registry.go": "679c8d57b99fbbecdd78652e5fe41cf5b582022ca97c088356702f3c7d323838",
+    "discovery/registry_test.go": "72dd44bdf9a9245c1354b998dc56dba6b543b95a402fb3fda06341b9b65dcdad",
+    "discovery/resolver.go": "f2ad690879aafeaa379beb18f5d8cc0656624e13ef45114f55e067ce1a3528b4",
+    "endpoint.go": "8e7577d7f4c0289fc3bee1c9f8de1e3c6482e831cd998f227b4b54596715e63c",
+    "endpoint_test.go": "f3e4f9d0bbb50e911500b418f902f4b79c9b317d81496d6e543920ea0594a9db",
+    "feedback.go": "a27ee3b2860bb0e3b1e87e77b7eec37ff753bb8747b68b7679c1231ad508f935",
+    "feedback_test.go": "d48bfde87dc13409d64a07b50b10e766dd734c3205d41c53431f2364da78bed8",
+    "governance.go": "2d8bee7e946a1b42b8976d70a55bd90d4a9c7596755cee69d1b1ae6e2492a63a",
+    "governance_boundary_test.go": "b1f36d41e62e7684efe52108190ed2f6db46e664514cedc511c3db04d26c20f9",
+    "governance_test.go": "48bf525c73c9077772fa54db9dcb957ddfab75a2a8a9189392012a6d50cef0fa",
+    "internal/testcert/cert.go": "cc0cfeb498bc596c0a0bbcb7aa39b29fb4b98f4824b16d5edaeb48e668cb2acd",
+    "internal/wire/allocation_baseline_test.go": "5dff4367f5c3dc3ad11b500bed3c2ffafd08e41b0f339f59db07d2e6e217f0cf",
+    "internal/wire/frame.go": "e1e42ccb3ebe720cfa5cc18c221b2306ad152b47afe2fb831f80cbe315b014fb",
+    "internal/wire/frame_test.go": "4ddf6f8d2ebd8248ba1b90ca67496dcda6c927cfed8974cb507b1fb603fee42c",
+    "io_test.go": "78092ec7019cec6d7e1da1c9141a300ac8b63bea55f38e87a765173a64aade6d",
+    "link.go": "8fb9883d3ee61a4d9aadb315000bfb9a1fd92a199b530cf1c20eea8cd29a223f",
+    "options.go": "ac78544dbc110f80cc380b316ae7073e2a8efa3a0e4ccabfcbacbe5a4656596d",
+    "quic.go": "1c703b5a9d93e2483c07ae833d57c32c82167f0b4d10b527ee8c996158fb6866",
+    "quic_test.go": "cb43e7ca09ac18fc5d1617a37ca5c9f46677d5308bf2fcb3d7138e2e5afa0a91",
+    "resources.go": "28769391b28186230bb36fed61c37bd9d078f0d291047e0d2cf3b57548c69140",
+    "resources_test.go": "11e23c378695a6b95ac5efc602eb217c19f874714afb23ebc25629cad7f4569f",
+    "security.go": "4d0c534fd4a450b42bb81b9a193835368242953f24015313dc7bc94271006e3f",
+    "security_test.go": "3768791275c88b0d99d23f3cc7f26fe138af37d12f20903851cf24818da6f8b7",
+    "server.go": "21de416384061effd37be49b6dbf1e5199ef9b9d064007254c3a24dd420dea25",
+    "status.go": "f6a4df071198fcdd5a6889704146d3e157782ab0e91d5b1f54faec6e7785d11e",
+    "terminal_test.go": "a4dc2618ca3062cc0b14a640c3d8248d1221711c839c648c00a0dceb47d9a28a",
+    "transport_fault_test.go": "3b9dd698be06f900057e3894928d07ed70d5c7c48199559a022a67f42110e51d",
+    "go.mod": "95f155862d1bd1c5ae780731b367b45fb53ce4f5e64d13ca0c7f885a21109b15",
+    "go.sum": "dcdf42833d4af6f14c86c506a5e1f58cd8f32f61b0a811d9a043e4bf90a3cc1c"
+  },
+  "scope": "real serial loopback open-loop RPC, 4 clients, generator max 128 and lateness gate 50ms; dynamic-slot/timer fixture, no model or production-capacity claim; race instrumentation: correctness only, exclude timings from performance conclusions",
+  "race_instrumented": true
+}

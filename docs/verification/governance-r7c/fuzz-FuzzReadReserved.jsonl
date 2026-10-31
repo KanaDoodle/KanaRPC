@@ -1,0 +1,16 @@
+{"Time":"2026-10-31T13:25:51.518846+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC/internal/wire"}
+{"Time":"2026-10-31T13:25:51.87529+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved"}
+{"Time":"2026-10-31T13:25:51.875425+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Output":"=== RUN   FuzzReadReserved\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:25:51.876356+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Output":"fuzz: elapsed: 0s, gathering baseline coverage: 0/3 completed\n"}
+{"Time":"2026-10-31T13:25:51.8831+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Output":"fuzz: elapsed: 0s, gathering baseline coverage: 3/3 completed, now fuzzing with 2 workers\n"}
+{"Time":"2026-10-31T13:25:54.876472+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Output":"fuzz: elapsed: 3s, execs: 687550 (229175/sec), new interesting: 13 (total: 16)\n"}
+{"Time":"2026-10-31T13:25:57.877401+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Output":"fuzz: elapsed: 6s, execs: 1365766 (226003/sec), new interesting: 13 (total: 16)\n"}
+{"Time":"2026-10-31T13:26:00.876377+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Output":"fuzz: elapsed: 9s, execs: 2051835 (228767/sec), new interesting: 13 (total: 16)\n"}
+{"Time":"2026-10-31T13:26:03.876781+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Output":"fuzz: elapsed: 12s, execs: 2741507 (229860/sec), new interesting: 13 (total: 16)\n"}
+{"Time":"2026-10-31T13:26:06.876532+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Output":"fuzz: elapsed: 15s, execs: 3417519 (225362/sec), new interesting: 13 (total: 16)\n"}
+{"Time":"2026-10-31T13:26:06.896184+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Output":"fuzz: elapsed: 15s, execs: 3428796 (571823/sec), new interesting: 13 (total: 16)\n"}
+{"Time":"2026-10-31T13:26:06.896221+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Output":"--- PASS: FuzzReadReserved (15.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:26:06.896228+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Test":"FuzzReadReserved","Elapsed":15.02}
+{"Time":"2026-10-31T13:26:06.89625+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:26:06.896855+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC/internal/wire\t15.378s\n"}
+{"Time":"2026-10-31T13:26:06.89692+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC/internal/wire","Elapsed":15.378}

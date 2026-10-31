@@ -1,0 +1,284 @@
+{"Time":"2026-10-31T13:36:51.071226+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T13:36:51.500566+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:51.500765+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.500884+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:51.500897+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.504607+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.50462+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.504633+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:51.504637+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.51445+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.514508+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.514529+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.514541+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.519032+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:51.519066+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.519075+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:51.519079+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.521115+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.521132+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.521137+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:51.521155+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.529852+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.529872+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.529879+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.529898+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.536178+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:51.536194+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.536201+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:51.536205+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.538197+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.538205+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.53821+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:51.538212+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.545763+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.545782+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.545795+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.545798+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.549828+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:51.549843+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.549857+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:51.54986+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.551929+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.551938+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.551942+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:51.551945+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.559232+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.559249+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.559267+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.55927+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.563173+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:51.563184+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.563429+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:51.563442+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.565698+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.565704+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.565712+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:51.565716+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.573583+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.573607+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.573612+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.573616+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.577107+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:51.577118+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.577128+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:51.577137+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.579175+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.579188+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.579192+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:51.579194+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.587153+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.587169+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.587174+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.587177+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.590981+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:51.59099+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.590995+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:51.590998+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.592925+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.592932+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.592936+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:51.592939+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.600396+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.600423+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.600428+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.600431+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.604182+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:51.604191+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.604196+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:51.604199+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.606229+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.606237+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.606245+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:51.606249+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.614003+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.61402+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.614031+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.614034+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.617715+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:51.617723+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.617728+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:51.617731+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.619879+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.619889+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.619893+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:51.619896+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.627557+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.627574+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.627579+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.627582+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.631142+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame"}
+{"Time":"2026-10-31T13:36:51.63116+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.631165+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp"}
+{"Time":"2026-10-31T13:36:51.631168+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.633113+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.63313+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/tcp","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.633134+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic"}
+{"Time":"2026-10-31T13:36:51.633137+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"=== RUN   TestEscapedErrorAndPressureFitSmallTerminalFrame/quic\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.640581+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame/quic (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.640595+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame/quic","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.6406+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Output":"--- PASS: TestEscapedErrorAndPressureFitSmallTerminalFrame (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.640603+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEscapedErrorAndPressureFitSmallTerminalFrame","Elapsed":0.01}
+{"Time":"2026-10-31T13:36:51.64298+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding"}
+{"Time":"2026-10-31T13:36:51.642987+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"=== RUN   FuzzTerminalEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.643114+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0"}
+{"Time":"2026-10-31T13:36:51.643118+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"=== RUN   FuzzTerminalEncoding/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.64328+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"--- PASS: FuzzTerminalEncoding/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.643285+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.643354+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1"}
+{"Time":"2026-10-31T13:36:51.643358+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"=== RUN   FuzzTerminalEncoding/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.643443+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"--- PASS: FuzzTerminalEncoding/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.643448+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.643515+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2"}
+{"Time":"2026-10-31T13:36:51.643519+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"=== RUN   FuzzTerminalEncoding/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.643591+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"--- PASS: FuzzTerminalEncoding/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.643596+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.643606+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"--- PASS: FuzzTerminalEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.643617+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.643826+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding"}
+{"Time":"2026-10-31T13:36:51.64383+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"=== RUN   FuzzTerminalEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.643911+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0"}
+{"Time":"2026-10-31T13:36:51.643915+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"=== RUN   FuzzTerminalEncoding/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644049+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"--- PASS: FuzzTerminalEncoding/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644054+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.644126+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1"}
+{"Time":"2026-10-31T13:36:51.64413+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"=== RUN   FuzzTerminalEncoding/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644212+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"--- PASS: FuzzTerminalEncoding/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644216+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.64428+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2"}
+{"Time":"2026-10-31T13:36:51.644284+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"=== RUN   FuzzTerminalEncoding/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644353+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"--- PASS: FuzzTerminalEncoding/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644357+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.644365+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"--- PASS: FuzzTerminalEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644369+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.64458+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding"}
+{"Time":"2026-10-31T13:36:51.644584+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"=== RUN   FuzzTerminalEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644661+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0"}
+{"Time":"2026-10-31T13:36:51.644665+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"=== RUN   FuzzTerminalEncoding/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644802+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"--- PASS: FuzzTerminalEncoding/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644807+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.644874+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1"}
+{"Time":"2026-10-31T13:36:51.644878+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"=== RUN   FuzzTerminalEncoding/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644961+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"--- PASS: FuzzTerminalEncoding/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.644966+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.645031+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2"}
+{"Time":"2026-10-31T13:36:51.645042+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"=== RUN   FuzzTerminalEncoding/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.645101+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"--- PASS: FuzzTerminalEncoding/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.645105+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.645114+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"--- PASS: FuzzTerminalEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.645117+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.645336+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding"}
+{"Time":"2026-10-31T13:36:51.64534+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"=== RUN   FuzzTerminalEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.645438+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0"}
+{"Time":"2026-10-31T13:36:51.645442+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"=== RUN   FuzzTerminalEncoding/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.645582+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"--- PASS: FuzzTerminalEncoding/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.645587+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.645663+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1"}
+{"Time":"2026-10-31T13:36:51.645667+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"=== RUN   FuzzTerminalEncoding/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.645753+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"--- PASS: FuzzTerminalEncoding/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.645756+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.645832+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2"}
+{"Time":"2026-10-31T13:36:51.645842+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"=== RUN   FuzzTerminalEncoding/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.64591+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"--- PASS: FuzzTerminalEncoding/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.645917+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.645921+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"--- PASS: FuzzTerminalEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.645931+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.646149+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding"}
+{"Time":"2026-10-31T13:36:51.646155+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"=== RUN   FuzzTerminalEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.646236+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0"}
+{"Time":"2026-10-31T13:36:51.646241+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"=== RUN   FuzzTerminalEncoding/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.646359+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"--- PASS: FuzzTerminalEncoding/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.646364+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.646436+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1"}
+{"Time":"2026-10-31T13:36:51.64644+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"=== RUN   FuzzTerminalEncoding/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.646518+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"--- PASS: FuzzTerminalEncoding/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.646523+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.646591+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2"}
+{"Time":"2026-10-31T13:36:51.646595+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"=== RUN   FuzzTerminalEncoding/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.646661+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"--- PASS: FuzzTerminalEncoding/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.646666+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.646678+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"--- PASS: FuzzTerminalEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.646682+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.646899+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding"}
+{"Time":"2026-10-31T13:36:51.646903+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"=== RUN   FuzzTerminalEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.646976+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0"}
+{"Time":"2026-10-31T13:36:51.64698+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"=== RUN   FuzzTerminalEncoding/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.647114+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"--- PASS: FuzzTerminalEncoding/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.647119+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.647187+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1"}
+{"Time":"2026-10-31T13:36:51.647191+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"=== RUN   FuzzTerminalEncoding/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.647275+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"--- PASS: FuzzTerminalEncoding/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.64728+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.64735+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2"}
+{"Time":"2026-10-31T13:36:51.647354+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"=== RUN   FuzzTerminalEncoding/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.647419+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"--- PASS: FuzzTerminalEncoding/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.647425+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.647438+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"--- PASS: FuzzTerminalEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.647441+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.647657+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding"}
+{"Time":"2026-10-31T13:36:51.647661+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"=== RUN   FuzzTerminalEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.647737+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0"}
+{"Time":"2026-10-31T13:36:51.64774+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"=== RUN   FuzzTerminalEncoding/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.647878+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"--- PASS: FuzzTerminalEncoding/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.647886+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.647947+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1"}
+{"Time":"2026-10-31T13:36:51.647951+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"=== RUN   FuzzTerminalEncoding/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648043+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"--- PASS: FuzzTerminalEncoding/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648048+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.648098+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2"}
+{"Time":"2026-10-31T13:36:51.648106+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"=== RUN   FuzzTerminalEncoding/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648168+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"--- PASS: FuzzTerminalEncoding/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648172+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.648179+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"--- PASS: FuzzTerminalEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648188+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.648401+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding"}
+{"Time":"2026-10-31T13:36:51.648405+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"=== RUN   FuzzTerminalEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648481+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0"}
+{"Time":"2026-10-31T13:36:51.648484+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"=== RUN   FuzzTerminalEncoding/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648617+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"--- PASS: FuzzTerminalEncoding/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648622+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.648706+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1"}
+{"Time":"2026-10-31T13:36:51.64871+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"=== RUN   FuzzTerminalEncoding/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648775+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"--- PASS: FuzzTerminalEncoding/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648779+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.64885+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2"}
+{"Time":"2026-10-31T13:36:51.648854+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"=== RUN   FuzzTerminalEncoding/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648921+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"--- PASS: FuzzTerminalEncoding/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648925+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.648935+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"--- PASS: FuzzTerminalEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.648939+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.649208+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding"}
+{"Time":"2026-10-31T13:36:51.649212+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"=== RUN   FuzzTerminalEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.649508+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0"}
+{"Time":"2026-10-31T13:36:51.649515+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"=== RUN   FuzzTerminalEncoding/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.649671+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"--- PASS: FuzzTerminalEncoding/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.649677+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.649747+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1"}
+{"Time":"2026-10-31T13:36:51.649751+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"=== RUN   FuzzTerminalEncoding/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.649862+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"--- PASS: FuzzTerminalEncoding/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.649867+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.649944+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2"}
+{"Time":"2026-10-31T13:36:51.649948+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"=== RUN   FuzzTerminalEncoding/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.650027+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"--- PASS: FuzzTerminalEncoding/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.650032+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.650044+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"--- PASS: FuzzTerminalEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.650048+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.650263+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding"}
+{"Time":"2026-10-31T13:36:51.650267+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"=== RUN   FuzzTerminalEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.650348+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0"}
+{"Time":"2026-10-31T13:36:51.650352+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"=== RUN   FuzzTerminalEncoding/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.65049+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Output":"--- PASS: FuzzTerminalEncoding/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.650494+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#0","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.65056+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1"}
+{"Time":"2026-10-31T13:36:51.650564+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"=== RUN   FuzzTerminalEncoding/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.650648+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Output":"--- PASS: FuzzTerminalEncoding/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.650656+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#1","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.650725+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2"}
+{"Time":"2026-10-31T13:36:51.650729+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"=== RUN   FuzzTerminalEncoding/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.650804+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Output":"--- PASS: FuzzTerminalEncoding/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.650809+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding/seed#2","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.650818+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Output":"--- PASS: FuzzTerminalEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:51.650822+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"FuzzTerminalEncoding","Elapsed":0}
+{"Time":"2026-10-31T13:36:51.650914+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:36:52.659271+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t1.588s\n"}
+{"Time":"2026-10-31T13:36:52.659388+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":1.588}

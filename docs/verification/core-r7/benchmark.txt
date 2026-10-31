@@ -1,0 +1,12 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/KanaDoodle/KanaRPC
+cpu: Apple M5
+BenchmarkUnaryLoopback-2       	   28669	     46072 ns/op	    6871 B/op	     103 allocs/op
+BenchmarkUnaryLoopback-2       	   26384	     46430 ns/op	    6852 B/op	     103 allocs/op
+BenchmarkUnaryLoopback-2       	   29300	     40028 ns/op	    6882 B/op	     103 allocs/op
+BenchmarkStreamingLoopback-2   	    9512	    131493 ns/op	   19730 B/op	     369 allocs/op
+BenchmarkStreamingLoopback-2   	    9230	    144063 ns/op	   19681 B/op	     368 allocs/op
+BenchmarkStreamingLoopback-2   	    9314	    142992 ns/op	   19669 B/op	     367 allocs/op
+PASS
+ok  	github.com/KanaDoodle/KanaRPC	9.361s

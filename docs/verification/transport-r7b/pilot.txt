@@ -1,0 +1,1 @@
+{"status": "PASS", "cases": 6, "offered": 480, "output": "/private/tmp/kanarpc-r7b-20261031/pilot"}

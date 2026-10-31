@@ -1,0 +1,9 @@
+{"Time":"2026-10-31T11:32:30.805423+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T11:32:31.146427+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding"}
+{"Time":"2026-10-31T11:32:31.146496+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"=== RUN   TestConfiguredBudgetIncludesRequestEncoding\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:31.16867+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"    io_test.go:167: encoding time was excluded from request budget: \u003cnil\u003e\n","OutputType":"error"}
+{"Time":"2026-10-31T11:32:31.173619+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Output":"--- FAIL: TestConfiguredBudgetIncludesRequestEncoding (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:31.173688+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestConfiguredBudgetIncludesRequestEncoding","Elapsed":0.02}
+{"Time":"2026-10-31T11:32:31.173732+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:31.173811+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.368s\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:32:31.173828+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.368}

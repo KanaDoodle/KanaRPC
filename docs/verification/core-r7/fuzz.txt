@@ -1,0 +1,10 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/3 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 3/3 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 699367 (232965/sec), new interesting: 16 (total: 19)
+fuzz: elapsed: 6s, execs: 1301926 (200851/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 9s, execs: 2148183 (282087/sec), new interesting: 18 (total: 21)
+fuzz: elapsed: 12s, execs: 2863868 (238617/sec), new interesting: 18 (total: 21)
+fuzz: elapsed: 15s, execs: 3578934 (238429/sec), new interesting: 18 (total: 21)
+fuzz: elapsed: 15s, execs: 3578934 (0/sec), new interesting: 18 (total: 21)
+PASS
+ok  	github.com/KanaDoodle/KanaRPC/internal/wire	15.435s

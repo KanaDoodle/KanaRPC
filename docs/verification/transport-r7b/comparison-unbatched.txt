@@ -1,0 +1,1 @@
+{"status": "PASS", "cases": 18, "offered": 54000, "output": "/private/tmp/kanarpc-r7b-20261031/comparison-unbatched"}

@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "milestone": "R7A only",
+  "checks": {
+    "final-test": {
+      "pass": 49,
+      "skip": 0,
+      "fail": 0
+    },
+    "final-race": {
+      "pass": 49,
+      "skip": 0,
+      "fail": 0
+    },
+    "min-test": {
+      "pass": 49,
+      "skip": 0,
+      "fail": 0
+    },
+    "min-race": {
+      "pass": 49,
+      "skip": 0,
+      "fail": 0
+    }
+  },
+  "fuzz_executions": 3578934,
+  "comparison_cases": 18,
+  "two_process_sigterm": "PASS",
+  "source_boundaries": "PASS, not legal proof",
+  "confirmed_initial_implementation_issues_fixed": 7,
+  "not_implemented_in_new_core": [
+    "native QUIC",
+    "TLS construction",
+    "etcd discovery",
+    "adaptive overload control",
+    "CampusTrace migration"
+  ],
+  "real_vllm": "NOT_VALIDATED",
+  "old_full_suite": "not rerun; unchanged old workspace used by behavior controls",
+  "benchmark_scope": "own serial loopback baseline, no speedup claim",
+  "owned_process_cleanup": "all process verifier children joined by subprocess.wait"
+}

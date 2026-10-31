@@ -1,0 +1,40 @@
+{
+  "go_version": "go version go1.27.1 darwin/arm64",
+  "binary_sha256": "b33310b88a0ffad65b4c65001e37009959f0e66b6c071eb567ecda714194ec5f",
+  "count": 3000,
+  "workers": 8,
+  "seeds": [
+    7,
+    19,
+    41
+  ],
+  "GOMAXPROCS": 2,
+  "scope": "serial loopback closed-loop; 64 warmups excluded from request latency, included in whole-process CPU; no model, cross-machine or packet-loss claim",
+  "source_sha256": {
+    "client.go": "43cc0dc8e6a2a6002d59126022803e5ce28a66a0d2628aaac89b3987092d0d55",
+    "cmd/lifecycle-demo/main.go": "6f39265e6ebc793afa48ede9cec1c9363412f65da871dad953d2164839b70c41",
+    "cmd/transport-lab/main.go": "8e49e7665788ff48fd24971cc6e022c14a3cf7a9292fce6e405aba4705eac55f",
+    "core_test.go": "e6caa2ba9397d5ff3a9778a329486a5deb4fab2126379c77c34fa8e4c978c35a",
+    "discovery/e2e_test.go": "fab374123f9fe7af8e0174db71e1083cc7169e42e98800b69b76d49d6ff8ac6f",
+    "discovery/registry.go": "679c8d57b99fbbecdd78652e5fe41cf5b582022ca97c088356702f3c7d323838",
+    "discovery/registry_test.go": "72dd44bdf9a9245c1354b998dc56dba6b543b95a402fb3fda06341b9b65dcdad",
+    "discovery/resolver.go": "f2ad690879aafeaa379beb18f5d8cc0656624e13ef45114f55e067ce1a3528b4",
+    "endpoint.go": "8e7577d7f4c0289fc3bee1c9f8de1e3c6482e831cd998f227b4b54596715e63c",
+    "endpoint_test.go": "f3e4f9d0bbb50e911500b418f902f4b79c9b317d81496d6e543920ea0594a9db",
+    "internal/testcert/cert.go": "cc0cfeb498bc596c0a0bbcb7aa39b29fb4b98f4824b16d5edaeb48e668cb2acd",
+    "internal/wire/frame.go": "17ae6f8e9fca2a5fc8f35f5e93f00ed8b2f315bfefa2583e5e9abd86493a6914",
+    "internal/wire/frame_test.go": "7ca75db8a80d17f4455babf2f76241539627b26af42aea1580195b0288b900a1",
+    "io_test.go": "78092ec7019cec6d7e1da1c9141a300ac8b63bea55f38e87a765173a64aade6d",
+    "link.go": "8d740388eb2aafffc03f5010f882bbe5d268086aab9ebb51955f74dbc8d27f0d",
+    "options.go": "1c5ed041e1086a18f4dcd0d9e579440f8c1149b0c2a86cee1d98a7fc5ae8eea7",
+    "quic.go": "2df58031cfb0d17c7b13b69a83b52c50ca0a96a74a8baa7a77be787f2eedb78f",
+    "quic_test.go": "50c5c900e95b04bf9bee803cf487e846621e1f8773c37c41bfb0bc96f050dbcc",
+    "security.go": "4d0c534fd4a450b42bb81b9a193835368242953f24015313dc7bc94271006e3f",
+    "security_test.go": "3768791275c88b0d99d23f3cc7f26fe138af37d12f20903851cf24818da6f8b7",
+    "server.go": "8a97dfa42343925109a6516bf4bb301ad97e14a1563441104dc8f1e7af41330d",
+    "status.go": "9f9ceb3b080b99cda5dd2a081a13f5a817d586ca82e602ef15bf44849261fac8",
+    "transport_fault_test.go": "3b9dd698be06f900057e3894928d07ed70d5c7c48199559a022a67f42110e51d",
+    "go.mod": "95f155862d1bd1c5ae780731b367b45fb53ce4f5e64d13ca0c7f885a21109b15",
+    "go.sum": "dcdf42833d4af6f14c86c506a5e1f58cd8f32f61b0a811d9a043e4bf90a3cc1c"
+  }
+}

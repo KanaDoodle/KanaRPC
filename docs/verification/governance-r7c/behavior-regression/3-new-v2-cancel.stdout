@@ -1,0 +1,1 @@
+{"caller_canceled":true,"implementation":"new-v2","remote_stopped_before_release":true,"scenario":"cancel","scope":"loopback lifecycle behavior; no throughput or inference claim"}

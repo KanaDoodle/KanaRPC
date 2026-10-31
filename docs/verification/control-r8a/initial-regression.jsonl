@@ -1,0 +1,25 @@
+{"Time":"2026-10-31T13:51:23.105758+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T13:51:23.810959+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeGovernanceQueueCancellationAndDeadlineDrain"}
+{"Time":"2026-10-31T13:51:23.811192+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeGovernanceQueueCancellationAndDeadlineDrain","Output":"=== RUN   TestNativeGovernanceQueueCancellationAndDeadlineDrain\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:23.827629+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeGovernanceQueueCancellationAndDeadlineDrain","Output":"--- PASS: TestNativeGovernanceQueueCancellationAndDeadlineDrain (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:23.827668+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeGovernanceQueueCancellationAndDeadlineDrain","Elapsed":0.02}
+{"Time":"2026-10-31T13:51:23.827695+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativePressureAdmissionIsSharedAcrossExchanges"}
+{"Time":"2026-10-31T13:51:23.827703+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativePressureAdmissionIsSharedAcrossExchanges","Output":"=== RUN   TestNativePressureAdmissionIsSharedAcrossExchanges\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:23.837253+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativePressureAdmissionIsSharedAcrossExchanges","Output":"--- PASS: TestNativePressureAdmissionIsSharedAcrossExchanges (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:23.83731+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativePressureAdmissionIsSharedAcrossExchanges","Elapsed":0.01}
+{"Time":"2026-10-31T13:51:23.837744+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestGovernedDrainRunsAlreadyAcceptedQueue"}
+{"Time":"2026-10-31T13:51:23.837763+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestGovernedDrainRunsAlreadyAcceptedQueue","Output":"=== RUN   TestGovernedDrainRunsAlreadyAcceptedQueue\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:23.842298+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestGovernedDrainRunsAlreadyAcceptedQueue","Output":"--- PASS: TestGovernedDrainRunsAlreadyAcceptedQueue (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:23.842317+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestGovernedDrainRunsAlreadyAcceptedQueue","Elapsed":0}
+{"Time":"2026-10-31T13:51:23.842804+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestMethodWeightedRotationUnderBacklog"}
+{"Time":"2026-10-31T13:51:23.842813+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestMethodWeightedRotationUnderBacklog","Output":"=== RUN   TestMethodWeightedRotationUnderBacklog\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:23.848771+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestMethodWeightedRotationUnderBacklog","Output":"--- PASS: TestMethodWeightedRotationUnderBacklog (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:23.848811+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestMethodWeightedRotationUnderBacklog","Elapsed":0.01}
+{"Time":"2026-10-31T13:51:23.84882+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestAIMDBoundsAndNeutralCancellationSyntheticSamples"}
+{"Time":"2026-10-31T13:51:23.848824+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestAIMDBoundsAndNeutralCancellationSyntheticSamples","Output":"=== RUN   TestAIMDBoundsAndNeutralCancellationSyntheticSamples\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:23.848928+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestAIMDBoundsAndNeutralCancellationSyntheticSamples","Output":"    governance_test.go:307: synthetic controller input, not measured backend performance\n"}
+{"Time":"2026-10-31T13:51:23.848966+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestAIMDBoundsAndNeutralCancellationSyntheticSamples","Output":"--- PASS: TestAIMDBoundsAndNeutralCancellationSyntheticSamples (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:23.84897+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestAIMDBoundsAndNeutralCancellationSyntheticSamples","Elapsed":0}
+{"Time":"2026-10-31T13:51:23.851834+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:51:24.858071+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t1.752s\n"}
+{"Time":"2026-10-31T13:51:24.858107+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":1.752}

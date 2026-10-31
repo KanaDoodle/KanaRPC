@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "captured_utc": "2026-10-31T06:08:41.269696+00:00",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "matrix": {
+    "verified-test": {
+      "pass": 163,
+      "skip": 0,
+      "fail": 0
+    },
+    "verified-race": {
+      "pass": 163,
+      "skip": 0,
+      "fail": 0
+    },
+    "verified-min-test": {
+      "pass": 163,
+      "skip": 0,
+      "fail": 0
+    },
+    "verified-min-race": {
+      "pass": 163,
+      "skip": 0,
+      "fail": 0
+    }
+  },
+  "final_cases": 102,
+  "offered": 162720,
+  "source_module_driver_hashes_match": true,
+  "gofmt_clean": true,
+  "all_resources_settled": true,
+  "owned_experiment_processes_reaped": true,
+  "guard_observed_each_unattainable_repeat": true,
+  "no_guard_trigger_observed_other_fixture_scenes": true,
+  "actual_inference": "NOT_VALIDATED",
+  "limits": "finite fixture; no production, long-run, real-inference or cross-machine claim"
+}

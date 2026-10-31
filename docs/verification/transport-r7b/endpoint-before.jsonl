@@ -1,0 +1,14 @@
+{"Time":"2026-10-31T12:08:18.357916+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T12:08:18.758343+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses"}
+{"Time":"2026-10-31T12:08:18.758414+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Output":"=== RUN   TestEndpointRejectsUnusableAddresses\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:08:18.758522+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Output":"    endpoint_test.go:8: accepted invalid endpoint bad host:123\n","OutputType":"error"}
+{"Time":"2026-10-31T12:08:18.758542+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Output":"    endpoint_test.go:8: accepted invalid endpoint foo/bar:123\n","OutputType":"error"}
+{"Time":"2026-10-31T12:08:18.75856+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Output":"    endpoint_test.go:8: accepted invalid endpoint host:+123\n","OutputType":"error"}
+{"Time":"2026-10-31T12:08:18.758571+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Output":"    endpoint_test.go:8: accepted invalid endpoint 0.0.0.0:123\n","OutputType":"error"}
+{"Time":"2026-10-31T12:08:18.75858+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Output":"    endpoint_test.go:8: accepted invalid endpoint [::]:123\n","OutputType":"error"}
+{"Time":"2026-10-31T12:08:18.758589+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Output":"    endpoint_test.go:8: accepted invalid endpoint host..example:123\n","OutputType":"error"}
+{"Time":"2026-10-31T12:08:18.758599+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Output":"--- FAIL: TestEndpointRejectsUnusableAddresses (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:08:18.758607+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Elapsed":0}
+{"Time":"2026-10-31T12:08:18.758628+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:08:18.759291+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.401s\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:08:18.759315+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.401}

@@ -1,0 +1,19 @@
+{"Time":"2026-10-31T11:30:14.364735+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T11:30:14.735783+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity"}
+{"Time":"2026-10-31T11:30:14.735869+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Output":"=== RUN   TestIODeadlineRaceKeepsContextErrorIdentity\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:30:14.741312+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Output":"    io_test.go:66: round 3 lost context deadline identity: *net.OpError write pipe: i/o timeout\n","OutputType":"error"}
+{"Time":"2026-10-31T11:30:14.74139+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Output":"--- FAIL: TestIODeadlineRaceKeepsContextErrorIdentity (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:30:14.741405+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Elapsed":0.01}
+{"Time":"2026-10-31T11:30:14.741508+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity"}
+{"Time":"2026-10-31T11:30:14.741523+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Output":"=== RUN   TestIODeadlineRaceKeepsContextErrorIdentity\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:30:14.744248+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Output":"    io_test.go:66: round 1 lost context deadline identity: *net.OpError write pipe: i/o timeout\n","OutputType":"error"}
+{"Time":"2026-10-31T11:30:14.744284+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Output":"--- FAIL: TestIODeadlineRaceKeepsContextErrorIdentity (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:30:14.744296+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Elapsed":0}
+{"Time":"2026-10-31T11:30:14.744429+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity"}
+{"Time":"2026-10-31T11:30:14.74444+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Output":"=== RUN   TestIODeadlineRaceKeepsContextErrorIdentity\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:30:14.749695+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Output":"    io_test.go:66: round 3 lost context deadline identity: *net.OpError write pipe: i/o timeout\n","OutputType":"error"}
+{"Time":"2026-10-31T11:30:14.749712+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Output":"--- FAIL: TestIODeadlineRaceKeepsContextErrorIdentity (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:30:14.749732+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestIODeadlineRaceKeepsContextErrorIdentity","Elapsed":0.01}
+{"Time":"2026-10-31T11:30:14.749785+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:30:14.750894+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.386s\n","OutputType":"frame"}
+{"Time":"2026-10-31T11:30:14.750916+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.386}

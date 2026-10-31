@@ -1,0 +1,1 @@
+{"status": "PASS", "cases": 18, "offered": 18000, "output": "/private/tmp/kanarpc-r8a-20261031/transport-regression"}

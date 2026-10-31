@@ -1,0 +1,1 @@
+{"drain_error":"","existing_error":"","existing_result_delivered":true,"implementation":"old-cooperative","new_call_rejected":true,"scenario":"drain","scope":"loopback lifecycle behavior; no throughput or inference claim"}

@@ -1,0 +1,1507 @@
+[
+  {
+    "profile": "feedback",
+    "scene": "capacity-shift",
+    "transport": "quic",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 280,
+            "Ignored": 0,
+            "Limited": 70,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1056,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 3,
+                "Sequence": 1124,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 549,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "CloseConfirmed": true,
+            "Active": 0,
+            "Opened": 350,
+            "Retired": 350,
+            "RTT": 147000,
+            "BytesSent": 145092,
+            "BytesReceived": 185175,
+            "PacketsLost": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 289,
+            "Ignored": 0,
+            "Limited": 61,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1090,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 4,
+                "Sequence": 1125,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 549,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "CloseConfirmed": true,
+            "Active": 0,
+            "Opened": 350,
+            "Retired": 350,
+            "RTT": 102000,
+            "BytesSent": 149120,
+            "BytesReceived": 190247,
+            "PacketsLost": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 276,
+            "Ignored": 0,
+            "Limited": 74,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1102,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 6,
+                "Sequence": 1126,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 549,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 64,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "CloseConfirmed": true,
+            "Active": 0,
+            "Opened": 350,
+            "Retired": 350,
+            "RTT": 185000,
+            "BytesSent": 144428,
+            "BytesReceived": 183382,
+            "PacketsLost": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 282,
+            "Ignored": 0,
+            "Limited": 68,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1087,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 13,
+                "Sequence": 1127,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 549,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 80,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "CloseConfirmed": true,
+            "Active": 0,
+            "Opened": 350,
+            "Retired": 350,
+            "RTT": 100000,
+            "BytesSent": 145928,
+            "BytesReceived": 186315,
+            "PacketsLost": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 200
+        },
+        "/lab/slow": {
+          "local_pressure": 273,
+          "ok": 927
+        }
+      },
+      "elapsed_ns": 1004044875,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1764375,
+          "p95": 1971917,
+          "p99": 2197584
+        },
+        "/lab/slow": {
+          "p50": 4714875,
+          "p95": 14165833,
+          "p99": 38688500
+        }
+      },
+      "offered": 1400,
+      "profile": "feedback",
+      "scene": "capacity-shift"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 200,
+        "/lab/slow": 927
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 200,
+        "/lab/slow": 927
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": true,
+        "Epoch": "2a903a0360253303fefaecff10bd23df",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 200,
+            "P90": 1095500
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 13,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 927,
+            "P90": 4085458
+          }
+        ],
+        "Decisions": [
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 16,
+            "Next": 12,
+            "P90": 23599375
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 12,
+            "Next": 9,
+            "P90": 54813042
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 9,
+            "Next": 7,
+            "P90": 42857625
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 7,
+            "Next": 5,
+            "P90": 15906042
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 5,
+            "Next": 4,
+            "P90": 12089917
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 4,
+            "Next": 5,
+            "P90": 8048875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 7426916
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 6,
+            "Next": 4,
+            "P90": 10454333
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 4,
+            "Next": 3,
+            "P90": 11016667
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 3,
+            "Next": 4,
+            "P90": 7282791
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 4,
+            "Next": 5,
+            "P90": 4129542
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 4111708
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 6,
+            "Next": 7,
+            "P90": 4146958
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 7,
+            "Next": 8,
+            "P90": 4125000
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 8,
+            "Next": 9,
+            "P90": 4084542
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 9,
+            "Next": 10,
+            "P90": 4092708
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 10,
+            "Next": 11,
+            "P90": 4117958
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 11,
+            "Next": 12,
+            "P90": 4093167
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 12,
+            "Next": 13,
+            "P90": 4095250
+          }
+        ],
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 7888,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 652,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 299,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 1127,
+        "Completed": 1127,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 1127,
+        "LostTerminals": 0
+      },
+      "unique_executions": 1127
+    },
+    "on_time": {
+      "/lab/fast": 200,
+      "/lab/slow": 922
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 1.535037,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "feedback",
+    "scene": "capacity-shift",
+    "transport": "tcp",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 286,
+            "Ignored": 0,
+            "Limited": 64,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1055,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 3,
+                "Sequence": 1123,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 286,
+            "Completed": 286,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 289,
+            "Ignored": 0,
+            "Limited": 61,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1089,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 5,
+                "Sequence": 1124,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 302,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 289,
+            "Completed": 289,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 274,
+            "Ignored": 0,
+            "Limited": 76,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1101,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 7,
+                "Sequence": 1125,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 274,
+            "Completed": 274,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 277,
+            "Ignored": 0,
+            "Limited": 73,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1086,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 15,
+                "Sequence": 1126,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 277,
+            "Completed": 277,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 200
+        },
+        "/lab/slow": {
+          "local_pressure": 274,
+          "ok": 926
+        }
+      },
+      "elapsed_ns": 1003965167,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1581875,
+          "p95": 1881083,
+          "p99": 2208083
+        },
+        "/lab/slow": {
+          "p50": 4582959,
+          "p95": 11588292,
+          "p99": 38187125
+        }
+      },
+      "offered": 1400,
+      "profile": "feedback",
+      "scene": "capacity-shift"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 200,
+        "/lab/slow": 926
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 200,
+        "/lab/slow": 926
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": true,
+        "Epoch": "972d1da580bdf50a8b57cf98c854491c",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 200,
+            "P90": 1150958
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 15,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 926,
+            "P90": 4209834
+          }
+        ],
+        "Decisions": [
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 16,
+            "Next": 12,
+            "P90": 29762541
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 12,
+            "Next": 9,
+            "P90": 45224208
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 9,
+            "Next": 7,
+            "P90": 63541458
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 7,
+            "Next": 5,
+            "P90": 23618583
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 9899042
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 6,
+            "Next": 4,
+            "P90": 11569916
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 4,
+            "Next": 5,
+            "P90": 9560875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 7418958
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 6,
+            "Next": 4,
+            "P90": 14648666
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 4,
+            "Next": 5,
+            "P90": 9871000
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 4226625
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 6,
+            "Next": 7,
+            "P90": 4230792
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 7,
+            "Next": 8,
+            "P90": 4196667
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 8,
+            "Next": 9,
+            "P90": 4242959
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 9,
+            "Next": 10,
+            "P90": 4218250
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 10,
+            "Next": 11,
+            "P90": 4220458
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 11,
+            "Next": 12,
+            "P90": 4259291
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 12,
+            "Next": 13,
+            "P90": 4176458
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 13,
+            "Next": 14,
+            "P90": 4190458
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 14,
+            "Next": 15,
+            "P90": 4191667
+          }
+        ],
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 7888,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 652,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 593,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 1126,
+        "Completed": 1126,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 1126,
+        "LostTerminals": 0
+      },
+      "unique_executions": 1126
+    },
+    "on_time": {
+      "/lab/fast": 200,
+      "/lab/slow": 920
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 1.0347939999999998,
+    "owned_processes_reaped": true
+  },
+  {
+    "profile": "feedback",
+    "scene": "capacity-shift",
+    "transport": "tls",
+    "seed": 7,
+    "client": {
+      "clients": [
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 286,
+            "Ignored": 0,
+            "Limited": 64,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1045,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 3,
+                "Sequence": 1113,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 286,
+            "Completed": 286,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 286,
+            "Ignored": 0,
+            "Limited": 64,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1079,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 5,
+                "Sequence": 1114,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 286,
+            "Completed": 286,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 266,
+            "Ignored": 0,
+            "Limited": 84,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1090,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 7,
+                "Sequence": 1115,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 266,
+            "Completed": 266,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        },
+        {
+          "feedback": {
+            "Enabled": true,
+            "Accepted": 278,
+            "Ignored": 0,
+            "Limited": 72,
+            "Methods": [
+              {
+                "Method": "/lab/fast",
+                "Active": 0,
+                "Recommended": 16,
+                "Sequence": 1076,
+                "Fresh": true
+              },
+              {
+                "Method": "/lab/slow",
+                "Active": 0,
+                "Recommended": 15,
+                "Sequence": 1116,
+                "Fresh": true
+              }
+            ]
+          },
+          "memory": {
+            "Receive": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 304,
+              "Rejected": 0
+            },
+            "Send": {
+              "Limit": 16777216,
+              "Used": 0,
+              "Peak": 257,
+              "Rejected": 0
+            },
+            "ControlReceive": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 275,
+              "Rejected": 0
+            },
+            "ControlSend": {
+              "Limit": 65536,
+              "Used": 0,
+              "Peak": 40,
+              "Rejected": 0
+            }
+          },
+          "rpc": {
+            "Pending": 0,
+            "InFlightBufferedChunks": 0,
+            "Started": 278,
+            "Completed": 278,
+            "Canceled": 0,
+            "LateFrames": 0
+          }
+        }
+      ],
+      "counts": {
+        "/lab/fast": {
+          "ok": 200
+        },
+        "/lab/slow": {
+          "local_pressure": 284,
+          "ok": 916
+        }
+      },
+      "elapsed_ns": 1003966042,
+      "evidence": "real loopback open-loop RPC around timer/dynamic-slot fixture; no model or production-capacity claim",
+      "latency_success_only": {
+        "/lab/fast": {
+          "p50": 1619833,
+          "p95": 1885500,
+          "p99": 2346709
+        },
+        "/lab/slow": {
+          "p50": 4592417,
+          "p95": 12539625,
+          "p99": 41664333
+        }
+      },
+      "offered": 1400,
+      "profile": "feedback",
+      "scene": "capacity-shift"
+    },
+    "worker": {
+      "attempted": {
+        "/lab/fast": 200,
+        "/lab/slow": 916
+      },
+      "canceled": {},
+      "drain_error": "",
+      "duplicate_ids": 0,
+      "finished": {
+        "/lab/fast": 200,
+        "/lab/slow": 916
+      },
+      "governance": {
+        "Enabled": true,
+        "Adaptive": true,
+        "Epoch": "39eb46cfb85586b0b852ce60c0c7c9c6",
+        "Executing": 0,
+        "Queued": 0,
+        "Methods": [
+          {
+            "Method": "/lab/fast",
+            "Limit": 16,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 200,
+            "P90": 1170791
+          },
+          {
+            "Method": "/lab/slow",
+            "Limit": 15,
+            "Running": 0,
+            "Queued": 0,
+            "Weight": 1,
+            "Samples": 916,
+            "P90": 4178875
+          }
+        ],
+        "Decisions": [
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 16,
+            "Next": 12,
+            "P90": 27269750
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 12,
+            "Next": 9,
+            "P90": 47038584
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 9,
+            "Next": 7,
+            "P90": 62281875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 7,
+            "Next": 5,
+            "P90": 15529583
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 5,
+            "Next": 4,
+            "P90": 11240125
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 4,
+            "Next": 5,
+            "P90": 8097666
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 8047667
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 6,
+            "Next": 7,
+            "P90": 8303458
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 7,
+            "Next": 5,
+            "P90": 13604875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "latency_or_overload",
+            "Previous": 5,
+            "Next": 4,
+            "P90": 11971875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 4,
+            "Next": 5,
+            "P90": 4248667
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 5,
+            "Next": 6,
+            "P90": 4243167
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 6,
+            "Next": 7,
+            "P90": 4218417
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 7,
+            "Next": 8,
+            "P90": 4180792
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 8,
+            "Next": 9,
+            "P90": 4270875
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 9,
+            "Next": 10,
+            "P90": 4177167
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 10,
+            "Next": 11,
+            "P90": 4188750
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 11,
+            "Next": 12,
+            "P90": 4175375
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 12,
+            "Next": 13,
+            "P90": 4175792
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 13,
+            "Next": 14,
+            "P90": 4199375
+          },
+          {
+            "Method": "/lab/slow",
+            "Reason": "demand_growth",
+            "Previous": 14,
+            "Next": 15,
+            "P90": 4256208
+          }
+        ],
+        "DroppedDecisions": 0
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 7888,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 652,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 32,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 595,
+          "Rejected": 0
+        }
+      },
+      "stats": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 1116,
+        "Completed": 1116,
+        "Rejected": 0,
+        "Canceled": 0,
+        "Delivered": 1116,
+        "LostTerminals": 0
+      },
+      "unique_executions": 1116
+    },
+    "on_time": {
+      "/lab/fast": 200,
+      "/lab/slow": 911
+    },
+    "status": "PASS",
+    "pair_cpu_seconds": 1.0364900000000001,
+    "owned_processes_reaped": true
+  }
+]

@@ -1,0 +1,1992 @@
+{
+  "cases": 102,
+  "offered": 162720,
+  "all_outcomes": {
+    "ok": 144909,
+    "local_pressure": 7168,
+    "deadline_exceeded": 7391,
+    "resource_exhausted": 3252
+  },
+  "source_driver_hashes_match": true,
+  "all_resources_settled": true,
+  "processes_reaped": true,
+  "actual_inference": "NOT_VALIDATED",
+  "groups": [
+    {
+      "scene": "low-load",
+      "profile": "fixed-fifo",
+      "offered": 120,
+      "counts": {
+        "ok": 120
+      },
+      "on_time": 120,
+      "fast_ok": 60,
+      "fast_p95_ms": 1.830764,
+      "cpu_seconds": 0.10486233333333424,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "fixed-fair",
+      "offered": 120,
+      "counts": {
+        "ok": 120
+      },
+      "on_time": 120,
+      "fast_ok": 60,
+      "fast_p95_ms": 1.7730833333333333,
+      "cpu_seconds": 0.09848199999999858,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "fixed4-fair",
+      "offered": 120,
+      "counts": {
+        "ok": 120
+      },
+      "on_time": 120,
+      "fast_ok": 60,
+      "fast_p95_ms": 1.7546666666666666,
+      "cpu_seconds": 0.10389500000000233,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "fixed8-fair",
+      "offered": 120,
+      "counts": {
+        "ok": 120
+      },
+      "on_time": 120,
+      "fast_ok": 60,
+      "fast_p95_ms": 1.740264,
+      "cpu_seconds": 0.10310700000000043,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "adaptive",
+      "offered": 120,
+      "counts": {
+        "ok": 120
+      },
+      "on_time": 120,
+      "fast_ok": 60,
+      "fast_p95_ms": 1.7306106666666665,
+      "cpu_seconds": 0.08953433333333309,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5091375,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5108875,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5105792,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "feedback",
+      "offered": 120,
+      "counts": {
+        "ok": 120
+      },
+      "on_time": 120,
+      "fast_ok": 60,
+      "fast_p95_ms": 1.7436666666666667,
+      "cpu_seconds": 0.10521199999999638,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5110375,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5102625,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5113375,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "guarded",
+      "offered": 120,
+      "counts": {
+        "ok": 120
+      },
+      "on_time": 120,
+      "fast_ok": 60,
+      "fast_p95_ms": 1.7224583333333334,
+      "cpu_seconds": 0.10232966666666843,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5107416,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5091167,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5101666,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "low-load",
+      "profile": "guarded-feedback",
+      "offered": 120,
+      "counts": {
+        "ok": 120
+      },
+      "on_time": 120,
+      "fast_ok": 60,
+      "fast_p95_ms": 1.727111,
+      "cpu_seconds": 0.10512633333333328,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5125334,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5104916,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 20,
+          "P90": 5108125,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "fixed-fifo",
+      "offered": 8400,
+      "counts": {
+        "ok": 8400
+      },
+      "on_time": 8400,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5240003333333334,
+      "cpu_seconds": 1.3545689999999992,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "fixed-fair",
+      "offered": 8400,
+      "counts": {
+        "ok": 8400
+      },
+      "on_time": 8400,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5110556666666666,
+      "cpu_seconds": 1.4034636666666662,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "fixed4-fair",
+      "offered": 8400,
+      "counts": {
+        "ok": 7091,
+        "deadline_exceeded": 581,
+        "resource_exhausted": 728
+      },
+      "on_time": 1841,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5578193333333334,
+      "cpu_seconds": 1.357437666666671,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "fixed8-fair",
+      "offered": 8400,
+      "counts": {
+        "ok": 8400
+      },
+      "on_time": 8400,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.4978333333333333,
+      "cpu_seconds": 1.188369666666665,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "adaptive",
+      "offered": 8400,
+      "counts": {
+        "ok": 8400
+      },
+      "on_time": 8400,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5070276666666667,
+      "cpu_seconds": 1.115969333333332,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4190416,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4147500,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4220709,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "feedback",
+      "offered": 8400,
+      "counts": {
+        "ok": 8400
+      },
+      "on_time": 8400,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.513139,
+      "cpu_seconds": 1.4234936666666684,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4224333,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4238083,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4216667,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "guarded",
+      "offered": 8400,
+      "counts": {
+        "ok": 8400
+      },
+      "on_time": 8400,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5224166666666668,
+      "cpu_seconds": 1.335560666666666,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4196791,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4212083,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4218458,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "steady",
+      "profile": "guarded-feedback",
+      "offered": 8400,
+      "counts": {
+        "ok": 8400
+      },
+      "on_time": 8400,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5166943333333334,
+      "cpu_seconds": 1.4217616666666661,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4184708,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4230666,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 2400,
+          "P90": 4239750,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "fixed-fifo",
+      "offered": 8400,
+      "counts": {
+        "deadline_exceeded": 843,
+        "ok": 6966,
+        "resource_exhausted": 591
+      },
+      "on_time": 5793,
+      "fast_ok": 995,
+      "fast_p95_ms": 60.75243066666666,
+      "cpu_seconds": 1.3616196666666684,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "fixed-fair",
+      "offered": 8400,
+      "counts": {
+        "ok": 7154,
+        "resource_exhausted": 318,
+        "deadline_exceeded": 928
+      },
+      "on_time": 6145,
+      "fast_ok": 1160,
+      "fast_p95_ms": 4.410541333333334,
+      "cpu_seconds": 1.4102076666666659,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "fixed4-fair",
+      "offered": 8400,
+      "counts": {
+        "ok": 6145,
+        "deadline_exceeded": 1499,
+        "resource_exhausted": 756
+      },
+      "on_time": 1864,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5283053333333334,
+      "cpu_seconds": 1.3508683333333344,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "fixed8-fair",
+      "offered": 8400,
+      "counts": {
+        "ok": 7176,
+        "deadline_exceeded": 945,
+        "resource_exhausted": 279
+      },
+      "on_time": 6210,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5214723333333333,
+      "cpu_seconds": 1.2300476666666675,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "adaptive",
+      "offered": 8400,
+      "counts": {
+        "ok": 7131,
+        "deadline_exceeded": 983,
+        "resource_exhausted": 286
+      },
+      "on_time": 6067,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5294583333333334,
+      "cpu_seconds": 1.2551363333333292,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 15,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1975,
+          "P90": 4212542,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 14,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1990,
+          "P90": 4188709,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1966,
+          "P90": 4191334,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "feedback",
+      "offered": 8400,
+      "counts": {
+        "ok": 6844,
+        "local_pressure": 1556
+      },
+      "on_time": 6830,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5665553333333333,
+      "cpu_seconds": 1.289004333333337,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 15,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1877,
+          "P90": 4197334,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 15,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1868,
+          "P90": 4204500,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1899,
+          "P90": 4165583,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "guarded",
+      "offered": 8400,
+      "counts": {
+        "ok": 7115,
+        "deadline_exceeded": 991,
+        "resource_exhausted": 294
+      },
+      "on_time": 5996,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.536375,
+      "cpu_seconds": 1.4203003333333324,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 15,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1971,
+          "P90": 4217250,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 15,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1978,
+          "P90": 4220917,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 15,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1966,
+          "P90": 4202000,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "capacity-shift",
+      "profile": "guarded-feedback",
+      "offered": 8400,
+      "counts": {
+        "ok": 6857,
+        "local_pressure": 1543
+      },
+      "on_time": 6847,
+      "fast_ok": 1200,
+      "fast_p95_ms": 1.5646803333333332,
+      "cpu_seconds": 1.2484976666666654,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 15,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1881,
+          "P90": 4199334,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 15,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1899,
+          "P90": 4221750,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 1877,
+          "P90": 4200583,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "fixed-fifo",
+      "offered": 1320,
+      "counts": {
+        "ok": 1313,
+        "deadline_exceeded": 7
+      },
+      "on_time": 937,
+      "fast_ok": 120,
+      "fast_p95_ms": 4.0339030000000005,
+      "cpu_seconds": 0.350875333333331,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "fixed-fair",
+      "offered": 1320,
+      "counts": {
+        "ok": 1310,
+        "deadline_exceeded": 10
+      },
+      "on_time": 947,
+      "fast_ok": 120,
+      "fast_p95_ms": 2.395764,
+      "cpu_seconds": 0.3331556666666688,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 16,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "fixed4-fair",
+      "offered": 1320,
+      "counts": {
+        "ok": 1314,
+        "deadline_exceeded": 6
+      },
+      "on_time": 706,
+      "fast_ok": 120,
+      "fast_p95_ms": 1.650167,
+      "cpu_seconds": 0.3655149999999973,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "fixed8-fair",
+      "offered": 1320,
+      "counts": {
+        "ok": 1319,
+        "deadline_exceeded": 1
+      },
+      "on_time": 748,
+      "fast_ok": 120,
+      "fast_p95_ms": 1.6080553333333334,
+      "cpu_seconds": 0.3091836666666706,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 8,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 0,
+          "P90": 0,
+          "Mode": "static",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "adaptive",
+      "offered": 1320,
+      "counts": {
+        "ok": 885,
+        "deadline_exceeded": 435
+      },
+      "on_time": 408,
+      "fast_ok": 120,
+      "fast_p95_ms": 1.621653,
+      "cpu_seconds": 0.29016766666666055,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 2,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 255,
+          "P90": 20550875,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 2,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 254,
+          "P90": 20763166,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 2,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 256,
+          "P90": 20618083,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "feedback",
+      "offered": 1320,
+      "counts": {
+        "ok": 818,
+        "local_pressure": 502
+      },
+      "on_time": 810,
+      "fast_ok": 120,
+      "fast_p95_ms": 1.6353196666666667,
+      "cpu_seconds": 0.22672133333333733,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 2,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 233,
+          "P90": 21337166,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 2,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 232,
+          "P90": 21375417,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 2,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 233,
+          "P90": 21660083,
+          "Mode": "adaptive",
+          "UnmetWindows": 0,
+          "Generation": 0,
+          "Fallbacks": 0,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "guarded",
+      "offered": 1320,
+      "counts": {
+        "ok": 1158,
+        "deadline_exceeded": 162
+      },
+      "on_time": 443,
+      "fast_ok": 120,
+      "fast_p95_ms": 1.577,
+      "cpu_seconds": 0.28224800000000155,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 346,
+          "P90": 20497500,
+          "Mode": "fixed_fallback",
+          "UnmetWindows": 3,
+          "Generation": 0,
+          "Fallbacks": 1,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 343,
+          "P90": 20635750,
+          "Mode": "fixed_fallback",
+          "UnmetWindows": 3,
+          "Generation": 0,
+          "Fallbacks": 1,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 349,
+          "P90": 20564833,
+          "Mode": "fixed_fallback",
+          "UnmetWindows": 3,
+          "Generation": 0,
+          "Fallbacks": 1,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        1.100724292,
+        1.100701666,
+        1.101334042
+      ]
+    },
+    {
+      "scene": "unattainable",
+      "profile": "guarded-feedback",
+      "offered": 1320,
+      "counts": {
+        "ok": 887,
+        "local_pressure": 433
+      },
+      "on_time": 878,
+      "fast_ok": 120,
+      "fast_p95_ms": 1.6536386666666667,
+      "cpu_seconds": 0.2678349999999992,
+      "slow_states": [
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 260,
+          "P90": 21176333,
+          "Mode": "fixed_fallback",
+          "UnmetWindows": 3,
+          "Generation": 0,
+          "Fallbacks": 1,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 255,
+          "P90": 21305417,
+          "Mode": "fixed_fallback",
+          "UnmetWindows": 3,
+          "Generation": 0,
+          "Fallbacks": 1,
+          "Resets": 0
+        },
+        {
+          "Method": "/lab/slow",
+          "Limit": 4,
+          "Running": 0,
+          "Queued": 0,
+          "Weight": 1,
+          "Samples": 252,
+          "P90": 21109125,
+          "Mode": "fixed_fallback",
+          "UnmetWindows": 3,
+          "Generation": 0,
+          "Fallbacks": 1,
+          "Resets": 0
+        }
+      ],
+      "first_observed_fallback_seconds": [
+        1.241223292,
+        1.260412084,
+        1.301309875
+      ]
+    }
+  ]
+}

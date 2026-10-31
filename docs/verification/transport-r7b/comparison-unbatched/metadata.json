@@ -1,0 +1,13 @@
+{
+  "go_version": "go version go1.27.1 darwin/arm64",
+  "binary_sha256": "dce8e143d06caf3ce631b59978031aec9e0fcaf9ae619ba576c0f00cb1e5389e",
+  "count": 3000,
+  "workers": 8,
+  "seeds": [
+    7,
+    19,
+    41
+  ],
+  "GOMAXPROCS": 2,
+  "scope": "serial loopback closed-loop; 64 warmups excluded from request latency, included in whole-process CPU; no model, cross-machine or packet-loss claim"
+}

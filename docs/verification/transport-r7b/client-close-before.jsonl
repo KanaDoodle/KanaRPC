@@ -1,0 +1,9 @@
+{"Time":"2026-10-31T12:12:25.00014+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T12:12:25.56749+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeQUICImmediateClientClosePreservesSuccessfulExchange"}
+{"Time":"2026-10-31T12:12:25.567679+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeQUICImmediateClientClosePreservesSuccessfulExchange","Output":"=== RUN   TestNativeQUICImmediateClientClosePreservesSuccessfulExchange\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:12:25.580307+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeQUICImmediateClientClosePreservesSuccessfulExchange","Output":"    quic_test.go:284: successful exchange was abandoned by normal client close, round 0: {IncompleteExchanges:1 NativeStreams:0 Connections:0 InFlight:0 Executing:0 Admitted:1 Completed:1 Rejected:0 Canceled:0 Delivered:1 LostTerminals:0}\n","OutputType":"error"}
+{"Time":"2026-10-31T12:12:25.580368+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeQUICImmediateClientClosePreservesSuccessfulExchange","Output":"--- FAIL: TestNativeQUICImmediateClientClosePreservesSuccessfulExchange (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:12:25.580377+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestNativeQUICImmediateClientClosePreservesSuccessfulExchange","Elapsed":0.01}
+{"Time":"2026-10-31T12:12:25.580417+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:12:25.581179+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC\t0.581s\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:12:25.581193+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.581}

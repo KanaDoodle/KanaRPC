@@ -1,0 +1,17 @@
+.DS_Store
+go.work
+go.work.sum
+*.test
+coverage*.out
+/lifecycle-demo
+/transport-lab
+/governance-lab
+/bin/
+__pycache__/
+.venv/
+.env
+.env.*
+!.env.example
+*.key
+*.p12
+*.pfx

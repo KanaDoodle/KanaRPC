@@ -1,0 +1,8 @@
+{"Time":"2026-10-31T12:12:41.880522+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T12:12:42.266705+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses"}
+{"Time":"2026-10-31T12:12:42.266782+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Output":"=== RUN   TestEndpointRejectsUnusableAddresses\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:12:42.266837+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Output":"--- PASS: TestEndpointRejectsUnusableAddresses (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:12:42.266855+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestEndpointRejectsUnusableAddresses","Elapsed":0}
+{"Time":"2026-10-31T12:12:42.266865+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T12:12:42.267789+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t0.387s\n"}
+{"Time":"2026-10-31T12:12:42.267826+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0.387}

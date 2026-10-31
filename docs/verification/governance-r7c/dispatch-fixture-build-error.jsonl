@@ -1,0 +1,6 @@
+{"ImportPath":"github.com/KanaDoodle/KanaRPC [github.com/KanaDoodle/KanaRPC.test]","Action":"build-output","Output":"# github.com/KanaDoodle/KanaRPC [github.com/KanaDoodle/KanaRPC.test]\n"}
+{"ImportPath":"github.com/KanaDoodle/KanaRPC [github.com/KanaDoodle/KanaRPC.test]","Action":"build-output","Output":"./governance_test.go:223:20: cannot use func(context.Context, []byte, *Sender) error {…} (value of type func(context.Context, []byte, *Sender) error) as StreamHandler value in struct literal\n"}
+{"ImportPath":"github.com/KanaDoodle/KanaRPC [github.com/KanaDoodle/KanaRPC.test]","Action":"build-fail"}
+{"Time":"2026-10-31T13:17:08.962395+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T13:17:08.962456+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC [build failed]\n","OutputType":"frame"}
+{"Time":"2026-10-31T13:17:08.962469+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":0,"FailedBuild":"github.com/KanaDoodle/KanaRPC [github.com/KanaDoodle/KanaRPC.test]"}
