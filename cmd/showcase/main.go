@@ -1,4 +1,4 @@
-// showcase is an offline local demonstration, not a production admin service.
+// showcase runs a local RPC governance console with embedded web assets.
 package main
 
 import (
@@ -35,7 +35,7 @@ func run() error {
 	}
 	ip := net.ParseIP(host)
 	if !(host == "localhost" || ip != nil && ip.IsLoopback()) {
-		return fmt.Errorf("showcase only binds loopback")
+		return fmt.Errorf("控制台监听地址应为 loopback 地址，如 127.0.0.1:8080")
 	}
 	listener, err := net.Listen("tcp", *address)
 	if err != nil {
@@ -57,9 +57,9 @@ func run() error {
 	done := make(chan error, 1)
 	go func() { done <- web.Serve(listener) }()
 	url := "http://" + listener.Addr().String()
-	fmt.Printf("KanaRPC 决策演示台\n  %s\n本机真实 QUIC；timer/slot fixture；真实双机与推理未验证。Ctrl+C 退出。\n", url)
+	fmt.Printf("KanaRPC 治理控制台\n  %s\n本机 QUIC · 可调负载 · 请求时间线。运行范围见页面说明。Ctrl+C 退出。\n", url)
 	if *ready != "" {
-		body, _ := json.Marshal(map[string]any{"url": url, "pid": os.Getpid(), "scope": "local real QUIC, no dual-host or model validation"})
+		body, _ := json.Marshal(map[string]any{"url": url, "pid": os.Getpid(), "scope": "local single-process QUIC with timer/slot workload"})
 		if err = os.WriteFile(*ready+".tmp", body, 0600); err == nil {
 			err = os.Rename(*ready+".tmp", *ready)
 		}
@@ -82,6 +82,6 @@ func run() error {
 		_ = web.Close()
 	}
 	<-done
-	fmt.Println("已停止 HTTP 接纳，正在回收演示拥有的 RPC 与负载。")
+	fmt.Println("已停止 HTTP 接纳，正在回收本次会话的 RPC 与负载。")
 	return nil
 }

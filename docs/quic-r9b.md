@@ -1,6 +1,6 @@
-# R9B QUIC 发送缓冲规避成本
+# QUIC 有界批量发送与安全回退（R9B）
 
-从已推送的 R9A `478ab3d` 开始，仅改 KanaRPC。CampusTrace 不动。真实双机、真实 WAN/NIC、GPU/vLLM 未提供；loopback/fixture 与有限资源观察不写成生产或推理收益。
+R9A `478ab3d` 采用安全写路径规避已复现的 reset 退休问题，流式吞吐随之下降。R9B 通过有界原子入队降低小记录的发送等待，同时保留 reset、预算和退休语义。
 
 | 阶段 | 结合当前代码的步骤 | 验收 |
 | --- | --- | --- |
@@ -17,9 +17,9 @@
 
 额度不足、deadline 已过或 QUIC 返回 ErrWouldBlock 时，使用 R9A 的 `WriteWithLimit(identity)`。ErrWouldBlock 明确保证零入队，所以回退不会重复发送业务字节。只有一次非空 paced write 成功完成，才把保守额度归零：有序前缀也已交给 packetizer。deadline mutex 在所有阻塞 IO 前释放，允许取消更新期限。SetWriteDeadline/SetDeadline 的更新与原子入队检查按同一把锁排序；record writer 仍由 link 的 permit 串行化。
 
-这个额度限制每条 native stream 在两次 paced write 之间的额外原子入队，不是整个消息或流的大小上限，不是 ACK/持久化证明，也不表示“当前未发送字节恰好是这个数”。QUIC 内部缓冲可能被拆分/重传，仍不计为框架 RSS 保证。现有 reserveWrite、发送租约、池聚合和退休引用的代码未改。
+这个额度限制每条 native stream 在两次 paced write 之间的额外原子入队，消息与流仍可超过这一大小；QUIC 内部拆分、重传及内存归属见 [使用约束](operating-notes.md)。现有 reserveWrite、发送租约、池聚合和退休引用的代码未改。
 
-局部实验还保留了两个未采用版本：仅限制每次 Write 大小不能限制多次累计入队；所有大小都原子入队则在大包分片中造成大量额外复制。最终选择有界批量，而不是为小 JSON 示例恢复有已知 reset 风险的 nil limiter。
+局部实验还保留了两个未采用版本：仅限制每次 Write 大小不能限制多次累计入队；所有大小都原子入队则在大包分片中造成大量额外复制。最终采用有界批量与安全回退，nil limiter 的已知 reset 风险作为负对照保留。
 
 完整验证入口：
 
@@ -31,4 +31,4 @@ python3 scripts/verify-pool.py --baseline 478ab3d --output /tmp/r9b-resources --
 python3 scripts/compare-quic-write.py --output /tmp/r9b-performance
 ```
 
-性能 runner 向各历史版本注入同一份实验 driver，只增加 payload 大小与验收统计；每个版本都运行自己的真实 worker/client。默认包含 R8D（已知 reset 风险的强性能参照）、R9A（正确但慢）、当前版本，TCP/QUIC、普通/16 块流式、直接复用/管理池、五种 payload、五种子。R8D 在正常负载通过不能写成它通过 reset 正确性验证。原始 offered/失败/资源数据和源码 hash 保留；历史报告不覆盖。
+性能 runner 向各历史版本注入同一份实验 driver，只增加 payload 大小与验收统计；每个版本都运行自己的真实 worker/client。默认包含 R8D（已知 reset 风险的强性能参照）、R9A（正确但慢）、当前版本，TCP/QUIC、普通/16 块流式、直接复用/管理池、五种 payload、五种子。R8D 用作发送成本参照，其已知 reset 风险单独保留。原始 offered/失败/资源数据和源码 hash 保留；历史报告不覆盖。

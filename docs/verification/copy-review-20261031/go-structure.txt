@@ -1,0 +1,4 @@
+cmd/showcase/app.go AST unchanged outside string literals and comments
+cmd/showcase/badclient.go AST unchanged outside string literals and comments
+cmd/showcase/http.go AST unchanged outside string literals and comments
+cmd/showcase/main.go AST unchanged outside string literals and comments

@@ -1,0 +1,18 @@
+{
+  "scope": "same-process real loopback QUIC/HTTP; timer/slot fixture; no dual-host, WAN or inference validation",
+  "steps": [
+    "ready-state",
+    "overload",
+    "streaming",
+    "canceled",
+    "normal-drain",
+    "missing-ack-drain",
+    "history-retained"
+  ],
+  "owned_pid": 59711,
+  "url": "http://127.0.0.1:54655",
+  "status": "PASS",
+  "exit_code": 0,
+  "owned_process_reaped": true,
+  "race_reported": false
+}

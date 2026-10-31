@@ -1,6 +1,6 @@
 # R8A：RPC 控制器回退与复位
 
-CampusTrace 迁移暂缓。本阶段只修改 KanaRPC：先重现 R7C 的最低并发持续超目标，再增加显式可配置回退，不改客户端业务重试或 wire 版本。
+持续低并发仍超出延迟目标时，服务端可按明确配置切换固定限额，并由操作人员复位。该机制扩展现有 AIMD 与反馈路径，沿用原协议。
 
 | 步骤 | 实施 | 验收 |
 | --- | --- | --- |
@@ -9,7 +9,7 @@ CampusTrace 迁移暂缓。本阶段只修改 KanaRPC：先重现 R7C 的最低�
 | A3 | 人工 ResetAdaptive；样本 generation 隔离 | 旧在途请求不污染复位后窗口；不抢占现有处理器；与排队/关闭/取消和压力反馈一致 |
 | A4 | 固定 4/8/16、原 AIMD、原反馈、保护、保护+反馈的串行对照及完整回归 | 低负载、稳态、容量切换、目标不满足；普通/race、fuzz、真实 etcd、三种传输、资源归零 |
 
-本地驻留时间超目标不能证明固有耗时，更不能确定安全的静态容量。回退是服务端运营策略：FallbackLimit 必须显式配置并受 Min/Max/global cap 限制；不自动猜容量。达到回退状态后保持固定并发，人工复位才重新试验自适应，避免自动来回切换。它仍可能选错静态值或损失容量，负结论必须保留。
+FallbackLimit 由服务端显式配置，并受 Min/Max/global cap 限制。达到条件后保持固定并发，人工复位后恢复自适应，避免自动来回切换。固定值应结合工作量和静态基线选择，错误配置可能降低容量或增加延迟。
 
 ## 配置及行为
 
@@ -36,7 +36,7 @@ cfg := kanarpc.ServerConfig{
 
 仅在**已经处于 Min** 的完整有效样本窗口中，p90 仍大于 Target，且窗口没有执行错误，才增加连续窗口计数。触发阈值后切换为 `fixed_fallback` 并使用配置的固定限额。用户取消不计入样本、不推进或打断连续计数。处理器返回的 ResourceExhausted、Unavailable、deadline、Internal、InvalidArgument 等错误会抑制当期回退，避免把失败窗口用作上调并发的依据；原 AIMD 的显式过载降并发仍保留。
 
-排队超时不属于处理器驻留时间，也不参与成功窗口；它仍按原契约取消队列工作。这意味着本策略没有可靠区分真实拥塞、外部依赖变慢、信用等待和不可达目标。持续成功但变慢的真实拥塞也可能满足条件，选错 FallbackLimit 可能恶化延迟。它是配置回退契约，不能描述为普遍正确的“目标可达性检测”或安全容量估计。
+排队超时不属于处理器驻留时间，也不参与成功窗口；它仍按原契约取消队列工作。成功窗口变慢可能来自拥塞、外部依赖或信用等待，均可能满足回退条件。因此该机制按配置执行回退，诊断时应结合队列、依赖和负载指标选择 FallbackLimit。
 
 ```mermaid
 stateDiagram-v2
@@ -68,4 +68,4 @@ python3 scripts/verify-governance.py --output /tmp/kanarpc-r8a-control --cross-t
 
 当前 runner 在原五组上补 `fixed8-fair`、`guarded`、`guarded-feedback`，共八组，默认 4 场景 × 3 种子 = 96 TCP case，外加 6 TLS/QUIC case。guarded 使用 FallbackLimit=4、FallbackWindows=3；固定 8 是额外自然静态基线，不能只比较容易获胜的固定高并发或错误静态值。不同 case 使用独立进程，完整 offered、拒绝、超时、成功延迟、按时完成量、CPU、决策和资源尾部保留。
 
-固定回退、成功分位数或本地提前拒绝都不能证明普遍吞吐提升；还要看请求完成总量和静态基线。真实 vLLM/GPU 及跨机网络仍未验证。最终证据见 [R8A 报告](verification/control-r8a/report.md)。
+评估时同时比较完成总量、拒绝、延迟与合适的静态限额。本阶段本地结果见 [R8A 报告](verification/control-r8a/report.md)，统一环境说明见 [使用约束](operating-notes.md)。

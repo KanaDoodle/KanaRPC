@@ -1,0 +1,64 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "go",
+      "build",
+      "-mod=readonly",
+      "./..."
+    ],
+    "exit_code": 0,
+    "seconds": 1.13
+  },
+  {
+    "name": "race",
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "-count=1",
+      ".",
+      "./cmd/showcase",
+      "-run",
+      "^(TestShowcaseRejectsForeignControlsAndDuplicateOperations|TestTraceRecorderIsBoundedAndNeverWaitsForReader|TestTracePreservesReceiptAndCancellationSemantics|Example.*)$"
+    ],
+    "exit_code": 0,
+    "seconds": 2.11
+  },
+  {
+    "name": "vet",
+    "command": [
+      "go",
+      "vet",
+      "./cmd/showcase"
+    ],
+    "exit_code": 0,
+    "seconds": 0.17
+  },
+  {
+    "name": "showcase-build-race",
+    "command": [
+      "go",
+      "build",
+      "-race",
+      "-o",
+      "/tmp/kanarpc-copy-review.GixmoI/showcase",
+      "./cmd/showcase"
+    ],
+    "exit_code": 0,
+    "seconds": 0.5
+  },
+  {
+    "name": "walkthrough",
+    "command": [
+      "python3",
+      "scripts/verify-showcase.py",
+      "--binary",
+      "/tmp/kanarpc-copy-review.GixmoI/showcase",
+      "--output",
+      "/tmp/kanarpc-copy-review.GixmoI/walkthrough"
+    ],
+    "exit_code": 0,
+    "seconds": 5.11
+  }
+]

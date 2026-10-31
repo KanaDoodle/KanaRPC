@@ -1,66 +1,84 @@
 # KanaRPC
 
-上下文优先的实验 Go RPC 框架，支持普通/服务端流式调用、TCP/TLS、每请求一条原生流的 QUIC、etcd 注册发现、发现驱动的有界连接管理，以及服务端反馈驱动的并发治理。通过明确的请求状态、资源归属和故障对照验证取消、流控与关闭行为。
+> 让请求好好出发，也好好收尾。 (｡•̀ᴗ-)✧
 
-直接运行可交互演示：
+以请求生命周期与资源治理为核心的 Go RPC 框架，提供普通调用、服务端流式调用、TCP/TLS 与原生 QUIC 传输。取消、排队、执行、终态回执和资源释放使用统一状态机，方便追踪每次调用的进展与资源归属。
+
+## 核心能力 🧩
+
+| 能力 | 设计与用途 |
+| --- | --- |
+| 上下文驱动的调用 | 泛型显式注册处理器，传播请求预算与取消信号；流式响应通过信用窗口控制发送 |
+| 原生 QUIC 请求流 | 每次 RPC 使用独立双向流，隔离请求流上的坏帧与取消；TLS/QUIC 显式配置证书信任，支持 mTLS |
+| 自适应过载控制 | 方法加权调度、延迟窗口 AIMD 和短效压力反馈协同控制服务端执行与客户端接纳；支持固定限额回退与人工复位 |
+| 池级资源预算 | 编码前接纳，编码、接收、发送采用连接与池两层字节租约；退休连接、未读流和进行中的解码持续计费 |
+| 发现驱动的连接管理 | etcd lease/watch、快照新鲜度校验、建连去重、有界连接数和 endpoint 退休，保护在途调用与未读结果 |
+| 可报告的优雅关闭 | `DrainWithReport` 分别报告资源退出、历史故障和本次新增故障，保留未回执与交换未确认的累计记录 |
+| 请求决策时间线 | 可选的有界本地事件记录器，关联接纳、调度、执行、取消、回执和释放，配套交互式治理控制台 |
+
+## 快速体验 🐾
+
+需要 Go 1.26.0 或更新版本。在仓库根目录运行：
 
 ```sh
 go run ./cmd/showcase
 ```
 
-打开 `http://127.0.0.1:8080`，现场调节负载，观察并发调整和请求决策时间线；开始/取消真实流式请求，再比较正常 drain 与故意缺失 ACK 的交付故障。无需 GPU、etcd、容器或 npm。只绑定本机，使用真实 loopback QUIC 与 timer/slot 负载；不是双机、推理或生产容量验证。[启动与五分钟演示顺序](docs/showcase-r10.md)、[页面截图与实际验证](docs/verification/showcase-r10/report.md)。
+打开 `http://127.0.0.1:8080`，给请求安排一趟小旅行：
 
-新版在独立目录重新实现 v2 协议及内核，不导入旧 KanaRPC-Go 实现，与旧 wire protocol 不兼容。开发阶段、实现来源和第三方依赖记录在 [ORIGINS.md](ORIGINS.md)；仓库维护与独立构建方式见 [开发说明](docs/development.md)。
+1. **加点压力**：调节请求速率、慢请求比例、处理耗时和后端槽位，观察方法并发与客户端反馈。
+2. **随时喊停**：发起流式请求，接收片段后点击取消，沿时间线查看取消控制、处理器返回和资源释放。
+3. **认真收尾**：执行优雅关闭，或注入未回执故障，分别查看资源状态与交付结果。
 
-当前阶段重点是可解释的请求状态和资源归属。方法通过泛型辅助函数显式注册，所有处理器接收 `context.Context`；普通与流式调用使用同一协议生命周期；执行、排队与终态等待分别统计，记录缓冲有共享字节预算；成功终态带随机回执并等待客户端协议 ACK。
+控制台使用本机 QUIC 连接和定时器/槽位负载，启动无需 GPU、etcd、容器或 npm。准备好，动动旋钮吧 (ง •̀_•́)ง
+
+[控制台操作指南](docs/showcase-r10.md) · [页面与链路验证记录](docs/verification/showcase-r10/report.md)
+
+## 接进你的项目
+
+模块路径为 `github.com/KanaDoodle/KanaRPC`。处理器显式接收 `context.Context`：
 
 ```go
-server, _ := kanarpc.NewServer(kanarpc.ServerConfig{})
-err := kanarpc.RegisterUnary(server, "/math/add", func(ctx context.Context, in [2]int) (int, error) {
+server, err := kanarpc.NewServer(kanarpc.ServerConfig{})
+// 检查 err 后注册方法。
+err = kanarpc.RegisterUnary(server, "/math/add", func(ctx context.Context, in [2]int) (int, error) {
     return in[0] + in[1], ctx.Err()
 })
-// Check err, create a net.Listener, then server.Serve(listener).
+// 检查 err，创建 net.Listener，再调用 server.Serve(listener)。
+// 客户端：
 // client, err := kanarpc.Dial(ctx, address, kanarpc.ClientConfig{})
 // err = client.Call(ctx, "/math/add", [2]int{1, 2}, &sum)
 ```
 
-Go 1.26.0 或更新版本。本地验证：
+这是注册与调用片段；完整可运行示例见 [连接管理](routing/example_test.go) 和 [关闭报告](drain_example_test.go)。服务端流使用 `RegisterStream`，客户端通过 `Stream/Recv` 消费结果，提前结束时调用 `Close`。版本选择与独立消费模块的接入方式见 [开发说明](docs/development.md)。
+
+## 架构：请求的内部旅程
+
+根包负责请求状态机、编解码、传输适配和资源治理；`discovery` 提供 etcd 注册与快照；`routing` 消费发现快照并管理连接。QUIC 传输基于 quic-go，注册发现基于 etcd client。
+
+一次请求会走过这条路线：**客户端接纳与编码预留 → 发送 OPEN → 服务端接纳与方法调度 → 执行 / 信用流控 → END 与协议回执 → 请求退休与资源释放**。取消、截止时间和连接故障通过同一状态机参与终态结算。编码准备、排队、执行、回执等待与未读数据分别统计，便于定位压力来源。
+
+| 文档 | 内容 |
+| --- | --- |
+| [架构与演进](docs/rewrite-plan.md)、[KNR2 协议](docs/protocol-v2.md) | 模块职责、请求状态与帧契约 |
+| [传输与发现](docs/transport-r7b.md)、[连接管理](docs/connections-r8c.md) | TLS/QUIC、etcd 一致性与连接归属 |
+| [过载治理](docs/governance-r7c.md)、[控制回退](docs/control-r8a.md) | 调度、延迟目标、压力反馈与复位 |
+| [编码前接纳](docs/resources-r8b.md)、[共享预算](docs/pool-r9a.md) | 字节租约、未读流与退休对象统计 |
+| [关闭与故障计数](docs/drain-r9c.md)、[使用约束](docs/operating-notes.md) | 取消、回执、关闭结果与部署要求 |
+| [网络诊断](docs/network-r8d.md)、[QUIC 发送](docs/quic-r9b.md)、[小请求分析](docs/quic-r9d.md) | 根因、内部基线和优化取舍 |
+
+## 开发与验证
 
 ```sh
-go test ./...
-go test -race ./...
-python3 scripts/verify-core.py --output /tmp/kanarpc-core-new-run
-python3 scripts/verify-discovery.py --output /tmp/kanarpc-real-etcd --race
-python3 scripts/verify-transports.py --output /tmp/kanarpc-transports
-python3 scripts/verify-governance.py --output /tmp/kanarpc-governance --cross-transport
-python3 scripts/verify-resources.py --output /tmp/kanarpc-resources --duration 180 --cycles 12
-python3 scripts/verify-routing.py --output /tmp/kanarpc-routing
-python3 scripts/verify-pool.py --output /tmp/kanarpc-pool --duration 180 --cycles 12 --tight-duration 30
-python3 scripts/compare-quic-write.py --output /tmp/kanarpc-quic-write
-python3 scripts/verify-sdk.py --output /tmp/kanarpc-sdk
-python3 scripts/verify-network.py --baseline-source /tmp/kanarpc-r8c-baseline --output /tmp/kanarpc-netem
+GOWORK=off go build -mod=readonly ./...
+GOWORK=off go test ./...
+GOWORK=off go test -race ./...
 ```
 
-`verify-core.py` 启动两个独立进程，在真实 loopback TCP 上验证普通调用、20 个流式 chunk、用户取消，并在已接纳的流执行中发 SIGTERM。`verify-discovery.py` 要求本机 etcd，创建独立单成员实例并实际执行 lease/watch/compaction；直接 `go test` 未配置该服务时会跳过相应用例。`verify-transports.py` 比较 TCP/TLS/QUIC，`verify-governance.py` 比较固定并发/FIFO、公平、自适应和反馈辅助，保留全部 offered 与退化结果。数据与定时器是 fixture，没有调用模型。输出目录必须不存在，二进制和日志归该验收目录所有。
+etcd 集成用例需要独立实例，可通过 [开发说明](docs/development.md) 中的 runner 自动创建和回收。各阶段的环境、源码快照、完整请求结果、失败与退化数据保存在 [验证索引](docs/verification/README.md)。已有测量来自本机 loopback 与本地 Linux VM；真实双机、WAN、多成员 etcd 和模型推理性能尚未验证。
 
-当前没有自动重试、隐式降级或业务重放。调用失败不能据此推断服务端没有执行；ACK 证明协议终态标识被收到，不证明业务提交或应用消费。
+## 兼容性与许可
 
-原 `KanaRPC-Go` 保留为衍生学习项目及历史对照，不删除其来源说明。这里不是把旧目录改名；实现来源、依赖及声明边界见 [ORIGINS.md](ORIGINS.md)。R7B 明确使用 quic-go 与 etcd client，不导入旧 RPC 实现；嵌套的 `tools/lifecycle-compare` 仅为对照实验引用旧项目。
+KNR2 v2 使用独立的协议和运行内核，与旧 KanaRPC-Go wire protocol 分离。接入时显式选择端点与传输；业务幂等、方法鉴权及重试策略由应用管理。其他资源、取消和回执契约统一见 [使用约束](docs/operating-notes.md)。
 
-R7B 的 API、关闭协议与发现新鲜度见 [传输与发现](docs/transport-r7b.md)，R7C 配置与控制边界见 [过载治理](docs/governance-r7c.md)，R8A 已增加 [控制回退与复位](docs/control-r8a.md)并完成[验收](docs/verification/control-r8a/report.md)。R8B 已增加[编码前资源接纳与有限资源长测](docs/resources-r8b.md)，R8C 已增加[连接生命周期与独立 SDK 消费](docs/connections-r8c.md)：去重建连、快照新鲜度门槛、旧 endpoint 退休和未读流引用保护。返回 routing.Stream 包装类型；显式 Close/Wait，无业务重放。
-
-R8D 已定位本轮复现的 Darwin QUIC 建连超时：双栈临时 UDP 端口与 IPv4 socket 冲突，修复为按目标地址族建连并显式回收 socket。Go 1.27.1 / 1.26.0 的普通与 race 四轮各 241 项通过，真实隔离 etcd、零跳过；另有本地 Linux VM 的内核 netem 与取消/drain 验证。步骤、环境边界、长测及失败/退化记录见 [网络验收](docs/network-r8d.md)和 [R8D 报告](docs/verification/network-r8d/report.md)。真实双机、物理 NIC/WAN、多成员 etcd 与小时/天级压力尚未验证；有限资源观察不能写成生产长期无泄漏或普遍性能收益。
-
-R9A 已加入[池级共享字节预算与退休对象统计](docs/pool-r9a.md)：编码、收发采用连接与池两层原子租约，未读流与用户解码保留实际计费；默认数据总额不随连接数放大。终态接收不等于用户消费，关闭 socket 也不等于用户 codec 结束；压力复验还修正固定 quic-go 版本下 reset 后原生流额度不回收的已复现路径。步骤、复现、压力与退化结果见 [R9A 报告](docs/verification/pool-r9a/report.md)。
-
-R9B 已增加[有界原子发送批量与安全回退](docs/quic-r9b.md)，保留 reset 正确性、池级预算和退休统计。本轮四个完整矩阵各 278 项通过；600 组本地对照中，128B QUIC 管理池流式约 6,555→13,130 req/s，接近同轮 R8D 的 13,327。大包收益较小，负变化与饱和 drain 错误继续保留，详见 [R9B 报告](docs/verification/quic-r9b/report.md)；不是实际双机或推理性能收益。
-
-R9C 已补齐[过载、取消与 drain 的行为边界](docs/drain-r9c.md)：本机 BudgetError、累计生命周期观察及 DrainWithReport，区分历史/本次新增交付故障与资源退出；drain 同时超时和存在累计故障时保留两个错误。四个最终完整普通/race 矩阵各 332 项通过；预算饱和的未回执和退化继续保留，[报告](docs/verification/drain-r9c/report.md)含复现、回归与 R9B 内部基线。真实双机仍待验证。
-
-R9D 已完成[小请求退化稳定性复验](docs/quic-r9d.md)：15 对短跑和 15 对延长对照未稳定复现原 −6.1%/−3.4% 降幅；profile 定位到收尾中的额外同步，但三个候选未证明整体收益并出现局部负变化，全部撤回，RPC 库保持 R9C。可复用的串行配对分析、诊断工具、负结果及面试重放命令见 [R9D 报告](docs/verification/quic-r9d/report.md)。没有将本机 fixture 或局部微基准描述为真实推理/双机收益。
-
-R7D CampusTrace 迁移按用户要求暂缓；旧版本的功能清单、294 项检查和 R6 性能结果不能计为新版验收。尚未发布稳定版本，CampusTrace 默认依赖未修改。不是生产框架。
-
-设计与后续步骤：[重写计划](docs/rewrite-plan.md)、[v2 协议](docs/protocol-v2.md)。实际验收与遗留风险：[R7A 报告](docs/verification/core-r7/report.md)、[R7B 报告](docs/verification/transport-r7b/report.md)、[R7C 报告](docs/verification/governance-r7c/report.md)、[R8A 报告](docs/verification/control-r8a/report.md)、[R8B 报告](docs/verification/resources-r8b/report.md)、[R8C 报告](docs/verification/connections-r8c/report.md)、[R8D 报告](docs/verification/network-r8d/report.md)。
-
-许可沿用 AGPL-3.0，标准许可证正文在 [LICENSE](LICENSE)。依赖库和通用算法不属于本项目原创发明。
+项目采用 [AGPL-3.0](LICENSE)。实现沿革、旧项目关系和第三方依赖记录见 [ORIGINS.md](ORIGINS.md)。

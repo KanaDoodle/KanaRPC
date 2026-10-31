@@ -1,0 +1,93 @@
+[
+  {
+    "step": "ready-state",
+    "state": "running",
+    "session": 1,
+    "in_flight": 0,
+    "lost_terminals": 0,
+    "total_lost": 0,
+    "drain_error": "",
+    "quiescent": null,
+    "receive_bytes": 0,
+    "trace_dropped": 0,
+    "raw_state_sha256": "6e3c44b583104e9ae18f7b592bec3be16db3688a835994efbbe8b4b1f41f941c"
+  },
+  {
+    "step": "overload",
+    "state": "running",
+    "session": 1,
+    "in_flight": 8,
+    "lost_terminals": 0,
+    "total_lost": 0,
+    "drain_error": "",
+    "quiescent": null,
+    "receive_bytes": 0,
+    "trace_dropped": 5,
+    "raw_state_sha256": "b9691ff3f61ed99b84f0d0de7ee91aa49bbf23cd986ec16131d6a6d05996c593"
+  },
+  {
+    "step": "streaming",
+    "state": "running",
+    "session": 1,
+    "in_flight": 1,
+    "lost_terminals": 0,
+    "total_lost": 0,
+    "drain_error": "",
+    "quiescent": null,
+    "receive_bytes": 0,
+    "trace_dropped": 6,
+    "raw_state_sha256": "6113c05bd926369ec7f5e73c94eea069607ec4ac08e5a02f7bc3b6246137d98a"
+  },
+  {
+    "step": "canceled",
+    "state": "running",
+    "session": 1,
+    "in_flight": 0,
+    "lost_terminals": 0,
+    "total_lost": 0,
+    "drain_error": "",
+    "quiescent": null,
+    "receive_bytes": 0,
+    "trace_dropped": 6,
+    "raw_state_sha256": "d1ce0fc76d9955b7c893ac2798808791233608ca56aff3e517f87a3e6bce2bf6"
+  },
+  {
+    "step": "normal-drain",
+    "state": "drained",
+    "session": 1,
+    "in_flight": 0,
+    "lost_terminals": 0,
+    "total_lost": 0,
+    "drain_error": "",
+    "quiescent": true,
+    "receive_bytes": 0,
+    "trace_dropped": 6,
+    "raw_state_sha256": "66efa324d44a33007e12ee4e35b49d845913aef933663e4a7b3f947b450fcd4e"
+  },
+  {
+    "step": "missing-ack-drain",
+    "state": "drain_failed",
+    "session": 2,
+    "in_flight": 0,
+    "lost_terminals": 1,
+    "total_lost": 1,
+    "drain_error": "kanarpc: terminal receipt not acknowledged",
+    "quiescent": true,
+    "receive_bytes": 0,
+    "trace_dropped": 6,
+    "raw_state_sha256": "47094a591f3a9d0663507931778be2591cde81b6fadfa9f0a4c505dcb346ba20"
+  },
+  {
+    "step": "history-retained",
+    "state": "running",
+    "session": 3,
+    "in_flight": 0,
+    "lost_terminals": 0,
+    "total_lost": 1,
+    "drain_error": "",
+    "quiescent": null,
+    "receive_bytes": 0,
+    "trace_dropped": 6,
+    "raw_state_sha256": "e95e4939e1b54d3c702789c5091fc6df1299149b72b430eae22ac513833aff17"
+  }
+]

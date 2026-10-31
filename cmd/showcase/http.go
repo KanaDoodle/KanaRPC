@@ -48,7 +48,7 @@ type state struct {
 func (a *app) snapshot(after uint64) state {
 	a.mu.Lock()
 	s := a.current
-	v := state{Scope: "同机同进程真实 QUIC socket；timer/slot fixture；真实双机、WAN 与模型推理未验证", Now: time.Now(), Config: a.config, Busy: a.busy, Message: a.message, History: append([]history(nil), a.history...), TotalLost: a.pastLost, TotalIncomplete: a.pastIncomplete, Metrics: map[string]metric{}}
+	v := state{Scope: "本机同进程 QUIC；定时器与槽位负载；验证范围见运行说明", Now: time.Now(), Config: a.config, Busy: a.busy, Message: a.message, History: append([]history(nil), a.history...), TotalLost: a.pastLost, TotalIncomplete: a.pastIncomplete, Metrics: map[string]metric{}}
 	if s != nil {
 		v.Session = s.id
 		v.TraceStart = s.traceStart
@@ -189,7 +189,7 @@ func (a *app) routes(files http.Handler) http.Handler {
 		host, _, err := net.SplitHostPort(r.Host)
 		ip := net.ParseIP(host)
 		if err != nil || !(host == "localhost" || ip != nil && ip.IsLoopback()) {
-			http.Error(w, "仅限本机演示", 403)
+			http.Error(w, "请通过本机地址访问控制台，并保持控制请求同源", 403)
 			return
 		}
 		if r.Method != "GET" && r.Method != "HEAD" {

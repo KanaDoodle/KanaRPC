@@ -1,39 +1,44 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KanaRPC · 决策演示台</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KanaRPC · 治理控制台</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
 <body>
-<header class="masthead"><a class="brand" href="/" aria-label="KanaRPC 首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6v20M7 16 25 6M7 16l18 10"/><circle cx="25" cy="6" r="3"/><circle cx="25" cy="26" r="3"/></svg><strong>KanaRPC</strong><span>决策演示台</span></a><div class="connection"><span id="connection-dot" class="dot"></span><span id="connection">正在连接</span><span class="scope-badge">本机 QUIC</span></div></header>
-<div class="scope-note">真实 loopback socket / timer 与槽位负载。真实双机、WAN 和模型推理未验证；页面数据不代表生产容量。</div>
+<header class="masthead"><a class="brand" href="/" aria-label="KanaRPC 首页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6v20M7 16 25 6M7 16l18 10"/><circle cx="25" cy="6" r="3"/><circle cx="25" cy="26" r="3"/></svg><strong>KanaRPC</strong><span>治理控制台</span></a><div class="connection"><span id="connection-dot" class="dot"></span><span id="connection">正在连接</span><span class="scope-badge">本机 QUIC</span></div></header>
+<details class="scope-note"><summary>运行与状态说明</summary>
+ <p>本机 QUIC 连接，使用同进程定时器与处理槽位生成负载。真实双机、WAN 和模型推理性能尚未验证；页面指标用于观察治理行为。</p>
+ <p>ACK 确认客户端协议层收到终态，业务消费和提交由应用确认。取消控制、处理器退出与资源释放分别记录；关闭报告分别列出资源状态和累计交付故障。</p>
+ <p>时间线采用有界采样记录，可能覆盖或丢弃事件；“未记录”表示本次时间线没有该事件。序号为本地捕获顺序。历史保留在当前进程内，重启后清空。</p>
+ <p>控制台仅面向本机访问，未提供远程管理鉴权。</p>
+</details>
 <main class="workspace">
 <aside class="controls">
- <div class="control-heading"><h1>把压力交给系统</h1><p>改变负载，沿着一次请求看清它的决定。</p></div>
- <section><h2>现场场景</h2><div class="scenario-buttons"><button id="overload" class="primary">制造过载</button><button id="recover">恢复容量</button><button id="stop-load" class="quiet">停止新负载</button></div><p class="hint">过载预设：120 RPS，85% 慢请求，后端仅 2 个处理槽位。</p></section>
- <form id="load-form"><h2>负载旋钮</h2>
+ <div class="control-heading"><h1>观察压力如何被治理</h1><p>调节负载，沿请求时间线查看接纳、执行与释放。</p></div>
+ <section><h2>场景操作</h2><div class="scenario-buttons"><button id="overload" class="primary">制造过载</button><button id="recover">恢复容量</button><button id="stop-load" class="quiet">停止新负载</button></div><p class="hint">过载预设：120 RPS，85% 慢请求，后端 2 个处理槽位。</p></section>
+ <form id="load-form"><h2>负载配置</h2>
   <label for="rate">请求速率 <output id="rate-value">0 RPS</output></label><input id="rate" name="rate" type="range" min="0" max="200" value="0">
   <label for="slow-percent">慢请求占比 <output id="slow-percent-value">80%</output></label><input id="slow-percent" name="slow_percent" type="range" min="0" max="100" value="80">
   <label for="slow-ms">慢请求处理时间 <output id="slow-ms-value">40 ms</output></label><input id="slow-ms" name="slow_ms" type="range" min="5" max="300" value="40">
   <label for="capacity">后端处理槽位 <output id="capacity-value">8</output></label><input id="capacity" name="capacity" type="range" min="1" max="16" value="8">
   <button id="apply-load" type="submit">应用负载</button>
  </form>
- <section><h2>治理模式</h2><select id="mode" aria-label="治理模式"><option value="adaptive">自适应 + 客户端反馈</option><option value="fixed">固定上限 + 方法公平</option></select><button id="new-session">新建会话</button><p class="hint">切换模式会结束旧负载。历史交付故障与请求记录继续保留。</p></section>
- <div class="footnote">无需 GPU、etcd 或容器。<br>关闭终端进程即可停止本次演示。</div>
+ <section><h2>治理模式</h2><select id="mode" aria-label="治理模式"><option value="adaptive">自适应 + 客户端反馈</option><option value="fixed">固定上限 + 方法公平</option></select><button id="new-session">新建会话</button><p class="hint">新建会话时应用所选模式，并结束旧负载。</p></section>
+ <div class="footnote">无需 GPU、etcd 或容器。<br>Ctrl+C 停止控制台与本次负载。</div>
 </aside>
 <div class="main-content">
- <div class="title-row"><div><span id="session-label" class="session-label">会话准备中</span><h2>一次请求，几种不同的结束</h2></div><span id="server-state" class="status">连接中</span></div>
- <p id="message" class="message" role="status">启动负载后，下方会显示真实接纳、调度和回执事件。</p><div id="error" class="error" role="alert" hidden></div>
+ <div class="title-row"><div><span id="session-label" class="session-label">会话准备中</span><h2>请求生命周期与治理决策</h2></div><span id="server-state" class="status">连接中</span></div>
+ <p id="message" class="message" role="status">选择场景，查看接纳、调度、取消与回执事件。</p><div id="error" class="error" role="alert" hidden></div>
  <section class="lifecycle" aria-label="请求生命周期">
   <div><span>接纳累计</span><strong id="admitted">—</strong></div><span class="connector">›</span><div><span>排队当前</span><strong id="queued">—</strong></div><span class="connector">›</span><div><span>执行当前</span><strong id="executing">—</strong></div><span class="connector">›</span><div><span>终态收尾</span><strong id="finishing">—</strong></div><span class="connector">›</span><div><span>释放累计</span><strong id="completed">—</strong></div>
  </section>
  <div class="overview">
   <section class="latency-panel"><div class="section-head"><h3>快慢请求的延迟变化</h3><span>后台负载最近 256 次，含失败</span></div><div class="chart-wrap"><svg id="latency-chart" viewBox="0 0 640 140" role="img" aria-label="快慢方法 p95 延迟曲线"><path class="chart-grid" d="M0 15H640M0 70H640M0 125H640"/><path id="slow-line" class="slow-line" d=""/><path id="fast-line" class="fast-line" d=""/></svg><span id="chart-scale" class="chart-scale">等待采样</span></div><div class="chart-legend"><span class="fast-key">快请求 <b id="fast-p95">—</b></span><span class="slow-key">慢请求 <b id="slow-p95">—</b></span><span id="recent-rate">0 次完成 / 秒</span></div></section>
-  <section class="outcome-panel"><h3>结果要分别看</h3><dl><div><dt>负载成功 / 失败</dt><dd id="results">—</dd></div><div><dt>服务端接纳拒绝</dt><dd id="rejected">—</dd></div><div><dt>客户端反馈限流</dt><dd id="feedback-limited">—</dd></div><div><dt>CANCEL 已观察</dt><dd id="cancel-observed">—</dd></div><div><dt>发生器容量丢弃</dt><dd id="generator-dropped">—</dd></div><div class="fault-total"><dt>历史交付故障</dt><dd id="historical-faults">0</dd></div></dl><p id="last-rpc-error" class="hint bad" hidden></p></section>
+  <section class="outcome-panel"><h3>请求结果与交付状态</h3><dl><div><dt>负载成功 / 失败</dt><dd id="results">—</dd></div><div><dt>服务端接纳拒绝</dt><dd id="rejected">—</dd></div><div><dt>客户端反馈限流</dt><dd id="feedback-limited">—</dd></div><div><dt>已收到取消控制</dt><dd id="cancel-observed">—</dd></div><div><dt>发生器容量丢弃</dt><dd id="generator-dropped">—</dd></div><div class="fault-total"><dt>历史交付故障</dt><dd id="historical-faults">0</dd></div></dl><p id="last-rpc-error" class="hint bad" hidden></p></section>
  </div>
- <section class="governance-panel"><div class="section-head"><h3>正在发生的治理决定</h3><span>控制器使用 handler p90；不等于客户端 p95</span></div><div id="methods" class="method-grid"></div><div id="decisions" class="decisions">尚未产生并发调整。固定模式不会自动调整上限。</div></section>
+ <section class="governance-panel"><div class="section-head"><h3>并发调整记录</h3><span>控制器：处理器驻留 p90</span></div><div id="methods" class="method-grid"></div><div id="decisions" class="decisions">启动负载后查看调整记录；固定模式保持配置上限。</div></section>
  <div class="actions-grid">
-  <section class="stream-panel"><div class="section-head"><h3>流式接收与取消</h3><span id="stream-state">尚未开始</span></div><div class="inline-actions"><button id="start-stream">开始流式请求</button><button id="cancel-stream" class="warning" disabled>取消流式请求</button><span id="chunk-count">0 个片段</span></div><div id="chunks" class="chunk-window" aria-live="off">开始后，片段将从真实 QUIC 流陆续到达。</div><p id="stream-observation" class="hint">取消信号、handler 退出与资源释放分别记录。</p></section>
-  <section class="drain-panel"><div class="section-head"><h3>停止接纳，等待收尾</h3><span>最多等待 2.5 秒</span></div><div class="inline-actions"><button id="drain">正常 drain</button><button id="fault-drain" class="warning">故意不 ACK 后 drain</button></div><div id="drain-result" class="drain-result">在途请求会继续收尾。长流未结束时，可能触发截止时间。</div><p class="hint">资源归零不等于全部交付成功。故障跨新会话保留。</p><details class="session-history"><summary>历史会话与失败</summary><div id="history-list">尚无旧会话。</div></details></section>
+  <section class="stream-panel"><div class="section-head"><h3>流式接收与取消</h3><span id="stream-state">等待开始</span></div><div class="inline-actions"><button id="start-stream">开始流式请求</button><button id="cancel-stream" class="warning" disabled>取消流式请求</button><span id="chunk-count">0 个片段</span></div><div id="chunks" class="chunk-window" aria-live="off">点击开始，接收 QUIC 流式响应。</div><p id="stream-observation" class="hint">取消控制 · 处理器返回 · 资源释放</p></section>
+  <section class="drain-panel"><div class="section-head"><h3>优雅关闭与故障注入</h3><span>最多等待 2.5 秒</span></div><div class="inline-actions"><button id="drain">优雅关闭</button><button id="fault-drain" class="warning">注入未回执故障</button></div><div id="drain-result" class="drain-result">停止接纳后等待在途请求，超过 2.5 秒执行超时关闭。</div><p class="hint">注入操作将扣留终态回执，再执行关闭。累计交付故障跨会话保留。</p><details class="session-history"><summary>历史会话与故障</summary><div id="history-list">新建会话后在此查看历史结果。</div></details></section>
  </div>
- <section class="requests-panel"><div class="section-head"><h3>请求决策时间线</h3><span id="trace-health">固定容量记录；不是业务提交日志</span></div><div class="requests-split"><div class="request-list"><div class="list-head"><span>本地通道 / 请求</span><span>方法</span><span>观察</span></div><div id="requests"><p class="empty">先制造过载或开始一条流，再选中请求查看。</p></div></div><div id="timeline" class="timeline"><p class="empty">选择左侧一条请求。事件可能采样或丢失，缺少事件不代表它没有发生。</p></div></div></section>
+ <section class="requests-panel"><div class="section-head"><h3>请求决策时间线</h3><span id="trace-health">有界本地事件记录</span></div><div class="requests-split"><div class="request-list"><div class="list-head"><span>本地通道 / 请求</span><span>方法</span><span>观察</span></div><div id="requests"><p class="empty">启动负载或流式请求，选择请求查看时间线。</p></div></div><div id="timeline" class="timeline"><p class="empty">选择左侧请求，查看各阶段的状态与原因。</p></div></div></section>
  <footer><span id="resource-summary">资源数据准备中</span><span id="endpoint">QUIC 端点准备中</span></footer>
 </div>
 </main>

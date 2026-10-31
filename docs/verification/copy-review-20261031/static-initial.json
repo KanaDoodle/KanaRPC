@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "check": "link inventory",
+  "reason": "static-check.json was referenced before the receipt was generated",
+  "classification": "validation artifact ordering",
+  "resolution": "generate receipt before checking links"
+}

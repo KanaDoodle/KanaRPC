@@ -1,0 +1,39 @@
+[
+  {
+    "name": "final-build",
+    "command": [
+      "go",
+      "build",
+      "-mod=readonly",
+      "./..."
+    ],
+    "exit_code": 0,
+    "seconds": 1.13
+  },
+  {
+    "name": "final-showcase-build",
+    "command": [
+      "go",
+      "build",
+      "-race",
+      "-o",
+      "/tmp/kanarpc-copy-review.GixmoI/showcase-final",
+      "./cmd/showcase"
+    ],
+    "exit_code": 0,
+    "seconds": 0.89
+  },
+  {
+    "name": "final-walkthrough",
+    "command": [
+      "python3",
+      "scripts/verify-showcase.py",
+      "--binary",
+      "/tmp/kanarpc-copy-review.GixmoI/showcase-final",
+      "--output",
+      "/tmp/kanarpc-copy-review.GixmoI/walkthrough-final"
+    ],
+    "exit_code": 0,
+    "seconds": 5.09
+  }
+]

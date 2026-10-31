@@ -1,10 +1,10 @@
-# 独立仓库与开发
+# 开发与 SDK 接入
 
-新版模块为 `github.com/KanaDoodle/KanaRPC`。根模块可独立构建和测试，不需要旧 KanaRPC-Go、开发 workspace 或跨目录 replace。新仓库从当前实际实现建立一个真实的初始提交，不导入旧 Git 历史，不伪造此前阶段的提交。
+模块 `github.com/KanaDoodle/KanaRPC` 可独立构建和测试，根模块的运行依赖由 `go.mod` 管理。源码沿革与第三方许可见 [ORIGINS](../ORIGINS.md)。
 
 ## 本地构建
 
-Go 1.26.0 或更新版本：
+需要 Go 1.26.0 或更新版本：
 
 ```sh
 GOWORK=off go build -mod=readonly ./...
@@ -12,25 +12,43 @@ GOWORK=off go test -count=1 ./...
 GOWORK=off go test -race -count=1 ./...
 ```
 
-普通测试未配置 etcd 时会跳过需要真实 etcd 的用例。完整验证要求本机可执行 `etcd`，runner 使用独占目录/loopback 端口、自行核验实例归属，不连接既有业务服务：
+普通测试在未配置 etcd 时跳过对应集成用例。完整验证要求本机可执行 `etcd`；runner 创建独占数据目录与 loopback 端口，核验实例归属，并在结束时回收自有进程：
 
 ```sh
 python3 scripts/verify-discovery.py --output /tmp/kanarpc-test-new-run
 python3 scripts/verify-discovery.py --output /tmp/kanarpc-race-new-run --race
 ```
 
-输出路径必须尚不存在。该 runner 对根模块执行全量测试；日志保存 pass/skip/fail、etcd membership 和进程回收状态。模型/GPU、跨机网络与多成员 etcd 不在这项验收内。
+输出目录应尚不存在。runner 对根模块执行全量测试，保存 pass/skip/fail、etcd membership 与进程回收状态。
 
-## 历史对照工具
+## 消费模块
 
-`tools/lifecycle-compare` 是显式的独立嵌套模块，用旧项目公开 API 做行为对照，依赖其旁边的历史工作区。它被根模块 `go build ./...` / `go test ./...` 排除，不能把它的跨目录 replace 解释为新版运行依赖。
+目前使用经审查提交的 pseudo-version 固定 SDK 版本；稳定发布以仓库 tag 为准。在应用自己的 Go 模块中导入根包，以及按需使用的 `discovery` 和 `routing`。本地联调可在消费模块中配置 `replace` 指向 KanaRPC checkout，并用 `GOWORK=off` 验证独立构建。
 
-`scripts/compare-lifecycle.py` 和 `scripts/audit-origins.py` 需要显式的旧目录/本地历史 ref；普通使用者独立构建无需运行它们。历史报告记录的是当时具体工作区和源码 hash，不保证任意旧版 checkout 能复现所有对照。旧仓库、来源署名、许可和已有验证证据保留。
+可编译的公共 API 示例见 [routing/example_test.go](../routing/example_test.go) 和 [drain_example_test.go](../drain_example_test.go)；发现、TLS 配置、流与退出顺序见 [连接管理](connections-r8c.md)。新旧协议使用独立端点，应用在接入时明确配置。
 
-## 版本与证据
+## 按需验证
 
-项目当前为实验阶段，尚未发布稳定版本。仓库可独立维护与构建，不代表旧推理适配/业务迁移已完成。后续 tag 与 SDK 接入需要自己的兼容性验收；此时不提供隐式旧协议降级或自动业务重放。
+| 入口 | 覆盖范围 |
+| --- | --- |
+| `scripts/verify-core.py` | 独立进程 TCP、普通与流式调用、取消和 SIGTERM 关闭 |
+| `scripts/verify-transports.py` | TCP/TLS/QUIC 调用与内部负载对照 |
+| `scripts/verify-governance.py` | 固定并发、公平调度、自适应、反馈与回退策略 |
+| `scripts/verify-resources.py` | 编码前接纳、混合流负载与周期资源观察 |
+| `scripts/verify-routing.py`、`scripts/verify-sdk.py` | 连接管理对照与独立消费模块 |
+| `scripts/verify-network.py` | 自有 Linux VM 容器内的内核 netem，需要基线源码 |
+| `scripts/verify-pool.py` | 池预算、退休对象、未读流和饱和场景 |
+| `scripts/compare-quic-write.py` | QUIC 发送策略与多 payload 内部基线 |
+| `scripts/verify-showcase.py` | HTTP + QUIC 控制台操作、取消、关闭与历史故障 |
 
-`docs/verification` 保留阶段报告、源码快照、完整 offered、失败记录与退化结果。历史 origins/manifest hash 对应当时快照；README、忽略规则或开发文档后续更新不会把历史证据重新标成当前结果。当前功能、依赖与声明边界见 [README](../README.md)、[ORIGINS](../ORIGINS.md)。
+运行参数和资源归属要求见各组件文档与脚本 `--help`。性能对照应冻结源码后串行执行；race 运行用于正确性检查。环境与测量口径集中在 [使用约束](operating-notes.md)，原始结果见 [验证索引](verification/README.md)。
 
-首次入库前扫描了普通文件、gzip 与嵌套 tar 内的常见凭据模式；该有限检查不能证明不存在所有秘密。原始实验 CA 是公用证书，实验私钥不保存；本地密钥、环境配置和构建产物不应提交。AGPL-3.0 正文及第三方来源说明继续保留。
+## 历史对照与证据维护
+
+`tools/lifecycle-compare` 是独立嵌套模块，通过公开 API 对照新旧行为，使用其旁边的历史工作区。根模块的 `go build ./...` 与 `go test ./...` 不包含该工具。`scripts/compare-lifecycle.py` 和 `scripts/audit-origins.py` 需要显式的旧目录或本地历史 ref。
+
+`docs/verification` 按阶段保存报告、源码快照、完整 offered、失败和退化结果。manifest 与 hash 对应当时的源码及工具版本；新增验证应保存为独立记录。历史复现需要使用报告注明的 checkout、环境和依赖版本。
+
+## 提交约定
+
+本地密钥、环境配置和构建产物保留在仓库外。首次入库时已对普通文件、gzip 和嵌套 tar 执行常见凭据模式扫描；后续提交继续检查新增文件。实验 CA 公用证书可以保存，私钥通过运行时生成或本地配置提供。保留 AGPL-3.0 正文及第三方来源说明。

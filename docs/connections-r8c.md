@@ -1,6 +1,6 @@
 # R8C：发现驱动的连接生命周期
 
-R8B 验收完成后按以下步骤补连接管理；只改新版 RPC，不迁移 CampusTrace，也不重放已发送业务。
+routing 将发现快照、建连去重和资源退休组合为有界的连接生命周期，减少应用逐次选址与 Dial 的管理工作。
 
 | 阶段 | 实施 | 复现/对照 |
 | --- | --- | --- |
@@ -11,11 +11,11 @@ R8B 验收完成后按以下步骤补连接管理；只改新版 RPC，不迁移
 
 设计选择：routing 依赖根 RPC 和 discovery，避免根包与 discovery 的导入循环。Resolver 仍由创建者拥有，连接管理不擅自关闭它。发现失效时停止新路由，已在途工作继续，空闲连接可暂时停用并等待新鲜快照；明确删除才退休。连接/建连/关闭中对象统一占硬上限，不靠无限后台重连。
 
-返回 routing.Stream 包装根 Stream，显式保护未读结果；因此返回类型与根 Caller 的 Stream 不同，不宣称无缝实现旧 Caller 接口。Close 会取消管理调用和 IO，Wait(ctx) 如实等待未退还引用/用户编码；不为假装快速关闭而生成不可控编码后台任务。
+`routing.Stream` 包装根 Stream 并保护未读结果，具有独立返回类型。Close 取消管理调用与 IO，Wait(ctx) 等待未退还引用和用户编码结束。
 
 ## 正式接入与所有权
 
-从独立模块 `github.com/KanaDoodle/KanaRPC` 导入 `discovery` 与 `routing`。没有发布稳定 tag；使用已审查提交的 pseudo-version，或开发时在独立消费模块里用 `replace` 指向这个 checkout。不要修改旧 KanaRPC-Go 的 module path 来假装完成迁移。
+从独立模块 `github.com/KanaDoodle/KanaRPC` 导入 `discovery` 与 `routing`。使用经审查提交的 pseudo-version 固定版本；本地开发可在独立消费模块中用 `replace` 指向 checkout。版本和接入说明见 [开发指南](development.md)。
 
 ```go
 registry, err := discovery.New(ctx, discovery.Config{
@@ -60,6 +60,6 @@ python3 scripts/verify-routing.py --output /tmp/kanarpc-r8c-controls
 python3 scripts/verify-sdk.py --output /tmp/kanarpc-r8c-sdk
 ```
 
-`verify-routing.py` 用两个独立真实 worker 和一个独立 client 比较逐请求 Dial、直接复用两条连接、管理两条连接、两节点只配一条连接。性能输入是固定本地 Snapshot fixture，不能写成真实 etcd 传播时延收益；真实 etcd 的增删/流式/所有权另由集成测试验证。所有 offered、成功数、错误、握手数和进程 CPU 保留；race 计时不作性能证据。
+`verify-routing.py` 用两个独立真实 worker 和一个独立 client 比较逐请求 Dial、直接复用两条连接、管理两条连接、两节点只配一条连接。性能输入使用固定本地 Snapshot，真实 etcd 的增删/流式/所有权另由集成测试验证。所有 offered、成功数、错误、握手数和进程 CPU 保留；race 计时不作性能证据。
 
-`verify-routing.py` 完成整个计划矩阵并保留失败 case：完整输出但部分 offered 失败且无损坏/重复/资源残留记为 DEGRADED；预热失败、崩溃、损坏或未收敛记 FAIL，继续其他 case 后以非零状态退出。预热失败时计划测量请求尚未启动，不能把计划数充当实际 offered。SDK 入口另建消费模块，用本地 replace 与 GOWORK=off 验证公共 API；不代表发布了稳定版本。最终结果和已观察到的 QUIC 建连失败见 [报告](verification/connections-r8c/report.md)。
+`verify-routing.py` 完成整个计划矩阵并保留失败 case：完整输出但部分 offered 失败且无损坏/重复/资源残留记为 DEGRADED；预热失败、崩溃、损坏或未收敛记 FAIL，继续其他 case 后以非零状态退出。预热失败时计划测量请求尚未启动，不能把计划数充当实际 offered。SDK 入口另建消费模块，用本地 replace 与 GOWORK=off 验证公共 API。最终结果和已观察到的 QUIC 建连失败见 [报告](verification/connections-r8c/report.md)。

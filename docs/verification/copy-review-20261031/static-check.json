@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "documents": 19,
+  "local_links": 123,
+  "page_ids": 57,
+  "form_attributes": "unchanged",
+  "event_and_reason_keys": "unchanged",
+  "action_wiring": "unchanged",
+  "go_struct_tags": "unchanged",
+  "go_structure": "unchanged outside string literals and comments",
+  "historical_tracked_artifacts": "unchanged",
+  "diagnostics": "known combined errors, unknown keys and escaping passed",
+  "javascript_syntax": "PASS"
+}

@@ -192,7 +192,7 @@ func newApp(parent context.Context) (*app, error) {
 		return nil, err
 	}
 	ctx, cancel := context.WithCancel(parent)
-	a := &app{ctx: ctx, cancel: cancel, trace: trace, config: loadConfig{Rate: 0, SlowPercent: 80, SlowMS: 40, Capacity: 8}, message: "选择一个场景开始。请求走真实本地 QUIC。"}
+	a := &app{ctx: ctx, cancel: cancel, trace: trace, config: loadConfig{Rate: 0, SlowPercent: 80, SlowMS: 40, Capacity: 8}, message: "选择场景，查看请求接纳、调度、取消与回执。"}
 	if err = a.replaceSession("adaptive"); err != nil {
 		cancel()
 		return nil, err
@@ -262,7 +262,7 @@ func (a *app) newSession(mode string) (*session, error) {
 			if err := delay(ctx, 120*time.Millisecond); err != nil {
 				return err
 			}
-			if err := send(chunk{Sequence: i, Text: fmt.Sprintf("片段 %02d · 从真实 QUIC 流接收", i)}); err != nil {
+			if err := send(chunk{Sequence: i, Text: fmt.Sprintf("响应片段 %02d · QUIC 流", i)}); err != nil {
 				return err
 			}
 		}
@@ -361,7 +361,7 @@ func (a *app) replaceSession(mode string) error {
 	}
 	a.current = next
 	a.stream = nil
-	a.message = "新会话已就绪；历史交付故障继续保留。"
+	a.message = "新会话已就绪，可以启动负载或流式请求。"
 	return nil
 }
 func (a *app) loadLoop() {
@@ -496,7 +496,7 @@ func (a *app) cancelStream() error {
 	a.mu.Lock()
 	defer a.mu.Unlock()
 	if a.stream == nil {
-		return errors.New("尚未开始流式请求")
+		return errors.New("请先开始流式请求")
 	}
 	if a.stream.State == "active" {
 		a.stream.CancelRequested = true
@@ -507,7 +507,7 @@ func (a *app) cancelStream() error {
 }
 func (a *app) operation(fn func() error) error {
 	if !a.op.TryLock() {
-		return errors.New("上一个操作尚未完成")
+		return errors.New("上一个操作正在进行，请稍后重试")
 	}
 	a.mu.Lock()
 	a.busy = true
@@ -529,18 +529,18 @@ func (a *app) drain(omitACK bool) error {
 	s := a.current
 	if s == nil || s.state != "running" {
 		a.mu.Unlock()
-		return errors.New("当前会话不能再次 drain，请新建会话")
+		return errors.New("当前会话已停止接纳，请新建会话后操作")
 	}
 	a.config.Rate = 0
 	s.state = "draining"
-	a.message = "停止新负载；等待在途执行和回执，最长 2.5 秒。"
+	a.message = "已停止新负载，等待在途执行与终态回执，最长 2.5 秒。"
 	a.mu.Unlock()
 	if omitACK {
 		closeFault, err := withholdACK(s)
 		if err != nil {
 			a.mu.Lock()
 			s.state = "running"
-			a.message = "未能构造缺失回执：" + errorText(err)
+			a.message = "未回执故障注入失败：" + errorText(err)
 			a.mu.Unlock()
 			return err
 		}
@@ -569,7 +569,7 @@ func (a *app) drain(omitACK bool) error {
 	if err != nil {
 		s.state = "drain_failed"
 	}
-	a.message = "Drain 已结束；资源退出和交付结果分别展示。"
+	a.message = "关闭流程已返回，请查看资源状态与交付结果。"
 	a.mu.Unlock()
 	// The report is the actual return-time snapshot; never rewrite it after Wait.
 	s.client.Close()
@@ -582,7 +582,7 @@ func (a *app) drain(omitACK bool) error {
 		}
 	case <-time.After(time.Second):
 		a.mu.Lock()
-		a.message += " 在途客户端尚未结束。"
+		a.message += " 客户端仍有在途请求，请查看时间线。"
 		a.mu.Unlock()
 	}
 	return nil // domain delivery failure is persisted in report, not hidden as HTTP success

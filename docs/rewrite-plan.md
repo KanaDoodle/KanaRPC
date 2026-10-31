@@ -1,44 +1,22 @@
-# 独立内核重写计划
+# 架构与演进
 
-2026-10-31。目标是重新设计一个可解释、能承载原项目特色功能的 RPC 内核，保留旧目录作为历史证据和行为对照。旧设计是否适用取决于契约、组件耦合和验证结果，不能仅根据年代判断。
+KanaRPC 围绕上下文、请求状态和资源归属组织内核。普通调用与服务端流式调用共享生命周期；传输、发现与连接管理通过明确的接口和所有权组合。实现沿革见 [ORIGINS](../ORIGINS.md)。
 
-本轮核对的旧公开接口覆盖了 CampusTrace 普通分析调用、可选推理桥接的服务端流、用户取消及上层 SQL 任务恢复。任务恢复与权限仍由 CampusTrace 应用负责；RPC 不重放已发送业务，不提供 exactly-once。日常模型 API 路径不因内核重写而改变。
+## 模块职责
 
-## 阶段与验收门槛
+| 模块 | 职责 |
+| --- | --- |
+| 根包 | 泛型方法注册、Call/Stream、取消与预算、传输适配、调度、回执结算和资源统计 |
+| `internal/wire` | KNR2 帧校验、有界读写与预算预留 |
+| `discovery` | etcd lease 所有权、revision 快照、watch 恢复与新鲜度 |
+| `routing` | 快照门槛、建连去重、连接上限、退休引用与共享字节池 |
+| `cmd/showcase` | 可调负载、流式操作、关闭报告和本地请求时间线 |
 
-| 阶段 | 实现内容 | 验收门槛与迁移边界 |
-| --- | --- | --- |
-| R7A，已完成 | 独立 v2 帧、显式类型注册、统一普通/流式生命周期、信用流控、默认取消、有限接纳、终态回执、deadline drain、资源统计 | 历史验收见 core-r7；R7B 继续保留并补充回归 |
-| R7B，已完成 | TLS 构造与信任配置；以一次请求交换为边界接原生 QUIC；明确物理 session 和请求资源统计；etcd 快照/增量/lease 的独立实现 | 具体步骤、API、验证与边界见 [transport-r7b.md](transport-r7b.md) |
-| R7C，已完成 | 跨流字节预算，按方法有限调度和权重，延迟窗口 AIMD，压力反馈版本/TTL/epoch，客户端可选接纳 | 具体配置和验收见 [governance-r7c.md](governance-r7c.md)；保留固定低并发优胜与目标不可达退化；租户身份公平尚未实现 |
-| R7D，暂缓 | SDK 接入边界，迁移推理 worker/gateway 与 CampusTrace 适配 | 用户正在重构 CampusTrace，当前优先 RPC 本身，不改 CampusTrace 配置、依赖或业务 |
-| R8A，已完成 | 自适应控制回退：持续最低并发仍超目标时，按服务端明确配置切换固定限额，记录状态并支持人工复位 | [配置与步骤](control-r8a.md)、[报告](verification/control-r8a/report.md)；保留固定 8 优胜、容量切换小幅退化；不宣称自动证明目标不可达 |
-| R8B，已完成 | 编码前共享名额、编码容量预留/缩减、WaitIdle、分钟级 heap/goroutine/GC 观察 | [步骤和 API](resources-r8b.md)、[报告](verification/resources-r8b/report.md)；修正观察器自身累积，保留小请求性能退化；不宣称任意编码器/RSS 硬上限或无限期无泄漏 |
-| R8C，已完成 | routing 消费发现快照、有界连接与建连去重、endpoint 退休、未读流引用、独立 SDK 消费 | [步骤和 API](connections-r8c.md)、[报告](verification/connections-r8c/report.md)；真实 etcd + 三传输更新/删除/取消/故障；保留快照成本与握手 churn，不隐式重放业务 |
-| R8D，本地/VM 验收已完成，真实双机待验 | QUIC 建连超时根因与最小修复、故障取消/drain、Linux VM 内核 netem、有限长时资源观察 | [步骤](network-r8d.md)、[根因](verification/network-r8d/handshake-report.md)、[报告](verification/network-r8d/report.md)；新旧基线、失败/未启动/退化分别保留。真实双机、物理链路、etcd 多成员、小时/天级压力未验证 |
+## 请求生命周期
 
-| R9A，本地有限验收完成 | 池级共享编码/接收/发送数据总额、独立控制额度、活跃/退休账户和未读子集统计 | [步骤/API](pool-r9a.md)、[报告](verification/pool-r9a/report.md)；退休与关闭不抹去 codec/未读持有；压力复验修正原生流额度卡死，保留饱和 drain 错误和明显 QUIC 性能成本；真实双机仍待验 |
+处理器通过 `RegisterUnary[Req, Resp]` / `RegisterStream[Req, Resp]` 显式注册，签名包含 `context.Context`。底层 RawMessage 入口用于直接处理 JSON。客户端在调用用户编码器前取得名额与编码容量；QUIC 完成准备后再分配业务流。
 
-| R9B，本地有限验收完成 | deadline 感知的 4 KiB 原子批量、零入队回退与安全 paced 写，保持预算和退休实现 | [步骤/API](quic-r9b.md)、[报告](verification/quic-r9b/report.md)；600 case 多 payload 对照，小记录流式恢复到 R8D 量级；保留大包/部分普通调用负变化，真实双机待验 |
-
-| R9C，本地有限验收完成 | 本机字节拒绝来源、累计取消/期限/中断与回执结算、带累计故障报告的 drain | [步骤/API](drain-r9c.md)、[报告](verification/drain-r9c/report.md)；332 项普通/race 四轮完整回归，保留饱和未回执与资源退出的区别；不做 gRPC 对照，真实双机待验 |
-
-| R9D，稳定性复验完成，优化候选未采纳 | 配对短跑/延长复验、收尾同步 profile、候选基线与回退 | [步骤](quic-r9d.md)、[报告](verification/quic-r9d/report.md)；原降幅未稳定复现，三候选无足够整体收益证据且有局部退化，保持 R9C 库代码；按用户要求收缩后续测试，仅保留必要回归与可展示证据 |
-
-| R10，交互演示完成 | 默认关闭的有界本地决策日志，一键 QUIC 页面、可调负载、流式取消、正常/缺 ACK drain | [步骤与启动](showcase-r10.md)、[验证与失败记录](verification/showcase-r10/report.md)；真实本机 socket，不扩展 wire、不宣称推理或双机性能，CampusTrace 不动；只做必要 race 与现场流程检查 |
-
-R7A 的通过只代表第一阶段。不会为兼容旧包名而调用旧 internal，也不会自动把旧测试结果搬成新版本结果。新协议不做隐式 downgrade；真正迁移时新旧端点显式分离。
-
-## 已落实的架构选择
-
-- **注册边界**：`RegisterUnary[Req, Resp]` / `RegisterStream[Req, Resp]`，编译期检查处理器签名；底层 RawMessage 入口允许显式处理 JSON。没有反射服务方法发现，没有忽略 Context 的旧方法形态。
-- **资源归属**：应用创建 listener，第一次成功 Serve 后交给 Server；Client 拥有一次 Dial/NewClient 转交的连接。Server 统计处理器、连接 reader 和终态等待者；Client.Close 等待自己的 reader 和取消回调。
-- **请求终态**：本地取消、传输失败、远端终态用锁保护的单次完成竞争；本地取消丢弃未读块，远端终态允许先消费已经接收的块。
-- **有界接纳**：同时限制服务端总请求、每连接请求、物理连接、编码前客户端准备/在途、帧大小和逐流信用。R8B 在调用用户编码器前取得名额和编码容量，QUIC 也在准备后才分配业务流。满载不创建处理器 goroutine；处理器或信用等待不占用控制 reader。同步拒绝写仍可能受慢 socket 阻塞，最终由写期限收敛。
-- **发现连接**：routing 独立依赖根 RPC 与 discovery；显式 transport，快照版本/cluster/新鲜度门槛，按 endpoint 去重建连。dialing/retiring/closing 计入连接上限；已结束未读流由包装 Stream 持有引用，直到 EOF/error/Close 和进行中 Recv 结束。源失效停止新路由，但不是逐 wire 发送的线性一致保证，也没有业务重放。
-- **QUIC 地址与 socket**：先在握手预算内解析目标并保留 TLS hostname，显式创建 udp4/udp6 socket；失败、父连接终止和公开 Close 回收该 socket。不是通过延长超时或重试规避已确认的 Darwin 双栈临时端口冲突。
-- **连接损坏语义**：只等待写锁时取消不伤连接；部分记录写失败会关闭整个有序字节流，不能假装仅影响一个 TCP 请求。取消从未写出的 Open 不发送未来 ID 控制帧。
-- **关闭**：drain 与接纳共用同一把状态锁；先封闭接纳，等待已接纳请求及正常终态 ACK，再回收连接。截止后返回错误并取消资源，忽略 Context 的用户函数仍保留在统计中。
+服务端分别记录排队、执行与终态等待。请求发送 DATA 前消耗信用，消费后归还信用；处理器返回后通过 END、ACK 与 QUIC FIN 完成协议收尾。本地取消、远端终态与传输失败通过一次性终态竞争收敛，迟到响应按请求 ID 处理。
 
 ```mermaid
 stateDiagram-v2
@@ -63,12 +41,39 @@ stateDiagram-v2
     LocalTerminal --> [*]
 ```
 
-服务端的处理器返回、协议回执送达和应用消费是不同事件。回执不承诺数据库提交；上层任务在进程故障后仍可能 UNKNOWN。
+## 关键工程选择
 
-## 当前必须保留的风险
+- **显式所有权**：应用创建 listener，成功 Serve 后交给 Server；Client 拥有 Dial/NewClient 转交的连接。Close 负责 IO 收尾，Wait/WaitIdle 观察残余工作。
+- **分层接纳**：服务端总请求、每连接请求、执行槽、队列、客户端准备名额与逐流信用分别有界；编码和记录缓冲通过原子字节租约管理。
+- **完整资源计费**：连接进入退休状态后保留未读流、进行中的用户解码与编码租约，直到实际持有结束。池统计分别提供活跃与退休明细。
+- **传输故障边界**：TCP/TLS 使用共享有序记录流，部分写入损坏后关闭该记录连接；QUIC 将每次请求放在独立原生流上，父会话负责共同资源和关闭屏障。
+- **发现驱动管理**：routing 消费 revision/cluster/新鲜度合格的快照，去重建连并计入 dialing/retiring/closing 上限；失效时停止新路由，已有工作保留所属连接。
+- **压力反馈控制**：服务端方法权重与延迟窗口决定执行上限，短效建议辅助客户端接纳；显式固定回退和人工复位提供可操作的控制路径。
+- **可核查关闭**：drain 与接纳共用状态锁，先封闭接纳，再等待执行与回执；返回报告分别保留资源状态、累计故障与本次新增故障。
 
-TCP 写阻塞或坏帧会影响同一连接上的多个请求；R7B 用 QUIC 分流做隔离实验。R7C 用共享字节租约限制框架持有的记录缓冲，但用户对象、编码器、TLS/QUIC 内部、Go heap/RSS 仍不受该预算覆盖。已经结束而未消费的 Stream 继续计费，调用者应消费或 Close；仅凭在途数量不能判断全部内存。
+业务幂等、鉴权、协作取消、ACK 语义及资源预算范围统一见 [使用约束](operating-notes.md)。
 
-配置超时从请求编码前开始计费，但不能强制中断用户的 MarshalJSON 或处理器。相对预算避免要求机器时钟相同；服务端不扣除单向网络传输时间，因此取消未送达时不保证与客户端同一时刻停止。读超时是完整一帧的时间上限，也限制长时间静默请求，不是心跳或自适应空闲探测。
+## 阶段交付
 
-R7B 提供显式 TCP/TLS/QUIC 与有新鲜度门槛的发现，R7C 接入方法治理与反馈，R8A 增加显式配置回退与人工复位，R8B/C 增加准备资源接纳与发现连接管理；没有方法 ACL、租户身份或熔断。反馈是可过期建议，多连接可能超卖；未开启保护的 AIMD 对不可达目标仍会退化，保护也受固定值与采样影响，不承诺普遍收益。R9A 已增加池与连接两层共享字节接纳，默认数据总额不再随连接数放大；它不限制任意用户分配或所有管理对象开销，池锁/统计与饱和拒绝仍有成本；池容量小于节点数可能造成握手 churn，Snapshot 的同步复制/检查也有成本。真实 vLLM/GPU 继续标注未验证。
+| 阶段 | 交付内容 | 说明与验证 |
+| --- | --- | --- |
+| R7A | v2 帧、类型注册、普通/流式生命周期、信用流控与回执 | [内核报告](verification/core-r7/report.md) |
+| R7B | TLS、原生 QUIC、会话屏障与 etcd 注册发现 | [传输与发现](transport-r7b.md) |
+| R7C | 字节租约、方法加权调度、AIMD 与客户端反馈 | [过载治理](governance-r7c.md) |
+| R8A | 显式固定限额回退、人工复位与 generation 隔离 | [控制回退](control-r8a.md) |
+| R8B | 编码前接纳、编码容量预留与周期资源观察 | [准备资源](resources-r8b.md) |
+| R8C | 建连去重、有界连接、endpoint 退休与独立 SDK 消费 | [连接管理](connections-r8c.md) |
+| R8D | Darwin UDP 地址族冲突修复、故障取消与 netem | [网络诊断](network-r8d.md) |
+| R9A | 池级共享预算、退休账户与未读子集统计 | [共享预算](pool-r9a.md) |
+| R9B | deadline 感知原子批量与安全 paced 写回退 | [QUIC 发送](quic-r9b.md) |
+| R9C | 类型化预算拒绝、累计结算与 DrainWithReport | [关闭契约](drain-r9c.md) |
+| R9D | 小请求配对复验、收尾 profile 与候选评估 | [诊断结果](quic-r9d.md)：原降幅未稳定复现，三个候选全部撤回 |
+| R10 | 有界事件日志、可调负载控制台、取消与关闭流程 | [操作指南](showcase-r10.md) |
+
+阶段源码、失败、退化与原始测量集中在 [验证索引](verification/README.md)。历史结果按对应版本解释。
+
+## 接入计划
+
+RPC 内核与 SDK 当前独立演进。R7D 应用与推理适配迁移在 CampusTrace 重构稳定后安排，迁移时采用独立协议端点并验证权限、幂等与任务恢复。现有 CampusTrace 配置和依赖保持原状。
+
+真实双机、物理链路、多成员 etcd 和小时/天级负载需要对应环境验收；真实 GPU/vLLM 推理性能单独验证。当前各阶段记录覆盖本机与本地 Linux VM，具体环境见 [使用约束](operating-notes.md)。

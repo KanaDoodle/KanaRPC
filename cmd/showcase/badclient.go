@@ -82,11 +82,11 @@ func withholdACK(s *session) (func(), error) {
 		}
 		if len(end.Receipt) != 32 {
 			closePeer()
-			return nil, fmt.Errorf("实验请求未取得回执义务（%s），没有伪造未回执", end.Code)
+			return nil, fmt.Errorf("请求未进入回执等待状态（%s），请在可用会话中重试", end.Code)
 		}
 		if end.Code != "ok" {
 			closePeer()
-			return nil, errors.New("实验请求未成功执行")
+			return nil, errors.New("故障请求执行失败，请查看请求状态后重试")
 		}
 		return closePeer, nil
 	}

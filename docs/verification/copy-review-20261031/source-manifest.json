@@ -1,0 +1,32 @@
+{
+  "base_commit": "d7a3ea8abaa2102830f5cfbbbe48a624a29b94f5",
+  "go": "go version go1.27.1 darwin/arm64",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "files": {
+    "ORIGINS.md": "2e146a225c58e09ab3ac5d6c6e49aead922a3332f0b0c20591fd5c5b5fad3c8b",
+    "README.md": "60bbdb97d1b2636c3c721ebf234db1e80e1334c915c6b4119ece2ec5f19933f3",
+    "cmd/showcase/app.go": "a71c4d85e97b34f8927383b4b817b8188e404921482b4cfc8cf602a060e1f979",
+    "cmd/showcase/badclient.go": "43c19ee5081431f450b204cfe35998d522ba04022cbccd98e3f46bf49049eacb",
+    "cmd/showcase/http.go": "1cfc9230dcf97a4af72d98b80475a8bd28a25f9cb98c871224e254d6995d8ae9",
+    "cmd/showcase/main.go": "a98c3d36bc3117c1e818bd2903be4b7ee57e7c75e05810678ffb4460e809b1c7",
+    "cmd/showcase/web/app.js": "4837b39001e517417dabc24f2696e9e06f3291484addc616abaeca0fb414dd30",
+    "cmd/showcase/web/index.html": "82663b3248a1f2f2816fd50a81d5d136700512add43fb1e469f81f5e2c189f0c",
+    "cmd/showcase/web/style.css": "00cf89f42ee4cc2b551c42c100b5b338a13734ad65abc41aaa0f5ec2736b9c20",
+    "docs/connections-r8c.md": "77baef0e5428e6637d2ee9d82cf7f09c4dd276261777c79ad41d5e57140ca5a3",
+    "docs/control-r8a.md": "d9b44caf5d041cf6547950c8ab93a085cecb239c28ce94a9e1fc3ea128eb0f98",
+    "docs/development.md": "4feef8d3571abccf0b03d747a0dd89b55d91fb7ad2ca0e4a68d4be24f51e7c68",
+    "docs/drain-r9c.md": "9e09d62b8e81651a4c14a4055993e7032aad994cd7865cde7bc36df3ac0903ca",
+    "docs/governance-r7c.md": "25ef8db7c58d271668ec89868312dfddd4654ff6b05ddc5e8c6deb0987fd9d6d",
+    "docs/network-r8d.md": "6175527a0ab7ee89bc31e33e15ce6b5655aeb772e8a3c9f2129183defed07a69",
+    "docs/pool-r9a.md": "e5ae731fb656d0194ec0459c94d61ba58c0d910ce11b03b3269587a3e0325bac",
+    "docs/protocol-v2.md": "aa02c19f99b846158fd6a87ce580c2e70b2774fdfee30bbd82308b58c37910c7",
+    "docs/quic-r9b.md": "df57ea1ddd687ec6c5030ae927d8e229b7390e2be65f3fbb5004c64a0c605eed",
+    "docs/quic-r9d.md": "497260436ae604775c1e193cf6fd6be9c8937d651c7009b0adb73b99625d02af",
+    "docs/resources-r8b.md": "a3dbcc28470e08fe5711961ef2370e0b8aeaac6db0aa824a8fb47453a38e0c76",
+    "docs/rewrite-plan.md": "7004007e2ed50455f7f84328bb74f0ff0db00bc14f258fd3b72d587a81614d62",
+    "docs/showcase-r10.md": "884f89518fe941423df580f26246071e4497e44eb894d2c70d69504bac7e568f",
+    "docs/transport-r7b.md": "f455d7bd92a77884f4f7e0afd64a783a11f01947bd2acfd5adb8f819f1ea7b34",
+    "docs/operating-notes.md": "b4016522d1abceb9937b4a68f6c475a9e6df00fd0b0c22d86e8287630d93b470",
+    "docs/verification/README.md": "5955e369682908e48204c4f16ed100f746cef00915f23024bcc34eb64e759049"
+  }
+}
