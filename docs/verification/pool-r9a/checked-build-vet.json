@@ -1,0 +1,32 @@
+[
+  {
+    "name": "vet",
+    "command": [
+      "go",
+      "vet",
+      "./..."
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "build",
+    "command": [
+      "go",
+      "build",
+      "-mod=readonly",
+      "./..."
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "python",
+    "command": [
+      "python3",
+      "-m",
+      "py_compile",
+      "scripts/compare-pool.py",
+      "scripts/verify-pool.py"
+    ],
+    "exit_code": 0
+  }
+]

@@ -43,6 +43,7 @@ func refusal(kind error) error {
 // this interface. The creator keeps ownership of the resolver.
 type Source interface{ Snapshot() discovery.Snapshot }
 type Config struct {
+	Memory                                    rpc.MemoryPoolConfig
 	Transport                                 rpc.Transport
 	Dial                                      rpc.DialOptions
 	MaxConnections, MaxInFlight, MaxEndpoints int
@@ -56,6 +57,8 @@ type Stats struct {
 	ClusterID                                                                                   uint64
 }
 type entry struct {
+	account                            *rpc.MemoryAccount
+	retiredAt                          time.Time
 	key                                rpc.Endpoint
 	caller                             rpc.Caller
 	dialing, retiring, closing, closed bool
@@ -87,6 +90,7 @@ type Client struct {
 	next, clock             uint64
 	calls                   int
 	stats                   Stats
+	memory                  *rpc.MemoryPool
 }
 
 // New starts one snapshot polling loop. It does not block for discovery/dial
@@ -147,8 +151,18 @@ func newClient(ctx context.Context, source Source, cfg Config, dial dialFunc) (*
 			cfg.Dial.TLS.Config.ClientCAs = cfg.Dial.TLS.Config.ClientCAs.Clone()
 		}
 	}
+	if cfg.Dial.Client.MemoryAccount != nil {
+		return nil, errors.New("routing: memory accounts are owned by the pool")
+	}
+	memory, err := rpc.NewMemoryPool(cfg.Memory, cfg.MaxConnections)
+	if err != nil {
+		return nil, err
+	}
+	if err = memory.CheckClient(cfg.Dial.Client); err != nil {
+		return nil, err
+	}
 	owner, cancel := context.WithCancel(ctx)
-	c := &Client{source: source, cfg: cfg, dial: dial, ctx: owner, cancel: cancel, view: make(chan struct{}, 1), changed: make(chan struct{}), desired: make(map[rpc.Endpoint]struct{}), active: make(map[rpc.Endpoint]*entry), entries: make(map[*entry]struct{}), backoff: make(map[rpc.Endpoint]time.Time)}
+	c := &Client{memory: memory, source: source, cfg: cfg, dial: dial, ctx: owner, cancel: cancel, view: make(chan struct{}, 1), changed: make(chan struct{}), desired: make(map[rpc.Endpoint]struct{}), active: make(map[rpc.Endpoint]*entry), entries: make(map[*entry]struct{}), backoff: make(map[rpc.Endpoint]time.Time)}
 	c.view <- struct{}{}
 	go c.loop()
 	return c, nil
@@ -299,6 +313,8 @@ func dead(caller rpc.Caller) bool {
 func (c *Client) retireLocked(e *entry) {
 	if !e.retiring {
 		e.retiring = true
+		e.retiredAt = time.Now()
+		e.account.Retire()
 		c.stats.Retired++
 		if c.active[e.key] == e {
 			delete(c.active, e.key)
@@ -312,7 +328,7 @@ func (c *Client) retireLocked(e *entry) {
 	c.notifyLocked()
 }
 func (c *Client) removeLocked(e *entry) {
-	if e.closed && !e.dialing && e.users == 0 {
+	if e.closed && !e.dialing && e.users == 0 && e.account.Release() == nil {
 		delete(c.entries, e)
 	}
 	c.notifyLocked()
@@ -340,7 +356,9 @@ func (c *Client) closeLocked(e *entry) {
 	}()
 }
 func (c *Client) dialEntry(e *entry, ctx context.Context) {
-	caller, err := c.dial(ctx, e.key, c.cfg.Dial)
+	options := c.cfg.Dial
+	options.Client.MemoryAccount = e.account
+	caller, err := c.dial(ctx, e.key, options)
 	e.dialCancel()
 	// Failed DialEndpoint can carry a typed nil in the Caller interface. The
 	// result on error conveys no ownership and must never be installed/closed.
@@ -460,8 +478,13 @@ func (c *Client) acquire(ctx context.Context) (*entry, error) {
 			return e, nil
 		}
 		if len(c.entries) < c.cfg.MaxConnections {
+			account, err := c.memory.NewAccount()
+			if err != nil {
+				c.mu.Unlock()
+				return nil, err
+			}
 			dialCtx, cancel := context.WithTimeout(c.ctx, c.cfg.DialTimeout)
-			e := &entry{key: selected, users: 1, dialing: true, dialCancel: cancel}
+			e := &entry{account: account, key: selected, users: 1, dialing: true, dialCancel: cancel}
 			c.clock++
 			e.stamp = c.clock
 			c.entries[e] = struct{}{}
@@ -616,6 +639,7 @@ func (c *Client) Close() {
 		return
 	}
 	c.closed = true
+	c.memory.Seal()
 	c.ready = false
 	c.cancel()
 	for e := range c.entries {
@@ -703,4 +727,38 @@ func (s *Stream) Close() error {
 		s.release()
 	}
 	return err
+}
+
+// MemoryStats is an atomic aggregate snapshot, including retired objects.
+func (c *Client) MemoryStats() rpc.MemoryPoolStats { return c.memory.Stats() }
+
+// ConnectionStats returns bounded live ownership details; completed history is
+// represented by cumulative counters, not an ever-growing retired object list.
+type ConnectionStats struct {
+	Endpoint                           rpc.Endpoint
+	Dialing, Retiring, Closing, Closed bool
+	Users                              int
+	RetiredFor                         time.Duration
+	Memory                             rpc.MemoryAccountStats
+}
+
+func (c *Client) ConnectionStats() []ConnectionStats {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	accounts := c.memory.Accounts()
+	byID := make(map[uint64]rpc.MemoryAccountStats, len(accounts))
+	for _, a := range accounts {
+		byID[a.ID] = a
+	}
+	out := make([]ConnectionStats, 0, len(c.entries))
+	now := time.Now()
+	for e := range c.entries {
+		s := ConnectionStats{Endpoint: e.key, Dialing: e.dialing, Retiring: e.retiring, Closing: e.closing, Closed: e.closed, Users: e.users, Memory: byID[e.account.ID()]}
+		if e.retiring {
+			s.RetiredFor = now.Sub(e.retiredAt)
+		}
+		out = append(out, s)
+	}
+	sort.Slice(out, func(i, j int) bool { return out[i].Memory.ID < out[j].Memory.ID })
+	return out
 }

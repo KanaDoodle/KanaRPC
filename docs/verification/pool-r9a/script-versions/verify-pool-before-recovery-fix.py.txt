@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+"""Owned serial pool resource controls; same reflection-compatible driver on R8D."""
+import argparse
+import hashlib
+import io
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import tarfile
+import tempfile
+import time
+import traceback
+
+ROOT=Path(__file__).resolve().parents[1]
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--output',required=True,type=Path);p.add_argument('--duration',type=int,default=180);p.add_argument('--cycles',type=int,default=12);p.add_argument('--tight-duration',type=int,default=30);p.add_argument('--baseline',default='90af591');a=p.parse_args()
+ out=a.output.resolve();out.mkdir(parents=True,exist_ok=False);work=Path(tempfile.mkdtemp(prefix='kanarpc-pool-'));env=dict(os.environ,GOWORK='off',GOMAXPROCS='2')
+ baseline=work/'baseline';baseline.mkdir();raw=subprocess.check_output(['git','archive',a.baseline],cwd=ROOT)
+ with tarfile.open(fileobj=io.BytesIO(raw)) as ar:ar.extractall(baseline,filter='data')
+ current=work/'current';current.mkdir()
+ for path in ROOT.rglob('*.go'):
+  rel=path.relative_to(ROOT)
+  if any(x in rel.parts for x in ['tools','docs','.git']):continue
+  dest=current/rel;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(path,dest)
+ for n in ['go.mod','go.sum','LICENSE']:shutil.copy2(ROOT/n,current/n)
+ (baseline/'cmd/pool-lab').mkdir(exist_ok=True);shutil.copy2(ROOT/'cmd/pool-lab/main.go',baseline/'cmd/pool-lab/main.go')
+ bins={};meta={'work':str(work),'baseline':subprocess.check_output(['git','rev-parse',a.baseline],cwd=ROOT,text=True).strip(),'go':subprocess.check_output(['go','version'],text=True).strip(),'duration':a.duration,'cycles':a.cycles,'tight_duration':a.tight_duration,'GOMAXPROCS':2,'scope':'bounded loopback resource observation; no throughput or RSS/production leak claim; one fixed baseline worker version for both clients; absent baseline pool stats are unsupported','versions':{}}
+ for name,root in [('baseline',baseline),('current',current)]:
+  binary=work/('pool-'+name);subprocess.run(['go','build','-o',str(binary),'./cmd/pool-lab'],cwd=root,env=env,check=True);bins[name]=binary
+  sources={str(path.relative_to(root)):hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(root.rglob('*.go')) if not any(x in path.relative_to(root).parts for x in ['tools','docs'])}
+  for n in ['go.mod','go.sum']:sources[n]=hashlib.sha256((root/n).read_bytes()).hexdigest()
+  meta['versions'][name]={'source_sha256':sources,'binary_sha256':hashlib.sha256(binary.read_bytes()).hexdigest()}
+  with tarfile.open(out/(name+'-source.tar.gz'),'w:gz') as ar:
+   for rel in sources:ar.add(root/rel,arcname=rel)
+ worker=work/'worker';subprocess.run(['go','build','-o',str(worker),'./cmd/resource-lab'],cwd=baseline,env=env,check=True);meta['worker_sha256']=hashlib.sha256(worker.read_bytes()).hexdigest();meta['script_sha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest();(out/'metadata.json').write_text(json.dumps(meta,indent=2)+'\n')
+ results=[]
+ for tight in [False,True]:
+  for index,transport in enumerate(['tcp','quic']):
+   for version in (['baseline','current'] if index==0 else ['current','baseline']):
+    directory=out/f"{version}-{transport}-{'tight' if tight else 'roomy'}"
+    directory.mkdir();processes=[];logs=[];result={'version':version,'transport':transport,'tight':tight}
+    try:
+     for n in range(2):
+      log=(directory/f'worker-{n}.log').open('wb');logs.append(log);ready=directory/f'ready-{n}.json'
+      proc=subprocess.Popen([str(worker),'-mode','worker','-transport',transport,'-ready',str(ready),'-output',str(directory/f'worker-{n}.json')],stdout=log,stderr=log,env=env);processes.append(proc)
+      until=time.monotonic()+10
+      while not ready.exists():
+       if proc.poll() is not None or time.monotonic()>until:raise RuntimeError('worker failed startup')
+       time.sleep(.01)
+     log=(directory/'client.log').open('wb');logs.append(log);duration=a.tight_duration if tight else a.duration
+     cmd=[str(bins[version]),'-ready',','.join(str(directory/f'ready-{i}.json') for i in range(2)),'-output',str(directory/'client.json'),'-duration',str(duration)+'s','-cycles',str(min(a.cycles,duration))]
+     if tight:cmd+=['-tight']
+     proc=subprocess.Popen(cmd,stdout=log,stderr=log,env=env);processes.append(proc);code=proc.wait(timeout=duration+90);result['exit_code']=code
+     if code:raise RuntimeError('client failed; preserve log and continue matrix')
+     data=json.loads((directory/'client.json').read_text());phases=[v for s in (directory/'client.json.phases.jsonl').read_text().splitlines() if 'checkpoint' not in (v:=json.loads(s))];result['client']=data;result['phases']=len(phases)
+     assert data['wait_error']=='<nil>' and data['final_routing']['Connections']==data['final_routing']['ActiveCalls']==0
+     assert sum(data['outcomes'].values())==data['offered']
+     if version=='current':
+      for phase in phases:
+       mem=phase['memory'];assert mem['Total']['Used']==0 and mem['Retired']['Accounts']==0 and mem['Unread']['Bytes']==0,phase
+       assert mem['Data']['Peak']<=mem['Data']['Limit'] and mem['Total']['Peak']<=mem['Total']['Limit'],phase
+       held=phase['held']['memory'];assert held['Retired']['Accounts']>=1 and held['Retired']['Unread']['Bytes']>16384,held
+      mem=data['final_memory'];assert mem['Total']['Used']==mem['Accounts']==0 and mem['Created']==mem['Released'],mem
+     exits=[]
+     for proc in processes[:2]:proc.terminate();exits.append(proc.wait(timeout=8))
+     result['worker_exit_codes']=exits
+     workers=[json.loads((directory/f'worker-{n}.json').read_text()) for n in range(2)];result['workers']=workers
+     for n,w in enumerate(workers):
+      if exits[n]!=0:
+       assert exits[n]==1 and w['rpc']['LostTerminals']>0 and (directory/f'worker-{n}.log').read_text().strip()=='kanarpc: terminal receipt not acknowledged',w
+      assert all(w['rpc'][k]==0 for k in ['Connections','InFlight','Executing','NativeStreams','IncompleteExchanges']),w
+      assert all(v['Used']==0 for v in w['memory'].values()),w
+     result['status']='DEGRADED' if any(exits) else 'PASS'
+    except Exception as e:result.update(status='FAIL',failure=repr(e),traceback=traceback.format_exc())
+    finally:
+     for proc in reversed(processes):
+      if proc.poll() is None:
+       proc.terminate()
+       try:proc.wait(timeout=5)
+       except subprocess.TimeoutExpired:proc.kill();proc.wait(timeout=3)
+     for log in logs:log.close()
+     result['owned_processes_reaped']=all(proc.poll() is not None for proc in processes);(directory/'result.json').write_text(json.dumps(result,indent=2)+'\n');results.append(result);(out/'summary.json').write_text(json.dumps(results,indent=2)+'\n');print(version,transport,tight,result['status'],flush=True)
+ print(json.dumps({'cases':len(results),'failed':sum(r['status']=='FAIL' for r in results)}))
+ if any(r['status']=='FAIL' for r in results):raise SystemExit(1)
+if __name__=='__main__':main()

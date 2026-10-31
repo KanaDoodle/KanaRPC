@@ -27,6 +27,7 @@ python3 scripts/verify-transports.py --output /tmp/kanarpc-transports
 python3 scripts/verify-governance.py --output /tmp/kanarpc-governance --cross-transport
 python3 scripts/verify-resources.py --output /tmp/kanarpc-resources --duration 180 --cycles 12
 python3 scripts/verify-routing.py --output /tmp/kanarpc-routing
+python3 scripts/verify-pool.py --output /tmp/kanarpc-pool --duration 180 --cycles 12 --tight-duration 30
 python3 scripts/verify-sdk.py --output /tmp/kanarpc-sdk
 python3 scripts/verify-network.py --baseline-source /tmp/kanarpc-r8c-baseline --output /tmp/kanarpc-netem
 ```
@@ -40,6 +41,8 @@ python3 scripts/verify-network.py --baseline-source /tmp/kanarpc-r8c-baseline --
 R7B 的 API、关闭协议与发现新鲜度见 [传输与发现](docs/transport-r7b.md)，R7C 配置与控制边界见 [过载治理](docs/governance-r7c.md)，R8A 已增加 [控制回退与复位](docs/control-r8a.md)并完成[验收](docs/verification/control-r8a/report.md)。R8B 已增加[编码前资源接纳与有限资源长测](docs/resources-r8b.md)，R8C 已增加[连接生命周期与独立 SDK 消费](docs/connections-r8c.md)：去重建连、快照新鲜度门槛、旧 endpoint 退休和未读流引用保护。返回 routing.Stream 包装类型；显式 Close/Wait，无业务重放。
 
 R8D 已定位本轮复现的 Darwin QUIC 建连超时：双栈临时 UDP 端口与 IPv4 socket 冲突，修复为按目标地址族建连并显式回收 socket。Go 1.27.1 / 1.26.0 的普通与 race 四轮各 241 项通过，真实隔离 etcd、零跳过；另有本地 Linux VM 的内核 netem 与取消/drain 验证。步骤、环境边界、长测及失败/退化记录见 [网络验收](docs/network-r8d.md)和 [R8D 报告](docs/verification/network-r8d/report.md)。真实双机、物理 NIC/WAN、多成员 etcd 与小时/天级压力尚未验证；有限资源观察不能写成生产长期无泄漏或普遍性能收益。
+
+R9A 已加入[池级共享字节预算与退休对象统计](docs/pool-r9a.md)：编码、收发采用连接与池两层原子租约，未读流与用户解码保留实际计费；默认数据总额不随连接数放大。终态接收不等于用户消费，关闭 socket 也不等于用户 codec 结束；压力复验还修正固定 quic-go 版本下 reset 后原生流额度不回收的已复现路径。步骤、复现、压力与退化结果见 [R9A 报告](docs/verification/pool-r9a/report.md)。
 
 R7D CampusTrace 迁移按用户要求暂缓；旧版本的功能清单、294 项检查和 R6 性能结果不能计为新版验收。尚未发布稳定版本，CampusTrace 默认依赖未修改。不是生产框架。
 

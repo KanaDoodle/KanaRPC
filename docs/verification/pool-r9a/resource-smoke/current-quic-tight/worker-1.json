@@ -1,0 +1,58 @@
+{
+  "handler_calls": 3099,
+  "heap": {
+    "Goroutines": 3,
+    "FDs": 8,
+    "HeapAlloc": 788968,
+    "HeapObjects": 3489,
+    "StackInuse": 425984,
+    "TotalAlloc": 454863784,
+    "NumGC": 165
+  },
+  "memory": {
+    "Receive": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 198096,
+      "Rejected": 0
+    },
+    "Send": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 197268,
+      "Rejected": 0
+    },
+    "ControlReceive": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 16,
+      "Rejected": 0
+    },
+    "ControlSend": {
+      "Limit": 65536,
+      "Used": 0,
+      "Peak": 164,
+      "Rejected": 0
+    },
+    "Encoding": {
+      "Limit": 16777216,
+      "Used": 0,
+      "Peak": 0,
+      "Rejected": 0
+    }
+  },
+  "rpc": {
+    "Queued": 0,
+    "IncompleteExchanges": 0,
+    "NativeStreams": 0,
+    "Connections": 0,
+    "InFlight": 0,
+    "Executing": 0,
+    "Admitted": 3099,
+    "Completed": 3099,
+    "Rejected": 0,
+    "Canceled": 1159,
+    "Delivered": 654,
+    "LostTerminals": 1285
+  }
+}

@@ -1,0 +1,418 @@
+[
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "strategy": "direct",
+    "version": "baseline",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 130250,
+      "P95": 242875,
+      "P99": 346166,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 18208500,
+      "offered": 1000
+    },
+    "requests_per_second": 54919.405772029546,
+    "p95_ms": 0.242875,
+    "process_triple_cpu_seconds": 0.1069219999999973
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "strategy": "direct",
+    "version": "current",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 137042,
+      "P95": 261709,
+      "P99": 387458,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 19992792,
+      "offered": 1000
+    },
+    "requests_per_second": 50018.02649674943,
+    "p95_ms": 0.261709,
+    "process_triple_cpu_seconds": 0.10687400000000125
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "strategy": "managed",
+    "version": "baseline",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 131666,
+      "P95": 277792,
+      "P99": 383458,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 20034750,
+      "offered": 1000
+    },
+    "requests_per_second": 49913.275683499916,
+    "p95_ms": 0.277792,
+    "process_triple_cpu_seconds": 0.10804299999999856
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "strategy": "managed",
+    "version": "current",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 131083,
+      "P95": 275417,
+      "P99": 363000,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 19248083,
+      "offered": 1000
+    },
+    "requests_per_second": 51953.22567966898,
+    "p95_ms": 0.275417,
+    "process_triple_cpu_seconds": 0.10985300000000109
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "strategy": "direct",
+    "version": "baseline",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 666584,
+      "P95": 1218667,
+      "P99": 1493084,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 89009041,
+      "offered": 1000
+    },
+    "requests_per_second": 11234.813775827559,
+    "p95_ms": 1.218667,
+    "process_triple_cpu_seconds": 0.3981190000000012
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "strategy": "direct",
+    "version": "current",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 627667,
+      "P95": 1121792,
+      "P99": 1293584,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 82918000,
+      "offered": 1000
+    },
+    "requests_per_second": 12060.107576159578,
+    "p95_ms": 1.121792,
+    "process_triple_cpu_seconds": 0.4135590000000011
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "strategy": "managed",
+    "version": "baseline",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 587166,
+      "P95": 1004625,
+      "P99": 1192708,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 76328875,
+      "offered": 1000
+    },
+    "requests_per_second": 13101.201871506688,
+    "p95_ms": 1.004625,
+    "process_triple_cpu_seconds": 0.4081859999999988
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "strategy": "managed",
+    "version": "current",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 642542,
+      "P95": 1120625,
+      "P99": 1349708,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 84947875,
+      "offered": 1000
+    },
+    "requests_per_second": 11771.924842145845,
+    "p95_ms": 1.120625,
+    "process_triple_cpu_seconds": 0.4330930000000013
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "direct",
+    "version": "baseline",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 277042,
+      "P95": 497125,
+      "P99": 697416,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 39301958,
+      "offered": 1000
+    },
+    "requests_per_second": 25444.024951632182,
+    "p95_ms": 0.497125,
+    "process_triple_cpu_seconds": 0.20178499999999921
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "direct",
+    "version": "current",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 323250,
+      "P95": 589541,
+      "P99": 1612542,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 53912541,
+      "offered": 1000
+    },
+    "requests_per_second": 18548.55997234484,
+    "p95_ms": 0.589541,
+    "process_triple_cpu_seconds": 0.2384800000000009
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "managed",
+    "version": "baseline",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 290709,
+      "P95": 534708,
+      "P99": 705917,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 40819209,
+      "offered": 1000
+    },
+    "requests_per_second": 24498.26991992912,
+    "p95_ms": 0.534708,
+    "process_triple_cpu_seconds": 0.20779199999999776
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "managed",
+    "version": "current",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 338375,
+      "P95": 626083,
+      "P99": 763875,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 46920708,
+      "offered": 1000
+    },
+    "requests_per_second": 21312.55137923324,
+    "p95_ms": 0.626083,
+    "process_triple_cpu_seconds": 0.2436480000000003
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "direct",
+    "version": "baseline",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 592375,
+      "P95": 941875,
+      "P99": 1129750,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 78441084,
+      "offered": 1000
+    },
+    "requests_per_second": 12748.421477704209,
+    "p95_ms": 0.941875,
+    "process_triple_cpu_seconds": 0.3925970000000021
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "direct",
+    "version": "current",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 1212458,
+      "P95": 1811667,
+      "P99": 2110542,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 156605958,
+      "offered": 1000
+    },
+    "requests_per_second": 6385.453100066601,
+    "p95_ms": 1.811667,
+    "process_triple_cpu_seconds": 0.8103770000000026
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "version": "baseline",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 583375,
+      "P95": 961792,
+      "P99": 1228500,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 77985458,
+      "offered": 1000
+    },
+    "requests_per_second": 12822.903470028989,
+    "p95_ms": 0.961792,
+    "process_triple_cpu_seconds": 0.39826099999999975
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "version": "current",
+    "cases": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "completed": 1000,
+    "offered": 1000,
+    "median_client_fields": {
+      "P50": 1254667,
+      "P95": 1973875,
+      "P99": 2218916,
+      "completed": 1000,
+      "dials_including_64_warmups": 2,
+      "elapsed_ns": 165524792,
+      "offered": 1000
+    },
+    "requests_per_second": 6041.391068475108,
+    "p95_ms": 1.973875,
+    "process_triple_cpu_seconds": 0.8193609999999989
+  }
+]

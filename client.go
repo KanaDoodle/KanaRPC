@@ -73,7 +73,11 @@ func newRecordClient(conn recordChannel, cfg ClientConfig, single bool, shared .
 	if len(shared) > 0 {
 		res = shared[0]
 	} else {
-		res = newClientResources(cfg)
+		res, err = newClientResources(cfg)
+		if err != nil {
+			cancel()
+			return nil, err
+		}
 	}
 	c := &Client{cfg: cfg, link: newLink(conn, cfg.IO), ctx: ctx, cancel: cancel, pending: make(map[uint64]*pending), single: single, resources: res}
 	c.link.resources = res
@@ -122,7 +126,12 @@ func (c *Client) fail(err error) {
 
 // Close unblocks I/O, cancels local calls, and joins readers/cancel callbacks.
 func (c *Client) stopIO() { c.fail(ErrClosed); c.wg.Wait() }
-func (c *Client) Close()  { c.fail(ErrClosed); c.resources.buffers.clear(); c.wg.Wait() }
+func (c *Client) Close() {
+	c.fail(ErrClosed)
+	c.resources.buffers.clear()
+	c.wg.Wait()
+	c.resources.ownerClosed()
+}
 
 type pending struct {
 	client         *Client
@@ -369,7 +378,7 @@ func (c *Client) handleFrame(f wire.Frame) bool {
 			p.next++
 			p.queue = append(p.queue, receivedChunk{body: f.Payload, release: f.Release})
 			retained = true
-			c.resources.buffers.add(p)
+			c.resources.buffers.add(p, len(f.Payload))
 			p.notifyLocked()
 		}
 		canceled := p.done
@@ -479,9 +488,7 @@ func (s *Stream) take() (json.RawMessage, func(), error) {
 			body := p.queue[0]
 			p.queue[0] = receivedChunk{}
 			p.queue = p.queue[1:]
-			if len(p.queue) == 0 {
-				p.client.resources.buffers.remove(p)
-			}
+			p.client.resources.buffers.consume(p, len(body.body))
 			p.mu.Unlock()
 			p.creditMu.Lock()
 			p.mu.Lock()

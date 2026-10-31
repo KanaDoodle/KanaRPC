@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""Frozen serial equal-offer controls after resource/correctness runs finish."""
+import argparse
+import hashlib
+import importlib.util
+import io
+import json
+import os
+from pathlib import Path
+import shutil
+import statistics
+import subprocess
+import tarfile
+import tempfile
+
+ROOT=Path(__file__).resolve().parents[1]
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--output',required=True,type=Path);p.add_argument('--baseline',default='90af591');p.add_argument('--count',type=int,default=1000);a=p.parse_args();out=a.output.resolve();out.mkdir(parents=True,exist_ok=False);work=Path(tempfile.mkdtemp(prefix='kanarpc-pool-perf-'));env=dict(os.environ,GOWORK='off',GOMAXPROCS='2');roots={};bins={}
+ old=work/'baseline';old.mkdir()
+ with tarfile.open(fileobj=io.BytesIO(subprocess.check_output(['git','archive',a.baseline],cwd=ROOT))) as ar:ar.extractall(old,filter='data')
+ current=work/'current';current.mkdir()
+ for path in ROOT.rglob('*.go'):
+  rel=path.relative_to(ROOT)
+  if any(x in rel.parts for x in ['docs','tools','.git']):continue
+  dst=current/rel;dst.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(path,dst)
+ for n in ['go.mod','go.sum','LICENSE']:shutil.copy2(ROOT/n,current/n)
+ # Identical existing routing driver; the only added baseline test is a local
+ # byte-lease microbenchmark with the same body as the current local subcase.
+ assert (ROOT/'cmd/routing-lab/main.go').read_bytes()==(old/'cmd/routing-lab/main.go').read_bytes()
+ (old/'pool_comparison_test.go').write_text('''package kanarpc
+import "testing"
+func BenchmarkByteLeaseAccounting(b *testing.B) {b.Run("local",func(b *testing.B){budget:=&byteBudget{stats:ByteStats{Limit:1<<20}};b.ReportAllocs();b.RunParallel(func(pb *testing.PB){for pb.Next(){l,e:=budget.lease(24);if e!=nil {b.Fatal(e)};l.release()}})})}
+''')
+ roots={'baseline':old,'current':current};meta={'baseline':subprocess.check_output(['git','rev-parse',a.baseline],cwd=ROOT,text=True).strip(),'go':subprocess.check_output(['go','version'],text=True).strip(),'count':a.count,'GOMAXPROCS':2,'load_average_at_start':os.getloadavg(),'scope':'serial local loopback; equal offered, 8 closed-loop callers; fixed two-endpoint snapshot fixture; same R8D worker for both versions; direct reuse strongest baseline; shared host background work is uncontrolled, three short repeats are exploratory, no causal/production/inference gain claim','versions':{},'driver_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+ for name,root in roots.items():
+  binaries={}
+  for tool in ['routing-lab','transport-lab']:
+   binary=work/(name+'-'+tool);subprocess.run(['go','build','-o',str(binary),'./cmd/'+tool],cwd=root,env=env,check=True);binaries[tool]=binary
+  test=work/(name+'-test');subprocess.run(['go','test','-c','-o',str(test),'.'],cwd=root,env=env,check=True);binaries['test']=test;bins[name]=binaries
+  hashes={str(path.relative_to(root)):hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(root.rglob('*.go')) if not any(x in path.relative_to(root).parts for x in ['tools','docs'])}
+  for n in ['go.mod','go.sum','LICENSE']:hashes[n]=hashlib.sha256((root/n).read_bytes()).hexdigest()
+  meta['versions'][name]={'source_sha256':hashes,'binary_sha256':{n:hashlib.sha256(v.read_bytes()).hexdigest() for n,v in binaries.items()}}
+  with tarfile.open(out/(name+'-source.tar.gz'),'w:gz') as ar:
+   for rel in hashes:ar.add(root/rel,arcname=rel)
+ (out/'metadata.json').write_text(json.dumps(meta,indent=2)+'\n')
+ shutil.copy2(ROOT/'scripts/verify-routing.py',work/'verify-routing.py');meta['controls_sha256']=hashlib.sha256((work/'verify-routing.py').read_bytes()).hexdigest();(out/'metadata.json').write_text(json.dumps(meta,indent=2)+'\n');spec=importlib.util.spec_from_file_location('routing_controls',work/'verify-routing.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+ rows=[]
+ for repeat,seed in enumerate([7,19,41]):
+  for workload in ['unary','stream']:
+   for transport in ['tcp','quic']:
+    for strategy in (['direct','managed'] if repeat%2==0 else ['managed','direct']):
+     for version in (['baseline','current'] if repeat%2==0 else ['current','baseline']):
+      directory=out/f'{seed}-{workload}-{transport}-{strategy}-{version}'
+      try:result=m.case(bins['baseline']['transport-lab'],bins[version]['routing-lab'],directory,transport,workload,strategy,seed,a.count,8)
+      except Exception:result=json.loads((directory/'result.json').read_text())
+      result['version']=version;rows.append(result);print(seed,workload,transport,strategy,version,result['status'],flush=True)
+ summary=[]
+ for transport in ['tcp','quic']:
+  for workload in ['unary','stream']:
+   for strategy in ['direct','managed']:
+    for version in ['baseline','current']:
+     cases=[r for r in rows if r['transport']==transport and r['workload']==workload and r['strategy']==strategy and r['version']==version]
+     v={'transport':transport,'workload':workload,'strategy':strategy,'version':version,'cases':len(cases),'statuses':[r['status'] for r in cases]}
+     if all('client' in r for r in cases):
+      for key in ['throughput_per_second','p95_ms','completed','offered']:
+       if key in cases[0]['client']:v[key]=statistics.median(r['client'][key] for r in cases)
+      v['median_client_fields']={k:statistics.median(r['client'][k] for r in cases) for k,x in cases[0]['client'].items() if isinstance(x,(int,float)) and not isinstance(x,bool)}
+      v['requests_per_second']=statistics.median(r['client']['completed']*1e9/r['client']['elapsed_ns'] for r in cases)
+      v['p95_ms']=statistics.median(r['client']['P95']/1e6 for r in cases)
+      v['process_triple_cpu_seconds']=statistics.median(r['process_triple_cpu_seconds'] for r in cases)
+     summary.append(v)
+ (out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');(out/'results.json').write_text(json.dumps(rows,indent=2)+'\n')
+ for repeat in range(3):
+  for name in (['baseline','current'] if repeat%2==0 else ['current','baseline']):
+   with (out/f'benchmark-{name}-{repeat}.txt').open('wb') as log:subprocess.run([str(bins[name]['test']),'-test.run=^$','-test.bench=^BenchmarkByteLeaseAccounting$','-test.benchtime=1s','-test.count=1'],cwd=roots[name],env=env,stdout=log,stderr=log,check=True)
+ meta['load_average_at_end']=os.getloadavg();(out/'metadata.json').write_text(json.dumps(meta,indent=2)+'\n')
+ if any(r['status']=='FAIL' for r in rows):raise SystemExit(1)
+if __name__=='__main__':main()

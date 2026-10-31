@@ -20,90 +20,194 @@ type byteBudget struct {
 	mu      sync.Mutex
 	stats   ByteStats
 	changed chan struct{}
+	account *MemoryAccount
+	kind    memoryKind
 }
 
 type byteLease struct {
-	budget *byteBudget
-	held   int64
+	budget   *byteBudget
+	held     int64
+	released bool
 }
 
-func (b *byteBudget) lease(n int64) (*byteLease, error) {
-	b.mu.Lock()
-	if n < 0 || n > b.stats.Limit-b.stats.Used {
-		b.stats.Rejected++
+// Attached budgets share the pool mutex, making both levels one reservation.
+func (b *byteBudget) lock() {
+	if b.account != nil {
+		b.account.pool.mu.Lock()
+	} else {
+		b.mu.Lock()
+	}
+}
+func (b *byteBudget) unlock() {
+	if b.account != nil {
+		b.account.pool.mu.Unlock()
+	} else {
 		b.mu.Unlock()
+	}
+}
+func (b *byteBudget) capacityLocked(n int64, absolute bool) bool {
+	used := b.stats.Used
+	if absolute {
+		used = 0
+	}
+	if n < 0 || n > b.stats.Limit-used {
+		return false
+	}
+	if a := b.account; a != nil {
+		p := a.pool
+		if a.released || a.ownerClosed {
+			return false
+		}
+		used = p.classes[b.kind].Used
+		if absolute {
+			used = 0
+		}
+		if n > p.classes[b.kind].Limit-used {
+			return false
+		}
+		if b.kind.data() {
+			used = p.data.Used
+			if absolute {
+				used = 0
+			}
+			if n > p.data.Limit-used {
+				return false
+			}
+		}
+	}
+	return true
+}
+func addBytes(s *ByteStats, n int64) {
+	s.Used += n
+	if s.Used > s.Peak {
+		s.Peak = s.Used
+	}
+}
+func (b *byteBudget) changeLocked(n int64) {
+	addBytes(&b.stats, n)
+	if a := b.account; a != nil {
+		p := a.pool
+		addBytes(&p.classes[b.kind], n)
+		if b.kind.data() {
+			addBytes(&p.data, n)
+		}
+		addBytes(&p.total, n)
+	}
+}
+func (b *byteBudget) rejectedLocked(n int64) {
+	b.stats.Rejected++
+	if a := b.account; a != nil {
+		p := a.pool
+		p.classes[b.kind].Rejected++
+		if b.kind.data() && n > p.data.Limit-p.data.Used {
+			p.data.Rejected++
+		}
+		p.total.Rejected++
+	}
+}
+func (b *byteBudget) leaseLocked(n int64) *byteLease {
+	b.changeLocked(n)
+	if a := b.account; a != nil {
+		a.leases++
+	}
+	return &byteLease{budget: b, held: n}
+}
+func (b *byteBudget) lease(n int64) (*byteLease, error) {
+	b.lock()
+	defer b.unlock()
+	if !b.capacityLocked(n, false) {
+		b.rejectedLocked(n)
 		return nil, &Status{Code: ResourceExhausted, Message: "record byte budget"}
 	}
-	b.stats.Used += n
-	if b.stats.Used > b.stats.Peak {
-		b.stats.Peak = b.stats.Used
-	}
-	b.mu.Unlock()
-	return &byteLease{budget: b, held: n}, nil
+	return b.leaseLocked(n), nil
 }
 func (b *byteBudget) waitLease(ctx context.Context, n int64) (*byteLease, error) {
 	for {
 		if err := deadlineError(ctx); err != nil {
 			return nil, err
 		}
-		b.mu.Lock()
-		if n < 0 || n > b.stats.Limit {
-			b.stats.Rejected++
-			b.mu.Unlock()
+		b.lock()
+		if !b.capacityLocked(n, true) {
+			b.rejectedLocked(n)
+			b.unlock()
 			return nil, &Status{Code: ResourceExhausted, Message: "encoding capacity"}
 		}
-		if n <= b.stats.Limit-b.stats.Used {
-			b.stats.Used += n
-			if b.stats.Used > b.stats.Peak {
-				b.stats.Peak = b.stats.Used
+		if b.capacityLocked(n, false) {
+			l := b.leaseLocked(n)
+			b.unlock()
+			return l, nil
+		}
+		var changed <-chan struct{}
+		if a := b.account; a != nil {
+			p := a.pool
+			if p.changed == nil {
+				p.changed = make(chan struct{})
 			}
-			b.mu.Unlock()
-			return &byteLease{budget: b, held: n}, nil
+			changed = p.changed
+			a.waiters++
+		} else {
+			if b.changed == nil {
+				b.changed = make(chan struct{})
+			}
+			changed = b.changed
 		}
-		if b.changed == nil {
-			b.changed = make(chan struct{})
-		}
-		changed := b.changed
-		b.mu.Unlock()
+		b.unlock()
 		select {
 		case <-ctx.Done():
-			return nil, ctx.Err()
 		case <-changed:
+		}
+		if b.account != nil {
+			b.lock()
+			b.account.waiters--
+			b.unlock()
 		}
 	}
 }
 func (b *byteBudget) notifyLocked() {
+	if b.account != nil {
+		b.account.pool.notifyLocked()
+		return
+	}
 	if b.changed != nil {
 		close(b.changed)
 		b.changed = nil
 	}
 }
 func (b *byteBudget) take(n int64) (func(), error) {
-	lease, err := b.lease(n)
+	l, err := b.lease(n)
 	if err != nil {
 		return nil, err
 	}
-	return lease.release, nil
+	return l.release, nil
 }
 func (l *byteLease) release() {
-	l.budget.mu.Lock()
-	defer l.budget.mu.Unlock()
-	l.budget.stats.Used -= l.held
+	b := l.budget
+	b.lock()
+	defer b.unlock()
+	if l.released {
+		return
+	}
+	l.released = true
+	b.changeLocked(-l.held)
 	l.held = 0
-	l.budget.notifyLocked()
+	if a := b.account; a != nil {
+		a.leases--
+	}
+	b.notifyLocked()
 }
 func (l *byteLease) shrink(n int64) bool {
-	l.budget.mu.Lock()
-	defer l.budget.mu.Unlock()
-	if n < 0 || n > l.held {
+	b := l.budget
+	b.lock()
+	defer b.unlock()
+	if l.released || n < 0 || n > l.held {
 		return false
 	}
-	l.budget.stats.Used -= l.held - n
+	b.changeLocked(n - l.held)
 	l.held = n
-	l.budget.notifyLocked()
+	b.notifyLocked()
 	return true
 }
-func (b *byteBudget) snapshot() ByteStats { b.mu.Lock(); defer b.mu.Unlock(); return b.stats }
+func (b *byteBudget) snapshot() ByteStats { b.lock(); defer b.unlock(); return b.stats }
 func memoryConfig(c MemoryConfig) (MemoryConfig, error) {
 	if c.ReceiveBytes == 0 {
 		c.ReceiveBytes = 16 << 20
@@ -134,14 +238,27 @@ type resources struct {
 func newResources(c MemoryConfig) *resources {
 	return &resources{receive: byteBudget{stats: ByteStats{Limit: c.ReceiveBytes}}, send: byteBudget{stats: ByteStats{Limit: c.SendBytes}}, controlReceive: byteBudget{stats: ByteStats{Limit: c.ControlBytes}}, controlSend: byteBudget{stats: ByteStats{Limit: c.ControlBytes}}, encoding: byteBudget{stats: ByteStats{Limit: c.EncodingBytes}}, buffers: bufferOwner{entries: make(map[*pending]struct{})}}
 }
+func (r *resources) snapshotLocked() MemoryStats {
+	return MemoryStats{r.receive.stats, r.send.stats, r.controlReceive.stats, r.controlSend.stats, r.encoding.stats}
+}
 func (r *resources) snapshot() MemoryStats {
+	if a := r.encoding.account; a != nil {
+		a.pool.mu.Lock()
+		defer a.pool.mu.Unlock()
+		return r.snapshotLocked()
+	}
 	return MemoryStats{r.receive.snapshot(), r.send.snapshot(), r.controlReceive.snapshot(), r.controlSend.snapshot(), r.encoding.snapshot()}
 }
-func newClientResources(c ClientConfig) *resources {
+func newClientResources(c ClientConfig) (*resources, error) {
 	r := newResources(c.Memory)
 	r.feedback = newFeedback(c.Feedback, c.MaxInFlight)
 	r.admission = newAdmission(c.MaxInFlight)
-	return r
+	if c.MemoryAccount != nil {
+		if err := c.MemoryAccount.bind(r); err != nil {
+			return nil, err
+		}
+	}
+	return r, nil
 }
 func dataKind(kind wire.Kind) bool { return kind == wire.Open || kind == wire.Data }
 func (r *resources) reserveRead(kind wire.Kind, n uint32) (func(), error) {
@@ -175,10 +292,57 @@ func (s *Server) MemoryStats() MemoryStats     { return s.resources.snapshot() }
 type bufferOwner struct {
 	mu      sync.Mutex
 	entries map[*pending]struct{}
+	stats   BufferStats
+	account *MemoryAccount
 }
 
-func (b *bufferOwner) add(p *pending)    { b.mu.Lock(); b.entries[p] = struct{}{}; b.mu.Unlock() }
-func (b *bufferOwner) remove(p *pending) { b.mu.Lock(); delete(b.entries, p); b.mu.Unlock() }
+// Callers hold pending.mu before bufferOwner.mu. Pool snapshots never take
+// either lock. Unread is a subset of receive, never a second byte charge.
+func (b *bufferOwner) changeLocked(streams, chunks int, bytes int64) {
+	b.stats.change(streams, chunks, bytes)
+	if a := b.account; a != nil {
+		a.pool.mu.Lock()
+		a.unread.change(streams, chunks, bytes)
+		a.pool.unread.change(streams, chunks, bytes)
+		a.pool.mu.Unlock()
+	}
+}
+func (b *bufferOwner) add(p *pending, n int) {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	streams := 0
+	if _, ok := b.entries[p]; !ok {
+		b.entries[p] = struct{}{}
+		streams = 1
+	}
+	b.changeLocked(streams, 1, int64(n))
+}
+func (b *bufferOwner) consume(p *pending, n int) {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	streams := 0
+	if len(p.queue) == 0 {
+		delete(b.entries, p)
+		streams = -1
+	}
+	b.changeLocked(streams, -1, -int64(n))
+}
+func (b *bufferOwner) drop(p *pending) {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	if _, ok := b.entries[p]; !ok {
+		return
+	}
+	delete(b.entries, p)
+	var bytes int64
+	for _, chunk := range p.queue {
+		bytes += int64(len(chunk.body))
+	}
+	b.changeLocked(-1, -len(p.queue), -bytes)
+}
+func (b *bufferOwner) snapshot() BufferStats   { b.mu.Lock(); defer b.mu.Unlock(); return b.stats }
+func (c *Client) BufferStats() BufferStats     { return c.resources.buffers.snapshot() }
+func (c *QUICClient) BufferStats() BufferStats { return c.resources.buffers.snapshot() }
 func (b *bufferOwner) clear() {
 	b.mu.Lock()
 	all := make([]*pending, 0, len(b.entries))
@@ -199,11 +363,11 @@ type receivedChunk struct {
 }
 
 func (p *pending) dropLocked(err error) {
+	p.client.resources.buffers.drop(p)
 	for _, chunk := range p.queue {
 		chunk.release()
 	}
 	p.queue = nil
-	p.client.resources.buffers.remove(p)
 	p.discard = true
 	p.err = err
 	p.notifyLocked()

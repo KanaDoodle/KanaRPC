@@ -1,0 +1,4 @@
+current quic False PASS
+current tcp True DEGRADED
+current quic True DEGRADED
+{"cases": 3, "failed": 0}

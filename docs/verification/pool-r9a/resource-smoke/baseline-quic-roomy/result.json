@@ -1,0 +1,66 @@
+{
+  "version": "baseline",
+  "transport": "quic",
+  "tight": false,
+  "exit_code": 0,
+  "client": {
+    "cycles": 1,
+    "duration_ns": 2000000000,
+    "elapsed_ns": 2017568083,
+    "final_heap": {
+      "fds": 8,
+      "gc": 1060,
+      "goroutines": 5,
+      "heap_alloc": 1027728,
+      "heap_objects": 3986,
+      "total_alloc": 1705223032
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "final_routing": {
+      "Ready": false,
+      "Closed": true,
+      "Endpoints": 1,
+      "Connections": 0,
+      "Dialing": 0,
+      "Retiring": 0,
+      "Closing": 0,
+      "ActiveCalls": 0,
+      "PeakConnections": 2,
+      "PeakCalls": 8,
+      "Dials": 3,
+      "DialFailures": 0,
+      "Coalesced": 6,
+      "Reused": 10497,
+      "Retired": 3,
+      "Rejected": 0,
+      "SnapshotErrors": 0,
+      "Revision": 4,
+      "ClusterID": 1
+    },
+    "initial_heap": {
+      "fds": 6,
+      "gc": 0,
+      "goroutines": 2,
+      "heap_alloc": 1705032,
+      "heap_objects": 4679,
+      "total_alloc": 1705032
+    },
+    "offered": 10504,
+    "outcomes": {
+      "canceled": 2351,
+      "status_resource_exhausted": 4131,
+      "success": 4022
+    },
+    "scope": "local loopback, real sockets, two processes and snapshot fixture; fixed 16KiB payload; retirement/GC observations; mixed load intentionally includes cancellation and tight-budget rejection; no throughput/RSS/dual-host/inference claim",
+    "supported": false,
+    "tight": false,
+    "transport": "quic",
+    "wait_error": "<nil>"
+  },
+  "phases": 1,
+  "status": "FAIL",
+  "failure": "AssertionError()",
+  "owned_processes_reaped": true
+}

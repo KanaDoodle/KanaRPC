@@ -55,7 +55,10 @@ func ExampleClient() {
 			panic(err)
 		}
 	}()
-	client, err := routing.New(ctx, fixedSource{rpc.Endpoint{ID: "local", Address: listener.Addr().String(), Transport: rpc.TCP}}, routing.Config{Transport: rpc.TCP, MaxConnections: 2})
+	client, err := routing.New(ctx, fixedSource{rpc.Endpoint{ID: "local", Address: listener.Addr().String(), Transport: rpc.TCP}}, routing.Config{
+		Transport: rpc.TCP, MaxConnections: 2,
+		Memory: rpc.MemoryPoolConfig{DataBytes: 8 << 20, Memory: rpc.MemoryConfig{EncodingBytes: 4 << 20, ReceiveBytes: 4 << 20, SendBytes: 4 << 20}},
+	})
 	if err != nil {
 		panic(err)
 	}
@@ -85,8 +88,15 @@ func ExampleClient() {
 		}
 		fmt.Println(value)
 	}
+	client.Close()
+	if err = client.Wait(ctx); err != nil {
+		panic(err)
+	}
+	memory := client.MemoryStats()
+	fmt.Println("pool released:", memory.Accounts == 0 && memory.Total.Used == 0 && memory.Created == memory.Released)
 	// Output:
 	// 42
 	// 0
 	// 1
+	// pool released: true
 }

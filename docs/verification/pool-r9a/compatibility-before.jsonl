@@ -1,0 +1,14 @@
+{"Time":"2026-10-31T18:21:31.867603+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC/routing"}
+{"Time":"2026-10-31T18:21:32.321061+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolEncodingAdmissionAcrossEndpoints"}
+{"Time":"2026-10-31T18:21:32.32114+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolEncodingAdmissionAcrossEndpoints","Output":"=== RUN   TestPoolEncodingAdmissionAcrossEndpoints\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:21:32.326637+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolEncodingAdmissionAcrossEndpoints","Output":"    pool_memory_test.go:86: cross-connection encoding exceeded intended pool quota: supported=false used=4096 encoders=2\n","OutputType":"error"}
+{"Time":"2026-10-31T18:21:32.326892+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolEncodingAdmissionAcrossEndpoints","Output":"--- FAIL: TestPoolEncodingAdmissionAcrossEndpoints (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:21:32.326926+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolEncodingAdmissionAcrossEndpoints","Elapsed":0.01}
+{"Time":"2026-10-31T18:21:32.327188+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolReceiveAdmissionAcrossCompletedUnreadStreams"}
+{"Time":"2026-10-31T18:21:32.327202+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolReceiveAdmissionAcrossCompletedUnreadStreams","Output":"=== RUN   TestPoolReceiveAdmissionAcrossCompletedUnreadStreams\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:21:32.332899+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolReceiveAdmissionAcrossCompletedUnreadStreams","Output":"    pool_memory_test.go:125: unread cross-connection quota exceeded: supported=false receive=1216 quota=1024\n","OutputType":"error"}
+{"Time":"2026-10-31T18:21:32.333005+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolReceiveAdmissionAcrossCompletedUnreadStreams","Output":"--- FAIL: TestPoolReceiveAdmissionAcrossCompletedUnreadStreams (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:21:32.333019+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolReceiveAdmissionAcrossCompletedUnreadStreams","Elapsed":0.01}
+{"Time":"2026-10-31T18:21:32.333038+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:21:32.33445+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC/routing\t0.467s\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:21:32.334486+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC/routing","Elapsed":0.467}

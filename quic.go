@@ -208,8 +208,13 @@ func (c *nativeChannel) Read(b []byte) (int, error) {
 	n, err := c.Stream.Read(b)
 	return n, nativeError(err)
 }
+func allowQUICWrite(n int) int { return n }
 func (c *nativeChannel) Write(b []byte) (int, error) {
-	n, err := c.Stream.Write(b)
+	// quic-go v0.64.1 can rebuffer a tail after a concurrent reset in
+	// Write's small-frame optimization, retaining the native stream credit.
+	// A non-nil identity limiter disables that path; it never withholds bytes.
+	// See the saturated recovery reproduction and R9A instrumentation evidence.
+	n, err := c.Stream.WriteWithLimit(b, allowQUICWrite)
 	return n, nativeError(err)
 }
 
@@ -322,7 +327,13 @@ func DialQUIC(ctx context.Context, address string, security TLSOptions, options 
 		return nil, nativeError(err)
 	}
 	owner, stop := context.WithCancel(context.Background())
-	res := newClientResources(cfg)
+	res, err := newClientResources(cfg)
+	if err != nil {
+		stop()
+		_ = conn.CloseWithError(nativeShutdown, "resource account rejected")
+		_ = packet.Close()
+		return nil, err
+	}
 	client := &QUICClient{conn: conn, packet: packet, cfg: cfg, children: make(map[*Client]struct{}), ctx: owner, cancel: stop, resources: res}
 	client.stopConn = context.AfterFunc(conn.Context(), func() { res.admission.close(); stop(); _ = packet.Close() })
 	return client, nil
@@ -493,6 +504,7 @@ func (c *QUICClient) Close() {
 		if c.packet != nil {
 			_ = c.packet.Close()
 		}
+		c.resources.ownerClosed()
 	})
 }
 

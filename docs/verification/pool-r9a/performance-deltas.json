@@ -1,0 +1,98 @@
+[
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "strategy": "direct",
+    "old_rps": 54919.405772029546,
+    "new_rps": 50018.02649674943,
+    "rps_delta_percent": -8.924676453393799,
+    "old_p95_ms": 0.242875,
+    "new_p95_ms": 0.261709,
+    "old_cpu_s": 0.1069219999999973,
+    "new_cpu_s": 0.10687400000000125
+  },
+  {
+    "transport": "tcp",
+    "workload": "unary",
+    "strategy": "managed",
+    "old_rps": 49913.275683499916,
+    "new_rps": 51953.22567966898,
+    "rps_delta_percent": 4.086988818574833,
+    "old_p95_ms": 0.277792,
+    "new_p95_ms": 0.275417,
+    "old_cpu_s": 0.10804299999999856,
+    "new_cpu_s": 0.10985300000000109
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "strategy": "direct",
+    "old_rps": 11234.813775827559,
+    "new_rps": 12060.107576159578,
+    "rps_delta_percent": 7.345860971079854,
+    "old_p95_ms": 1.218667,
+    "new_p95_ms": 1.121792,
+    "old_cpu_s": 0.3981190000000012,
+    "new_cpu_s": 0.4135590000000011
+  },
+  {
+    "transport": "tcp",
+    "workload": "stream",
+    "strategy": "managed",
+    "old_rps": 13101.201871506688,
+    "new_rps": 11771.924842145845,
+    "rps_delta_percent": -10.146222021445507,
+    "old_p95_ms": 1.004625,
+    "new_p95_ms": 1.120625,
+    "old_cpu_s": 0.4081859999999988,
+    "new_cpu_s": 0.4330930000000013
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "direct",
+    "old_rps": 25444.024951632182,
+    "new_rps": 18548.55997234484,
+    "rps_delta_percent": -27.1005275006422,
+    "old_p95_ms": 0.497125,
+    "new_p95_ms": 0.589541,
+    "old_cpu_s": 0.20178499999999921,
+    "new_cpu_s": 0.2384800000000009
+  },
+  {
+    "transport": "quic",
+    "workload": "unary",
+    "strategy": "managed",
+    "old_rps": 24498.26991992912,
+    "new_rps": 21312.55137923324,
+    "rps_delta_percent": -13.003851092784025,
+    "old_p95_ms": 0.534708,
+    "new_p95_ms": 0.626083,
+    "old_cpu_s": 0.20779199999999776,
+    "new_cpu_s": 0.2436480000000003
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "direct",
+    "old_rps": 12748.421477704209,
+    "new_rps": 6385.453100066601,
+    "rps_delta_percent": -49.91181369996153,
+    "old_p95_ms": 0.941875,
+    "new_p95_ms": 1.811667,
+    "old_cpu_s": 0.3925970000000021,
+    "new_cpu_s": 0.8103770000000026
+  },
+  {
+    "transport": "quic",
+    "workload": "stream",
+    "strategy": "managed",
+    "old_rps": 12822.903470028989,
+    "new_rps": 6041.391068475108,
+    "rps_delta_percent": -52.88593505678594,
+    "old_p95_ms": 0.961792,
+    "new_p95_ms": 1.973875,
+    "old_cpu_s": 0.39826099999999975,
+    "new_cpu_s": 0.8193609999999989
+  }
+]

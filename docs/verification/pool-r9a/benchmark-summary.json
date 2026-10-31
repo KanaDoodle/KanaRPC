@@ -1,0 +1,68 @@
+{
+  "baseline/local": {
+    "median_ns": 57.82,
+    "bytes_per_op": 16,
+    "allocations_per_op": 1,
+    "samples": [
+      {
+        "ns": 57.77,
+        "B/op": 16,
+        "allocs/op": 1
+      },
+      {
+        "ns": 57.82,
+        "B/op": 16,
+        "allocs/op": 1
+      },
+      {
+        "ns": 58.07,
+        "B/op": 16,
+        "allocs/op": 1
+      }
+    ]
+  },
+  "current/local": {
+    "median_ns": 67.37,
+    "bytes_per_op": 24,
+    "allocations_per_op": 1,
+    "samples": [
+      {
+        "ns": 67.82,
+        "B/op": 24,
+        "allocs/op": 1
+      },
+      {
+        "ns": 67.2,
+        "B/op": 24,
+        "allocs/op": 1
+      },
+      {
+        "ns": 67.37,
+        "B/op": 24,
+        "allocs/op": 1
+      }
+    ]
+  },
+  "current/shared": {
+    "median_ns": 76.39,
+    "bytes_per_op": 24,
+    "allocations_per_op": 1,
+    "samples": [
+      {
+        "ns": 76.39,
+        "B/op": 24,
+        "allocs/op": 1
+      },
+      {
+        "ns": 75.93,
+        "B/op": 24,
+        "allocs/op": 1
+      },
+      {
+        "ns": 76.44,
+        "B/op": 24,
+        "allocs/op": 1
+      }
+    ]
+  }
+}

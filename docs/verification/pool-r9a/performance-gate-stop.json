@@ -1,0 +1,8 @@
+[
+  {
+    "pid": 28547,
+    "command": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -",
+    "owned_log_fd": "/Users/kana/Projects/KanaRPC/docs/verification/pool-r9a/performance-fixed-queue.log",
+    "action": "terminated waiting performance gate after owned resource runner setup crash; no benchmark process started"
+  }
+]

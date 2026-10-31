@@ -1,0 +1,182 @@
+{
+  "version": "baseline",
+  "transport": "tcp",
+  "tight": false,
+  "exit_code": 0,
+  "client": {
+    "cycles": 1,
+    "duration_ns": 3000000000,
+    "elapsed_ns": 3011544125,
+    "final_heap": {
+      "fds": 8,
+      "gc": 3645,
+      "goroutines": 5,
+      "heap_alloc": 1019728,
+      "heap_objects": 3891,
+      "total_alloc": 7474976144
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "final_routing": {
+      "Ready": false,
+      "Closed": true,
+      "Endpoints": 1,
+      "Connections": 0,
+      "Dialing": 0,
+      "Retiring": 0,
+      "Closing": 0,
+      "ActiveCalls": 0,
+      "PeakConnections": 2,
+      "PeakCalls": 8,
+      "Dials": 3,
+      "DialFailures": 0,
+      "Coalesced": 5,
+      "Reused": 44411,
+      "Retired": 3,
+      "Rejected": 0,
+      "SnapshotErrors": 0,
+      "Revision": 4,
+      "ClusterID": 1
+    },
+    "initial_heap": {
+      "fds": 6,
+      "gc": 0,
+      "goroutines": 2,
+      "heap_alloc": 1704848,
+      "heap_objects": 4674,
+      "total_alloc": 1704848
+    },
+    "offered": 44417,
+    "outcomes": {
+      "canceled": 11105,
+      "success": 33312
+    },
+    "scope": "local loopback, real sockets, two processes and snapshot fixture; fixed 16KiB payload; retirement/GC observations; mixed load intentionally includes cancellation and tight-budget rejection; no throughput/RSS/dual-host/inference claim",
+    "supported": false,
+    "tight": false,
+    "transport": "tcp",
+    "wait_error": "<nil>"
+  },
+  "phases": 1,
+  "workers": [
+    {
+      "handler_calls": 22210,
+      "heap": {
+        "Goroutines": 3,
+        "FDs": 8,
+        "HeapAlloc": 282360,
+        "HeapObjects": 1312,
+        "StackInuse": 458752,
+        "TotalAlloc": 3326098784,
+        "NumGC": 1085
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 264156,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 115020,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 82,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 0,
+          "Rejected": 0
+        }
+      },
+      "rpc": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 22210,
+        "Completed": 22210,
+        "Rejected": 0,
+        "Canceled": 10706,
+        "Delivered": 11504,
+        "LostTerminals": 0
+      }
+    },
+    {
+      "handler_calls": 22209,
+      "heap": {
+        "Goroutines": 3,
+        "FDs": 8,
+        "HeapAlloc": 295064,
+        "HeapObjects": 1283,
+        "StackInuse": 425984,
+        "TotalAlloc": 3341437528,
+        "NumGC": 1071
+      },
+      "memory": {
+        "Receive": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 231126,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 131440,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 82,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 16777216,
+          "Used": 0,
+          "Peak": 0,
+          "Rejected": 0
+        }
+      },
+      "rpc": {
+        "Queued": 0,
+        "IncompleteExchanges": 0,
+        "NativeStreams": 0,
+        "Connections": 0,
+        "InFlight": 0,
+        "Executing": 0,
+        "Admitted": 22209,
+        "Completed": 22209,
+        "Rejected": 0,
+        "Canceled": 399,
+        "Delivered": 21810,
+        "LostTerminals": 0
+      }
+    }
+  ],
+  "status": "PASS",
+  "owned_processes_reaped": true
+}

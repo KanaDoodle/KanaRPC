@@ -1,0 +1,21 @@
+{
+  "scope": "isolated diagnostic copy only; original Go module cache and root dependencies were not edited; debug methods added read-only state snapshots after the workload stalled; file modes on copied module directory were made writable after setup failure; no debug methods ship in production",
+  "quic_go": "v0.64.1",
+  "files_sha256": {
+    "quic-go/debug_r9a.go": "f09ef19b09b6df5ed2fe264e8248acdf9499338cb157f2a04354e265d6338aa8",
+    "quic-go/send_stream.go": "5ec5766135d5f695f1dd919302d8011a9ead9deb12dedd8d0b9f54775cef7d85",
+    "quic-go/receive_stream.go": "f9db2677411dcf00dbbe4366a4bcf75900d755e9e98cd657f661ecc8a070de7b",
+    "quic-go/streams_map_incoming.go": "223ce3cab68ecc7b72c2ad28e6222dbf94702837cd23891087d1dd55ea6f68b0",
+    "quic-go/LICENSE": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e",
+    "rpc/debug_r9a.go": "84f1fd00ff88bd87a6578a64f087d30dcb29859940ec0357910b5e4246cfe2f2",
+    "rpc/routing/pool_recovery_test.go": "1ad659b24dcb35d86c9cdafbd266631d9cf1f3d737c35e0da86d3529a3454eb7",
+    "r8d-local-budget/pool_recovery_test.go": "5067131105874981cf203b93b058904da072db7932d3c005b210787e767325eb",
+    "r8d-local-budget/lifecycle_test.go": "a9b10f63c9c1d4d59aa2ce47770a5e2510c3ff72a235b00b80d23826d710b20d",
+    "rpc/LICENSE": "20b067f86de375aae6db0f283ab2e65de24d537733b89bd58432c101259d84cf",
+    "rpc/quic-before.go": "74e51a4490029d08f0af0b3743e362fefdc633763c7a20a3986cc080d5cb0b1b",
+    "rpc/quic-probe.go": "4130f357264b435434d641d20885c52513e824447bd4fd618c0637f7141e16e9"
+  },
+  "observed": "64 incoming native streams; receive halves completed; send reset+cancellation set, no outstanding/queued RESET, but nextFrame retained; native credit exhausted while framework counters zero; identity limiter bypasses canBufferStreamFrame",
+  "baseline_control": "R8D local receive=24576 had three successful recovery trials; that finite negative result does not refute the captured shared-pressure failure or prove baseline immunity",
+  "quic_adapter_note": "rpc/quic-before.go matches the failed Write path; rpc/quic-probe.go contains the successful identity limiter path; all dependency instrumentation is observational and invoked only after a blocked recovery call"
+}

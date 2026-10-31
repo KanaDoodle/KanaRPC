@@ -1,0 +1,38 @@
+{
+  "same_go_source": true,
+  "first_run_setup_error": "resources-recovery-fixed.log",
+  "completed_cases": [
+    {
+      "source_directory": "resources-recovery-fixed",
+      "version": "current",
+      "transport": "tcp",
+      "tight": false,
+      "status": "PASS",
+      "result_sha256": "36296c9dd22a0a295fcd6887a8e39d8d7978b0deb6a900b6e8a050d104b18035"
+    },
+    {
+      "source_directory": "resources-recovery-resumed",
+      "version": "current",
+      "transport": "quic",
+      "tight": false,
+      "status": "PASS",
+      "result_sha256": "bf39e91ff76a2e9162669c682e55aec3bc8b6a8a133b1da4929444ba651b83e1"
+    },
+    {
+      "source_directory": "resources-recovery-resumed",
+      "version": "current",
+      "transport": "tcp",
+      "tight": true,
+      "status": "DEGRADED",
+      "result_sha256": "fef1c4f018a714d9d0bcc5644aaf2ac7a585cf99da5008b8e9dc470036f9c336"
+    },
+    {
+      "source_directory": "resources-recovery-resumed",
+      "version": "current",
+      "transport": "quic",
+      "tight": true,
+      "status": "DEGRADED",
+      "result_sha256": "affadbfb1db2a8909412db5cceb9356568ee884006d3904557c35b9431de4f35"
+    }
+  ]
+}

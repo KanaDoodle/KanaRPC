@@ -1,0 +1,9 @@
+{"Time":"2026-10-31T18:15:04.433995+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC/routing"}
+{"Time":"2026-10-31T18:15:04.902566+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolEncodingAdmissionAcrossEndpoints"}
+{"Time":"2026-10-31T18:15:04.902632+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolEncodingAdmissionAcrossEndpoints","Output":"=== RUN   TestPoolEncodingAdmissionAcrossEndpoints\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:15:04.907792+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolEncodingAdmissionAcrossEndpoints","Output":"    pool_memory_test.go:83: cross-connection encoding exceeded intended pool quota: supported=false used=4096 encoders=2\n","OutputType":"error"}
+{"Time":"2026-10-31T18:15:04.90791+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolEncodingAdmissionAcrossEndpoints","Output":"--- FAIL: TestPoolEncodingAdmissionAcrossEndpoints (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:15:04.907921+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC/routing","Test":"TestPoolEncodingAdmissionAcrossEndpoints","Elapsed":0.01}
+{"Time":"2026-10-31T18:15:04.90794+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:15:04.908539+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC/routing","Output":"FAIL\tgithub.com/KanaDoodle/KanaRPC/routing\t0.474s\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:15:04.908554+08:00","Action":"fail","Package":"github.com/KanaDoodle/KanaRPC/routing","Elapsed":0.475}

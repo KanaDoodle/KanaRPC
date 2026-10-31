@@ -15,6 +15,8 @@ type IOConfig struct {
 	ReadTimeout time.Duration
 }
 type ClientConfig struct {
+	// MemoryAccount is an optional single-owner share of a MemoryPool.
+	MemoryAccount  *MemoryAccount
 	Feedback       *FeedbackConfig
 	Memory         MemoryConfig
 	IO             IOConfig
@@ -81,6 +83,11 @@ func normalizeClient(c ClientConfig) (ClientConfig, error) {
 	}
 	if c.Timeout <= 0 || c.MaxInFlight < 1 || c.MaxInFlight > 4096 || c.StreamWindow < 1 || c.StreamWindow > 32 || c.ControlTimeout <= 0 {
 		return c, errors.New("kanarpc: invalid client bounds")
+	}
+	if c.MemoryAccount != nil {
+		if err := c.MemoryAccount.pool.CheckClient(c); err != nil {
+			return c, err
+		}
 	}
 	return c, nil
 }

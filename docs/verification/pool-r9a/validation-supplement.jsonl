@@ -1,0 +1,44 @@
+{"Time":"2026-10-31T18:38:07.895161+08:00","Action":"start","Package":"github.com/KanaDoodle/KanaRPC"}
+{"Time":"2026-10-31T18:38:08.42914+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound"}
+{"Time":"2026-10-31T18:38:08.429259+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"=== RUN   TestPoolValidationBindingAndAccountBound\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.429519+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"--- PASS: TestPoolValidationBindingAndAccountBound (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.429563+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Elapsed":0}
+{"Time":"2026-10-31T18:38:08.429649+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound"}
+{"Time":"2026-10-31T18:38:08.429664+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"=== RUN   TestPoolValidationBindingAndAccountBound\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.429729+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"--- PASS: TestPoolValidationBindingAndAccountBound (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.429768+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Elapsed":0}
+{"Time":"2026-10-31T18:38:08.429866+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound"}
+{"Time":"2026-10-31T18:38:08.429881+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"=== RUN   TestPoolValidationBindingAndAccountBound\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.429905+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"--- PASS: TestPoolValidationBindingAndAccountBound (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.429914+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Elapsed":0}
+{"Time":"2026-10-31T18:38:08.429992+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound"}
+{"Time":"2026-10-31T18:38:08.430003+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"=== RUN   TestPoolValidationBindingAndAccountBound\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430033+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"--- PASS: TestPoolValidationBindingAndAccountBound (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430055+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Elapsed":0}
+{"Time":"2026-10-31T18:38:08.430155+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound"}
+{"Time":"2026-10-31T18:38:08.430173+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"=== RUN   TestPoolValidationBindingAndAccountBound\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430213+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"--- PASS: TestPoolValidationBindingAndAccountBound (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430238+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Elapsed":0}
+{"Time":"2026-10-31T18:38:08.430342+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound"}
+{"Time":"2026-10-31T18:38:08.430359+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"=== RUN   TestPoolValidationBindingAndAccountBound\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430379+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"--- PASS: TestPoolValidationBindingAndAccountBound (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430394+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Elapsed":0}
+{"Time":"2026-10-31T18:38:08.430481+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound"}
+{"Time":"2026-10-31T18:38:08.430497+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"=== RUN   TestPoolValidationBindingAndAccountBound\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430522+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"--- PASS: TestPoolValidationBindingAndAccountBound (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430535+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Elapsed":0}
+{"Time":"2026-10-31T18:38:08.430627+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound"}
+{"Time":"2026-10-31T18:38:08.430635+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"=== RUN   TestPoolValidationBindingAndAccountBound\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430708+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"--- PASS: TestPoolValidationBindingAndAccountBound (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.43072+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Elapsed":0}
+{"Time":"2026-10-31T18:38:08.430837+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound"}
+{"Time":"2026-10-31T18:38:08.430846+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"=== RUN   TestPoolValidationBindingAndAccountBound\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430896+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"--- PASS: TestPoolValidationBindingAndAccountBound (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.430908+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Elapsed":0}
+{"Time":"2026-10-31T18:38:08.430988+08:00","Action":"run","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound"}
+{"Time":"2026-10-31T18:38:08.430994+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"=== RUN   TestPoolValidationBindingAndAccountBound\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.43103+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Output":"--- PASS: TestPoolValidationBindingAndAccountBound (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:08.431044+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Test":"TestPoolValidationBindingAndAccountBound","Elapsed":0}
+{"Time":"2026-10-31T18:38:08.431106+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-31T18:38:09.43262+08:00","Action":"output","Package":"github.com/KanaDoodle/KanaRPC","Output":"ok  \tgithub.com/KanaDoodle/KanaRPC\t1.537s\n"}
+{"Time":"2026-10-31T18:38:09.432664+08:00","Action":"pass","Package":"github.com/KanaDoodle/KanaRPC","Elapsed":1.538}

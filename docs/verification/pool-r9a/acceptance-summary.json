@@ -1,0 +1,71 @@
+{
+  "matrix": {
+    "recovery-final-go-local": {
+      "pass": 266,
+      "skip": 0,
+      "fail": 0
+    },
+    "recovery-final-go-race": {
+      "pass": 266,
+      "skip": 0,
+      "fail": 0
+    },
+    "recovery-final-go-minimum": {
+      "pass": 266,
+      "skip": 0,
+      "fail": 0
+    },
+    "recovery-final-go-minimum-race": {
+      "pass": 266,
+      "skip": 0,
+      "fail": 0
+    }
+  },
+  "final_performance": {
+    "cases": 48,
+    "offered": 48000,
+    "status": "PASS",
+    "scope": "loopback fixtures; preserve throughput/p95/CPU regressions"
+  },
+  "resources": {
+    "cases": 4,
+    "phases": 48,
+    "current_active_seconds": 480,
+    "status": "2 PASS / 2 DEGRADED",
+    "source_identity_verified": true,
+    "scope": "real local sockets, fixed snapshots, finite observations, not real dual-host or inference"
+  },
+  "build_vet_python": [
+    {
+      "name": "vet",
+      "command": [
+        "go",
+        "vet",
+        "./..."
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "build",
+      "command": [
+        "go",
+        "build",
+        "-mod=readonly",
+        "./..."
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "python",
+      "command": [
+        "python3",
+        "-m",
+        "py_compile",
+        "scripts/compare-pool.py",
+        "scripts/verify-pool.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "CampusTrace": "not modified by this task"
+}

@@ -1,0 +1,9 @@
+{
+  "version": "current",
+  "transport": "quic",
+  "tight": true,
+  "exit_code": 1,
+  "status": "FAIL",
+  "failure": "RuntimeError('client failed; preserve log and continue matrix')",
+  "owned_processes_reaped": true
+}

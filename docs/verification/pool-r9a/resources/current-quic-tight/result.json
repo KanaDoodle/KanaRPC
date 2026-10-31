@@ -1,0 +1,10 @@
+{
+  "version": "current",
+  "transport": "quic",
+  "tight": true,
+  "exit_code": 1,
+  "status": "FAIL",
+  "failure": "RuntimeError('client failed; preserve log and continue matrix')",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/kana/Projects/KanaRPC/scripts/verify-pool.py\", line 56, in main\n    if code:raise RuntimeError('client failed; preserve log and continue matrix')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: client failed; preserve log and continue matrix\n",
+  "owned_processes_reaped": true
+}

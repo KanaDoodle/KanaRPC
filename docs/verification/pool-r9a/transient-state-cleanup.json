@@ -1,0 +1,82 @@
+[
+  {
+    "path": "complete-go-minimum-race/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "go-race-round1/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "final-go-minimum-race/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "complete-go-local/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "complete-go-minimum/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "final-go-minimum/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "complete-go-race/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "go-local/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "final-go-local/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "go-minimum/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "final-go-race/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "go-minimum-race/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; membership, command, full test log and etcd log retained"
+  },
+  {
+    "path": "recovery-final-go-local/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; complete test/etcd logs and membership retained"
+  },
+  {
+    "path": "recovery-final-go-minimum/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; complete test/etcd logs and membership retained"
+  },
+  {
+    "path": "recovery-final-go-minimum-race/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; complete test/etcd logs and membership retained"
+  },
+  {
+    "path": "recovery-final-go-race/data",
+    "logical_bytes": 80891904,
+    "reason": "owned completed etcd transient state; complete test/etcd logs and membership retained"
+  }
+]

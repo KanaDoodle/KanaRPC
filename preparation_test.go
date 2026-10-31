@@ -244,7 +244,8 @@ func FuzzPreparedOpen(f *testing.F) {
 		}
 		cfg, err := normalizeClient(ClientConfig{IO: IOConfig{MaxFrameBytes: 1024}, Memory: MemoryConfig{EncodingBytes: 2048}})
 		require(t, err)
-		res := newClientResources(cfg)
+		res, err := newClientResources(cfg)
+		require(t, err)
 		p, err := prepareRequest(context.Background(), context.Background(), cfg, res, "/demo/echo", input, streaming)
 		if err == nil {
 			body, e := p.payload()

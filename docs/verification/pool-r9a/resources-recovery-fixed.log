@@ -1,0 +1,9 @@
+current tcp False PASS
+Traceback (most recent call last):
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-pool.py", line 91, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/kana/Projects/KanaRPC/scripts/verify-pool.py", line 45, in main
+    worker=workers[version]
+           ~~~~~~~^^^^^^^^^
+TypeError: list indices must be integers or slices, not str

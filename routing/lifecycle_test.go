@@ -26,7 +26,7 @@ type serverFixture struct {
 	started, canceled chan struct{}
 }
 
-func serve(t testing.TB, kind rpc.Transport, credentials testcert.Credentials, base int) *serverFixture {
+func serve(t testing.TB, kind rpc.Transport, credentials testcert.Credentials, base int, registrations ...func(*rpc.Server)) *serverFixture {
 	t.Helper()
 	s, err := rpc.NewServer(rpc.ServerConfig{MaxPerConnection: 64})
 	check(t, err)
@@ -57,6 +57,9 @@ func serve(t testing.TB, kind rpc.Transport, credentials testcert.Credentials, b
 		f.canceled <- struct{}{}
 		return ctx.Err()
 	}))
+	for _, register := range registrations {
+		register(s)
+	}
 	done := make(chan error, 1)
 	if kind == rpc.QUIC {
 		listener, e := rpc.ListenQUIC("127.0.0.1:0", rpc.TLSOptions{Config: credentials.Server}, rpc.QUICConfig{})

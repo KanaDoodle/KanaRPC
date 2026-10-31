@@ -1,0 +1,3371 @@
+[
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "tight": false,
+    "status": "FAIL",
+    "failure": "AssertionError()",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke",
+    "offered": 39792,
+    "outcomes": {
+      "canceled": 2279,
+      "closed": 1124,
+      "status_resource_exhausted": 30012,
+      "status_unavailable": 301,
+      "success": 6076
+    },
+    "duration_seconds": 2.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 2040,
+      "goroutines": 5,
+      "heap_alloc": 1018904,
+      "heap_objects": 3857,
+      "total_alloc": 4126130224
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "lost_terminals": null
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": false,
+    "status": "FAIL",
+    "failure": "AssertionError()",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke",
+    "offered": 39487,
+    "outcomes": {
+      "canceled": 2318,
+      "closed": 1391,
+      "status_resource_exhausted": 29581,
+      "status_unavailable": 327,
+      "success": 5870
+    },
+    "duration_seconds": 2.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 2033,
+      "goroutines": 5,
+      "heap_alloc": 1040752,
+      "heap_objects": 4112,
+      "total_alloc": 4074195928
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 98568,
+          "Rejected": 7457
+        },
+        "Send": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 33068,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 116,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 80,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 131072,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 4194304,
+        "Used": 0,
+        "Peak": 229640,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 4325376,
+        "Used": 0,
+        "Peak": 229640,
+        "Rejected": 7457
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 6,
+        "PeakChunks": 6,
+        "PeakBytes": 98568
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 7461,
+      "Released": 7461,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "held_retired_bytes": [
+      16428
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": null
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": false,
+    "status": "FAIL",
+    "failure": "AssertionError()",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke",
+    "offered": 10519,
+    "outcomes": {
+      "canceled": 2338,
+      "status_resource_exhausted": 4127,
+      "success": 4054
+    },
+    "duration_seconds": 2.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 1058,
+      "goroutines": 5,
+      "heap_alloc": 1069704,
+      "heap_objects": 4263,
+      "total_alloc": 1711871832
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 98568,
+          "Rejected": 4127
+        },
+        "Send": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 33067,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 290,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 80,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 131072,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 4194304,
+        "Used": 0,
+        "Peak": 229634,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 4325376,
+        "Used": 0,
+        "Peak": 229808,
+        "Rejected": 4127
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 4,
+        "PeakChunks": 6,
+        "PeakBytes": 98562
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 3,
+      "Released": 3,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "held_retired_bytes": [
+      16428
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": null
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "tight": false,
+    "status": "FAIL",
+    "failure": "AssertionError()",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke",
+    "offered": 10504,
+    "outcomes": {
+      "canceled": 2351,
+      "status_resource_exhausted": 4131,
+      "success": 4022
+    },
+    "duration_seconds": 2.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 1060,
+      "goroutines": 5,
+      "heap_alloc": 1027728,
+      "heap_objects": 3986,
+      "total_alloc": 1705223032
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "lost_terminals": null
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "tight": true,
+    "status": "FAIL",
+    "failure": "AssertionError()",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke",
+    "offered": 36857,
+    "outcomes": {
+      "canceled": 2248,
+      "closed": 1095,
+      "status_resource_exhausted": 27590,
+      "status_unavailable": 295,
+      "success": 5629
+    },
+    "duration_seconds": 2.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 1893,
+      "goroutines": 5,
+      "heap_alloc": 1018736,
+      "heap_objects": 3862,
+      "total_alloc": 3827954656
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "lost_terminals": null
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": true,
+    "status": "FAIL",
+    "failure": "AssertionError({'Memory': {'Receive': {'Limit': 24576, 'Used': 16428, 'Peak': 16428, 'Rejected': 9932}, 'Send': {'Limit': 65536, 'Used': 0, 'Peak': 16534, 'Rejected': 0}, 'ControlReceive': {'Limit': 65536, 'Used': 0, 'Peak': 58, 'Rejected': 0}, 'ControlSend': {'Limit': 65536, 'Used': 0, 'Peak': 64, 'Rejected': 0}, 'Encoding': {'Limit': 65536, 'Used': 0, 'Peak': 65536, 'Rejected': 0}}, 'Data': {'Limit': 131072, 'Used': 16428, 'Peak': 81964, 'Rejected': 0}, 'Total': {'Limit': 262144, 'Used': 16428, 'Peak': 82062, 'Rejected': 9932}, 'Active': {'Accounts': 0, 'Leases': 0, 'EncodingWaiters': 0, 'Bytes': {'Receive': 0, 'Send': 0, 'ControlReceive': 0, 'ControlSend': 0, 'Encoding': 0}, 'DataBytes': 0, 'Unread': {'Streams': 0, 'Chunks': 0, 'Bytes': 0, 'PeakStreams': 0, 'PeakChunks': 0, 'PeakBytes': 0}}, 'Retired': {'Accounts': 2, 'Leases': 1, 'EncodingWaiters': 0, 'Bytes': {'Receive': 16428, 'Send': 0, 'ControlReceive': 0, 'ControlSend': 0, 'Encoding': 0}, 'DataBytes': 16428, 'Unread': {'Streams': 1, 'Chunks': 1, 'Bytes': 16428, 'PeakStreams': 0, 'PeakChunks': 0, 'PeakBytes': 0}}, 'Unread': {'Streams': 1, 'Chunks': 1, 'Bytes': 16428, 'PeakStreams': 1, 'PeakChunks': 1, 'PeakBytes': 16428}, 'Accounts': 2, 'PeakAccounts': 2, 'Limit': 2, 'Created': 9933, 'Released': 9931, 'Sealed': False})",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke",
+    "offered": 48770,
+    "outcomes": {
+      "canceled": 1339,
+      "closed": 3281,
+      "status_resource_exhausted": 40926,
+      "status_unavailable": 709,
+      "success": 2515
+    },
+    "duration_seconds": 2.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 2026,
+      "goroutines": 5,
+      "heap_alloc": 1040888,
+      "heap_objects": 4108,
+      "total_alloc": 4072536648
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 24576,
+          "Used": 0,
+          "Peak": 16428,
+          "Rejected": 9932
+        },
+        "Send": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16534,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 58,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 64,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 65536,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 131072,
+        "Used": 0,
+        "Peak": 81964,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 262144,
+        "Used": 0,
+        "Peak": 82062,
+        "Rejected": 9932
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 1,
+        "PeakChunks": 1,
+        "PeakBytes": 16428
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 9933,
+      "Released": 9933,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      8
+    ],
+    "idle_goroutines": [
+      6
+    ],
+    "second_terminals": [
+      "status_resource_exhausted"
+    ],
+    "held_retired_bytes": [
+      16428
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": null
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": true,
+    "status": "FAIL",
+    "failure": "RuntimeError('client failed; preserve log and continue matrix')",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke",
+    "observed_cycles": 0,
+    "lost_terminals": null
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "tight": true,
+    "status": "FAIL",
+    "failure": "AssertionError()",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke",
+    "offered": 9697,
+    "outcomes": {
+      "canceled": 2200,
+      "status_resource_exhausted": 3828,
+      "success": 3669
+    },
+    "duration_seconds": 2.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 986,
+      "goroutines": 5,
+      "heap_alloc": 1042000,
+      "heap_objects": 3980,
+      "total_alloc": 1576036272
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "lost_terminals": null
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke-round2",
+    "offered": 44417,
+    "outcomes": {
+      "canceled": 11105,
+      "success": 33312
+    },
+    "duration_seconds": 3.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 3645,
+      "goroutines": 5,
+      "heap_alloc": 1019728,
+      "heap_objects": 3891,
+      "total_alloc": 7474976144
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke-round2",
+    "offered": 44505,
+    "outcomes": {
+      "canceled": 11127,
+      "success": 33378
+    },
+    "duration_seconds": 3.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 3665,
+      "goroutines": 5,
+      "heap_alloc": 1022808,
+      "heap_objects": 3977,
+      "total_alloc": 7492164656
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 410675,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 33068,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 116,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 80,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 131072,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 4194304,
+        "Used": 0,
+        "Peak": 443204,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 4325376,
+        "Used": 0,
+        "Peak": 443204,
+        "Rejected": 0
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 8,
+        "PeakChunks": 23,
+        "PeakBytes": 377844
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 3,
+      "Released": 3,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "held_retired_bytes": [
+      16428
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke-round2",
+    "offered": 12306,
+    "outcomes": {
+      "canceled": 3077,
+      "success": 9229
+    },
+    "duration_seconds": 3.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 1443,
+      "goroutines": 5,
+      "heap_alloc": 1069096,
+      "heap_objects": 4278,
+      "total_alloc": 2351180720
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 246390,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 33067,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 406,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 88,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 131072,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 4194304,
+        "Used": 0,
+        "Peak": 312487,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 4325376,
+        "Used": 0,
+        "Peak": 312743,
+        "Rejected": 0
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 6,
+        "PeakChunks": 10,
+        "PeakBytes": 164270
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 3,
+      "Released": 3,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "held_retired_bytes": [
+      16428
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke-round2",
+    "offered": 8875,
+    "outcomes": {
+      "canceled": 2219,
+      "success": 6656
+    },
+    "duration_seconds": 3.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 1031,
+      "goroutines": 5,
+      "heap_alloc": 1050296,
+      "heap_objects": 4038,
+      "total_alloc": 1700365872
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "tight": true,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke-round2",
+    "offered": 22657,
+    "outcomes": {
+      "canceled": 5665,
+      "success": 16992
+    },
+    "duration_seconds": 3.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 1822,
+      "goroutines": 5,
+      "heap_alloc": 990760,
+      "heap_objects": 3850,
+      "total_alloc": 3815685768
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": true,
+    "status": "FAIL",
+    "failure": "AssertionError()",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke-round2",
+    "offered": 49324,
+    "outcomes": {
+      "canceled": 1462,
+      "closed": 3575,
+      "status_resource_exhausted": 40989,
+      "status_unavailable": 755,
+      "success": 2543
+    },
+    "duration_seconds": 3.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 2054,
+      "goroutines": 5,
+      "heap_alloc": 1036560,
+      "heap_objects": 4070,
+      "total_alloc": 4123456104
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 24576,
+          "Used": 0,
+          "Peak": 16428,
+          "Rejected": 10082
+        },
+        "Send": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16534,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 58,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 64,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 65536,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 131072,
+        "Used": 0,
+        "Peak": 81964,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 262144,
+        "Used": 0,
+        "Peak": 82086,
+        "Rejected": 10082
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 1,
+        "PeakChunks": 1,
+        "PeakBytes": 16428
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 10084,
+      "Released": 10084,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      8
+    ],
+    "idle_goroutines": [
+      6
+    ],
+    "second_terminals": [
+      "status_resource_exhausted"
+    ],
+    "held_retired_bytes": [
+      16428
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": null
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": true,
+    "status": "FAIL",
+    "failure": "AssertionError()",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke-round2",
+    "offered": 7255,
+    "outcomes": {
+      "canceled": 765,
+      "deadline": 13,
+      "status_resource_exhausted": 5702,
+      "success": 775
+    },
+    "duration_seconds": 3.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 586,
+      "goroutines": 5,
+      "heap_alloc": 1058992,
+      "heap_objects": 4296,
+      "total_alloc": 980852064
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 24576,
+          "Used": 0,
+          "Peak": 16427,
+          "Rejected": 5703
+        },
+        "Send": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16533,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 116,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 40,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 65536,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 131072,
+        "Used": 0,
+        "Peak": 81963,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 262144,
+        "Used": 0,
+        "Peak": 82119,
+        "Rejected": 5703
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0,
+          "PeakStreams": 0,
+          "PeakChunks": 0,
+          "PeakBytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 1,
+        "PeakChunks": 1,
+        "PeakBytes": 16427
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 3,
+      "Released": 3,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "status_resource_exhausted"
+    ],
+    "held_retired_bytes": [
+      16427
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": null
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "tight": true,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resource-smoke-round2",
+    "offered": 10156,
+    "outcomes": {
+      "canceled": 2539,
+      "success": 7617
+    },
+    "duration_seconds": 3.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 1192,
+      "goroutines": 5,
+      "heap_alloc": 1046480,
+      "heap_objects": 4036,
+      "total_alloc": 1942314192
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      0,
+      0
+    ],
+    "run": "resources",
+    "offered": 2588738,
+    "outcomes": {
+      "canceled": 647186,
+      "success": 1941552
+    },
+    "duration_seconds": 180.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 213687,
+      "goroutines": 5,
+      "heap_alloc": 1014696,
+      "heap_objects": 3835,
+      "total_alloc": 435541216656
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof"
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      0,
+      0
+    ],
+    "run": "resources",
+    "offered": 2689368,
+    "outcomes": {
+      "canceled": 672342,
+      "success": 2017026
+    },
+    "duration_seconds": 180.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 222554,
+      "goroutines": 5,
+      "heap_alloc": 1037864,
+      "heap_objects": 4120,
+      "total_alloc": 452582561184
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 427180,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 33072,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 116,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 80,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 131072,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 4194304,
+        "Used": 0,
+        "Peak": 476286,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 4325376,
+        "Used": 0,
+        "Peak": 476359,
+        "Rejected": 0
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 8,
+        "PeakChunks": 26,
+        "PeakBytes": 427180
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 25,
+      "Released": 25,
+      "Sealed": true
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof"
+    ],
+    "held_retired_bytes": [
+      16429,
+      16429,
+      16429,
+      16429,
+      16430,
+      16430,
+      16430,
+      16430,
+      16430,
+      16430,
+      16430,
+      16430
+    ],
+    "idle_used": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      0,
+      0
+    ],
+    "run": "resources",
+    "offered": 818625,
+    "outcomes": {
+      "canceled": 204658,
+      "success": 613967
+    },
+    "duration_seconds": 180.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 93265,
+      "goroutines": 5,
+      "heap_alloc": 1075720,
+      "heap_objects": 4332,
+      "total_alloc": 155951467256
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 279293,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 33070,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 464,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 184,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 131072,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 4194304,
+        "Used": 0,
+        "Peak": 361446,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 4325376,
+        "Used": 0,
+        "Peak": 361700,
+        "Rejected": 0
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 6,
+        "PeakChunks": 12,
+        "PeakBytes": 197148
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 25,
+      "Released": 25,
+      "Sealed": true
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof"
+    ],
+    "held_retired_bytes": [
+      16428,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429
+    ],
+    "idle_used": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      0,
+      0
+    ],
+    "run": "resources",
+    "offered": 796108,
+    "outcomes": {
+      "canceled": 199026,
+      "success": 597082
+    },
+    "duration_seconds": 180.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 91533,
+      "goroutines": 5,
+      "heap_alloc": 1059824,
+      "heap_objects": 4055,
+      "total_alloc": 151668238368
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof"
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "baseline",
+    "transport": "tcp",
+    "tight": true,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      0,
+      0
+    ],
+    "run": "resources",
+    "offered": 409625,
+    "outcomes": {
+      "canceled": 102407,
+      "success": 307218
+    },
+    "duration_seconds": 30.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 33806,
+      "goroutines": 5,
+      "heap_alloc": 1003304,
+      "heap_objects": 3872,
+      "total_alloc": 68923277392
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof"
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": true,
+    "status": "DEGRADED",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      1,
+      1
+    ],
+    "run": "resources",
+    "offered": 721289,
+    "outcomes": {
+      "canceled": 19788,
+      "closed": 49358,
+      "status_resource_exhausted": 604076,
+      "status_unavailable": 11040,
+      "success": 37027
+    },
+    "duration_seconds": 30.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 30195,
+      "goroutines": 5,
+      "heap_alloc": 1035424,
+      "heap_objects": 4141,
+      "total_alloc": 60126867728
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 24576,
+          "Used": 0,
+          "Peak": 16429,
+          "Rejected": 147409
+        },
+        "Send": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16535,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 116,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 64,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 65536,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 131072,
+        "Used": 0,
+        "Peak": 81965,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 262144,
+        "Used": 0,
+        "Peak": 82121,
+        "Rejected": 147409
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 1,
+        "PeakChunks": 1,
+        "PeakBytes": 16429
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 147424,
+      "Released": 147424,
+      "Sealed": true
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      8
+    ],
+    "idle_goroutines": [
+      6
+    ],
+    "second_terminals": [
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted"
+    ],
+    "held_retired_bytes": [
+      16428,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429
+    ],
+    "idle_used": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "lost_terminals": 136263
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": true,
+    "status": "FAIL",
+    "failure": "RuntimeError('client failed; preserve log and continue matrix')",
+    "owned_processes_reaped": true,
+    "worker_exit_codes": null,
+    "run": "resources",
+    "observed_cycles": 0,
+    "lost_terminals": null
+  },
+  {
+    "version": "baseline",
+    "transport": "quic",
+    "tight": true,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      0,
+      0
+    ],
+    "run": "resources",
+    "offered": 138552,
+    "outcomes": {
+      "canceled": 34639,
+      "success": 103913
+    },
+    "duration_seconds": 30.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 16025,
+      "goroutines": 5,
+      "heap_alloc": 1055400,
+      "heap_objects": 4101,
+      "total_alloc": 26398043312
+    },
+    "final_memory": {
+      "supported": false
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof"
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      0,
+      0
+    ],
+    "run": "resources-recovery-fixed",
+    "offered": 2344522,
+    "outcomes": {
+      "canceled": 586130,
+      "success": 1758392
+    },
+    "duration_seconds": 180.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 193658,
+      "goroutines": 5,
+      "heap_alloc": 1045520,
+      "heap_objects": 4117,
+      "total_alloc": 394578637072
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 427180,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 33072,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 116,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 80,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 131072,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 4194304,
+        "Used": 0,
+        "Peak": 476317,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 4325376,
+        "Used": 0,
+        "Peak": 476317,
+        "Rejected": 0
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 8,
+        "PeakChunks": 26,
+        "PeakBytes": 427180
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 25,
+      "Released": 25,
+      "Sealed": true
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof"
+    ],
+    "held_retired_bytes": [
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16430,
+      16430,
+      16430,
+      16430,
+      16430,
+      16430,
+      16430
+    ],
+    "idle_used": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      0,
+      0
+    ],
+    "run": "resources-recovery-resumed",
+    "offered": 782293,
+    "outcomes": {
+      "canceled": 195574,
+      "success": 586719
+    },
+    "duration_seconds": 180.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 90655,
+      "goroutines": 5,
+      "heap_alloc": 1084976,
+      "heap_objects": 4382,
+      "total_alloc": 149873330080
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 345009,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 33070,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 464,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 288,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 131072,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 4194304,
+        "Used": 0,
+        "Peak": 427160,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 4325376,
+        "Used": 0,
+        "Peak": 427280,
+        "Rejected": 0
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 7,
+        "PeakChunks": 13,
+        "PeakBytes": 213577
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 25,
+      "Released": 25,
+      "Sealed": true
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof",
+      "eof"
+    ],
+    "held_retired_bytes": [
+      16428,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429
+    ],
+    "idle_used": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": true,
+    "status": "DEGRADED",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      1,
+      1
+    ],
+    "run": "resources-recovery-resumed",
+    "offered": 1389052,
+    "outcomes": {
+      "canceled": 38385,
+      "closed": 95251,
+      "status_resource_exhausted": 1162651,
+      "status_unavailable": 21044,
+      "success": 71721
+    },
+    "duration_seconds": 60.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 58163,
+      "goroutines": 5,
+      "heap_alloc": 1044696,
+      "heap_objects": 4124,
+      "total_alloc": 115880387928
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 24576,
+          "Used": 0,
+          "Peak": 16430,
+          "Rejected": 283814
+        },
+        "Send": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16536,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 116,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 80,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 65536,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 131072,
+        "Used": 0,
+        "Peak": 81966,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 262144,
+        "Used": 0,
+        "Peak": 82121,
+        "Rejected": 283814
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 1,
+        "PeakChunks": 1,
+        "PeakBytes": 16430
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 283831,
+      "Released": 283831,
+      "Sealed": true
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      8
+    ],
+    "idle_goroutines": [
+      6
+    ],
+    "second_terminals": [
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted"
+    ],
+    "held_retired_bytes": [
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16430,
+      16430,
+      16430,
+      16430
+    ],
+    "idle_used": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "lost_terminals": 257426
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": true,
+    "status": "DEGRADED",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      1,
+      1
+    ],
+    "run": "resources-recovery-resumed",
+    "offered": 356501,
+    "outcomes": {
+      "canceled": 31488,
+      "status_resource_exhausted": 291197,
+      "success": 33816
+    },
+    "duration_seconds": 60.0,
+    "cycles": 12,
+    "final_heap": {
+      "fds": 8,
+      "gc": 29035,
+      "goroutines": 5,
+      "heap_alloc": 1075232,
+      "heap_objects": 4317,
+      "total_alloc": 47538554688
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 24576,
+          "Used": 0,
+          "Peak": 16429,
+          "Rejected": 291209
+        },
+        "Send": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16535,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 174,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 120,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 65536,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 131072,
+        "Used": 0,
+        "Peak": 81965,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 262144,
+        "Used": 0,
+        "Peak": 82242,
+        "Rejected": 291209
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 1,
+        "PeakChunks": 1,
+        "PeakBytes": 16429
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 25,
+      "Released": 25,
+      "Sealed": true
+    },
+    "observed_cycles": 12,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted",
+      "status_resource_exhausted"
+    ],
+    "held_retired_bytes": [
+      16428,
+      16428,
+      16428,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429,
+      16429
+    ],
+    "idle_used": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "lost_terminals": 56071
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      0,
+      0
+    ],
+    "run": "resources-runner-smoke",
+    "offered": 7795,
+    "outcomes": {
+      "canceled": 1949,
+      "success": 5846
+    },
+    "duration_seconds": 1.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 642,
+      "goroutines": 5,
+      "heap_alloc": 1013176,
+      "heap_objects": 4021,
+      "total_alloc": 1314638304
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 377821,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 33065,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 116,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 80,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 131072,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 4194304,
+        "Used": 0,
+        "Peak": 426758,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 4325376,
+        "Used": 0,
+        "Peak": 426758,
+        "Rejected": 0
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 8,
+        "PeakChunks": 23,
+        "PeakBytes": 377821
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 3,
+      "Released": 3,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      7
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "held_retired_bytes": [
+      16427
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": false,
+    "status": "PASS",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      0,
+      0
+    ],
+    "run": "resources-runner-smoke",
+    "offered": 2556,
+    "outcomes": {
+      "canceled": 639,
+      "success": 1917
+    },
+    "duration_seconds": 1.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 299,
+      "goroutines": 5,
+      "heap_alloc": 1077088,
+      "heap_objects": 4333,
+      "total_alloc": 496368704
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 295686,
+          "Rejected": 0
+        },
+        "Send": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 33066,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 348,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 232,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 2097152,
+          "Used": 0,
+          "Peak": 131072,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 4194304,
+        "Used": 0,
+        "Peak": 377835,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 4325376,
+        "Used": 0,
+        "Peak": 377955,
+        "Rejected": 0
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 6,
+        "PeakChunks": 11,
+        "PeakBytes": 180697
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 3,
+      "Released": 3,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "eof"
+    ],
+    "held_retired_bytes": [
+      16427
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": 0
+  },
+  {
+    "version": "current",
+    "transport": "tcp",
+    "tight": true,
+    "status": "DEGRADED",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      1,
+      1
+    ],
+    "run": "resources-runner-smoke",
+    "offered": 13734,
+    "outcomes": {
+      "canceled": 381,
+      "closed": 1036,
+      "status_resource_exhausted": 11347,
+      "status_unavailable": 245,
+      "success": 725
+    },
+    "duration_seconds": 1.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 570,
+      "goroutines": 5,
+      "heap_alloc": 1031496,
+      "heap_objects": 4046,
+      "total_alloc": 1147691536
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 24576,
+          "Used": 0,
+          "Peak": 16428,
+          "Rejected": 2808
+        },
+        "Send": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16534,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 58,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 64,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 65536,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 131072,
+        "Used": 0,
+        "Peak": 81964,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 262144,
+        "Used": 0,
+        "Peak": 82062,
+        "Rejected": 2808
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 1,
+        "PeakChunks": 1,
+        "PeakBytes": 16428
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 2809,
+      "Released": 2809,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      8
+    ],
+    "idle_goroutines": [
+      6
+    ],
+    "second_terminals": [
+      "status_resource_exhausted"
+    ],
+    "held_retired_bytes": [
+      16428
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": 2951
+  },
+  {
+    "version": "current",
+    "transport": "quic",
+    "tight": true,
+    "status": "DEGRADED",
+    "failure": null,
+    "owned_processes_reaped": true,
+    "worker_exit_codes": [
+      1,
+      1
+    ],
+    "run": "resources-runner-smoke",
+    "offered": 3267,
+    "outcomes": {
+      "canceled": 311,
+      "status_resource_exhausted": 2604,
+      "success": 352
+    },
+    "duration_seconds": 1.0,
+    "cycles": 1,
+    "final_heap": {
+      "fds": 8,
+      "gc": 258,
+      "goroutines": 5,
+      "heap_alloc": 1077280,
+      "heap_objects": 4327,
+      "total_alloc": 454012208
+    },
+    "final_memory": {
+      "Memory": {
+        "Receive": {
+          "Limit": 24576,
+          "Used": 0,
+          "Peak": 16427,
+          "Rejected": 2605
+        },
+        "Send": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 16533,
+          "Rejected": 0
+        },
+        "ControlReceive": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 116,
+          "Rejected": 0
+        },
+        "ControlSend": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 88,
+          "Rejected": 0
+        },
+        "Encoding": {
+          "Limit": 65536,
+          "Used": 0,
+          "Peak": 65536,
+          "Rejected": 0
+        }
+      },
+      "Data": {
+        "Limit": 131072,
+        "Used": 0,
+        "Peak": 81963,
+        "Rejected": 0
+      },
+      "Total": {
+        "Limit": 262144,
+        "Used": 0,
+        "Peak": 82119,
+        "Rejected": 2605
+      },
+      "Active": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Retired": {
+        "Accounts": 0,
+        "Leases": 0,
+        "EncodingWaiters": 0,
+        "Bytes": {
+          "Receive": 0,
+          "Send": 0,
+          "ControlReceive": 0,
+          "ControlSend": 0,
+          "Encoding": 0
+        },
+        "DataBytes": 0,
+        "Unread": {
+          "Streams": 0,
+          "Chunks": 0,
+          "Bytes": 0
+        }
+      },
+      "Unread": {
+        "Streams": 0,
+        "Chunks": 0,
+        "Bytes": 0,
+        "PeakStreams": 1,
+        "PeakChunks": 1,
+        "PeakBytes": 16427
+      },
+      "Accounts": 0,
+      "PeakAccounts": 2,
+      "Limit": 2,
+      "Created": 3,
+      "Released": 3,
+      "Sealed": true
+    },
+    "observed_cycles": 1,
+    "idle_fds": [
+      9
+    ],
+    "idle_goroutines": [
+      10
+    ],
+    "second_terminals": [
+      "status_resource_exhausted"
+    ],
+    "held_retired_bytes": [
+      16427
+    ],
+    "idle_used": [
+      0
+    ],
+    "lost_terminals": 476
+  }
+]

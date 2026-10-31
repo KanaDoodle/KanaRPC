@@ -1,0 +1,6 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/KanaDoodle/KanaRPC
+cpu: Apple M5
+BenchmarkByteLeaseAccounting/local-2         	20717635	        58.46 ns/op	      16 B/op	       1 allocs/op
+PASS
