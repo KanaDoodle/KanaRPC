@@ -1,26 +1,18 @@
 # KanaRPC
 
-> 让请求好好出发，也好好收尾。 (｡•̀ᴗ-)✧
+**KanaRPC 是一个 Go RPC 框架，在过载时限制请求接纳，为并发调用分配有界资源，并跟踪取消与停机时的交付结果。** 支持普通调用、服务端流式调用、JSON / Protobuf 和 TCP/TLS / 原生 QUIC。
 
-以请求生命周期与资源治理为核心的 Go RPC 框架，提供普通调用、服务端流式调用、JSON / Protobuf 编码、TCP/TLS 与原生 QUIC 传输。取消、排队、执行、终态回执和资源释放使用统一状态机，方便追踪每次调用的进展与资源归属。
+[本地演示](#快速体验) · [业务接入](#业务接入) · [压测与验证](#压测与验证) · [架构与协议](#架构与调用链)
 
-## 核心能力 🧩
+## 核心设计
 
-| 能力 | 设计与用途 |
-| --- | --- |
-| 业务调用管线 | Metadata、凭证与身份、生命周期拦截器、按尝试 QPS 和显式幂等重试，通过同一 ServiceCaller 接入直连、发现连接池与生成 SDK |
-| 按需消息压缩 | 协商 gzip，普通/流式消息独立选择压缩，展开前预留字节容量 |
-| 上下文驱动的调用 | 泛型显式注册处理器，传播请求预算与取消信号；流式响应通过信用窗口控制发送 |
-| Protobuf 类型化 SDK | 从 `.proto` 生成 Go 消息、客户端与服务注册，兼容 Editions/Opaque；建连时协商能力和帧上限，schema 变更按二进制、JSON 与源码分别检查 |
-| 原生 QUIC 请求流 | 每次 RPC 使用独立双向流，隔离请求流上的坏帧与取消；TLS/QUIC 显式配置证书信任，支持 mTLS |
-| 自适应过载控制 | 方法加权调度、延迟窗口 AIMD 和短效压力反馈协同控制服务端执行与客户端接纳；支持固定限额回退与人工复位 |
-| 池级资源预算 | 编码前接纳，编码、接收、发送采用连接与池两层字节租约；退休连接、未读流和进行中的解码持续计费 |
-| 发现驱动的连接管理 | etcd lease/watch、快照新鲜度校验、RR/WRR/P2C、endpoint 熔断、建连去重、有界连接数和退休，保护在途调用与未读结果 |
-| 可报告的优雅关闭 | `DrainWithReport` 分别报告资源退出、历史故障和本次新增故障，保留未回执与交换未确认的累计记录 |
-| 服务就绪与标准观测 | 健康 Check/Watch、就绪驱动 etcd 发布、结构化日志、Prometheus 指标和 OpenTelemetry 关联 |
-| 请求决策时间线 | 可选的有界本地事件记录器，关联接纳、调度、执行、取消、回执和释放，配套交互式治理控制台 |
+| 问题 | 实现 | 证据 |
+|---|---|---|
+| 慢方法积压时怎样限制新请求 | 服务端按方法加权调度，用有界队列限制等待，按处理器耗时通过 AIMD 调整执行并发。客户端用短效反馈在编码前接纳或拒绝 | [过载对照实验](docs/verification/governance-r7c/report.md) |
+| 请求数有限，怎样约束并发编码和未读数据 | 连接和连接池有字节预算，流式发送受信用窗口限制。未读流、进行中的解码和退休连接持有的缓冲继续计入预算，直至释放 | [池级预算与故障测试](docs/verification/pool-r9a/report.md) |
+| 停机时怎样知道哪些请求已经收尾 | 统一排队、远端取消、终态回执和资源释放。`DrainWithReport` 分别报告资源是否退出和协议交付故障，业务提交由应用确认 | [关闭与故障注入](docs/drain-r9c.md) |
 
-## 快速体验 🐾
+## 快速体验
 
 需要 Go 1.26.10+，推荐 Go 1.27.3 或所在分支的最新安全补丁。在仓库根目录运行：
 
@@ -28,15 +20,17 @@
 go run ./cmd/showcase
 ```
 
-打开 `http://127.0.0.1:8080`，给请求安排一趟小旅行：
+打开 [127.0.0.1:8080](http://127.0.0.1:8080/)，通过三组操作观察一次请求如何经过框架。
 
-1. **加点压力**：调节请求速率、慢请求比例、处理耗时和后端槽位，观察方法并发与客户端反馈。
-2. **随时喊停**：发起流式请求，接收片段后点击取消，沿时间线查看取消控制、处理器返回和资源释放。
-3. **认真收尾**：执行优雅关闭，或注入未回执故障，分别查看资源状态与交付结果。
+1. **制造过载**。调整请求速率、慢请求比例和后端槽位，观察并发上限、排队与客户端提前拒绝。
+2. **取消流式请求**。收到片段后取消，沿时间线核对取消信号、处理器返回和资源释放。
+3. **执行优雅关闭**。注入一次终态未回执故障，分别查看资源退出和交付结果。
 
-控制台使用本机 QUIC 连接和定时器/槽位负载，启动无需 GPU、etcd、容器或 npm。准备好，动动旋钮吧 (ง •̀_•́)ง
+控制台使用本机 QUIC 和可调的模拟负载，启动无需 etcd、容器或 npm。[操作指南](docs/showcase-r10.md) · [界面截图（注入未回执故障）](docs/verification/showcase-r10/showcase-final.png) · [链路验证](docs/verification/showcase-r10/report.md)
 
-[控制台操作指南](docs/showcase-r10.md) · [页面与链路验证记录](docs/verification/showcase-r10/report.md)
+## 业务接入
+
+CampusTrace 的 Worker 通过 KanaRPC 调用岗位分析服务，使用 TCP 普通调用、etcd 服务发现、连接复用、固定执行上限和远端取消。业务重试与写入回执由 CampusTrace 管理。[接入设计与验收](https://github.com/KanaDoodle/CampusTrace/blob/main/docs/kanarpc-migration.md)
 
 ## 接进你的项目
 
@@ -56,7 +50,7 @@ err = kanarpc.RegisterUnary(server, "/math/add", func(ctx context.Context, in [2
 
 这是注册与调用片段；完整可运行示例见 [连接管理](routing/example_test.go) 和 [关闭报告](drain_example_test.go)。服务端流使用 `RegisterStream`，客户端通过 `Stream/Recv` 消费结果，提前结束时调用 `Close`。版本选择与独立消费模块的接入方式见 [开发说明](docs/development.md)。
 
-偏爱先写接口契约？运行 `go run ./cmd/protobuf-demo`，体验生成 SDK 的普通调用、流式接收与远端取消。`.proto` 定义、代码生成和连接池接入见 [Protobuf 使用指南](docs/protobuf.md)，让类型帮你记住方法和参数 (•̀ᴗ•́)و
+运行 `go run ./cmd/protobuf-demo` 可体验生成 SDK 的普通调用、流式接收与远端取消。`.proto` 定义、代码生成和连接池接入见 [Protobuf 使用指南](docs/protobuf.md)，让类型帮你记住方法和参数 (•̀ᴗ•́)و
 
 准备接进独立应用时，按 [SDK 治理与发布](docs/sdk-r12.md) 固定版本、检查生成代码和 schema 兼容性。历史验收证据保留在仓库中，Go 模块下载包专注 SDK 源码与使用文档。
 
@@ -67,9 +61,9 @@ go run ./cmd/production-demo
 # 也可以选择 -transport tls 或 -transport quic。
 ```
 
-带上调用凭证，跑一次类型化请求和流式响应，再看压缩、日志、追踪与关闭结果一起收尾 (•̀ᴗ•́)و。示例使用本机实际连接与临时证书；[完整调用链与接入方式](docs/production-r15.md)说明各环节、资源归属和调试 CLI。
+示例在本机完成鉴权、类型化请求、流式响应、压缩、追踪和关闭。接入选项、临时证书和调试 CLI 见[完整调用链](docs/production-r15.md)。
 
-## 架构：请求的内部旅程
+## 架构与调用链
 
 根包负责请求状态机、编解码、传输适配和资源治理；`discovery` 提供 etcd 注册与快照；`routing` 消费发现快照并管理连接。QUIC 传输基于 quic-go，注册发现基于 etcd client。
 
@@ -86,7 +80,13 @@ go run ./cmd/production-demo
 | [关闭与故障计数](docs/drain-r9c.md)、[使用约束](docs/operating-notes.md) | 取消、回执、关闭结果与部署要求 |
 | [网络诊断](docs/network-r8d.md)、[QUIC 发送](docs/quic-r9b.md)、[小请求分析](docs/quic-r9d.md) | 根因、内部基线和优化取舍 |
 
-## 开发与验证
+## 压测与验证
+
+| 验证场景 | 结果 |
+|---|---|
+| 过载与恢复 | 在本机容量切换实验中，相比仅服务端自适应，加入客户端反馈后按时完成数增加 13.4%，成功总数下降 3.6%。提前拒绝部分请求，减少等待。[实验与退化样本](docs/verification/governance-r7c/report.md) |
+| TCP 流式优化 | R14 本机双进程、并发 16、每次 8 × 1 KiB 的流式调用，内核优化后吞吐由 18,226 升至 24,695 RPC/s，P95 由 1.21 ms 降至 0.85 ms，均为四轮中位数。相同条件下 grpc-go 吞吐为 74,306 RPC/s。[同条件对照](docs/grpc-optimization-r14.md) |
+| 后续调用管线回归 | R15 默认路径复测中，TCP 短流吞吐相对 R14 的配对变化中位数为 −9.76%。[完整结果](docs/verification/production-r15/README.md) |
 
 ```sh
 GOWORK=off go build -mod=readonly ./...
